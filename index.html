@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor de Mapas Conceptuales</title>
+    <!-- Tailwind CSS para el diseño -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto">
+        <!-- Contenedor del selector -->
+        <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 mb-8">
+            <label for="map-selector" class="block mb-2 text-xl font-bold text-gray-800">
+                <i class="fas fa-sitemap mr-2 text-blue-600"></i>Seleccionar Mapa Conceptual
+            </label>
+            <select id="map-selector" class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3">
+                <!-- Los 'value' deben ser los nombres exactos de tus archivos HTML -->
+                <option value="MEA2T1.html">MEA2T1: Legislación de Costas</option>
+                <option value="MEA1T28.html">MEA1T28: Estaciones de Bombeo</option>
+                <option value="MEA2T7.html">MEA2T7: Régimen Transitorio</option>
+            </select>
+        </div>
+
+        <!-- Contenedor del IFrame donde se mostrará el mapa -->
+        <div class="bg-white p-2 rounded-xl shadow-lg border border-gray-200">
+            <iframe id="content-frame" 
+                    class="w-full border-0 rounded-lg" 
+                    style="min-height: 85vh;" 
+                    src="MEA2T1.html">
+                <!-- El navegador mostrará un mensaje aquí si no soporta iframes -->
+                Tu navegador no soporta iframes.
+            </iframe>
+        </div>
+    </div>
+
+    <script>
+        // Seleccionamos los elementos del DOM
+        const selector = document.getElementById('map-selector');
+        const iframe = document.getElementById('content-frame');
+
+        // Función para cambiar el contenido del iframe
+        function loadSelectedMap() {
+            // Obtenemos el nombre del archivo del 'value' de la opción seleccionada
+            const selectedMapFile = selector.value;
+            // Actualizamos el atributo 'src' del iframe
+            iframe.src = selectedMapFile;
+        }
+
+        // Añadimos un 'event listener' que se activa cuando el usuario cambia la selección
+        selector.addEventListener('change', loadSelectedMap);
+
+        // Opcional: Asegurarnos de que el primer mapa se carga al abrir la página.
+        // Lo hemos hecho ya poniendo el 'src' directamente en el HTML del iframe,
+        // pero esta es otra forma de hacerlo al cargar la página.
+        // document.addEventListener('DOMContentLoaded', loadSelectedMap);
+    </script>
+</body>
+</html>
