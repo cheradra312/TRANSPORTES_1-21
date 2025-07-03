@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual: Legislación en el Transporte Terrestre</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-header .icon-bg {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-top: 1rem; }
+        .pill, .law-pill, .directive-pill, .actor-pill, .definition-pill {
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0 0.2rem;
+        }
+        .pill-blue { background-color: #dbeafe; color: #1e4d91; border: 1px solid #93c5fd; }
+        .law-pill { background-color: #f3e8ff; color: #581c87; border: 1px solid #c084fc; }
+        .actor-pill { background-color: #e5e7eb; color: #1f2937; border: 1px solid #9ca3af; }
+        .definition-pill { background-color: #cffafe; color: #155e75; border: 1px solid #22d3ee; }
+        .icon {
+            margin-right: 0.5rem;
+            width: 1.25em;
+            text-align: center;
+        }
+        .nested-list {
+            padding-left: 1.75rem;
+            margin-top: 0.75rem;
+            border-left: 3px dotted #cbd5e1;
+        }
+        .nested-list > li {
+            position: relative;
+        }
+        .nested-list > li::before {
+            content: '🔹';
+            position: absolute;
+            left: -1.75rem;
+            color: #3b82f6;
+        }
+        .deeper-nested-list {
+             padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+        .deeper-nested-list > li::before {
+             content: '▫️';
+        }
+        /* Estilos para la funcionalidad desplegable */
+        .collapsible-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.25rem 0;
+        }
+        .collapsible-trigger > span {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+            margin-right: 0.75rem;
+            width: 1em;
+            color: #3b82f6;
+        }
+        .collapsible-content {
+            padding-left: 1.75rem;
+        }
+        .collapsible-trigger.open .collapsible-icon {
+            transform: rotate(90deg);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 p-4 sm:p-6 md:p-8">
+    <div class="max-w-5xl mx-auto">
+
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-gavel"></i> MEC1T4: LA LEGISLACIÓN EN EL TRANSPORTE TERRESTRE <i class="fas fa-road"></i></h1>
+        </header>
+
+        <!-- Main Card 1 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-info-circle"></i></div>
+                <h2>1. CONCEPTOS BÁSICOS DE LA LEGISLACIÓN EN EL TRANSPORTE TERRESTRE</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700">TÍTULO PRELIMINAR</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-file-alt icon text-purple-600"></i>La actividad del transporte terrestre se encuentra regulada principalmente por la <span class="law-pill"><strong>Ley de Ordenación del Transporte Terrestre (LOTT), Ley 16/1987</strong></span>, modificada por <span class="law-pill">Ley 9/2013</span>, y por su Reglamento. A continuación, se hace una síntesis de la LOTT.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-map-marked-alt icon text-yellow-600"></i><strong><u>Ámbito de aplicación</u>.</strong> Se rigen por la <span class="law-pill">LOTT</span>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li>Los <strong><u>transportes por carretera</u></strong>, aquellos que se realicen en vehículos de motor o conjuntos de vehículos que circulen sin camino de rodadura fijo, y sin medios fijos de captación de energía, por toda clase de vías terrestres.</li>
+                               <li>Las <strong><u>actividades auxiliares y complementarias del transporte</u></strong>, como las agencias de transportes, los transitarios, los operadores logísticos, los almacenistas-distribuidores, las estaciones de transporte de viajeros y centros de transporte de mercancías por carretera o multimodales, y el arrendamiento de vehículos de carretera sin conductor.</li>
+                               <li>Los transportes que se lleven a cabo en <strong><u>trolebús</u></strong>, así como los realizados en <strong><u>teleféricos</u></strong> u otros medios en los que la tracción se haga por cable, y en los que no exista camino de rodadura fijo, están sometidos a las disposiciones de los títulos preliminar y primero de la LOTT, rigiéndose en los demás por sus normas específicas.</li>
+                               <li>La <span class="law-pill">LOTT</span> será de aplicación a los transportes y sus actividades auxiliares y complementarias cuya competencia corresponda a la <span class="actor-pill">AGE</span> (los que discurren por el territorio de más de una Comunidad Autónoma). Su aplicación a los demás transportes se efectuará en los términos previstos en la disposición final segunda.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-gavel icon text-gray-700"></i><strong><u>Principios generales</u>.</strong> La organización y funcionamiento del sistema de transportes se ajustará a los siguientes principios:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-network-wired icon text-blue-500"></i>▪️ <strong><u>Establecimiento y mantenimiento de un sistema común de transporte</u></strong> en todo el Estado, mediante la <u>coordinación e interconexión</u> de las redes, servicios o actividades que los integran, y de las actuaciones de las distintas AAPP.</li>
+                                <li><i class="fas fa-check-circle icon text-green-500"></i>▪️ <strong><u>Satisfacción de las necesidades de la comunidad</u></strong> con el <u>máximo grado de eficacia</u> y con el <u>mínimo coste social</u>.</li>
+                                <li><i class="fas fa-balance-scale icon text-yellow-600"></i>▪️ <strong><u>Mantenimiento de la unidad de mercado</u></strong> en todo el territorio español, conforme a la Constitución.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-users-cog icon text-purple-600"></i><strong><u>Órganos de coordinación interadministrativa</u>.</strong></p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li>Para promover y facilitar el ejercicio coordinado de la <span class="actor-pill">AGE</span> y las <span class="actor-pill">CCAA</span>, y asegurar el mantenimiento de un sistema común de transportes se crea, como órgano consultivo y deliberante, la <span class="actor-pill"><strong>Conferencia Nacional de Transportes</strong></span>, que estará constituida por el <span class="actor-pill">Ministro de TMS</span>, y por los <span class="actor-pill">Consejeros de Transportes de las CCAA</span>.</li>
+                               <li>Existirá, con idéntico carácter de órgano deliberante, la <span class="actor-pill"><strong>Comisión de Directores Generales de Transporte</strong></span>, integrada por los titulares de las Direcciones Generales de Transporte Terrestre de la <span class="actor-pill">AGE</span> y de las <span class="actor-pill">CCAA</span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-book-open"></i></div>
+                <h2>TÍTULO I: Disposiciones comunes a los diferentes modos de transporte terrestre</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-balance-scale icon text-yellow-600"></i>El marco de actuación de los servicios y actividades de transporte es el de <strong><u>economía de mercado</u></strong>, con la obligación de los poderes públicos de <strong><u>promover la productividad</u></strong> y el <strong><u>máximo aprovechamiento</u></strong> de los recursos.</li>
+                    <li><i class="fas fa-exclamation-triangle icon text-red-500"></i>El <span class="actor-pill">Gobierno</span> podrá <strong><u>suspender, prohibir o restringir</u></strong> la realización de actividades de transporte objeto de la <span class="law-pill">LOTT</span>, por motivos de <u>defensa nacional, orden público o sanitarios</u>.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-euro-sign icon text-green-600"></i>Según el <strong><u>régimen económico-financiero</u></strong>, las empresas transportistas o de actividades auxiliares llevarán a cabo su actividad con <strong><u>plena autonomía económica</u></strong>, gestionándola a su <strong><u>riesgo y ventura</u></strong>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li>El <strong><u>precio</u></strong> de los transportes discrecionales de viajeros y mercancías y el de las actividades auxiliares y complementarias de transporte, será <strong><u>libremente fijado</u></strong> por las partes contratantes.</li>
+                               <li>El <strong><u>régimen tarifario</u></strong> de los servicios públicos de transporte de viajeros de titularidad de la Administración vendrá determinado en los correspondientes <strong><u>contratos de concesión</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-landmark icon text-gray-700"></i>El <span class="actor-pill"><strong>MITMS</strong></span> es el competente en todo el Estado para ejecutar la política de <strong><u>defensa nacional y protección civil</u></strong> en el sector de los transportes, bajo la coordinación del <span class="actor-pill">Ministerio de Defensa</span> y del <span class="actor-pill">Ministerio del Interior</span>, respectivamente.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-users-cog icon text-purple-600"></i>El <span class="actor-pill"><strong>Consejo Nacional de Transportes Terrestres</strong></span> es el <strong><u>órgano superior de asesoramiento, consulta y debate sectorial</u></strong> de la Administración en asuntos que afecten al sistema de transportes.</p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                               <li>
+                                   <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                       <p>Estará integrado por <strong><u>expertos designados por la <span class="actor-pill">AGE</span></u></strong> a propuesta de:</p>
+                                   </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>Las <strong><u>empresas de transporte por carretera</u></strong>, a través del <span class="actor-pill">Comité Nacional del Transporte por Carretera</span>.</li>
+                                            <li>Los <strong><u>trabajadores</u></strong> de las empresas transportistas, a través de las centrales sindicales más representativas.</li>
+                                            <li>Los <strong><u>usuarios del transporte</u></strong>, a través del Consejo de Consumidores y Usuarios, de las organizaciones representativas de las personas con discapacidad y de las asociaciones de empresas usuarias del transporte de mercancía.</li>
+                                       </ul>
+                                   </div>
+                               </li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li><i class="fas fa-gavel icon text-gray-800"></i>A las <span class="actor-pill"><strong>Juntas Arbitrales del Transporte</strong></span> les corresponde <strong><u>resolver las controversias de carácter mercantil</u></strong> surgidas en relación con el cumplimiento de los contratos de transporte terrestre cuando así lo decidan las partes intervinientes.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-book-open"></i></div>
+                <h2>TÍTULO II: Disposiciones de aplicación general a los transportes por carretera y a las actividades auxiliares y complementarias de los mismos</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-id-card icon text-blue-600"></i>La realización de <strong><u>transporte público de viajeros y mercancías</u></strong> (y también el privado) estará supeditada a la posesión de una <span class="definition-pill"><strong>autorización</strong></span> que habilite para ello...</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><strong><u>No será necesaria autorización</u></strong> para:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>Realizar transporte de viajeros o mercancías en vehículos cuya velocidad máxima autorizada <strong><u>no supere los <span class="pill pill-blue">40 km/h</span></u></strong>.</li>
+                                            <li>O para transporte realizado en vehículos que lleven unidos de forma permanente <strong><u>máquinas o instrumentos</u></strong>...</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-list-ol icon text-purple-600"></i>Los <strong><u>requisitos exigidos</u></strong> para su obtención son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Tener <strong><u>nacionalidad española</u></strong> o la de algún otro Estado miembro de la UE.</li>
+                                <li>Tener <strong><u>personalidad jurídica</u></strong> propia e independiente.</li>
+                                <li>Contar con un <strong><u>domicilio</u></strong> situado en España.</li>
+                                <li>Disponer de <strong><u>uno o más vehículos</u></strong> matriculados en España.</li>
+                                <li>Cumplir las <strong><u>obligaciones de carácter fiscal, laboral y social</u></strong> exigidas por la legislación vigente.</li>
+                                <li>Y cumplir, en su caso, otras <strong><u>condiciones específicas</u></strong> necesarias para la adecuada prestación de los servicios.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-ban icon text-red-500"></i>Con carácter general, las autorizaciones de transporte serán <strong><u>intransferibles</u></strong>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Las autorizaciones de transporte se otorgarán <strong><u>sin plazo de duración prefijado</u></strong>, si bien su validez podrá quedar condicionada a su <strong><u>visado periódico cada <span class="pill pill-blue">2 años</span></u></strong>, realizado de oficio.</li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-sitemap icon text-gray-700"></i>Se crean los siguientes organismos:</p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>El <span class="plan-pill"><strong>Registro de Empresas y Actividades de Transporte</strong></span>:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>De carácter público.</li>
+                                            <li>Con inscripción obligatoria.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>El <span class="actor-pill"><strong>Comité Nacional del Transporte por Carretera</strong></span>:</p>
+                                    </div>
+                                     <div class="collapsible-content hidden">
+                                         <ul class="nested-list deeper-nested-list">
+                                            <li>Integrado por las asociaciones de transportistas y de actividades auxiliares y complementarias del transporte por carretera.</li>
+                                            <li>Será el cauce de participación integrada del sector.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-book-open"></i></div>
+                <h2>TÍTULO III: De los servicios y actividades del transporte por carretera</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>Se establece la <strong><u>clasificación de los transportes</u></strong> según diferentes criterios:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="fas fa-balance-scale icon text-yellow-600"></i><strong><u>Según la naturaleza</u></strong> de los mismos:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><i class="fas fa-users icon text-green-500"></i><span class="definition-pill"><strong>Públicos</strong></span>: aquellos que se llevan a cabo por cuenta ajena mediante retribución económica.</li>
+                                            <li><i class="fas fa-user icon text-blue-500"></i><span class="definition-pill"><strong>Privados</strong></span>: aquellos que se llevan a cabo por cuenta propia para satisfacer necesidades particulares, o para complementar a otras actividades principales de la empresa.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="fas fa-box-open icon text-purple-600"></i><strong><u>Por razón de su objeto</u></strong>, los transportes pueden ser:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><i class="fas fa-user-friends icon text-blue-600"></i>De <strong><u>Viajeros</u></strong>, cuando estén dedicados a realizar los desplazamientos de las personas, sus animales de compañía y sus equipajes.</li>
+                                            <li><i class="fas fa-truck-loading icon text-orange-600"></i>O de <strong><u>Mercancías</u></strong>, cuando estén dedicados a realizar desplazamientos de mercancías, ambos en vehículos construidos y acondicionados para tal fin.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="fas fa-map-marked-alt icon text-green-600"></i><strong><u>En función del ámbito</u></strong> en que se realicen, en:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><i class="fas fa-flag-usa icon text-gray-700"></i><strong><u>Interiores</u></strong>: origen y destino en España, aunque por aire o mar puedan pasar por otro país en régimen multimodal.</li>
+                                            <li><i class="fas fa-globe-europe icon text-blue-700"></i><strong><u>Internacionales</u></strong>: su itinerario discurre parcialmente por el territorio de estados extranjeros.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="fas fa-star icon text-red-600"></i><strong><u>Por la especificidad de su objeto y su régimen jurídico</u></strong>, los transportes se clasifican en:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><i class="far fa-circle icon text-gray-500"></i><strong><u>Ordinarios</u></strong>.</li>
+                                            <li><i class="fas fa-exclamation-circle icon text-red-500"></i>O <strong><u>Especiales</u></strong>, los que, por razón de su peligrosidad, urgencia, u otras causas, están sometidos a normas administrativas especiales.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="far fa-calendar-alt icon text-blue-500"></i>Los <strong><u>transportes públicos de viajeros por carretera</u></strong>, según el criterio de la <strong><u>periodicidad</u></strong>, pueden ser:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><i class="fas fa-calendar-check icon text-green-500"></i><span class="definition-pill"><strong>Regulares</strong></span>: aquellos que se efectúan dentro de itinerarios preestablecidos con calendarios y horarios prefijados.</li>
+                                            <li><i class="fas fa-random icon text-orange-500"></i><span class="definition-pill"><strong>Discrecionales</strong></span>: se llevan a cabo sin sujeción a itinerario, calendario ni horario preestablecido. Los transportes públicos de mercancías tendrán en todo caso la consideración de discrecionales.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="fas fa-users icon text-gray-700"></i>Los <strong><u>transportes públicos regulares de viajeros</u></strong>, según el <strong><u>régimen de su utilización</u></strong>, pueden ser:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><i class="fas fa-users-slash icon text-blue-700"></i><span class="definition-pill"><strong>De Uso general</strong></span>: dirigidos a satisfacer una demanda general siendo utilizables por cualquier interesado.</li>
+                                            <li><i class="fas fa-user-tag icon text-purple-700"></i><span class="definition-pill"><strong>De Uso especial</strong></span>: destinados a servir a un grupo específico de usuarios, tales como escolares, trabajadores, militares u otros grupos homogéneos.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-bus icon text-yellow-500"></i>Los <strong><u>transportes públicos regulares de viajeros de uso general</u></strong> tienen el carácter de <strong><u>servicios públicos de titularidad de la <span class="actor-pill">Administración</span></u></strong>, pudiendo ser utilizados, sin discriminación, por cualquier persona que lo desee en las condiciones establecidas en la normativa. La prestación de estos servicios se llevará a cabo por la empresa a la que la <span class="actor-pill">Administración</span> adjudique el correspondiente contrato de concesión, y en ocasiones, por gestión directa de la <span class="actor-pill">Administración</span>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-book-open"></i></div>
+                <h2>TÍTULO IV: Actividades auxiliares y complementarias del transporte por carretera</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-id-card icon text-blue-600"></i>Establece que quienes pretendan <strong><u>intermediar en la contratación</u></strong> de transportes de mercancías por carretera, ya sea en concepto de agencia de transporte, transitario, operador logístico, almacenista-distribuidor o cualquier otro, deberán obtener una <strong><u>autorización de operador de transporte</u></strong>.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-clipboard-list icon text-purple-600"></i>Las <strong><u>definiciones</u></strong> de los diferentes tipos de operadores son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-building icon"></i>▪️ <span class="definition-pill"><strong>Agencias de transporte</strong></span>: empresas que <strong><u>intermedian</u></strong> en la contratación de transportes de mercancías, como <strong><u>organización auxiliar</u></strong> interpuesta entre los usuarios y los transportistas.</li>
+                                <li><i class="fas fa-globe-americas icon"></i>▪️ <span class="definition-pill"><strong>Transitarios</strong></span>: empresas que <strong><u>organizan, por cuenta ajena, transportes internacionales</u></strong> de mercancías, recibiendo mercancías como consignatarios o entregándolas a quienes hayan de transportarlas y, en su caso, realizando las <strong><u>gestiones administrativas, fiscales, aduaneras y logísticas</u></strong> de estos transportes o intermediando en su contratación.</li>
+                                <li><i class="fas fa-cogs icon"></i>▪️ <span class="definition-pill"><strong>Operadores logísticos</strong></span>: empresas que <strong><u>organizan, gestionan y controlan</u></strong>, por cuenta ajena, las operaciones de <strong><u>aprovisionamiento, transporte, almacenaje o distribución</u></strong> de mercancías.</li>
+                                <li><i class="fas fa-warehouse icon"></i>▪️ <span class="definition-pill"><strong>Almacenistas-distribuidores</strong></span>: empresas especializadas en actuar como <strong><u>depositarias de mercancías ajenas</u></strong> que, además, se encarguen de <strong><u>distribuirlas o de gestionar su distribución</u></strong>, conforme a las instrucciones del depositante.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-book-open"></i></div>
+                <h2>TÍTULO V: Régimen sancionador y de control de los transportes terrestres, y de sus actividades auxiliares y complementarias</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-exclamation-triangle icon text-red-500"></i>En este título se <strong><u>categorizan las sanciones e infracciones</u></strong> en <span class="pill pill-red">muy graves</span>, <span class="pill pill-yellow">graves</span> y <span class="pill pill-green">leves</span>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>Por ejemplo, son <strong><u>infracciones muy graves</u></strong>:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>La <strong><u>contratación de servicios de transporte</u></strong> por cualquier profesional del transporte con transportistas u operadores de transporte <strong><u>no autorizados</u></strong>.</li>
+                                            <li>O en materia de transporte internacional, la realización de <strong><u>transporte interior en España</u></strong> con vehículos matriculados en el extranjero <strong><u>incumpliendo las condiciones</u></strong> que definen las operaciones de cabotaje de conformidad con lo dispuesto en la reglamentación de la <span class="actor-pill">Unión Europea</span>.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <p><i class="fas fa-file-alt icon text-purple-600"></i>El <span class="law-pill"><strong>Reglamento de ordenación de los transportes terrestres (ROTT)</strong></span>, aprobado por <span class="law-pill">RD 1211/1990</span>, lleva a cabo la <strong><u>concreción de los principios y reglas</u></strong> contenidas en la <span class="law-pill">LOTT</span>.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const triggers = document.querySelectorAll('.collapsible-trigger');
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function (event) {
+                    // Evita que el evento de clic se propague a los triggers padres
+                    event.stopPropagation();
+                    
+                    const content = this.nextElementSibling;
+                    
+                    this.classList.toggle('open');
+                    
+                    if (content && content.classList.contains('collapsible-content')) {
+                        content.classList.toggle('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
