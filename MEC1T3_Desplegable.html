@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual: Organización del Sistema de Transporte en España</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-header .icon-bg {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-top: 1rem; }
+        .pill, .law-pill, .directive-pill, .actor-pill, .plan-pill {
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0 0.2rem;
+        }
+        .pill-blue { background-color: #dbeafe; color: #1e4d91; border: 1px solid #93c5fd; }
+        .law-pill { background-color: #f3e8ff; color: #581c87; border: 1px solid #c084fc; }
+        .actor-pill { background-color: #e5e7eb; color: #1f2937; border: 1px solid #9ca3af; }
+        .icon {
+            margin-right: 0.5rem;
+            width: 1.25em;
+            text-align: center;
+        }
+        .nested-list {
+            padding-left: 1.75rem;
+            margin-top: 0.75rem;
+            border-left: 3px dotted #cbd5e1;
+        }
+        .nested-list > li {
+            position: relative;
+        }
+        .nested-list > li::before {
+            content: '🔹';
+            position: absolute;
+            left: -1.75rem;
+            color: #3b82f6;
+        }
+        .deeper-nested-list {
+             padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+        .deeper-nested-list > li::before {
+             content: '▫️';
+        }
+        /* Estilos para la funcionalidad desplegable */
+        .collapsible-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.25rem 0;
+        }
+        .collapsible-trigger > span {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+            margin-right: 0.75rem;
+            width: 1em;
+            color: #3b82f6;
+        }
+        .collapsible-content {
+            padding-left: 1.75rem;
+        }
+        .collapsible-trigger.open .collapsible-icon {
+            transform: rotate(90deg);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 p-4 sm:p-6 md:p-8">
+    <div class="max-w-5xl mx-auto">
+
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-sitemap"></i> MEC1T3: ORGANIZACIÓN DEL SISTEMA DE TRANSPORTE EN ESPAÑA <i class="fas fa-landmark"></i></h1>
+        </header>
+
+        <!-- Main Card 1 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-info-circle"></i></div>
+                <h2>1. ORGANIZACIÓN DEL SISTEMA DE TRANSPORTE EN ESPAÑA</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-gavel icon text-purple-600"></i>Las <strong><u>competencias en materia de transporte</u></strong> quedan reguladas en la <span class="law-pill"><strong>Constitución Española</strong></span>, que las reparte entre el <span class="actor-pill">Estado</span> y las <span class="actor-pill">Comunidades Autónomas</span>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>El <span class="actor-pill"><strong>Estado</strong></span> tiene <strong><u>competencia exclusiva</u></strong> sobre:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>Los <strong><u>transportes terrestres</u></strong> que transcurran por el territorio de más de una Comunidad Autónoma.</li>
+                                            <li><strong><u>Puertos de interés general</u></strong>.</li>
+                                            <li><strong><u>Marina mercante</u></strong>.</li>
+                                            <li><strong><u>Aeropuertos de interés general</u></strong>.</li>
+                                            <li>Y <strong><u>transporte aéreo</u></strong>.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>Mientras que las <span class="actor-pill"><strong>CCAA</strong></span> pueden <strong><u>asumir competencias</u></strong> en:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>Las <strong><u>obras públicas de interés</u></strong> de la Comunidad Autónoma en su territorio.</li>
+                                            <li>El <strong><u>transporte por carretera, ferrocarril o cable</u></strong> cuyo itinerario se desarrolle íntegramente en su territorio.</li>
+                                            <li>Y los <strong><u>puertos pesqueros, deportivos o de refugio</u></strong>.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-tasks icon text-blue-600"></i>La <strong><u>organización y funcionamiento</u></strong> del sistema de transportes se ajusta a los siguientes <strong><u>principios</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-network-wired icon text-blue-500"></i>▪️ <strong><u>Establecimiento y mantenimiento de un sistema común</u></strong> de transporte en todo el Estado, mediante la <u>coordinación e interconexión</u> de las redes, servicios o actividades que los integran, y de las actuaciones de los distintos órganos y Administraciones Públicas competentes.</li>
+                                <li><i class="fas fa-check-circle icon text-green-500"></i>▪️ <strong><u>Satisfacción de las necesidades</u></strong> de la comunidad con el <u>máximo grado de eficacia</u> y con el <u>mínimo coste social</u>.</li>
+                                <li><i class="fas fa-balance-scale icon text-yellow-600"></i>▪️ <strong><u>Mantenimiento de la unidad de mercado</u></strong> en todo el territorio español, conforme a la Constitución.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card 2 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-gavel"></i></div>
+                <h2>2. FUNCIÓN NORMATIVA</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-balance-scale-left icon text-red-500"></i>El transporte es un <strong><u>mercado imperfecto</u></strong>, con una naturaleza especial que hace necesaria la <strong><u>intervención estatal</u></strong>, ya que en el funcionamiento del transporte en régimen de mercado se producen desajustes que impiden una posición óptima.</li>
+                    <li><i class="fas fa-bullseye icon text-green-600"></i>Las administraciones públicas tienen como objetivo desarrollar unas <strong><u>políticas de transporte eficientes, seguras y sostenibles</u></strong>, para una industria competitiva y generadora de empleo y prosperidad.</li>
+                    <li><i class="fas fa-road icon text-blue-500"></i>La <span class="law-pill"><strong>Ley 16/1987 de Ordenación de los Transportes Terrestres (LOTT)</strong></span> es la principal norma del <strong><u>transporte por carretera</u></strong>.</li>
+                    <li><i class="fas fa-train icon text-purple-500"></i>En el <strong><u>transporte ferroviario</u></strong> español, la principal norma es la <span class="law-pill"><strong>Ley 38/2015 del sector ferroviario</strong></span>. Su antecesora fue la <span class="law-pill">Ley 39/2003 del sector ferroviario</span>, que impulsó una <strong><u>reordenación completa</u></strong> del transporte por ferrocarril de competencia estatal, hasta entonces regulado por la LOTT, y sentó las bases para la <strong><u>apertura gradual del mercado</u></strong> a nuevos operadores y convertir el ferrocarril en un modo de transporte competitivo.</li>
+                    <li><i class="fas fa-ship icon text-cyan-700"></i>En cuanto al <strong><u>transporte marítimo</u></strong>, cabe destacar el <span class="directive-pill">Reglamento UE 1177/2010</span> sobre los derechos de los pasajeros que viajan por mar y por vías navegables, y la <span class="law-pill">Ley 14/2014 de Navegación Marítima</span>.</li>
+                     <li><i class="fas fa-plane-departure icon text-red-600"></i>Para la <strong><u>aviación</u></strong>, las normas más importantes en la <span class="actor-pill">UE</span> son el <span class="directive-pill">Reglamento 2018/1139</span> sobre normas comunes en el ámbito de la aviación civil y por el que se crea una Agencia de la UE para la Seguridad Aérea, y el <span class="directive-pill">Reglamento 549/2004</span> por el que se fija el marco para la creación del cielo único europeo. Y en <span class="actor-pill">España</span> la <span class="law-pill">Ley 21/2003 de Seguridad Aérea</span>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card 3 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-search"></i></div>
+                <h2>3. INSPECCIÓN, SUPERVISIÓN Y OTORGAMIENTO DE PERMISOS</h2>
+            </div>
+             <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>La <span class="definition-pill"><strong>inspección</strong></span> es la función tendente a <strong><u>garantizar el cumplimiento de las normas</u></strong> reguladoras del transporte y de las actividades complementarias y auxiliares del mismo.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>La actuación inspectora está encomendada a los <strong><u>servicios de inspección</u></strong>.</li>
+                                <li>Los miembros de la inspección, en casos de necesidad, podrán solicitar el <strong><u>apoyo de las <span class="actor-pill">Fuerzas y Cuerpos de Seguridad</span></u></strong>.</li>
+                                <li>El personal de los Servicios de Inspección tendrá, en el ejercicio de sus funciones, la consideración de <strong><u>autoridad</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-building icon text-gray-700"></i>Los servicios de inspección realizarán sus funciones con <strong><u>todas las empresas</u></strong> que realicen servicios o actividades de transporte.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Sobre las <strong><u>empresas públicas</u></strong>, su actividad inspectora se ejercerá con <strong><u>independencia orgánica y funcional</u></strong> del control interno que sobre su propia organización y actuación efectúen en su caso dichas empresas.</li>
+                                <li>
+                                    <p>La función inspectora podrá ser ejercida:</p>
+                                    <ul class="nested-list deeper-nested-list">
+                                        <li><strong><u>De oficio</u></strong>.</li>
+                                        <li>O por <strong><u>petición fundada</u></strong> de los usuarios o de sus asociaciones, así como de las empresas o asociaciones del sector del transporte.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-file-signature icon text-purple-600"></i>La realización de transporte público de viajeros y mercancías estará supeditada a la posesión de una <strong><u>autorización</u></strong> que habilite para ello, expedida por el órgano competente de la <span class="actor-pill">Administración General del Estado</span> o, en su caso, por el de aquella <span class="actor-pill">Comunidad Autónoma</span> en que se domicilie dicha autorización, cuando esta facultad le haya sido delegada por el Estado.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>El otorgamiento de la autorización de transporte público estará <strong><u>condicionado</u></strong> a que la empresa solicitante acredite, de acuerdo con el <span class="law-pill">Reglamento de la LOTT</span>, el cumplimiento de determinados requisitos.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+       <!-- Main Card 4 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-user-tie"></i></div>
+                <h2>4. GESTORES DE INFRAESTRUCTURAS</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-road icon text-blue-500"></i>En el <strong><u>transporte por carretera</u></strong> los gestores de infraestructuras son los <strong><u>titulares de la carretera</u></strong>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>En la Red de carreteras del Estado es la <span class="actor-pill"><strong>Dirección General de Carreteras</strong></span> del <span class="actor-pill">Ministerio de Transportes y Movilidad Sostenible</span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-train icon text-purple-500"></i>En el <strong><u>transporte ferroviario</u></strong> los gestores son los <strong><u>administradores de infraestructura ferroviaria</u></strong>, que son los responsables de la <u>explotación, mantenimiento y renovación</u> de las infraestructuras.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>En la Red Ferroviaria de Interés General son <span class="actor-pill">ADIF</span>, <span class="actor-pill">ADIF Alta Velocidad</span>, las <span class="actor-pill">Autoridades Portuarias</span> en el ámbito de los puertos de interés general, y <span class="actor-pill">LFP</span> en el tramo Figueres-Perpignan.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-ship icon text-cyan-700"></i>El <strong><u>sistema portuario español</u></strong> de titularidad estatal está integrado por <span class="pill pill-blue">46</span> puertos de interés general, gestionados por <span class="pill pill-blue">28</span> <span class="actor-pill"><strong>Autoridades Portuarias</strong></span>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Cuya coordinación y control de eficiencia corresponde al Organismo Público <span class="actor-pill"><strong>Puertos del Estado</strong></span>, órgano dependiente del <span class="actor-pill">MITMS</span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <p><i class="fas fa-plane-departure icon text-red-600"></i>Los <strong><u>aeropuertos de interés general</u></strong>, gestionados por <span class="actor-pill"><strong>Aeropuertos Españoles y Navegación Aérea (AENA)</strong></span>, son <span class="pill pill-blue">46</span>, incluidas las bases aéreas abiertas al tráfico civil, más <span class="pill pill-blue">2</span> helipuertos.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+       <!-- Main Card 5 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-user-tie"></i></div>
+                <h2>5. OPERADORES</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>Los <span class="definition-pill"><strong>operadores de transporte</strong></span> son las <strong><u>empresas encargadas del movimiento de viajeros o mercancías</u></strong> con la ayuda de diferentes medios de transporte, para llevarlo a cabo de una manera <strong><u>eficiente, rápida y segura</u></strong>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>Siendo <strong><u>responsables</u></strong> de decidir:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><i class="fas fa-route icon text-blue-500"></i>Las <strong><u>rutas y transportistas</u></strong>.</li>
+                                            <li><i class="fas fa-tags icon text-green-500"></i>Las <strong><u>tarifas</u></strong>.</li>
+                                            <li><i class="fas fa-map-marker-alt icon text-red-500"></i>El <strong><u>lugar</u></strong> para realizar las cargas y descargas, etc.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-handshake icon text-purple-600"></i>También se consideran <span class="definition-pill"><strong>operadores de transporte</strong></span> quienes pretendan <strong><u>intermediar en la contratación de transportes de mercancías por carretera</u></strong>, ya sea en concepto de:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-building icon"></i>▪️ Agencias de transporte.</li>
+                                <li><i class="fas fa-globe-americas icon"></i>▪️ Transitarios.</li>
+                                <li><i class="fas fa-warehouse icon"></i>▪️ Almacenistas-distribuidores.</li>
+                                <li><i class="fas fa-cogs icon"></i>▪️ Operadores logísticos.</li>
+                                <li><i class="fas fa-plus icon"></i>▪️ O cualquier otro.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card 6 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-users-cog"></i></div>
+                <h2>6. PRESTADORES DE SERVICIOS AUXILIARES</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-road icon text-blue-500"></i>En el <strong><u>transporte por carretera</u></strong>, los prestadores de servicios auxiliares son los encargados de las <strong><u>actividades de mediación</u></strong>, que son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-building icon"></i>▪️ Agencias de transporte.</li>
+                                <li><i class="fas fa-globe-americas icon"></i>▪️ Transitarios.</li>
+                                <li><i class="fas fa-cogs icon"></i>▪️ Operadores logísticos.</li>
+                                <li><i class="fas fa-warehouse icon"></i>▪️ Y almacenistas-distribuidores.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-train icon text-purple-500"></i>En el ámbito del <strong><u>transporte ferroviario</u></strong>, los <strong><u>servicios auxiliares</u></strong> podrán comprender:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-wifi icon text-blue-400"></i>▪️ El acceso a las <strong><u>redes de telecomunicación</u></strong>.</li>
+                                <li><i class="fas fa-info-circle icon text-yellow-500"></i>▪️ El suministro de <strong><u>información complementaria</u></strong>.</li>
+                                <li><i class="fas fa-search icon text-gray-600"></i>▪️ Las <strong><u>inspecciones técnicas</u></strong> del material rodante.</li>
+                                <li><i class="fas fa-ticket-alt icon text-green-500"></i>▪️ Los servicios de <strong><u>venta de billetes</u></strong> en estaciones de viajeros.</li>
+                                <li><i class="fas fa-wrench icon text-orange-500"></i>▪️ Y los servicios de <strong><u>mantenimiento pesado</u></strong> de material rodante.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+       <!-- Main Card 7 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-search"></i></div>
+                <h2>7. COMISIONES DE ESTUDIO DE ACCIDENTES</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-users-cog icon text-gray-700"></i>Como <strong><u>órganos colegiados</u></strong> adscritos a la <span class="actor-pill">Subsecretaría de Transportes y Movilidad Sostenible</span>, existen <strong><u>3 comisiones de investigación</u></strong> de accidentes, que son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-train icon text-purple-500"></i>▪️ La <span class="actor-pill"><strong>Comisión de Investigación de Accidentes Ferroviarios (CIAF)</strong></span></li>
+                                <li><i class="fas fa-ship icon text-cyan-700"></i>▪️ La <span class="actor-pill"><strong>Comisión Permanente de Investigación de Accidentes e Incidentes Marítimos (CIAIM)</strong></span></li>
+                                <li><i class="fas fa-plane-departure icon text-red-600"></i>▪️ La <span class="actor-pill"><strong>Comisión de Investigación de Accidentes e Incidentes de Aviación Civil (CIAIAC)</strong></span></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-info-circle icon text-blue-600"></i>Todas ellas se dedican a la <strong><u>investigación técnica</u></strong> de los <strong><u>accidentes graves</u></strong> que suceden en el ámbito estatal correspondiente, y de aquellos accidentes e incidentes cuando se estime que de su investigación se pueden obtener conclusiones que permitan la <strong><u>mejora de la seguridad</u></strong> de ese modo de transporte. Gozan de <strong><u>plena independencia</u></strong> respecto cualquiera de los agentes que puedan estar implicados directa o indirectamente en el suceso investigado.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-bullseye icon text-green-600"></i>La <strong><u>investigación técnica</u></strong> tiene como <strong><u>finalidad</u></strong> la <strong><u>determinación de las causas</u></strong> del accidente o incidente y el <strong><u>esclarecimiento de las circunstancias</u></strong> en las que se produjo, emitiendo recomendaciones en su caso, con el fin de <strong><u>incrementar la seguridad y favorecer la prevención</u></strong> de accidentes.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>En <strong><u>ningún caso</u></strong> la investigación determinará la <strong><u>culpa o la responsabilidad</u></strong> del suceso y será <strong><u>independiente de cualquier investigación judicial</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-tools icon text-yellow-600"></i>Estas comisiones cuentan con <strong><u>personal y medios propios</u></strong> adecuados para el desarrollo de su actividad, así como con la <strong><u>colaboración puntual</u></strong> de organismos y asesores técnicos especialistas.</li>
+                    <li><i class="fas fa-handshake icon text-blue-500"></i>Todas las entidades vinculadas a la actividad de transporte que se esté investigando habrán de <strong><u>prestar la colaboración</u></strong> que les sea requerida para la investigación técnica de los sucesos.</li>
+                </ul>
+            </div>
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-tasks mr-2 text-purple-600"></i>Ámbito de Actuación de cada Comisión</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-train icon text-purple-500"></i>La <span class="actor-pill"><strong>CIAF</strong></span> realiza la investigación técnica de los <strong><u>accidentes ferroviarios graves</u></strong> (colisiones o descarrilamientos con al menos <span class="pill pill-red">1 víctima mortal</span> o <span class="pill pill-red">5 o más heridos graves</span>; o con grandes daños, no inferiores a <span class="pill pill-blue">2 millones de euros</span>, al material rodante, la infraestructura o el medio ambiente; o con efectos evidentes en la seguridad) que se produzcan sobre la <span class="plan-pill">RFIG</span>, así como la investigación en la misma de los demás accidentes e incidentes ferroviarios cuando estime que de tal investigación podrán obtenerse conclusiones que permitan mejorar la seguridad ferroviaria.</li>
+                     <li><i class="fas fa-ship icon text-cyan-700"></i>En el caso de la <span class="actor-pill"><strong>CIAIM</strong></span>, realiza la investigación de los accidentes e incidentes marítimos producidos en o por <strong><u>buques civiles españoles</u></strong> y en o por <strong><u>buques civiles extranjeros</u></strong> cuando se produzcan dentro de las aguas interiores, en el mar territorial español o fuera del mar territorial español cuando España tenga intereses de consideración.</li>
+                     <li><i class="fas fa-plane-departure icon text-red-600"></i>Por otra parte, la <span class="actor-pill"><strong>CIAIAC</strong></span> investiga los accidentes de aviación civil que se producen <strong><u>dentro del territorio nacional</u></strong>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-gavel"></i></div>
+                <h2>8. REGULADOR DEL MERCADO</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-landmark icon text-gray-700"></i>Corresponde al <span class="actor-pill"><strong>MITMS</strong></span> la <strong><u>ordenación general y regulación</u></strong> del sistema de transporte terrestre, aéreo y marítimo, de competencia estatal; a fin de garantizar una <strong><u>movilidad segura y sostenible</u></strong>, basada en criterios de justicia social.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-sitemap icon text-purple-600"></i>La <span class="actor-pill"><strong>Secretaría de Estado de Transportes y Movilidad Sostenible</strong></span> es el órgano directamente responsable, a través de:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>Las <strong><u>Secretarías Generales</u></strong> de Transporte Terrestre y de Transportes Aéreo y Marítimo; que están estructuradas en:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><i class="fas fa-road icon text-blue-500"></i><u>Las <strong>Direcciones Generales de Transporte por Carretera y Ferrocarril</strong></u>.</li>
+                                            <li><i class="fas fa-plane-departure icon text-red-600"></i>La <strong><u>Dirección General de Aviación Civil</u></strong>, para el transporte aéreo.</li>
+                                            <li><i class="fas fa-ship icon text-cyan-700"></i>Y la <strong><u>Dirección General de la Marina Mercante</u></strong>, para el transporte marítimo.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const triggers = document.querySelectorAll('.collapsible-trigger');
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function (event) {
+                    // Evita que el evento de clic se propague a los triggers padres
+                    event.stopPropagation();
+                    
+                    const content = this.nextElementSibling;
+                    
+                    this.classList.toggle('open');
+                    
+                    if (content && content.classList.contains('collapsible-content')) {
+                        content.classList.toggle('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
