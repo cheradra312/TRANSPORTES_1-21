@@ -1,69 +1,1191 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visor de Mapas Conceptuales</title>
-    <!-- Tailwind CSS para el diseño -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome para los iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
-        }
-    </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Visor de Mapas Conceptuales con Editor - MEC1</title>
+	<!-- Tailwind CSS -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+   <!-- PDF.js Library (Version Locked for stability) -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+
+	<style>
+		body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; }
+		.topic-button { background-color: #ffffff; border: 1px solid #d1d5db; color: #374151; padding: 1rem; border-radius: 0.75rem; text-align: left; transition: all 0.2s ease-in-out; cursor: pointer; display: flex; align-items: center; gap: 0.75rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); }
+		.topic-button:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); }
+		.topic-number { border-radius: 9999px; font-weight: 700; font-size: 1.125rem; width: 2.75rem; height: 2.75rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s ease-in-out; }
+		.topic-title { font-weight: 600; flex-grow: 1; }
+		.topic-icon { font-size: 1.25rem; width: 2rem; text-align: center; transition: color 0.2s ease-in-out; }
+		#top-control-bar, #editor-panel, #lector-panel { display: none; opacity: 0; transition: opacity 0.3s ease-in-out; }
+		input[type="range"]::-webkit-slider-runnable-track { background: #e5e7eb; height: 0.25rem; border-radius: 1rem; }
+		input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; margin-top: -6px; background-color: #3b82f6; height: 1rem; width: 1rem; border-radius: 50%; }
+		input[type="range"] { -webkit-appearance: none; appearance: none; background: transparent; cursor: pointer; }
+		#play-pause-button:disabled { background-color: #9ca3af; cursor: not-allowed; transform: none; }
+		.chapter-button.playing, .edit-chapter-item.active { background-color: #dbeafe; font-weight: 700; color: #1e3a8a; }
+		#loop-button.active, #play-x3-button.active { color: #ffffff; background-color: #3b82f6; }
+		#edit-mode-toggle { -webkit-appearance: none; appearance: none; height: 1.25rem; width: 2.25rem; }
+		#edit-mode-toggle:checked::after { transform: translateX(1rem); }
+		#edit-mode-toggle::after { content: ''; display: inline-block; width: 1rem; height: 1rem; border-radius: 50%; background: white; transition: transform 0.2s ease-in-out; box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+		.modal-overlay { transition: opacity 0.3s ease-in-out; }
+       .dragging { opacity: 0.5; background: #e0f2fe; }
+       #resizer {
+            background-color: #e5e7eb;
+            cursor: col-resize;
+            width: 8px;
+            flex-shrink: 0;
+            border-radius: 9999px;
+            transition: background-color 0.2s ease-in-out;
+       }
+       #resizer:hover, #resizer.resizing {
+            background-color: #3b82f6;
+       }
+       .side-panel {
+            flex-shrink: 0;
+       }
+	</style>
 </head>
-<body class="p-4 md:p-8">
+<body class="p-2 md:p-4">
 
-    <div class="max-w-7xl mx-auto">
-        <!-- Contenedor del selector -->
-        <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 mb-8">
-            <label for="map-selector" class="block mb-2 text-xl font-bold text-gray-800">
-                <i class="fas fa-sitemap mr-2 text-blue-600"></i>Seleccionar Mapa Conceptual
-            </label>
-            <select id="map-selector" class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3">
-                <!-- Los 'value' deben ser los nombres exactos de tus archivos HTML -->
-                <option value="MEA2T1.html">MEA2T1: Legislación de Costas</option>
-                <option value="MEA1T28.html">MEA1T28: Estaciones de Bombeo</option>
-                <option value="MEA2T7.html">MEA2T7: Régimen Transitorio</option>
-            </select>
+	<div class="mx-auto">
+		<!-- VISTA DEL MENÚ PRINCIPAL -->
+		<div id="main-menu-view">
+			<header class="text-center mb-8 relative">
+				<h1 class="text-3xl md:text-4xl font-extrabold text-gray-800">Visor de Mapas Conceptuales - MEC1</h1>
+				<p class="text-lg text-gray-500 mt-2">Selecciona un tema para comenzar</p>
+               <button id="change-session-button" class="absolute top-0 right-0 bg-gray-200 text-gray-800 px-3 py-1 rounded-md hover:bg-gray-300 text-xs">Cambiar Sesión</button>
+			</header>
+			<div id="topics-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"></div>
+		</div>
+
+		<!-- VISTA DEL VISOR DE MAPAS -->
+		<div id="map-viewer-view" class="hidden">
+			<div id="top-control-bar" class="flex justify-between items-center gap-4 mb-4">
+				<button id="back-button" class="bg-white text-gray-700 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-gray-100 flex items-center gap-2">
+					<i class="fas fa-arrow-left"></i><span class="hidden sm:inline">Volver</span>
+				</button>
+				<div class="flex items-center gap-2 flex-wrap justify-end">
+                    <!-- Botón para el Lector -->
+                    <button id="toggle-lector-button" class="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 flex items-center gap-2">
+                        <i class="fas fa-book-open"></i><span class="hidden sm:inline">Lector</span>
+                    </button>
+					<button id="toggle-video-button" class="bg-red-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-red-600 flex items-center gap-2">
+                       <i class="fas fa-video"></i><span class="hidden sm:inline">Ver Vídeo</span>
+                   </button>
+                   <button id="toggle-oral-button" class="bg-green-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-green-600 flex items-center gap-2">
+                       <i class="fas fa-question-circle"></i><span class="hidden sm:inline">Preguntas Oral</span>
+                   </button>
+					<button id="toggle-pdf-button" class="bg-purple-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-purple-600 flex items-center gap-2">
+                       <i class="fas fa-file-pdf"></i><span class="hidden sm:inline">Ver PDF</span>
+                   </button>
+					<div class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg shadow-md">
+						<label for="edit-mode-toggle" class="text-sm font-medium text-gray-700">Editar</label>
+						<input type="checkbox" id="edit-mode-toggle" class="h-5 w-9 -checked:after:translate-x-full relative inline-flex cursor-pointer items-center rounded-full bg-gray-300 transition checked:bg-blue-500">
+					</div>
+					<div id="audio-player" class="bg-white p-2 rounded-lg shadow-md flex items-center gap-3 relative">
+						<div id="chapters-menu-container" class="relative">
+							<button id="chapters-button" class="text-gray-600 hover:bg-gray-200 rounded-full w-10 h-10 flex-shrink-0 flex items-center justify-center transition"><i class="fas fa-list-ul"></i></button>
+							<div id="chapters-dropdown" class="absolute top-full mt-2 right-0 md:left-0 bg-white shadow-lg rounded-lg p-2 w-80 max-h-72 overflow-y-auto hidden z-10"></div>
+						</div>
+						<button id="rewind-button" title="Retroceder 3s" class="text-gray-600 hover:bg-gray-200 rounded-full w-10 h-10 flex-shrink-0 flex items-center justify-center transition"><i class="fas fa-undo-alt"></i></button>
+						<button id="play-pause-button" class="text-white bg-blue-500 hover:bg-blue-600 rounded-full w-10 h-10 flex-shrink-0 flex items-center justify-center transition-transform transform hover:scale-110"><i id="play-pause-icon" class="fas fa-play"></i></button>
+						<button id="forward-button" title="Adelantar 3s" class="text-gray-600 hover:bg-gray-200 rounded-full w-10 h-10 flex-shrink-0 flex items-center justify-center transition"><i class="fas fa-redo-alt"></i></button>
+						<div class="flex items-center gap-2 text-xs text-gray-500"><span id="current-time">00:00</span><input type="range" id="timeline-slider" class="w-24 md:w-32" value="0" step="1"><span id="total-duration">00:00</span></div>
+						<div class="flex items-center gap-3">
+                           <button id="play-selection-button" title="Reproducir Selección" class="text-gray-500 hover:bg-gray-200 rounded-full w-9 h-9 flex-shrink-0 transition-colors"><i class="fas fa-play-circle"></i></button>
+                           <button id="play-x3-button" title="Reproducir cada epígrafe 3 veces" class="text-gray-500 hover:bg-gray-200 rounded-full w-9 h-9 flex-shrink-0 transition-colors"><i class="fas fa-layer-group"></i></button>
+							<button id="loop-button" class="text-gray-500 hover:bg-gray-200 rounded-full w-9 h-9 flex-shrink-0 transition-colors"><i class="fas fa-retweet"></i></button>
+							<button id="speed-button" class="text-xs font-bold text-blue-500 bg-blue-100 hover:bg-blue-200 rounded-full w-9 h-9 flex-shrink-0">1x</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="main-viewer-area" class="flex flex-col lg:flex-row gap-4">
+                <!-- Contenedores movibles -->
+                <div id="lector-panel" class="side-panel bg-white p-4 rounded-lg shadow-lg border border-gray-200 hidden" style="flex-basis: 33.33%;">
+                    <iframe id="lector-frame" class="w-full h-full border-0" style="min-height: 75vh;"></iframe>
+                </div>
+				<div id="editor-panel" class="side-panel bg-white p-4 rounded-lg shadow-lg border border-gray-200 hidden" style="flex-basis: 33.33%;">
+					<div class="flex justify-between items-center border-b pb-2 mb-2">
+						<h3 class="font-bold text-lg">Editor de Capítulos</h3>
+						<button id="restore-defaults-button" title="Restaurar valores por defecto" class="text-sm bg-amber-500 text-white font-bold p-2 rounded-md hover:bg-amber-600 flex items-center gap-2">
+							<i class="fas fa-undo"></i>Restaurar
+						</button>
+					</div>
+					<div id="editor-list" class="space-y-2 max-h-[60vh] overflow-y-auto pr-2"></div>
+					<div class="mt-4 flex gap-2">
+						<input type="text" id="new-chapter-title-input" placeholder="Título del nuevo epígrafe" class="flex-grow p-2 border rounded-md text-sm">
+						<button id="add-chapter-button" class="bg-indigo-500 text-white font-bold p-2 rounded-md hover:bg-indigo-600">
+							<i class="fas fa-plus"></i>
+						</button>
+					</div>
+					<button id="save-data-button" class="mt-2 w-full bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 flex items-center justify-center gap-2">
+						<i id="save-icon" class="fas fa-cloud-upload-alt"></i><span id="save-text">Guardar en la Nube</span>
+					</button>
+					<p id="save-notification" class="text-center text-green-700 font-semibold mt-2 opacity-0 transition-opacity">¡Guardado!</p>
+				</div>
+                <div id="resizer" class="hidden lg:block"></div>
+               <div id="content-container" class="flex-1">
+                   <iframe id="content-frame" class="w-full h-full border-0 rounded-xl shadow-lg" style="min-height: 90vh;" src=""></iframe>
+               </div>
+               <!-- Contenedores para PDF que se moverán dinámicamente -->
+               <div id="pdf-viewer-wrapper" class="side-panel hidden" style="flex-basis: 50%;">
+                    <div id="pdf-viewer-container" class="w-full h-full transition-all duration-300 bg-gray-200 p-2 sm:p-4 flex flex-col items-center relative rounded-lg" style="min-height: 90vh;">
+                       <div id="pdf-controls" class="mb-2 sm:mb-4 bg-white p-2 rounded-lg shadow-md flex items-center gap-2 sm:gap-4 z-10">
+                           <button id="prev-page" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-gray-400"><i class="fas fa-arrow-left"></i></button>
+                           <span class="text-sm sm:text-base">Página <span id="page-num">0</span> de <span id="page-count">0</span></span>
+                           <button id="next-page" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-gray-400"><i class="fas fa-arrow-right"></i></button>
+                       </div>
+                       <div id="pdf-render-area" class="overflow-auto flex-grow w-full flex justify-center">
+                            <canvas id="pdf-canvas" class="border-2 border-gray-400 shadow-lg"></canvas>
+                       </div>
+                        <div id="pdf-loading-overlay" class="absolute inset-0 bg-white bg-opacity-80 flex-col items-center justify-center hidden z-20 rounded-lg">
+                           <div class="text-center">
+                               <i class="fas fa-spinner fa-spin text-4xl text-blue-500"></i>
+                               <p id="loading-text" class="mt-2 text-lg font-semibold">Cargando PDF...</p>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <div id="oral-pdf-viewer-wrapper" class="side-panel hidden" style="flex-basis: 50%;">
+                   <div id="oral-pdf-viewer-container" class="w-full h-full transition-all duration-300 bg-gray-200 p-2 sm:p-4 flex flex-col items-center relative rounded-lg" style="min-height: 90vh;">
+                       <div id="oral-pdf-controls" class="mb-2 sm:mb-4 bg-white p-2 rounded-lg shadow-md flex items-center gap-2 sm:gap-4 z-10">
+                           <button id="oral-prev-page" class="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 disabled:bg-gray-400"><i class="fas fa-arrow-left"></i></button>
+                           <span class="text-sm sm:text-base">Página <span id="oral-page-num">0</span> de <span id="oral-page-count">0</span></span>
+                           <button id="oral-next-page" class="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 disabled:bg-gray-400"><i class="fas fa-arrow-right"></i></button>
+                       </div>
+                       <div id="oral-pdf-render-area" class="overflow-auto flex-grow w-full flex justify-center">
+                            <canvas id="oral-pdf-canvas" class="border-2 border-gray-400 shadow-lg"></canvas>
+                       </div>
+                        <div id="oral-pdf-loading-overlay" class="absolute inset-0 bg-white bg-opacity-80 flex-col items-center justify-center hidden z-20 rounded-lg">
+                           <div class="text-center">
+                               <i class="fas fa-spinner fa-spin text-4xl text-green-500"></i>
+                               <p id="oral-loading-text" class="mt-2 text-lg font-semibold">Cargando PDF de Preguntas...</p>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <div id="flashcards-wrapper" class="hidden">
+                    <iframe id="flashcards-frame" class="w-full h-full border-0 rounded-xl shadow-lg" style="min-height: 90vh;"></iframe>
+               </div>
+			</div>
+		</div>
+
+       <!-- MODAL DE SESIÓN -->
+       <div id="session-modal-overlay" class="fixed inset-0 bg-gray-900 bg-opacity-90 flex items-center justify-center z-50 modal-overlay">
+           <div class="bg-white p-6 rounded-lg shadow-2xl w-full max-w-sm text-center">
+               <h2 class="text-lg font-bold mb-4">ID de Sesión</h2>
+               <p class="text-sm text-gray-600 mb-2">Introduce un ID para sincronizar tus datos entre dispositivos. Usa el mismo ID en todos tus aparatos.</p>
+               <input type="text" id="session-id-input" class="w-full border border-gray-300 p-2 rounded-md mb-2" value="cheradra">
+               <button id="start-session-button" class="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Comenzar</button>
+           </div>
+       </div>
+
+		<div id="password-modal-overlay" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50 modal-overlay">
+			<div class="bg-white p-6 rounded-lg shadow-2xl w-full max-w-sm">
+				<h2 class="text-lg font-bold mb-4">Modo Edición Protegido</h2>
+				<p class="text-sm text-gray-600 mb-2">Introduce la contraseña para continuar.</p>
+				<input type="password" id="password-input" class="w-full border border-gray-300 p-2 rounded-md mb-2">
+				<p id="password-error" class="text-red-500 text-xs hidden mb-4">Contraseña incorrecta.</p>
+				<div class="flex justify-end gap-2">
+					<button id="cancel-edit-button" class="bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300">Cancelar</button>
+					<button id="confirm-edit-button" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Aceptar</button>
+				</div>
+			</div>
+		</div>
+
+        <!-- MODAL DE SELECCIÓN DE LADO -->
+        <div id="side-select-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50 modal-overlay">
+            <div class="bg-white p-6 rounded-lg shadow-2xl w-full max-w-sm text-center">
+                <h2 class="text-lg font-bold mb-4">Seleccionar Lado</h2>
+                <p class="text-sm text-gray-600 mb-4">¿En qué lado quieres abrir el visor?</p>
+                <div class="flex justify-center gap-4">
+                    <button id="open-left-btn" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Izquierda</button>
+                    <button id="open-right-btn" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Derecha</button>
+                    <button id="cancel-side-select-btn" class="bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300">Cancelar</button>
+                </div>
+            </div>
         </div>
 
-        <!-- Contenedor del IFrame donde se mostrará el mapa -->
-        <div class="bg-white p-2 rounded-xl shadow-lg border border-gray-200">
-            <iframe id="content-frame" 
-                    class="w-full border-0 rounded-lg" 
-                    style="min-height: 85vh;" 
-                    src="MEA2T1.html">
-                <!-- El navegador mostrará un mensaje aquí si no soporta iframes -->
-                Tu navegador no soporta iframes.
-            </iframe>
-        </div>
-    </div>
+       <!-- MODAL DE CONFIRMACIÓN DE BORRADO -->
+       <div id="delete-confirm-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50 modal-overlay">
+           <div class="bg-white p-6 rounded-lg shadow-2xl w-full max-w-sm text-center">
+               <h2 class="text-lg font-bold mb-4">Confirmar Eliminación</h2>
+               <p class="text-sm text-gray-600 mb-4">¿Estás seguro de que quieres eliminar este epígrafe?</p>
+               <div class="flex justify-center gap-4">
+                   <button id="cancel-delete-btn" class="bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300">Cancelar</button>
+                   <button id="confirm-delete-btn" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700">Eliminar</button>
+               </div>
+           </div>
+       </div>
 
-    <script>
-        // Seleccionamos los elementos del DOM
-        const selector = document.getElementById('map-selector');
-        const iframe = document.getElementById('content-frame');
+		<audio id="topic-audio" src=""></audio>
+	</div>
 
-        // Función para cambiar el contenido del iframe
-        function loadSelectedMap() {
-            // Obtenemos el nombre del archivo del 'value' de la opción seleccionada
-            const selectedMapFile = selector.value;
-            // Actualizamos el atributo 'src' del iframe
-            iframe.src = selectedMapFile;
-        }
+	<!-- Firebase SDKs -->
+	<script type="module">
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+		import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+		import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-        // Añadimos un 'event listener' que se activa cuando el usuario cambia la selección
-        selector.addEventListener('change', loadSelectedMap);
+		document.addEventListener('DOMContentLoaded', async function () {
+           pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js`;
 
-        // Opcional: Asegurarnos de que el primer mapa se carga al abrir la página.
-        // Lo hemos hecho ya poniendo el 'src' directamente en el HTML del iframe,
-        // pero esta es otra forma de hacerlo al cargar la página.
-        // document.addEventListener('DOMContentLoaded', loadSelectedMap);
-    </script>
+			let db, auth;
+            let currentTopic, localUserId;
+			let currentChapterEndTime=null, currentChapterStartTime=null, editedChapters=[];
+			let userCustomChapters = {};
+           let pdfDoc = null, currentPageNum = 1;
+           let oralPdfDoc = null, oralCurrentPageNum = 1;
+           let oralViewState = 0;
+           let selectedChapters = [];
+           let x3LoopState = { active: false, queue: [], currentIndex: 0, playCount: 0 };
+           let indexToDelete = -1;
+           const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+           let pdfToOpen = null;
+
+			async function initializeAndAuthFirebase() {
+				try {
+                    if (typeof __firebase_config !== 'undefined' && __firebase_config) {
+                        const firebaseConfig = JSON.parse(__firebase_config);
+                        const app = initializeApp(firebaseConfig);
+                        auth = getAuth(app);
+                        db = getFirestore(app);
+
+                        if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                            await signInWithCustomToken(auth, __initial_auth_token);
+                        } else {
+                            await signInAnonymously(auth);
+                        }
+
+                    } else {
+                        console.error("La configuración de Firebase no está disponible. Usando configuración local.");
+                        const localFirebaseConfig = {
+                            apiKey: "AIzaSyCKXzSmQ9F1M4W59Vyalu3CWdKFsh7dOmE",
+                            authDomain: "costas-304b9.firebaseapp.com",
+                            projectId: "costas-304b9",
+                            storageBucket: "costas-304b9.appspot.com",
+                            messagingSenderId: "251850800414",
+                            appId: "1:251850800414:web:435e20e5305881732e5d0f",
+                            measurementId: "G-C2NTL72PZH"
+                        };
+                        const app = initializeApp(localFirebaseConfig);
+                        auth = getAuth(app);
+                        db = getFirestore(app);
+                        await signInAnonymously(auth);
+                    }
+				} catch (e) {
+                    console.error("Error al inicializar o autenticar con Firebase:", e);
+                    disableFirestoreFeatures();
+                }
+			}
+
+            function disableFirestoreFeatures() {
+                document.getElementById('save-data-button').disabled = true;
+                document.getElementById('restore-defaults-button').disabled = true;
+                document.getElementById('save-text').textContent = "Guardado deshabilitado";
+            }
+
+           function handleSession() {
+               const sessionId = localStorage.getItem('sessionId_MEC2');
+               if (sessionId) {
+                   localUserId = sessionId;
+                   document.getElementById('session-modal-overlay').classList.add('hidden');
+                   if (db && auth.currentUser) {
+                       loadAllCustomChapters();
+                   }
+               } else {
+                   document.getElementById('session-modal-overlay').classList.remove('hidden');
+                   disableFirestoreFeatures();
+               }
+           }
+
+			async function loadAllCustomChapters() {
+				if (!localUserId || !db) return;
+				const userDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'sessions', localUserId);
+				try {
+					const docSnap = await getDoc(userDocRef);
+					if (docSnap.exists()) {
+                       userCustomChapters = docSnap.data();
+                   } else {
+                       console.log("No se encontró un documento de capítulos personalizados. Se creará uno nuevo al guardar.");
+                       userCustomChapters = {};
+                   }
+				} catch (error) {
+					console.error("Error al cargar los capítulos personalizados:", error);
+                    disableFirestoreFeatures();
+				}
+			}
+
+			await initializeAndAuthFirebase();
+            handleSession();
+
+			const topics = [
+                { file: 'MEC1T1_Desplegable.html', title: 'Transporte y movilidad en España (I)', color: 'blue', icon: 'fa-car', videoId: '',
+                    chapters: [
+                        { "title": "1. Movilidad interior y movilidad exterior de viajeros y mercancías. Repartos modales, principales magnitudes y evolución", "start": 0, "end": 0 },
+                        { "title": "2. Comparación con otros países de la Unión Europea", "start": 0, "end": 0 },
+                        { "title": "3. Relación entre movilidad y actividad económica", "start": 0, "end": 0 },
+                        { "title": "4. El transporte y la industria del turismo", "start": 0, "end": 0 }
+                    ]
+                },
+                { file: 'MEC1T2_Desplegable.html', title: 'Transporte y movilidad en España (II)', color: 'green', icon: 'fa-truck', videoId: '',
+                    chapters: [
+                        { "title": "1. El transporte y la logística como sector empresarial", "start": 0, "end": 0 },
+                        { "title": "2. Participación en la economía nacional, empresas y participación en el empleo. Comparativa con otros países de la Unión Europea", "start": 0, "end": 0 },
+                        { "title": "3. Gasto de los ciudadanos en transporte", "start": 0, "end": 0 },
+                        { "title": "4. Gasto de los diferentes sectores empresariales en transporte de mercancías y logística", "start": 0, "end": 0 },
+                        { "title": "5. El Observatorio del Transporte y la Logística en España", "start": 0, "end": 0 }
+                    ]
+                },
+                { file: 'MEC1T3_Desplegable.html', title: 'Organización del sistema de transporte en España', color: 'purple', icon: 'fa-building', videoId: '',
+                    chapters: [
+                        { "title": "1. Organización del sistema de transporte en España", "start": 0, "end": 0 },
+                        { "title": "2. Función normativa", "start": 0, "end": 0 },
+                        { "title": "3. Inspección, supervisión y otorgamiento de permisos", "start": 0, "end": 0 },
+                        { "title": "4. Gestores de infraestructuras", "start": 0, "end": 0 },
+                        { "title": "5. Operadores", "start": 0, "end": 0 },
+                        { "title": "6. Prestadores de servicios auxiliares", "start": 0, "end": 0 },
+                        { "title": "7. Comisiones de estudio de accidentes", "start": 0, "end": 0 },
+                        { "title": "8. Regulador del mercado", "start": 0, "end": 0 }
+                    ]
+                },
+                { file: 'MEC1T4_Desplegable.html', title: 'La legislación en el transporte terrestre', color: 'orange', icon: 'fa-road', videoId: '',
+                    chapters: [
+                        { "title": "1. Conceptos básicos de la legislación en el transporte terrestre. Ley 16/1987 de Ordenación de los Transportes Terrestres (modificada por la Ley 9/2013) y su Reglamento", "start": 0, "end": 0 },
+                        { "title": "2. TÍTULO PRELIMINAR", "start": 0, "end": 0 },
+                        { "title": "3. TÍTULO I Disposiciones comunes a los diferentes modos de transporte terrestre", "start": 0, "end": 0 },
+                        { "title": "4. TÍTULO II Disposiciones de aplicación general a los transportes por carretera y a las actividades auxiliares y complementarias de los mismos", "start": 0, "end": 0 },
+                        { "title": "5. TÍTULO III De los servicios y actividades del transporte por carretera", "start": 0, "end": 0 },
+                        { "title": "6. TÍTULO IV Actividades auxiliares y complementarias del transporte por carretera", "start": 0, "end": 0 },
+                        { "title": "7. TÍTULO V Régimen sancionador y de control de los transportes terrestres, y de sus actividades auxiliares y complementarias", "start": 0, "end": 0 }
+                    ]
+                },
+                { file: 'MEC1T5_Desplegable.html', title: 'Evolución y principios básicos de la legislación del transporte ferroviario en Europa', color: 'teal', icon: 'fa-train', videoId: '',
+                    chapters: [
+                        { "title": "1. Evolución y principios básicos de la legislación del transporte ferroviario en Europa", "start": 0, "end": 0 },
+                        { "title": "2. Las primeras directivas sobre el sector ferroviario: Directiva 91/440 y Directivas 95/18 y 95/19", "start": 0, "end": 0 },
+                        { "title": "3. Los paquetes ferroviarios y la Agencia Ferroviaria Europea. El cuarto paquete ferroviario", "start": 0, "end": 0 },
+                        { "title": "4. Agencia Ferroviaria de la Unión Europea", "start": 0, "end": 0 }
+                    ]
+                },
+                { file: 'MEC1T6_Desplegable.html', title: 'Mercados de transporte liberalizados y mercados en monopolio', color: 'red', icon: 'fa-handshake', videoId: '',
+                    chapters: [
+                        { "title": "1. Mercados de transporte liberalizados y mercados en monopolio", "start": 0, "end": 0 },
+                        { "title": "2. Las obligaciones de servicio público en los servicios de transporte de competencia estatal", "start": 0, "end": 0 },
+                        { "title": "3. Normativa europea y su aplicación en España. El Reglamento 1370/2007 sobre los servicios públicos de transporte de viajeros por ferrocarril y carretera", "start": 0, "end": 0 },
+                        { "title": "4. La liberalización del transporte ferroviario: modelos de acceso al mercado y situación actual en España", "start": 0, "end": 0 },
+                        { "title": "5. El modelo concesional en los servicios de transporte de viajeros en autobús", "start": 0, "end": 0 }
+                    ]
+                },
+                { file: 'MEC1T7_Desplegable.html', title: 'Subvenciones al transporte', color: 'amber', icon: 'fa-euro-sign', videoId: '',
+                    chapters: [
+                        { "title": "1. Subvenciones al transporte. Conceptos básicos", "start": 0, "end": 0 },
+                        { "title": "2. Base de datos nacional de subvenciones", "start": 0, "end": 0 },
+                        { "title": "3. Ayudas de Estado", "start": 0, "end": 0 }
+                    ]
+                },
+                { file: 'MEC1T8_Desplegable.html', title: 'La intermodalidad en el transporte de viajeros y mercancías', color: 'cyan', icon: 'fa-exchange-alt', videoId: '',
+                    chapters: [
+                        { "title": "1. La intermodalidad en el transporte de viajeros y mercancías", "start": 0, "end": 0 },
+                        { "title": "2. Principales objetivos", "start": 0, "end": 0 },
+                        { "title": "3. Principales magnitudes. Evolución", "start": 0, "end": 0 },
+                        { "title": "4. Corredores y nodos intermodales", "start": 0, "end": 0 },
+                        { "title": "5. Cadenas logísticas intermodales", "start": 0, "end": 0 }
+                    ]
+                },
+                { file: 'MEC1T9_Desplegable.html', title: 'El transporte internacional', color: 'indigo', icon: 'fa-globe', videoId: '',
+                    chapters: [
+                        { "title": "1. El transporte internacional", "start": 0, "end": 0 },
+                        { "title": "2. Principales acuerdos internacionales", "start": 0, "end": 0 },
+                        { "title": "3. Acuerdos internacionales para el transporte de mercancías peligrosas", "start": 0, "end": 0 },
+                        { "title": "4. Organismos y asociaciones internacionales: OACI, OMI", "start": 0, "end": 0 },
+                        { "title": "5. Principios y normativa más destacable de la Unión Europea en materia de política de transportes", "start": 0, "end": 0 },
+                        { "title": "6. Europa en Movimiento (Europe on the Move)", "start": 0, "end": 0 },
+                        { "title": "7. La Estrategia Europea de Movilidad Sostenible e Inteligente de 2020", "start": 0, "end": 0 }
+                    ]
+                },
+                { file: 'MEC1T10_Desplegable.html', title: 'Principales políticas nacionales en transporte y movilidad', color: 'lime', icon: 'fa-compass', videoId: '',
+                    chapters: [
+                        { "title": "1. Principales políticas nacionales en transporte y movilidad", "start": 0, "end": 0 },
+                        { "title": "2. Principios básicos de la Estrategia Española de Movilidad Segura, Sostenible y Conectada 2030", "start": 0, "end": 0 },
+                        { "title": "3. Estrategia Estatal por la Bicicleta", "start": 0, "end": 0 },
+                        { "title": "4. Plan de Recuperación, Transformación y Resiliencia de España (PRTR). Componentes 1 y 6", "start": 0, "end": 0 }
+                    ]
+                },
+                { file: 'MEC1T11_Desplegable.html', title: 'La movilidad urbana y metropolitana, de viajeros y de mercancías', color: 'fuchsia', icon: 'fa-city', videoId: '',
+                    chapters: [
+                        { "title": "1. La movilidad urbana y metropolitana, de viajeros y de mercancías. Principales actores", "start": 0, "end": 0 },
+                        { "title": "2. Movilidad sostenible en ámbito urbano y metropolitano", "start": 0, "end": 0 },
+                        { "title": "3. El transporte público en la movilidad de viajeros. Organización y gestión", "start": 0, "end": 0 },
+                        { "title": "4. Las autoridades de transporte metropolitano", "start": 0, "end": 0 },
+                        { "title": "5. Competencias de la Administración General del Estado", "start": 0, "end": 0 },
+                        { "title": "6. La Agenda Urbana Española. Tendencias. Retos", "start": 0, "end": 0 },
+                        { "title": "7. Movilidad rural", "start": 0, "end": 0 }
+                    ]
+                },
+                { file: 'MEC1T12_Desplegable.html', title: 'El coste del transporte', color: 'sky', icon: 'fa-coins', videoId: '',
+                    chapters: [
+                        { "title": "1. El coste del transporte", "start": 0, "end": 0 },
+                        { "title": "2. Costes desde el punto de vista económico-privado (costes internos)", "start": 0, "end": 0 },
+                        { "title": "3. Estructura de costes en los distintos modos de transporte, en viajeros y mercancías", "start": 0, "end": 0 },
+                        { "title": "4. Costes desde el punto de vista económico-social (costes externos)", "start": 0, "end": 0 },
+                        { "title": "5. Internalización de costes externos", "start": 0, "end": 0 },
+                        { "title": "6. Fiscalidad verde", "start": 0, "end": 0 }
+                    ]
+                },
+                { file: 'MEC1T13_Desplegable.html', title: 'La investigación, desarrollo e innovación en transportes y movilidad', color: 'violet', icon: 'fa-lightbulb', videoId: '',
+                    chapters: [
+                        { "title": "1. La investigación, desarrollo e innovación en transportes y movilidad", "start": 0, "end": 0 },
+                        { "title": "2. Los Programas Marco de la Unión Europea", "start": 0, "end": 0 },
+                        { "title": "3. Horizonte Europa 2021-2027: pilares y programas horizontales, elementos principales, asociaciones", "start": 0, "end": 0 },
+                        { "title": "4. El sistema español de investigación, desarrollo e innovación en transportes y movilidad", "start": 0, "end": 0 }
+                    ]
+                },
+                { file: 'MEC1T14_Desplegable.html', title: 'Nuevas tecnologías y desarrollos en el transporte y la movilidad (I)', color: 'emerald', icon: 'fa-robot', videoId: '',
+                    chapters: [
+                        { "title": "1. Digitalización y nuevos servicios y formas de movilidad", "start": 0, "end": 0 },
+                        { "title": "2. Datos abiertos. Puntos de Acceso Nacionales", "start": 0, "end": 0 },
+                        { "title": "3. La Movilidad como Servicio (MaaS)", "start": 0, "end": 0 },
+                        { "title": "4. Big Data", "start": 0, "end": 0 },
+                        { "title": "5. Vehículos autónomos", "start": 0, "end": 0 },
+                        { "title": "6. Movilidad conectada", "start": 0, "end": 0 },
+                        { "title": "7. Automatización de la cadena logística", "start": 0, "end": 0 }
+                    ]
+                },
+                { file: 'MEC1T15_Desplegable.html', title: 'Nuevas tecnologías y desarrollos en el transporte y la movilidad (II)', color: 'pink', icon: 'fa-wifi', videoId: '',
+                    chapters: [
+                        { "title": "1. Los Sistemas Inteligentes de Transporte (ITS)", "start": 0, "end": 0 },
+                        { "title": "2. Aplicación de la tecnología a la gestión del sistema de infraestructuras y transporte", "start": 0, "end": 0 },
+                        { "title": "3. Los sistemas de navegación por satélite (GNSS) Galileo y EGNOS y su aplicación en transporte y movilidad", "start": 0, "end": 0 }
+                    ]
+                },
+                { file: 'MEC1T16_Desplegable.html', title: 'Planificación del sistema de infraestructuras y transporte de ámbito estatal', color: 'yellow', icon: 'fa-map-marked-alt', videoId: '',
+                    chapters: [
+                        { "title": "1. Planificación del sistema de infraestructuras y transporte de ámbito estatal", "start": 0, "end": 0 },
+                        { "title": "2. Historia reciente de la planificación estratégica de infraestructuras y transporte en España", "start": 0, "end": 0 },
+                        { "title": "3. Planificación estratégica en vigor", "start": 0, "end": 0 },
+                        { "title": "4. La planificación sectorial por modo de transporte", "start": 0, "end": 0 },
+                        { "title": "5. La participación pública en el proceso de planificación", "start": 0, "end": 0 },
+                        { "title": "6. Nuevo enfoque en las políticas de inversión", "start": 0, "end": 0 }
+                    ]
+                },
+                { file: 'MEC1T17_Desplegable.html', title: 'Demanda de transporte y análisis coste-beneficio', color: 'slate', icon: 'fa-chart-line', videoId: '',
+                    chapters: [
+                        { "title": "1. Demanda de transporte", "start": 0, "end": 0 },
+                        { "title": "2. Modelos de demanda de transporte", "start": 0, "end": 0 },
+                        { "title": "3. Empleo de la tecnología Big Data en la planificación", "start": 0, "end": 0 },
+                        { "title": "4. Encuestas y billetaje en la cuantificación y cualificación de la movilidad", "start": 0, "end": 0 },
+                        { "title": "5. Análisis coste-beneficio (ACB) en el ámbito del transporte", "start": 0, "end": 0 }
+                    ]
+                },
+                { file: 'MEC1T18_Desplegable.html', title: 'Infraestructuras de transporte, inversión y financiación', color: 'rose', icon: 'fa-dollar-sign', videoId: '',
+                    chapters: [
+                        { "title": "1. Infraestructuras de transporte, inversión y financiación. Dotación de infraestructuras de transporte y comparativa con otros países de la Unión Europea. Volumen de inversión en infraestructuras de transporte.", "start": 0, "end": 0 },
+                        { "title": "2. La financiación de las infraestructuras: financiación presupuestaria y extrapresupuestaria", "start": 0, "end": 0 },
+                        { "title": "3. Participación del sector privado en la financiación de infraestructuras", "start": 0, "end": 0 },
+                        { "title": "4. Tarificación por el uso de las infraestructuras", "start": 0, "end": 0 }
+                    ]
+                },
+                { file: 'MEC1T19_Desplegable.html', title: 'La Red Transeuropea de Transporte (RTE-T)', color: 'blue', icon: 'fa-route', videoId: '',
+                    chapters: [
+                        { "title": "1. La Red Transeuropea de transporte (RTE-T)", "start": 0, "end": 0 },
+                        { "title": "2. Reglamentos CE de desarrollo y financiación de la RTE-T. Los corredores Europeos de Transporte", "start": 0, "end": 0 },
+                        { "title": "3. La RTE-T en España", "start": 0, "end": 0 },
+                        { "title": "4. Financiación europea de infraestructuras. El Banco Europeo de Inversiones. Fondo Europeo de Inversiones Estratégicas (EFSI). Mecanismo Conectar Europa. Fondo Europeo de Desarrollo Regional. Next Generation EU", "start": 0, "end": 0 }
+                    ]
+                },
+                { file: 'MEC1T20_Desplegable.html', title: 'La planificación del sistema de infraestructuras y transporte y su integración con las políticas del territorio y ambientales', color: 'green', icon: 'fa-tree', videoId: '',
+                    chapters: [
+                        { "title": "1. La planificación del sistema de infraestructuras y transporte y su integración con las políticas del territorio y ambientales", "start": 0, "end": 0 },
+                        { "title": "2. Efectos ambientales de las infraestructuras", "start": 0, "end": 0 },
+                        { "title": "3. Gestión y mantenimiento sostenible de las infraestructuras", "start": 0, "end": 0 },
+                        { "title": "4. Resiliencia de las infraestructuras de transporte frente a los fenómenos meteorológicos extremos y su adaptación al cambio climático durante su ciclo de vida: análisis y diseño de medidas de adaptación", "start": 0, "end": 0 },
+                        { "title": "5. Huella de carbono de los proyectos en análisis de ciclo de vida. Principales medidas en infraestructuras para contribuir a la reducción de emisiones de gases de efecto invernadero", "start": 0, "end": 0 }
+                    ]
+                },
+                { file: 'MEC1T21_Desplegable.html', title: 'Sostenibilidad ambiental del transporte', color: 'purple', icon: 'fa-leaf', videoId: '',
+                    chapters: [
+                        { "title": "1. Sostenibilidad ambiental del transporte. Consumo energético y eficiencia energética", "start": 0, "end": 0 },
+                        { "title": "2. Emisiones a la atmósfera de gases de efecto invernadero y otros contaminantes: papel del transporte en las causas del cambio climático y del deterioro de la calidad del aire", "start": 0, "end": 0 },
+                        { "title": "3. Fuentes de energía alternativas y tecnologías innovadoras de tracción para una movilidad de bajas emisiones", "start": 0, "end": 0 },
+                        { "title": "4. Transporte y políticas en materia de energía y clima: categorización y ejemplos", "start": 0, "end": 0 },
+                        { "title": "5. Marco normativo europeo y nacional sobre infraestructuras para combustibles alternativos", "start": 0, "end": 0 }
+                    ]
+                }
+            ];
+
+ 			const colorPalette={blue:{normal:"bg-blue-100 text-blue-800",icon:"text-blue-500"},cyan:{normal:"bg-cyan-100 text-cyan-800",icon:"text-cyan-500"},sky:{normal:"bg-sky-100 text-sky-800",icon:"text-sky-500"},indigo:{normal:"bg-indigo-100 text-indigo-800",icon:"text-indigo-500"},green:{normal:"bg-green-100 text-green-800",icon:"text-green-500"},emerald:{normal:"bg-emerald-100 text-emerald-800",icon:"text-emerald-500"},teal:{normal:"bg-teal-100 text-teal-800",icon:"text-teal-500"},lime:{normal:"bg-lime-100 text-lime-800",icon:"text-lime-500"},yellow:{normal:"bg-yellow-100 text-yellow-800",icon:"text-yellow-500"},amber:{normal:"bg-amber-100 text-amber-800",icon:"text-amber-500"},orange:{normal:"bg-orange-100 text-orange-800",icon:"text-orange-500"},red:{normal:"bg-red-100 text-red-800",icon:"text-red-500"},rose:{normal:"bg-rose-100 text-rose-800",icon:"text-rose-500"},pink:{normal:"bg-pink-100 text-pink-800",icon:"text-pink-500"},fuchsia:{normal:"bg-fuchsia-100 text-fuchsia-800",icon:"text-fuchsia-500"},purple:{normal:"bg-purple-100 text-purple-800",icon:"text-purple-500"},violet:{normal:"bg-violet-100 text-violet-800",icon:"text-violet-500"},gray:{normal:"bg-gray-100 text-gray-800",icon:"text-gray-500"},slate:{normal:"bg-slate-100 text-slate-800",icon:"text-slate-500"},zinc:{normal:"bg-zinc-100 text-zinc-800",icon:"text-zinc-500"}};
+ 			const gridContainer=document.getElementById("topics-grid"),mainMenuView=document.getElementById("main-menu-view"),mapViewerVIew=document.getElementById("map-viewer-view"),backButton=document.getElementById("back-button"),topControlBar=document.getElementById("top-control-bar"),chaptersMenuContainer=document.getElementById("chapters-menu-container"),chaptersButton=document.getElementById("chapters-button"),chaptersDropdown=document.getElementById("chapters-dropdown"),topicAudio=document.getElementById("topic-audio"),playPauseButton=document.getElementById("play-pause-button"),playPauseIcon=document.getElementById("play-pause-icon"),rewindButton=document.getElementById("rewind-button"),forwardButton=document.getElementById("forward-button"),timelineSlider=document.getElementById("timeline-slider"),currentTimeEl=document.getElementById("current-time"),totalDurationEl=document.getElementById("total-duration"),speedButton=document.getElementById("speed-button"),loopButton=document.getElementById("loop-button"),editorPanel=document.getElementById("editor-panel"),editorList=document.getElementById("editor-list"),editModeToggle=document.getElementById("edit-mode-toggle"),saveDataButton=document.getElementById("save-data-button"),saveIcon=document.getElementById("save-icon"),saveText=document.getElementById("save-text"),saveNotification=document.getElementById("save-notification"),addChapterButton = document.getElementById("add-chapter-button"),passwordModalOverlay=document.getElementById("password-modal-overlay"),passwordInput=document.getElementById("password-input"),confirmEditButton=document.getElementById("confirm-edit-button"),cancelEditButton=document.getElementById("cancel-edit-button"),passwordError=document.getElementById("password-error"),newChapterTitleInput=document.getElementById("new-chapter-title-input"),restoreDefaultsButton = document.getElementById("restore-defaults-button");
+            const sideSelectModal = document.getElementById('side-select-modal'), openLeftBtn = document.getElementById('open-left-btn'), openRightBtn = document.getElementById('open-right-btn'), cancelSideSelectBtn = document.getElementById('cancel-side-select-btn');
+ 			const pdfViewerContainer = document.getElementById('pdf-viewer-container'), pdfCanvas = document.getElementById('pdf-canvas'), pageNumEl = document.getElementById('page-num'), pageCountEl = document.getElementById('page-count'), prevPageBtn = document.getElementById('prev-page'), nextPageBtn = document.getElementById('next-page'), pdfLoadingOverlay = document.getElementById('pdf-loading-overlay'), loadingText = document.getElementById('loading-text'), togglePdfButton = document.getElementById('toggle-pdf-button'), contentContainer = document.getElementById('content-container'), contentFrame = document.getElementById('content-frame'), mainViewerArea = document.getElementById('main-viewer-area');
+            const toggleVideoButton = document.getElementById('toggle-video-button'), changeSessionButton = document.getElementById('change-session-button'), sessionModalOverlay = document.getElementById('session-modal-overlay'), sessionIdInput = document.getElementById('session-id-input'), startSessionButton = document.getElementById('start-session-button');
+            const toggleOralButton = document.getElementById('toggle-oral-button'), oralPdfViewerContainer = document.getElementById('oral-pdf-viewer-container'), flashcardsFrame = document.getElementById('flashcards-frame'), playSelectionButton = document.getElementById('play-selection-button'), playX3Button = document.getElementById('play-x3-button'), deleteConfirmModal = document.getElementById('delete-confirm-modal'), confirmDeleteBtn = document.getElementById('confirm-delete-btn'), cancelDeleteBtn = document.getElementById('cancel-delete-btn');
+            const toggleLectorButton = document.getElementById('toggle-lector-button'), lectorPanel = document.getElementById('lector-panel'), lectorFrame = document.getElementById('lector-frame'), resizer = document.getElementById('resizer');
+            const pdfViewerWrapper = document.getElementById('pdf-viewer-wrapper');
+            const oralPdfViewerWrapper = document.getElementById('oral-pdf-viewer-wrapper');
+            const flashcardsWrapper = document.getElementById('flashcards-wrapper');
+            const oralPrevPageBtn = document.getElementById('oral-prev-page'), oralNextPageBtn = document.getElementById('oral-next-page');
+
+ 			topics.forEach((e,t)=>{
+ 				const o=document.createElement("button"),n=colorPalette[e.color];
+ 				o.className="topic-button",o.dataset.index=t,o.innerHTML=`<span class="topic-number ${n.normal}">${t+1}</span><i class="fas ${e.icon} topic-icon ${n.icon}"></i><span class="topic-title">${e.title}</span>`,gridContainer.appendChild(o)
+ 			});
+
+ 			function updateChapters(chapters) {
+ 				const chaptersToShow = chapters || [];
+ 				chaptersDropdown.innerHTML = '';
+ 				if (chaptersToShow.length > 0) {
+ 					chaptersToShow.forEach(chapter => {
+ 						const chapterButton = document.createElement('div');
+                        chapterButton.className = 'flex items-center p-2 rounded hover:bg-gray-100';
+ 						chapterButton.innerHTML = `
+                            <input type="checkbox" class="chapter-checkbox h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 mr-3" data-start="${chapter.start}" data-end="${chapter.end}">
+                            <span class="chapter-title flex-grow text-sm cursor-pointer">${chapter.title}</span>
+                        `;
+ 						chaptersDropdown.appendChild(chapterButton);
+ 					});
+ 					chaptersMenuContainer.classList.remove('hidden');
+ 				} else {
+ 					chaptersMenuContainer.classList.add('hidden');
+ 				}
+ 			}
+
+ 			function updateEditor(chapters){
+ 				const chaptersToEdit = chapters || [];
+ 				editedChapters=JSON.parse(JSON.stringify(chaptersToEdit));
+ 				renderEditorList();
+ 			}
+
+ 			function renderEditorList() {
+ 				editorList.innerHTML = "";
+ 				if(editedChapters.length > 0) {
+ 					editedChapters.forEach((chapter, index) => {
+ 						const item = document.createElement("div");
+                        item.className = "edit-chapter-item p-2 border-b flex items-center";
+                        item.draggable = true;
+                        item.dataset.index = index;
+ 						item.innerHTML = `
+                            <i class="fas fa-grip-vertical text-gray-400 mr-3 cursor-move"></i>
+                            <div class="flex-grow">
+                                <input type="text" value="${chapter.title.replace(/"/g, '&quot;')}" class="w-full font-semibold text-sm bg-gray-100 p-1 rounded border" data-index="${index}">
+                                <div class="flex items-center justify-between mt-1 text-xs">
+                                    <div>
+                                        <button data-index="${index}" data-type="start" class="mark-button bg-sky-500 text-white px-2 py-1 rounded-md hover:bg-sky-600">Inicio</button>
+                                        <span class="ml-2 font-mono" id="start-time-${index}">${chapter.start ? formatTime(chapter.start) : "--:--"}</span>
+                                    </div>
+                                    <div>
+                                        <button data-index="${index}" data-type="end" class="mark-button bg-pink-500 text-white px-2 py-1 rounded-md hover:bg-pink-600">Fin</button>
+                                        <span class="ml-2 font-mono" id="end-time-${index}">${chapter.end ? formatTime(chapter.end) : "--:--"}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button data-index="${index}" class="delete-chapter-button text-red-500 hover:text-red-700 p-1 ml-2"><i class="fas fa-trash-alt"></i></button>
+                        `;
+ 						editorList.appendChild(item);
+ 					});
+ 				} else {
+ 					editorList.innerHTML='<p class="text-gray-500 text-sm">Este tema no tiene capítulos. Añade uno para empezar.</p>';
+ 				}
+                setupDragAndDrop();
+ 			}
+
+            async function renderPage(num, pdfInstance, canvas, pageNumEl, prevBtn, nextBtn) {
+                if (!pdfInstance) return;
+                const page = await pdfInstance.getPage(num);
+                const viewport = page.getViewport({ scale: 1.5 });
+                const canvasContext = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                await page.render({ canvasContext, viewport }).promise;
+
+                pageNumEl.textContent = num;
+                prevBtn.disabled = num <= 1;
+                nextBtn.disabled = num >= pdfInstance.numPages;
+            }
+
+            async function loadPdfAndFind(url, searchText, canvas, pageNumEl, pageCountEl, prevBtn, nextBtn, loadingOverlay, loadingTextEl) {
+                loadingOverlay.style.display = 'flex';
+                loadingTextEl.textContent = 'Cargando PDF...';
+                let pdfInstance = null;
+
+                try {
+                    const loadingTask = pdfjsLib.getDocument(url);
+                    pdfInstance = await loadingTask.promise;
+                    pageCountEl.textContent = pdfInstance.numPages;
+
+                    loadingTextEl.textContent = `Buscando "${searchText}"...`;
+                    let foundPage = 1;
+                    for (let i = 1; i <= pdfInstance.numPages; i++) {
+                        const page = await pdfInstance.getPage(i);
+                        const textContent = await page.getTextContent();
+                        const pageText = textContent.items.map(item => item.str).join('');
+                        if (pageText.includes(searchText)) {
+                            foundPage = i;
+                            break;
+                        }
+                    }
+                    if (canvas.id === 'pdf-canvas') {
+                        pdfDoc = pdfInstance;
+                        currentPageNum = foundPage;
+                        await renderPage(currentPageNum, pdfDoc, pdfCanvas, pageNumEl, prevPageBtn, nextPageBtn);
+                    } else {
+                        oralPdfDoc = pdfInstance;
+                        oralCurrentPageNum = foundPage;
+                        await renderPage(oralCurrentPageNum, oralPdfDoc, canvas, pageNumEl, prevBtn, nextBtn);
+                    }
+                } catch (error) {
+                    console.error('Error loading or searching PDF:', error);
+                    alert('No se pudo cargar el PDF. Revisa la URL y asegúrate de que sea un enlace directo (raw) al archivo.');
+                } finally {
+                    loadingOverlay.style.display = 'none';
+                }
+            }
+
+ 			function showMapView(button){
+ 				playPauseButton.disabled = false;
+ 				playPauseIcon.className = "fas fa-play";
+ 				const topicIndex = button.dataset.index;
+ 				const baseTopic = topics[topicIndex];
+ 				const topicId = baseTopic.file.replace(/_Desplegable\.html$/i, '');
+
+ 				const chaptersToLoad = userCustomChapters[topicId] || (baseTopic.chapters ? JSON.parse(JSON.stringify(baseTopic.chapters)) : []);
+
+ 				currentTopic = { ...baseTopic, chapters: chaptersToLoad };
+
+ 				mainMenuView.classList.add("hidden");
+ 				mapViewerVIew.classList.remove("hidden");
+
+ 				contentFrame.src = currentTopic.file;
+ 				topicAudio.src = `audio/${currentTopic.file.replace(/_Desplegable\.html$/i, ".mp3")}`;
+
+ 				updateChapters(chaptersToLoad);
+ 				updateEditor(chaptersToLoad);
+
+ 				topControlBar.style.display="flex";
+ 				setTimeout(()=>topControlBar.style.opacity=1,10)
+ 			}
+
+ 			function showMainMenu(){
+ 				mapViewerVIew.classList.add("hidden");
+                mainMenuView.classList.remove("hidden");
+                topicAudio.pause();
+                resetLayout();
+ 			}
+ 			gridContainer.addEventListener("click",(e=>e.target.closest(".topic-button")&&showMapView(e.target.closest(".topic-button")))),backButton.addEventListener("click",showMainMenu);
+
+ 			const formatTime=e=>isNaN(e)?"00:00":`${String(Math.floor(e/60)).padStart(2,"0")}:${String(Math.floor(e%60)).padStart(2,"0")}`;
+ 			topicAudio.addEventListener("loadedmetadata",()=>{totalDurationEl.textContent=formatTime(topicAudio.duration),timelineSlider.max=topicAudio.duration}),topicAudio.addEventListener("error",()=>{playPauseButton.disabled=!0,playPauseIcon.className="fas fa-times",totalDurationEl.textContent="Error"}),playPauseButton.addEventListener("click",()=>{currentChapterEndTime=null,currentChapterStartTime=null,topicAudio.paused?topicAudio.play():topicAudio.pause()}),topicAudio.addEventListener("play",()=>playPauseIcon.classList.replace("fa-play","fa-pause")),topicAudio.addEventListener("pause",()=>playPauseIcon.classList.replace("fa-pause","fa-play")),topicAudio.addEventListener("ended",()=>{
+                if (x3LoopState.active) {
+                    topicAudio.dispatchEvent(new Event('timeupdate'));
+                    return;
+                }
+                const isLoopingSelection = selectedChapters.length > 0 && loopButton.classList.contains('active');
+                if (!isLoopingSelection) {
+                    playPauseIcon.classList.replace("fa-pause","fa-play");
+                }
+            }),topicAudio.addEventListener("timeupdate",()=>{
+ 				if(timelineSlider.value=topicAudio.currentTime,currentTimeEl.textContent=formatTime(topicAudio.currentTime),currentChapterEndTime&&topicAudio.currentTime>=currentChapterEndTime) {
+                    if (x3LoopState.active) {
+                        x3LoopState.playCount++;
+                        if (x3LoopState.playCount < 3) {
+                            topicAudio.currentTime = currentChapterStartTime;
+                            topicAudio.play();
+                        } else {
+                            x3LoopState.playCount = 0;
+                            x3LoopState.currentIndex++;
+                            if (x3LoopState.currentIndex < x3LoopState.queue.length) {
+                                const nextChapter = x3LoopState.queue[x3LoopState.currentIndex];
+                                currentChapterStartTime = nextChapter.start;
+                                currentChapterEndTime = nextChapter.end || topicAudio.duration;
+                                topicAudio.currentTime = currentChapterStartTime;
+                                topicAudio.play();
+                            } else {
+                                x3LoopState.active = false;
+                                playX3Button.classList.remove('active');
+                                playPauseIcon.classList.replace("fa-pause", "fa-play");
+                                topicAudio.pause();
+                            }
+                        }
+                    } else if(loopButton.classList.contains('active')){
+                        if (selectedChapters.length > 0) {
+                             topicAudio.currentTime = selectedChapters[0].start;
+                        } else {
+                            topicAudio.currentTime = currentChapterStartTime;
+                        }
+                        topicAudio.play();
+                    } else {
+ 					    topicAudio.pause(),currentChapterEndTime=null,currentChapterStartTime=null;
+ 					    const e=document.querySelector(".chapter-button.playing");
+ 					    e&&e.classList.remove("playing")
+ 				    }
+                }
+ 			}),timelineSlider.addEventListener("input",()=>{currentChapterEndTime=null,currentChapterStartTime=null,topicAudio.currentTime=timelineSlider.value}),chaptersButton.addEventListener("click",e=>{e.stopPropagation(),chaptersDropdown.classList.toggle("hidden")}),chaptersDropdown.addEventListener("click",e=>{
+ 				if (e.target.classList.contains('chapter-title')) {
+                    const chapterDiv = e.target.closest('div');
+                    const checkbox = chapterDiv.querySelector('.chapter-checkbox');
+                    const start = parseFloat(checkbox.dataset.start);
+                    const end = checkbox.dataset.end ? parseFloat(checkbox.dataset.end) : null;
+
+                    document.querySelectorAll('.chapter-checkbox').forEach(cb => cb.checked = false);
+                    selectedChapters = [];
+                    currentChapterStartTime = start;
+                    currentChapterEndTime = end;
+                    topicAudio.currentTime = currentChapterStartTime;
+                    topicAudio.play();
+                    chaptersDropdown.classList.add("hidden");
+                } else if (e.target.type === 'checkbox') {
+                    selectedChapters = [];
+                    document.querySelectorAll('.chapter-checkbox:checked').forEach(cb => {
+                        selectedChapters.push({
+                            start: parseFloat(cb.dataset.start),
+                            end: cb.dataset.end ? parseFloat(cb.dataset.end) : topicAudio.duration
+                        });
+                    });
+                    selectedChapters.sort((a, b) => a.start - b.start);
+                }
+ 			});
+
+ 			rewindButton.addEventListener('click', () => {
+ 				topicAudio.currentTime = Math.max(0, topicAudio.currentTime - 3);
+ 			});
+
+ 			forwardButton.addEventListener('click', () => {
+ 				topicAudio.currentTime = Math.min(topicAudio.duration, topicAudio.currentTime + 3);
+ 			});
+
+ 			const speeds=[1,1.25,1.5,2];
+ 			let currentSpeedIndex=0;
+ 			speedButton.addEventListener("click",()=>{currentSpeedIndex=(currentSpeedIndex+1)%speeds.length;const e=speeds[currentSpeedIndex];topicAudio.playbackRate=e,speedButton.textContent=`${e}x`});
+ 			loopButton.addEventListener("click",()=>{loopButton.classList.toggle("active")});
+ 			document.addEventListener("click",e=>{chaptersMenuContainer.contains(e.target)||chaptersDropdown.classList.add("hidden")});
+
+ 			editModeToggle.addEventListener("change",()=>{
+ 				if (editModeToggle.checked) {
+                    resetLayout();
+                    passwordModalOverlay.classList.remove('hidden');
+ 				} else {
+ 					resetLayout();
+ 				}
+ 			});
+
+            toggleLectorButton.addEventListener('click', () => {
+                if (lectorPanel.style.display === 'block') {
+                    resetLayout();
+                } else {
+                    resetLayout(lectorPanel);
+                    if(!lectorFrame.src) {
+                        lectorFrame.src = "https://cheradra312.github.io/REPRODUCTOR/";
+                    }
+                }
+            });
+
+ 			function enterEditMode() {
+                resetLayout(editorPanel);
+ 				passwordModalOverlay.classList.add('hidden');
+ 				passwordInput.value = '';
+ 				passwordError.classList.add('hidden');
+ 			}
+
+ 			function closePasswordModal() {
+ 				passwordModalOverlay.classList.add('hidden');
+ 				editModeToggle.checked = false;
+ 				passwordInput.value = '';
+ 				passwordError.classList.add('hidden');
+                resetLayout();
+ 			}
+
+ 			confirmEditButton.addEventListener('click', () => {
+ 				if (passwordInput.value === "1234") {
+ 					enterEditMode();
+ 				} else {
+ 					passwordError.classList.remove('hidden');
+ 				}
+ 			});
+ 			cancelEditButton.addEventListener('click', closePasswordModal);
+ 			passwordModalOverlay.addEventListener('click', (e) => {
+ 				if (e.target === passwordModalOverlay) {
+ 					closePasswordulas();
+ 				}
+ 			});
+
+ 			editorList.addEventListener("click",e=>{
+ 				const t=e.target.closest(".mark-button, .delete-chapter-button");
+ 				if(!t) return;
+
+                const index = t.dataset.index;
+
+                if (t.classList.contains('delete-chapter-button')) {
+                    indexToDelete = index;
+                    deleteConfirmModal.classList.remove('hidden');
+                } else if (t.classList.contains('mark-button')) {
+                    const type = t.dataset.type;
+                    const currentTime = Math.round(100 * topicAudio.currentTime) / 100;
+                    editedChapters[index][type] = currentTime;
+                    document.getElementById(`${type}-time-${index}`).textContent = formatTime(currentTime);
+                }
+ 			});
+
+            confirmDeleteBtn.addEventListener('click', () => {
+                if (indexToDelete > -1) {
+                    editedChapters.splice(indexToDelete, 1);
+                    renderEditorList();
+                }
+                deleteConfirmModal.classList.add('hidden');
+                indexToDelete = -1;
+            });
+            cancelDeleteBtn.addEventListener('click', () => {
+                deleteConfirmModal.classList.add('hidden');
+                indexToDelete = -1;
+            });
+
+ 			editorList.addEventListener('input', e => {
+ 				if (e.target.tagName === 'INPUT' && e.target.type === 'text') {
+ 					const index = e.target.dataset.index;
+ 					editedChapters[index].title = e.target.value;
+ 				}
+ 			});
+
+ 			addChapterButton.addEventListener('click', () => {
+ 				const newTitle = newChapterTitleInput.value.trim();
+ 				if (newTitle) {
+ 					editedChapters.push({ title: newTitle, start: 0, end: 0 });
+ 					renderEditorList();
+ 					newChapterTitleInput.value = '';
+ 				}
+ 			});
+
+ 			saveDataButton.addEventListener("click",async()=>{
+                if (!db || !localUserId) {
+                    alert("La conexión con la base de datos no está disponible. No se puede guardar.");
+                    return;
+                }
+ 				const topicId = currentTopic.file.replace(/_Desplegable\.html$/i, '');
+                userCustomChapters[topicId] = editedChapters;
+                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'sessions', localUserId);
+ 				const dataToSave = { ...userCustomChapters };
+
+ 				saveIcon.className = "fas fa-spinner fa-spin";
+ 				saveText.textContent = "Guardando...";
+
+ 				try {
+ 					await setDoc(docRef, dataToSave, { merge: true });
+ 					currentTopic.chapters = JSON.parse(JSON.stringify(editedChapters));
+ 					updateChapters(currentTopic.chapters);
+
+ 					saveNotification.textContent = "¡Guardado!";
+ 					saveNotification.style.opacity=1;
+ 					setTimeout(()=>{ saveNotification.style.opacity=0 }, 2000);
+ 				} catch (error) {
+ 					console.error("Error al guardar en Firestore: ", error);
+                    alert("Error al guardar. Comprueba la consola para más detalles.");
+ 				} finally {
+ 					saveIcon.className = "fas fa-cloud-upload-alt";
+ 					saveText.textContent = "Guardar en la Nube";
+ 				}
+ 			});
+
+ 			restoreDefaultsButton.addEventListener('click', async () => {
+ 				if (!currentTopic || !db || !localUserId) return;
+
+ 				const topicId = currentTopic.file.replace(/_Desplegable\.html$/i, '');
+ 				const originalTopic = topics.find(t => t.file === currentTopic.file);
+ 				if (!originalTopic) return;
+
+ 				const defaultChapters = originalTopic.chapters ? JSON.parse(JSON.stringify(originalTopic.chapters)) : [];
+
+ 				updateEditor(defaultChapters);
+ 				updateChapters(defaultChapters);
+
+                userCustomChapters[topicId] = defaultChapters;
+ 				const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'sessions', localUserId);
+ 				const dataToSave = { ...userCustomChapters };
+
+ 				const originalButtonText = restoreDefaultsButton.innerHTML;
+ 				restoreDefaultsButton.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Restaurando...`;
+ 				restoreDefaultsButton.disabled = true;
+
+ 				try {
+ 					await setDoc(docRef, dataToSave, { merge: true });
+ 					currentTopic.chapters = defaultChapters;
+
+ 					saveNotification.textContent = "¡Valores por defecto restaurados!";
+ 					saveNotification.style.opacity = 1;
+ 					setTimeout(() => { saveNotification.style.opacity = 0 }, 2000);
+
+ 				} catch (error) {
+ 					console.error("Error restoring defaults to Firestore: ", error);
+ 				} finally {
+ 					restoreDefaultsButton.innerHTML = originalButtonText;
+ 					restoreDefaultsButton.disabled = false;
+ 				}
+ 			});
+
+            prevPageBtn.addEventListener('click', () => {
+                if (currentPageNum <= 1) return;
+                currentPageNum--;
+                renderPage(currentPageNum, pdfDoc, pdfCanvas, pageNumEl, prevPageBtn, nextPageBtn);
+            });
+
+            nextPageBtn.addEventListener('click', () => {
+                if (!pdfDoc || currentPageNum >= pdfDoc.numPages) return;
+                currentPageNum++;
+                renderPage(currentPageNum, pdfDoc, pdfCanvas, pageNumEl, prevPageBtn, nextPageBtn);
+            });
+
+            oralPrevPageBtn.addEventListener('click', () => {
+                if (oralCurrentPageNum <= 1) return;
+                oralCurrentPageNum--;
+                renderPage(oralCurrentPageNum, oralPdfDoc, document.getElementById('oral-pdf-canvas'), document.getElementById('oral-page-num'), oralPrevPageBtn, oralNextPageBtn);
+            });
+
+            oralNextPageBtn.addEventListener('click', () => {
+                if (!oralPdfDoc || oralCurrentPageNum >= oralPdfDoc.numPages) return;
+                oralCurrentPageNum++;
+                renderPage(oralCurrentPageNum, oralPdfDoc, document.getElementById('oral-pdf-canvas'), document.getElementById('oral-page-num'), oralPrevPageBtn, oralNextPageBtn);
+            });
+
+            const openViewer = (side) => {
+                const viewerWrapper = (pdfToOpen === 'topic') ? pdfViewerWrapper : oralPdfViewerWrapper;
+                resetLayout(viewerWrapper, side);
+
+                const url = (pdfToOpen === 'topic')
+                    ? 'https://raw.githubusercontent.com/cheradra312/MA_1-15/79ec0306ed26f12cffec97840904f3989df925fd/Facilitador%20CICCPE%20Temario%20Condensado%20MEC2%20(versi%C3%B3n%202025-05).pdf'
+                    : 'https://raw.githubusercontent.com/cheradra312/MA_1-15/79ec0306ed26f12cffec97840904f3989df925fd/Facilitador%20CICCPE%20Preguntas%20oral%20MEC2%20(versi%C3%B3n%202025-01).pdf';
+                const topicId = currentTopic.file.replace(/_Desplegable\.html$/i, '');
+
+                if (pdfToOpen === 'topic') {
+                    if (!pdfDoc) loadPdfAndFind(url, topicId, pdfCanvas, pageNumEl, pageCountEl, prevPageBtn, nextPageBtn, pdfLoadingOverlay, loadingText);
+                } else {
+                    if (!oralPdfDoc) loadPdfAndFind(url, topicId, document.getElementById('oral-pdf-canvas'), document.getElementById('oral-page-num'), document.getElementById('oral-page-count'), oralPrevPageBtn, oralNextPageBtn, document.getElementById('oral-pdf-loading-overlay'), document.getElementById('oral-loading-text'));
+                }
+
+                sideSelectModal.classList.add('hidden');
+            };
+
+            openLeftBtn.addEventListener('click', () => openViewer('left'));
+            openRightBtn.addEventListener('click', () => openViewer('right'));
+            cancelSideSelectBtn.addEventListener('click', () => sideSelectModal.classList.add('hidden'));
+
+
+            function resetLayout(panelToShow = null, side = 'left') {
+                 [lectorPanel, editorPanel, pdfViewerWrapper, oralPdfViewerWrapper].forEach(p => {
+                    p.style.display = 'none';
+                    p.style.opacity = 0;
+                    if(p !== panelToShow) {
+                        document.body.appendChild(p);
+                    }
+                });
+
+                resizer.style.display = 'none';
+                mainViewerArea.appendChild(contentContainer);
+                contentContainer.style.flexBasis = '100%';
+
+                if (panelToShow) {
+                    panelToShow.style.display = 'block';
+                    if (side === 'left') {
+                        mainViewerArea.insertBefore(resizer, contentContainer);
+                        mainViewerArea.insertBefore(panelToShow, resizer);
+                    } else {
+                        mainViewerArea.appendChild(resizer);
+                        mainViewerArea.appendChild(panelToShow);
+                    }
+                    panelToShow.style.flexBasis = '33.33%';
+                    contentContainer.style.flexBasis = 'auto';
+                    resizer.style.display = 'block';
+                    setTimeout(() => panelToShow.style.opacity = 1, 10);
+                }
+            }
+
+            togglePdfButton.addEventListener('click', () => {
+                if (pdfViewerWrapper.style.display === 'block') {
+                    resetLayout();
+                } else {
+                    pdfToOpen = 'topic';
+                    sideSelectModal.classList.remove('hidden');
+                }
+            });
+
+            toggleOralButton.addEventListener('click', () => {
+                 if (oralPdfViewerWrapper.style.display === 'block') {
+                     resetLayout();
+                 } else {
+                    pdfToOpen = 'oral';
+                    sideSelectModal.classList.remove('hidden');
+                 }
+            });
+
+            toggleVideoButton.addEventListener('click', () => {
+                if (!currentTopic || !currentTopic.videoId) {
+                    alert('Este tema no tiene un vídeo asociado.');
+                    return;
+                }
+
+                let videoUrl;
+                if (currentTopic.videoId.startsWith('http')) {
+                    videoUrl = currentTopic.videoId;
+                } else {
+                    videoUrl = `https://drive.google.com/file/d/${currentTopic.videoId}/view`;
+                }
+                window.open(videoUrl, '_blank');
+                topicAudio.pause();
+            });
+
+            playSelectionButton.addEventListener('click', () => {
+                if (selectedChapters.length > 0) {
+                    x3LoopState.active = false;
+                    playX3Button.classList.remove('active');
+                    currentChapterStartTime = selectedChapters[0].start;
+                    currentChapterEndTime = selectedChapters[selectedChapters.length - 1].end;
+                    topicAudio.currentTime = currentChapterStartTime;
+                    loopButton.classList.add('active');
+                    topicAudio.play();
+                } else {
+                    alert('Por favor, selecciona al menos un epígrafe para reproducir.');
+                }
+            });
+
+            playX3Button.addEventListener('click', () => {
+                x3LoopState.active = !x3LoopState.active;
+                playX3Button.classList.toggle('active', x3LoopState.active);
+
+                if (x3LoopState.active) {
+                    loopButton.classList.remove('active');
+                    selectedChapters = [];
+                    x3LoopState.queue = [...currentTopic.chapters];
+                    x3LoopState.currentIndex = 0;
+                    x3LoopState.playCount = 0;
+
+                    const firstChapter = x3LoopState.queue[0];
+                    currentChapterStartTime = firstChapter.start;
+                    currentChapterEndTime = firstChapter.end || topicAudio.duration;
+                    topicAudio.currentTime = currentChapterStartTime;
+                    topicAudio.play();
+                }
+            });
+
+            startSessionButton.addEventListener('click', () => {
+                const sessionId = sessionIdInput.value.trim();
+                if (sessionId) {
+                    localStorage.setItem('sessionId_MEC2', sessionId);
+                    handleSession();
+                    if(db) {
+                         document.getElementById('save-data-button').disabled = false;
+                         document.getElementById('restore-defaults-button').disabled = false;
+                         document.getElementById('save-text').textContent = "Guardar en la Nube";
+                    }
+                }
+            });
+
+            changeSessionButton.addEventListener('click', () => {
+                localStorage.removeItem('sessionId_MEC2');
+                window.location.reload();
+            });
+
+            function setupDragAndDrop() {
+                const items = editorList.querySelectorAll('.edit-chapter-item');
+                let draggedItem = null;
+
+                items.forEach(item => {
+                    item.addEventListener('dragstart', () => {
+                        draggedItem = item;
+                        setTimeout(() => {
+                            item.classList.add('dragging');
+                        }, 0);
+                    });
+
+                    item.addEventListener('dragend', () => {
+                        setTimeout(() => {
+                            draggedItem.classList.remove('dragging');
+                            draggedItem = null;
+                        }, 0);
+                    });
+
+                    item.addEventListener('dragover', e => {
+                        e.preventDefault();
+                        const afterElement = getDragAfterElement(editorList, e.clientY);
+                        if (afterElement == null) {
+                            editorList.appendChild(draggedItem);
+                        } else {
+                            editorList.insertBefore(draggedItem, afterElement);
+                        }
+                    });
+                });
+
+                editorList.addEventListener('drop', () => {
+                    const newOrder = [];
+                    editorList.querySelectorAll('.edit-chapter-item').forEach(item => {
+                        const originalIndex = parseInt(item.dataset.index);
+                        newOrder.push(editedChapters[originalIndex]);
+                    });
+                    editedChapters = newOrder;
+                    renderEditorList();
+                });
+            }
+
+            function getDragAfterElement(container, y) {
+                const draggableElements = [...container.querySelectorAll('.edit-chapter-item:not(.dragging)')];
+
+                return draggableElements.reduce((closest, child) => {
+                    const box = child.getBoundingClientRect();
+                    const offset = y - box.top - box.height / 2;
+                    if (offset < 0 && offset > closest.offset) {
+                        return { offset: offset, element: child };
+                    } else {
+                        return closest;
+                    }
+                }, { offset: Number.NEGATIVE_INFINITY }).element;
+            }
+
+            function initResizer() {
+                let x = 0;
+                let leftPanelWidth = 0;
+
+                const mouseDownHandler = function(e) {
+                    x = e.clientX;
+                    const resizer = e.target;
+                    const leftPanel = resizer.previousElementSibling;
+
+                    if (!leftPanel || leftPanel.style.display === 'none') return;
+
+                    leftPanelWidth = leftPanel.getBoundingClientRect().width;
+
+                    document.addEventListener('mousemove', mouseMoveHandler);
+                    document.addEventListener('mouseup', mouseUpHandler);
+                    resizer.classList.add('resizing');
+                    document.body.style.cursor = 'col-resize';
+                    document.body.style.userSelect = 'none';
+                };
+
+                const mouseMoveHandler = function(e) {
+                    const dx = e.clientX - x;
+                    const leftPanel = resizer.previousElementSibling;
+                    const rightPanel = resizer.nextElementSibling;
+                    if (!leftPanel || !rightPanel) return;
+
+                    const newLeftWidth = leftPanelWidth + dx;
+
+                    if (newLeftWidth > 200 && newLeftWidth < (mainViewerArea.clientWidth - 200)) {
+                         leftPanel.style.flexBasis = `${newLeftWidth}px`;
+                    }
+                };
+
+                const mouseUpHandler = function() {
+                    document.removeEventListener('mousemove', mouseMoveHandler);
+                    document.removeEventListener('mouseup', mouseUpHandler);
+                    resizer.classList.remove('resizing');
+                    document.body.style.cursor = '';
+                    document.body.style.userSelect = '';
+                };
+
+                resizer.addEventListener('mousedown', mouseDownHandler);
+            }
+            initResizer();
+		});
+	</script>
 </body>
 </html>
