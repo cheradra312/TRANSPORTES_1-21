@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual: Transporte y Movilidad en España (I)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-header .icon-bg {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-top: 1rem; }
+        .collapsible-content > ul {
+            padding-left: 1.75rem;
+            margin-top: 0.75rem;
+            border-left: 3px dotted #cbd5e1;
+        }
+        .collapsible-content > ul > li {
+            position: relative;
+        }
+        .collapsible-content > ul > li::before {
+            content: '🔹';
+            position: absolute;
+            left: -1.75rem;
+            color: #3b82f6;
+        }
+        .pill, .law-pill, .directive-pill, .actor-pill, .plan-pill, .definition-pill {
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0 0.2rem;
+        }
+        .pill-blue { background-color: #dbeafe; color: #1e4d91; border: 1px solid #93c5fd; }
+        .pill-red { background-color: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+        .pill-yellow { background-color: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
+        .pill-green { background-color: #dcfce7; color: #166534; border: 1px solid #86efac; }
+        .actor-pill { background-color: #e5e7eb; color: #1f2937; border: 1px solid #9ca3af; }
+        .plan-pill { background-color: #cffafe; color: #164e63; border: 1px solid #67e8f9; }
+        .icon {
+            margin-right: 0.5rem;
+            width: 1.25em;
+            text-align: center;
+        }
+        .nested-list {
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+        .nested-list > li::before {
+             content: '▪️';
+        }
+        .deeper-nested-list {
+             padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+        .deeper-nested-list > li::before {
+             content: '▫️';
+        }
+
+        /* Estilos para la funcionalidad desplegable */
+        .collapsible-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.25rem 0;
+        }
+        .collapsible-trigger > span {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+            margin-right: 0.75rem;
+            width: 1em;
+            color: #3b82f6;
+        }
+        .collapsible-content {
+            padding-left: 1.75rem;
+        }
+        .collapsible-trigger.open .collapsible-icon {
+            transform: rotate(90deg);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 p-4 sm:p-6 md:p-8">
+    <div class="max-w-5xl mx-auto">
+
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-route"></i> MEC1T1: TRANSPORTE Y MOVILIDAD EN ESPAÑA (I) <i class="fas fa-chart-line"></i></h1>
+        </header>
+
+        <!-- Main Card 1 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-info-circle"></i></div>
+                <h2>1. MOVILIDAD INTERIOR Y EXTERIOR DE VIAJEROS Y MERCANCÍAS</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver Datos Generales</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-database icon text-gray-500"></i>Los datos que a continuación figuran, en lo que se refiere al reparto modal y la evolución del transporte por carretera y ferrocarril, están basados en el <span class="plan-pill">Informe anual del Observatorio del Transporte y la Logística en España (OTLE) 2024</span>, que incluye como datos más recientes los relativos al año <span class="pill pill-blue">2023</span>. Los datos específicos del transporte por vía marítima son los publicados por <span class="actor-pill">Puertos del Estado</span> de <span class="pill pill-blue">2023</span> y los del transporte aéreo los publicados por <span class="actor-pill">AENA</span> de <span class="pill pill-blue">2024</span>.</li>
+                </ul>
+            </div>
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-users mr-2 text-blue-600"></i>Viajeros</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-chart-pie icon text-purple-600"></i>El <strong><u>reparto modal de viajeros</u></strong> (en viajeros-km) en el ámbito nacional se caracteriza por una participación mayoritaria de la <strong><u>carretera</u></strong>, que alcanza una cuota del <span class="pill pill-blue">84%</span> (incluyendo el vehículo privado) en <span class="pill pill-blue">2023</span>, mientras que el <strong><u>avión</u></strong> tuvo el <span class="pill pill-blue">8%</span> y el <strong><u>ferrocarril</u></strong> el <span class="pill pill-blue">7%</span>.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-road icon text-blue-500"></i><strong><u>Transporte de viajeros por carretera</u>:</strong></p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>En <span class="pill pill-blue">2023</span> ha superado los <span class="pill pill-blue">396.000 M viajeros-km</span>.</li>
+                                <li>Tras el aumento en los años <span class="pill pill-blue">2014-2019</span> (después de 6 años de caídas), llegó la caída del año <span class="pill pill-blue">2020</span>, y en los años <span class="pill pill-blue">2021</span> y <span class="pill pill-blue">2022</span> se ha recuperado el volumen de viajeros previo a la pandemia.</li>
+                                <li>El actual volumen de tráfico de viajeros en las carreteras españolas es un <span class="pill pill-red">2%</span> inferior al de <span class="pill pill-blue">2007</span>, donde se alcanzó el máximo.</li>
+                                <li>El tráfico de viajeros por carretera es fundamentalmente de <strong><u>carácter nacional</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-train icon text-purple-500"></i><strong><u>Transporte de viajeros por ferrocarril</u>:</strong></p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>En <span class="pill pill-blue">2023</span> ha sido: alta velocidad y larga distancia <span class="pill pill-blue">19.000 M viajeros-km</span>; cercanías <span class="pill pill-blue">10.000 M viajeros-km</span>; y media distancia <span class="pill pill-blue">6.000 M viajeros-km</span>; total <span class="pill pill-blue">35.000 M viajeros-km</span>.</li>
+                                <li>En <strong><u>viajeros-km</u></strong> el reparto es: <span class="pill pill-blue">55%</span> AVE y larga distancia, <span class="pill pill-blue">28%</span> cercanías y <span class="pill pill-blue">17%</span> media distancia.</li>
+                                <li>Mientras que en <strong><u>viajeros</u></strong> el reparto es: <span class="pill pill-blue">86%</span> cercanías, <span class="pill pill-blue">8%</span> media distancia y <span class="pill pill-blue">6%</span> AVE y larga distancia.</li>
+                                <li>El transporte de viajeros por ferrocarril es eminentemente <strong><u>nacional</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-plane-departure icon text-red-600"></i><strong><u>Transporte aéreo de viajeros</u>:</strong></p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Se reparte en un <span class="pill pill-blue">68%</span> <strong><u>internacional</u></strong> y un <span class="pill pill-blue">32%</span> <strong><u>nacional</u></strong>.</li>
+                                <li>En <span class="pill pill-blue">2024</span> el tráfico aéreo superó los <span class="pill pill-blue">308 M</span> pasajeros, con los aeropuertos de <span class="actor-pill">Madrid</span>, <span class="actor-pill">Barcelona</span>, <span class="actor-pill">Palma de Mallorca</span>, <span class="actor-pill">Málaga</span> y <span class="actor-pill">Alicante</span> como los cinco de mayor tráfico.</li>
+                                <li>La evolución fue creciente desde los años 90 hasta 2007, en los años de la crisis descendió, en los últimos años volvió a experimentar crecimientos significativos que se interrumpieron con la pandemia, pero que se han recuperado alcanzando su <strong><u>máximo en <span class="pill pill-blue">2024</span></u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-ship icon text-cyan-700"></i><strong><u>Transporte marítimo de viajeros</u>:</strong></p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Se sitúa en <span class="pill pill-blue">2023</span> en <span class="pill pill-blue">39 M</span> de pasajeros, con más de <span class="pill pill-blue">12 M</span> de pasajeros de crucero.</li>
+                                <li>La evolución ha sido prácticamente <strong><u>creciente desde los años 90</u></strong>, excepto durante la pandemia.</li>
+                                <li>Lidera el ranking de los puertos españoles <span class="actor-pill">Baleares</span> (<span class="pill pill-blue">25%</span> del total), seguido por <span class="actor-pill">Santa Cruz de Tenerife</span> (<span class="pill pill-blue">17%</span>) y <span class="actor-pill">Bahía de Algeciras</span> (<span class="pill pill-blue">13%</span>).</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-truck" mr-2 text-blue-600"></i>Mercancías</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-chart-line icon text-blue-600"></i>El <strong><u>transporte de mercancías</u></strong> <strong><u>creció</u></strong> durante el periodo <span class="pill pill-blue">2014-2019</span>, después del <strong><u>descenso</u></strong> experimentado durante el periodo <span class="pill pill-blue">2008-2013</span>. La pandemia supuso una <strong><u>caída</u></strong> en las mercancías transportadas, que <strong><u>se ha superado</u></strong>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>En <span class="pill pill-blue">2023</span> se alcanzó un total de <strong><u><span class="pill pill-blue">2.140 M t</span></u></strong>, <span class="pill pill-blue">1.580 M t</span> de transporte nacional (<span class="pill pill-green">74%</span>) y <span class="pill pill-blue">560 M t</span> de transporte internacional (<span class="pill pill-green">26%</span>).</li>
+                                <li>Esto representó un <strong><u>descenso global del <span class="pill pill-red">0,4%</span></u></strong> en <span class="pill pill-blue">2023</span>.</li>
+                                <li>El volumen total transportado en <span class="pill pill-blue">2023</span> fue el <strong><u><span class="pill pill-yellow">73%</span></u></strong> del total registrado en <span class="pill pill-blue">2007</span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-chart-pie icon text-purple-600"></i>El <strong><u>reparto modal</u></strong> en <span class="pill pill-blue">2022</span> ha sido:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><strong><u>Nacional</u>:</strong> <i class="fas fa-road icon text-blue-500"></i>carretera <span class="pill pill-blue">96%</span>, <i class="fas fa-ship icon text-cyan-700"></i>marítimo <span class="pill pill-blue">3%</span> y <i class="fas fa-train icon text-purple-500"></i>ferrocarril <span class="pill pill-blue">1%</span>.</li>
+                                <li><strong><u>Internacional</u>:</strong> <i class="fas fa-ship icon text-cyan-700"></i>marítimo <span class="pill pill-blue">78%</span>, <i class="fas fa-road icon text-blue-500"></i>carretera <span class="pill pill-blue">21%</span>, y <i class="fas fa-train icon text-purple-500"></i>ferrocarril <span class="pill pill-blue">1%</span>.</li>
+                                <li><strong><u>Total</u>:</strong> <i class="fas fa-road icon text-blue-500"></i>carretera <span class="pill pill-blue">76%</span>, <i class="fas fa-ship icon text-cyan-700"></i>marítimo <span class="pill pill-blue">23%</span>, y <i class="fas fa-train icon text-purple-500"></i>ferrocarril <span class="pill pill-blue">1%</span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-ship icon text-cyan-700"></i>En el <strong><u>modo marítimo</u></strong> se alcanzaron los <span class="pill pill-blue">544 M t</span> transportadas en <span class="pill pill-blue">2023</span>, con el puerto de <span class="actor-pill">Algeciras</span> como líder (<span class="pill pill-green">19%</span> del total), seguido por <span class="actor-pill">Valencia</span> (<span class="pill pill-green">14%</span>) y <span class="actor-pill">Barcelona</span> (<span class="pill pill-green">12%</span>).</li>
+                    <li><i class="fas fa-train icon text-purple-500"></i>Por su parte, el <strong><u>tráfico ferroviario</u></strong> continúa con un <strong><u>comportamiento modesto</u></strong> y su cuota de transporte del <span class="pill pill-blue">1%</span> en <span class="pill pill-blue">2022</span>, está lejos de la de otros países europeos y de ser una alternativa viable a la carretera.</li>
+                    <li><i class="fas fa-plane-departure icon text-red-600"></i>El <strong><u>modo aéreo</u></strong> no tiene una participación modal representativa, sin embargo, su <strong><u>importancia en el tráfico cuando se mide en términos de valor</u></strong> es ya significativa y de creciente importancia. En el año <span class="pill pill-blue">2024</span> se superó el <strong><u>millón de toneladas</u></strong> transportadas en avión, con los aeropuertos de <span class="actor-pill">Madrid</span>, <span class="actor-pill">Barcelona</span> y <span class="actor-pill">Zaragoza</span> como los tres de mayor tráfico.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-globe-europe"></i></div>
+                <h2>2. COMPARACIÓN CON OTROS PAÍSES DE LA UNIÓN EUROPEA</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver Comparación con la UE</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-users icon text-blue-600"></i>En el <strong><u>transporte terrestre de viajeros</u></strong>, <span class="actor-pill">España</span> tiene valores del reparto modal <strong><u>muy similares</u></strong> a la media de la <span class="actor-pill">UE</span>.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-truck icon text-orange-600"></i>En el <strong><u>transporte terrestre de mercancías nacional</u></strong>, <span class="actor-pill">España</span> tiene una <strong><u>tasa muy superior de participación de la carretera</u></strong> que la media de la <span class="actor-pill">UE</span> (<span class="pill pill-blue">92%</span> frente a <span class="pill pill-blue">75%</span>), diferencia que se compensa en la <span class="actor-pill">UE</span> con el transporte por ferrocarril y por vías de navegación.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>En el <strong><u>ferrocarril</u></strong>, <span class="actor-pill">España</span> tiene una participación muy inferior a la media de la <span class="actor-pill">UE</span>, un <span class="pill pill-blue">4%</span> frente a un <span class="pill pill-blue">17%</span>.</li>
+                                <li>Y en el caso de <strong><u>vías de navegación</u></strong>, <span class="actor-pill">España</span> no dispone de ellas, y en la <span class="actor-pill">UE</span> tienen una participación del <span class="pill pill-blue">5%</span>.</li>
+                                <li>El porcentaje restante es para el <strong><u>transporte por tubería</u></strong>.</li>
+                                <li>Todos estos datos son en <u>toneladas-kilómetro</u> y referidos al año <span class="pill pill-blue">2022</span>, último con datos disponibles.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card 3 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-handshake"></i></div>
+                <h2>3. RELACIÓN ENTRE MOVILIDAD Y ACTIVIDAD ECONÓMICA</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver Relación Movilidad-Economía</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>El <strong><u>transporte</u></strong> es una <strong><u>condición necesaria</u></strong> para el desarrollo económico, pero <strong><u>no es suficiente</u></strong>, ya que por sí solo no puede garantizarlo; y es un sector que puede tener un <strong><u>doble efecto</u></strong> sobre la economía:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="fas fa-cogs icon text-green-600"></i><strong><u>Efecto dinamizador</u>:</strong></p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><u>A corto plazo</u>: impulsa la economía al ser una actividad intensa en recursos que <strong>incrementa la demanda agregada</strong>.</li>
+                                            <li><u>A largo plazo</u>: consigue una <strong>disminución de los costes del transporte</strong>, con empresas más competitivas y una mejora de la movilidad y calidad de vida.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><i class="fas fa-exclamation-triangle icon text-red-500"></i><strong><u>Efecto estrangulador</u>:</strong> si no se dispone de una provisión suficiente de infraestructuras, puede provocar que las actividades económicas se desarrollen <strong><u>por debajo de su potencial</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-sync-alt icon text-purple-600"></i>Este doble efecto se puede utilizar sobre la economía del país con una <strong><u>política anticíclica</u></strong>, utilizando la inversión en infraestructuras como variable de estabilización económica, <strong><u>impulsando la demanda agregada en momentos de crisis</u></strong> económica, y <strong><u>frenando tensiones inflacionistas en momentos de expansión</u></strong>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>La realidad suele ser otra, y es que a menudo la inversión en infraestructuras no se ha empleado como variable de ajuste, con una alta inversión en períodos expansivos con incremento de la inflación y recalentamiento de la economía, y con baja inversión en períodos recesivos.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-chart-line icon text-blue-700"></i>Todo esto se traduce en que, generalmente, el sector del transporte <strong><u>evoluciona con el ciclo económico</u></strong>, aunque con un cierto desfase temporal y con una <strong><u>sensibilidad más acusada</u></strong>, lo que significa que cuando hay auge económico el crecimiento del sector transporte supera en términos porcentuales al crecimiento del PIB, mientras que cuando entra en una fase recesiva decrece más que éste. Y tiene influencia sobre la eficiencia económica global afectando a la competitividad de todos los sectores económicos.</li>
+                </ul>
+            </div>
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-database mr-2 text-gray-700"></i>Datos Macroeconómicos del Sector</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-file-alt icon"></i>En cuanto a los datos macroeconómicos del sector, el último informe anual de <span class="pill pill-blue">2024</span> publicado por el <span class="plan-pill">Observatorio del Transporte y la Logística en España</span>, incluye datos de <span class="pill pill-blue">2023</span> que se resumen a continuación algunos de los más relevantes.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-euro-sign icon text-green-600"></i>En <span class="pill pill-blue">2023</span> la <strong><u>inversión en infraestructuras de transporte</u></strong> ejecutadas por el conjunto de las administraciones públicas alcanzó los <span class="pill pill-blue">9.600 millones de euros</span> constantes de 2015.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Analizando la distribución de las inversiones, se observa que la realizada por el <span class="actor-pill">MITMS</span> y sus entes asociados continúa siendo la que mayor peso tiene, al representar en <span class="pill pill-blue">2023</span> el <span class="pill pill-blue">72%</span> del total.</li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>Particularizando por modos:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><i class="fas fa-road icon text-blue-500"></i>Para el conjunto de las AAPP, las inversiones en <strong><u>carreteras son las mayoritarias (<span class="pill pill-blue">46%</span>)</u></strong>.</li>
+                                            <li><i class="fas fa-train icon text-purple-500"></i>Si sólo se tiene en cuenta el <span class="actor-pill">MITMS</span>, el <strong><u>ferrocarril es el modo predominante (<span class="pill pill-blue">47%</span>)</u></strong>.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-chart-pie icon text-purple-600"></i>El sector del transporte en España supera el <span class="pill pill-blue">4%</span> del PIB. Por su parte, el total de <strong><u>afiliados a la Seguridad Social</u></strong> en el sector en <span class="pill pill-blue">2023</span> superó el <strong><u>millón de personas</u></strong>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Respecto a la <strong><u>calidad del empleo</u></strong>, en el sector transporte los <strong><u>salarios son más altos</u></strong> que la media en el sector servicios, y lo mismo ocurre con la <strong><u>productividad</u></strong>.</li>
+                                <li>Por su parte, el <strong><u>coste laboral neto por empleado</u></strong> en el sector alcanza los <span class="pill pill-blue">37.000 €</span>.</li>
+                                <li>Este sector sigue la tendencia general de <strong><u>generar más cantidad de servicios con menor uso de recursos</u></strong>, con efectos positivos sobre la eficiencia y competitividad, pero con efectos negativos sobre la demanda de trabajo y el paro.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-umbrella-beach"></i></div>
+                <h2>4. EL TRANSPORTE Y LA INDUSTRIA DEL TURISMO</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-info-circle icon text-blue-600"></i>El <strong><u>transporte</u></strong> es un <strong><u>elemento fundamental para el turismo</u></strong>, pues sin los medios de transporte y las infraestructuras que les sirven de soporte (carreteras, vías férreas, aeropuertos y puertos) no podría alcanzar los enormes flujos actuales.</li>
+                    <li>
+                        <p><i class="fas fa-chart-line icon text-green-600"></i>La <strong><u>mejora considerable de la accesibilidad</u></strong> a los medios e infraestructuras de transporte que se ha producido en los últimos <span class="pill pill-blue">60 años</span> ha sido una <strong><u>auténtica impulsora del turismo</u></strong>.</p>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-users icon text-gray-700"></i>El <strong><u>acceso al transporte de la ciudadanía</u></strong>, debido a las <u>inversiones públicas</u> en infraestructuras, acompañado de la <u>mejora de la renta</u> y del <u>descenso progresivo de los costes</u> de los vehículos, ha contribuido decisivamente a la <strong><u>generalización del turismo</u></strong>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Esto se plasma en <strong><u>comportamientos cada vez más alcistas de la movilidad</u></strong>, con todas sus repercusiones para el <u>crecimiento del turismo</u>, pero también para la <u>afección del medio ambiente</u>, debido sobre todo por el <strong><u>aumento de las emisiones</u></strong> y el <strong><u>deterioro del paisaje</u></strong> por la construcción de más infraestructuras, sin olvidar la <strong><u>accesibilidad inducida</u></strong> generada en espacios más o menos vírgenes.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-plane-departure icon text-red-600"></i>Por su parte, la <strong><u>generalización del transporte aéreo</u></strong>, que llega con la aplicación del motor a reacción en los <span class="pill pill-blue">años sesenta</span> y se intensifica con las <strong><u>fórmulas de bajo coste</u></strong> por la desregulación del sector, ha <strong><u>estimulado aún más el turismo de masas</u></strong>, especialmente en las dos últimas décadas.</li>
+                    <li><i class="fas fa-ship icon text-cyan-700"></i>Por último, mencionar que el <strong><u>transporte marítimo</u></strong> se incorpora al desarrollo del turismo con el <strong><u>renacimiento de los cruceros</u></strong> desde mitad de los <span class="pill pill-blue">años ochenta</span>.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const triggers = document.querySelectorAll('.collapsible-trigger');
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function (event) {
+                    // Evita que el evento de clic se propague a los triggers padres
+                    event.stopPropagation();
+                    
+                    const content = this.nextElementSibling;
+                    
+                    this.classList.toggle('open');
+                    
+                    if (content && content.classList.contains('collapsible-content')) {
+                        content.classList.toggle('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
