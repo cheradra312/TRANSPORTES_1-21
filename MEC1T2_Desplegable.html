@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual: El Transporte y la Logística como Sector Empresarial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-header .icon-bg {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-top: 1rem; }
+        .pill, .law-pill, .directive-pill, .actor-pill, .plan-pill, .definition-pill {
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0 0.2rem;
+        }
+        .pill-blue { background-color: #dbeafe; color: #1e4d91; border: 1px solid #93c5fd; }
+        .actor-pill { background-color: #e5e7eb; color: #1f2937; border: 1px solid #9ca3af; }
+        .plan-pill { background-color: #cffafe; color: #164e63; border: 1px solid #67e8f9; }
+        .definition-pill { background-color: #cffafe; color: #155e75; border: 1px solid #22d3ee; }
+        .icon {
+            margin-right: 0.5rem;
+            width: 1.25em;
+            text-align: center;
+        }
+        .nested-list {
+            padding-left: 1.75rem;
+            margin-top: 0.75rem;
+            border-left: 3px dotted #cbd5e1;
+        }
+        .nested-list > li {
+            position: relative;
+        }
+        .nested-list > li::before {
+            content: '🔹';
+            position: absolute;
+            left: -1.75rem;
+            color: #3b82f6;
+        }
+        .deeper-nested-list {
+             padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+        .deeper-nested-list > li::before {
+             content: '▪️';
+             left: -1.25rem;
+        }
+        /* Estilos para la funcionalidad desplegable */
+        .collapsible-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.25rem 0;
+        }
+        .collapsible-trigger > span, .collapsible-trigger > h3 {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+            margin-right: 0.75rem;
+            width: 1em;
+            color: #3b82f6;
+        }
+        .collapsible-content {
+            padding-left: 1.75rem;
+        }
+        .collapsible-trigger.open .collapsible-icon {
+            transform: rotate(90deg);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 p-4 sm:p-6 md:p-8">
+    <div class="max-w-5xl mx-auto">
+
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-truck-loading"></i> MEC1T2: EL TRANSPORTE Y LA LOGÍSTICA COMO SECTOR EMPRESARIAL <i class="fas fa-industry"></i></h1>
+        </header>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-cogs"></i></div>
+                <h2>1. EL TRANSPORTE Y LA LOGÍSTICA COMO SECTOR EMPRESARIAL</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700">Ver detalles</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-info-circle icon text-blue-600"></i>La <span class="definition-pill"><strong>logística</strong></span> es el <strong><u>proceso de planificación y gestión integral de la cadena de abastecimiento</u></strong>, incluyendo el suministro de materias primas a la industria, la gestión interna durante la producción, y la fase de distribución a almacenes y centros para llegar hasta el consumidor. Durante las fases que integran dicho proceso, la logística aporta servicios de: carga y descarga, manipulación y transbordo de la mercancía, almacenaje, centros de distribución, grupaje, control de calidad, empaquetado, envasado, inspección de la mercancía, servicios a vehículos pesado, servicios aduaneros, seguridad, etc.</li>
+                    <li><i class="fas fa-euro-sign icon text-green-600"></i>Los <strong><u>costes logísticos</u></strong> suponen alrededor del <span class="pill pill-blue">6%</span> del volumen de negocio de los principales sectores productivos de España según el “Estudio de caracterización del sector del transporte y la logística en España” de la Organización empresarial de Logística y Transporte. El <strong><u>transporte</u></strong> supone alrededor de un <span class="pill pill-blue">60%</span> de los costes logísticos totales (incluyendo el propio transporte).</li>
+                </ul>
+            </div>
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-dolly-flatbed mr-2 text-purple-600"></i>Uso de Modos en la Logística de Aprovisionamiento</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-car icon"></i>▪️ En las cadenas del <strong><u>sector de la automoción</u></strong> (vehículos y repuestos), la <strong><u>carretera</u></strong> es el modo predominante, con más de un <span class="pill pill-blue">97%</span> de las toneladas transportadas, siendo el segundo modo más importante el <strong><u>ferrocarril</u></strong>.</li>
+                    <li><i class="fas fa-ship icon"></i>▪️ En el resto de cadenas los modos predominantes son <strong><u>carretera y marítimo</u></strong>, superando este último a la carretera en el caso de las cadenas de <strong><u>textiles</u></strong> (<span class="pill pill-blue">79%</span> de las toneladas transportadas), en las cadenas de <strong><u>equipos, repuestos y residuos informáticos</u></strong> (<span class="pill pill-blue">65%</span>) y en las cadenas de la <strong><u>siderurgia</u></strong> (<span class="pill pill-blue">60%</span>).</li>
+                    <li><i class="fas fa-train icon"></i>▪️ El modo <strong><u>ferroviario</u></strong> alcanza su cuota más elevada en el caso de las cadenas de la <strong><u>siderurgia</u></strong>, con un <span class="pill pill-blue">7%</span> de las toneladas transportadas, mientras que el <strong><u>aéreo</u></strong> alcanza su cuota más elevada en el caso de las cadenas de <strong><u>material sanitario</u></strong>, con un <span class="pill pill-blue">3%</span>.</li>
+                </ul>
+            </div>
+             <hr class="my-6">
+             <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-people-carry mr-2 text-blue-600"></i>Uso de Modos en la Cadena de Distribución</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-road icon"></i>▪️ La <strong><u>carretera</u></strong> es prácticamente el modo predominante en exclusiva en <u>nueve de las once cadenas</u> analizadas.</li>
+                    <li><i class="fas fa-ship icon"></i>▪️ En la cadena de distribución de <strong><u>vehículos</u></strong> el modo predominante es el <strong><u>marítimo</u></strong>, con un <span class="pill pill-blue">59%</span> de las toneladas transportadas, seguido de la carretera (<span class="pill pill-blue">26%</span>) y del ferroviario (<span class="pill pill-blue">14%</span>).</li>
+                    <li><i class="fas fa-industry icon"></i>▪️ En las cadenas de distribución de la <strong><u>siderurgia</u></strong> el modo predominante es la <strong><u>carretera</u></strong>, con un <span class="pill pill-blue">50%</span> de las toneladas transportadas, seguido del marítimo (<span class="pill pill-blue">47%</span>) y del ferroviario (<span class="pill pill-blue">3%</span>).</li>
+                    <li><i class="fas fa-plane icon"></i>▪️ El uso del <strong><u>modo aéreo</u></strong> es prácticamente <strong><u>despreciable</u></strong>, siendo su cuota más relevante la de la cadena de distribución de <strong><u>productos farmacéuticos</u></strong>, con un <span class="pill pill-blue">1%</span> de las toneladas transportadas.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card 2 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-chart-pie"></i></div>
+                <h2>2. PARTICIPACIÓN EN LA ECONOMÍA NACIONAL, EMPRESAS Y EMPLEO</h2>
+            </div>
+             <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-info-circle icon text-blue-600"></i>El <strong><u>peso económico</u></strong> del sector de la logística se ha mantenido <strong><u>estable</u></strong> en los últimos años en torno al <span class="pill pill-blue">3%</span> del PIB.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-cogs icon text-purple-600"></i>Dentro de la logística, los <strong><u>subsectores</u></strong> que mayor valor aportan al sector son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>“Actividades anexas al transporte” con un <span class="pill pill-blue">1,2%</span> del PIB.</li>
+                                <li>“Transporte de mercancías por carretera y servicios de mudanza” con un <span class="pill pill-blue">1,0%</span> del PIB.</li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-globe-europe icon text-green-600"></i><strong><u>Comparando</u></strong> el sector logístico con el de las grandes economías de la <span class="actor-pill">UE</span> (<span class="actor-pill">Alemania</span>, <span class="actor-pill">Francia</span> e <span class="actor-pill">Italia</span>), se observa que la contribución de este sector en dichos países se sitúa entre el <span class="pill pill-blue">2,1%</span> y el <span class="pill pill-blue">3,5%</span>, valores <strong><u>similares a España</u></strong>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>En <strong><u>términos relativos</u></strong>, en <span class="actor-pill">Italia</span> el sector logístico tiene <u>mayor peso</u> que en España, en <span class="actor-pill">Alemania</span> es <u>similar</u>, mientras que <span class="actor-pill">Francia</span> tiene una <u>participación menor</u>.</li>
+                                <li>En todos ellos los subsectores con mayor peso son <span class="definition-pill">“Actividades anexas al transporte”</span> y <span class="definition-pill">“Transporte de mercancías por carretera y servicios de mudanza”</span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li><i class="fas fa-users icon text-gray-700"></i>El <strong><u>personal ocupado</u></strong> en el sector logístico en <span class="pill pill-blue">2021</span> superó los <span class="pill pill-blue">700.000</span> empleados. La relación entre la ocupación total del sector logístico y la ocupación total en España supera el <span class="pill pill-blue">3,4%</span>, con una relación superior a la obtenida para el peso económico del sector logístico.</li>
+                     <li><i class="fas fa-balance-scale icon text-yellow-600"></i>En <strong><u>comparación con las principales economías de la UE</u></strong>, el peso relativo del personal empleado en el sector logístico en <span class="actor-pill">España</span> es <strong><u>muy similar</u></strong> al registrado en <span class="actor-pill">Italia</span> (en torno al <span class="pill pill-blue">3,5%</span>), situándose por encima de <span class="actor-pill">Francia</span> (con un <span class="pill pill-blue">3%</span>), y por debajo de <span class="actor-pill">Alemania</span>, que tiene un peso relativo del <span class="pill pill-blue">4%</span>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card 3 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-euro-sign"></i></div>
+                <h2>3. GASTO DE LOS CIUDADANOS EN TRANSPORTE</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles del Gasto en Transporte</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>El <strong><u>gasto medio anual en transporte</u></strong> por persona en <span class="actor-pill">España</span> en <span class="pill pill-blue">2023</span> fue superior a los <span class="pill pill-blue">1.400 €</span>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>La <strong><u>renta neta disponible per cápita</u></strong> y el <strong><u>gasto medio por persona</u></strong> se encuentran directamente relacionados, de la misma manera que el gasto medio en transporte.</li>
+                                <li>En el año <span class="pill pill-blue">2023</span> la renta nacional se incrementó más de un <span class="pill pill-green">7%</span>, mientras que el gasto medio en transporte decreció un <span class="pill pill-red">1%</span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-chart-line icon text-red-500"></i>Durante el periodo entre <span class="pill pill-blue">2008</span> y <span class="pill pill-blue">2013</span>, coincidiendo con la <strong><u>época de recesión económica</u></strong> en el país:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>La <strong><u>renta neta</u></strong> sufrió una importante caída (<span class="pill pill-red">-9%</span>).</li>
+                                <li>La cual fue acompañada por un <strong><u>menor gasto medio</u></strong> por persona (<span class="pill pill-red">-10%</span>).</li>
+                                <li>No obstante, el <strong><u>gasto medio en transporte</u></strong> experimentó una <strong><u>reducción muy superior</u></strong> (<span class="pill pill-red">-24%</span>).</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-arrow-up icon text-green-600"></i>Desde <span class="pill pill-blue">2014</span>, la renta neta y los gastos medios generales se han <strong><u>incrementado</u></strong>, llegando a niveles superiores a los de antes de la crisis, lo que <strong><u>no ha ocurrido con el gasto medio en transporte</u></strong>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Dicho gasto, incluso teniendo un gran incremento acumulado en los últimos años, <strong><u>no ha alcanzado los niveles de 2007</u></strong>, es decir que la intención de gasto medio en transporte se ha reducido, a causa de la recesión, en favor de otro tipo de gastos.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-lightbulb icon text-yellow-500"></i>Dado que el transporte es un bien muy <strong><u>dependiente del ciclo económico</u></strong>, esto puede ser síntoma de que la <strong><u>recuperación está llegando a los presupuestos</u></strong> de las familias, aunque también puede haber otras causas, como la <strong><u>contención en los precios</u></strong> del transporte.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>No obstante, el porcentaje de gasto destinado al transporte (<span class="pill pill-blue">12%</span>) sigue estando <strong><u>por debajo de los niveles anteriores a la crisis</u></strong> (<span class="pill pill-blue">15%</span>), lo que indica un <strong><u>cambio en las preferencias</u></strong> de los ciudadanos.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card 4 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-euro-sign"></i></div>
+                <h2>4. GASTO DE LOS DIFERENTES SECTORES EMPRESARIALES EN TRANSPORTE DE MERCANCÍAS Y LOGÍSTICA</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles del Gasto Empresarial</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-info-circle icon text-blue-600"></i>Los <strong><u>costes del transporte y la logística</u></strong> de una empresa varían sustancialmente dependiendo del sector de actividad. En la mayor parte de sectores, las empresas asumen un <strong><u>gasto mayor en transporte</u></strong> que en las actividades de almacenamiento, manipulación y gestión de centros logísticos.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-chart-pie icon text-purple-600"></i>Para el total de la economía española, los costes en transporte y almacenamiento, excluyendo los gastos de administración e inventarios, ascienden al <span class="pill pill-blue"><strong>6%</strong></span> sobre el precio de venta del producto, correspondiendo el <span class="pill pill-blue"><strong>4%</strong></span> al transporte y el <span class="pill pill-blue"><strong>2%</strong></span> a las actividades logísticas.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>No obstante, estos porcentajes <strong><u>varían dependiendo del sector</u></strong>:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><i class="fas fa-book icon text-yellow-600"></i><strong>Editorial:</strong> transporte <span class="pill pill-blue">7%</span>, logística <span class="pill pill-blue">2%</span>, total <span class="pill pill-green">9%</span>.</li>
+                                            <li><i class="fas fa-store icon text-blue-600"></i><strong>Comercio:</strong> transporte <span class="pill pill-blue">4%</span>, logística <span class="pill pill-blue">4%</span>, total <span class="pill pill-green">8%</span>.</li>
+                                            <li><i class="fas fa-tshirt icon text-pink-500"></i><strong>Textil:</strong> transporte <span class="pill pill-blue">5%</span>, logística <span class="pill pill-blue">2%</span>, total <span class="pill pill-green">7%</span>.</li>
+                                            <li><i class="fas fa-hard-hat icon text-orange-500"></i><strong>Construcción:</strong> transporte <span class="pill pill-blue">4%</span>, logística <span class="pill pill-blue">2%</span>, total <span class="pill pill-green">6%</span>.</li>
+                                            <li><i class="fas fa-car icon text-red-500"></i><strong>Automoción:</strong> transporte <span class="pill pill-blue">3%</span>, logística <span class="pill pill-blue">3%</span>, total <span class="pill pill-green">6%</span>.</li>
+                                            <li><i class="fas fa-pills icon text-purple-500"></i><strong>Industria farmacéutica y alta tecnología:</strong> transporte <span class="pill pill-blue">3%</span>, logística <span class="pill pill-blue">2%</span>, total <span class="pill pill-green">5%</span>.</li>
+                                            <li><i class="fas fa-industry icon text-gray-700"></i><strong>Siderurgia:</strong> transporte <span class="pill pill-blue">1,5%</span>, logística <span class="pill pill-blue">0,5%</span>, total <span class="pill pill-green">2%</span>.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card 5 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-binoculars"></i></div>
+                <h2>5. EL OBSERVATORIO DEL TRANSPORTE Y LA LOGÍSTICA EN ESPAÑA</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles del Observatorio</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-info-circle icon text-blue-600"></i>El <span class="actor-pill"><strong>Observatorio del Transporte y la Logística en España (OTLE)</strong></span> es una <strong><u>herramienta de consulta y referencia</u></strong> sobre el transporte y la logística que se pone abiertamente a disposición de todos los interesados en la materia.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-flag icon text-yellow-600"></i>EL <span class="actor-pill">OTLE</span> es una <strong><u>iniciativa del <span class="actor-pill">MITMS</span></u></strong> recogida en el <span class="plan-pill">Plan de Infraestructuras, Transporte y Vivienda 2012-2024 (PITVI)</span>...</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>También colaboran con el <span class="actor-pill">OTLE</span> numerosos centros directivos, entes públicos y centros adscritos al <span class="actor-pill">MITMS</span>, así como otros ministerios y algunos organismos externos, que proporcionan información al Observatorio.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-bullseye icon text-green-600"></i>El <span class="actor-pill">OTLE</span> tiene <strong><u>dos objetivos fundamentales</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Proporcionar una <strong><u>visión global e integral</u></strong> de la situación del transporte y la logística en España que facilite la toma de decisiones eficientes y racionales.</li>
+                                <li>Garantizar la <strong><u>transparencia de la información</u></strong> del transporte y la logística. Para ello, pone a libre disposición de los usuarios numerosos datos estadísticos e indicadores.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-layer-group icon text-purple-600"></i>El <span class="actor-pill">OTLE</span> agrupa la información, datos y análisis estadísticos en función de <strong><u>distintas variables</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><strong><u>Movilidad</u>:</strong> Desplazamientos por vehículos, personas y mercancías en cada uno de los modos de transporte.</li>
+                                <li><strong><u>Socioeconomía</u>:</strong> Aspectos macroeconómicos, empresas, empleo, inversión, precios y costes.</li>
+                                <li><strong><u>Infraestructuras y capital</u>:</strong> Las infraestructuras de transporte, el material móvil y las inversiones en capital tecnológico del sector del transporte y la logística.</li>
+                                <li><strong><u>Seguridad</u>:</strong> Accidentalidad y mortalidad en los distintos modos de transporte.</li>
+                                <li><strong><u>Sostenibilidad</u>:</strong> Externalidades asociadas a la actividad del transporte (emisiones, consumo energético y ruido).</li>
+                                <li><strong><u>Transporte metropolitano</u>:</strong> Movilidad metropolitana en medios de transporte colectivos (transporte de viajeros, oferta de servicios, infraestructuras, aspectos económicos).</li>
+                                <li><strong><u>Logística</u>:</strong> Debido a la complejidad y carácter transversal de su actividad, incluye datos y análisis sobre diversos aspectos (transporte de mercancías, almacenamiento, datos socioeconómicos y de infraestructuras, intermodalidad).</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-desktop icon text-blue-700"></i>La información del <span class="actor-pill">OTLE</span> se pone a disposición en su <strong><u>página web</u></strong> a través de diferentes elementos:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><strong><u>Datos, gráficos y mapas</u>:</strong> De numerosos aspectos relativos al transporte y la logística en España.</li>
+                                <li><strong><u>Indicadores de situación y diagnóstico</u>:</strong> De la situación y la evolución del transporte y la logística.</li>
+                                <li><strong><u>Informes anuales</u>:</strong> En los que se lleva a cabo un análisis transversal del transporte desde la perspectiva de la movilidad, la competitividad, la seguridad operacional del transporte, la sostenibilidad ambiental y la logística.</li>
+                                <li><strong><u>Informes monográficos</u>:</strong> Con análisis más profundos y detallados de determinados aspectos concretos del transporte y la logística como, por ejemplo, el efecto de la pandemia en el sector.</li>
+                                <li><strong><u>Jornadas anuales</u>:</strong> En las que se presentan los principales resultados de los informes anuales y monográficos de cada año, y que sirven de punto de encuentro con los usuarios del OTLE (administraciones, sector del transporte y la logística, investigadores).</li>
+                                <li><strong><u>Estudio Piloto de Movilidad</u>:</strong> Flujos de movilidad de viajeros a nivel nacional aplicando tecnología Big Data e información de oferta y demanda de transporte.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const triggers = document.querySelectorAll('.collapsible-trigger');
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function (event) {
+                    // Evita que el evento de clic se propague a los triggers padres
+                    event.stopPropagation();
+                    
+                    const content = this.nextElementSibling;
+                    
+                    this.classList.toggle('open');
+                    
+                    if (content && content.classList.contains('collapsible-content')) {
+                        content.classList.toggle('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
