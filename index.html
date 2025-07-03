@@ -661,7 +661,10 @@
  				mapViewerVIew.classList.remove("hidden");
 
  				contentFrame.src = currentTopic.file;
- 				topicAudio.src = `audio/${currentTopic.file.replace(/_Desplegable\.html$/i, ".mp3")}`;
+                // Log para verificar la ruta del audio
+                const audioSrc = `audio/${currentTopic.file.replace(/_Desplegable\.html$/i, ".mp3")}`;
+                console.log("Intentando cargar audio desde:", audioSrc);
+ 				topicAudio.src = audioSrc;
 
  				updateChapters(chaptersToLoad);
  				updateEditor(chaptersToLoad);
@@ -679,7 +682,28 @@
  			gridContainer.addEventListener("click",(e=>e.target.closest(".topic-button")&&showMapView(e.target.closest(".topic-button")))),backButton.addEventListener("click",showMainMenu);
 
  			const formatTime=e=>isNaN(e)?"00:00":`${String(Math.floor(e/60)).padStart(2,"0")}:${String(Math.floor(e%60)).padStart(2,"0")}`;
- 			topicAudio.addEventListener("loadedmetadata",()=>{totalDurationEl.textContent=formatTime(topicAudio.duration),timelineSlider.max=topicAudio.duration}),topicAudio.addEventListener("error",()=>{playPauseButton.disabled=!0,playPauseIcon.className="fas fa-times",totalDurationEl.textContent="Error"}),playPauseButton.addEventListener("click",()=>{currentChapterEndTime=null,currentChapterStartTime=null,topicAudio.paused?topicAudio.play():topicAudio.pause()}),topicAudio.addEventListener("play",()=>playPauseIcon.classList.replace("fa-play","fa-pause")),topicAudio.addEventListener("pause",()=>playPauseIcon.classList.replace("fa-pause","fa-play")),topicAudio.addEventListener("ended",()=>{
+ 			topicAudio.addEventListener("loadedmetadata",()=>{totalDurationEl.textContent=formatTime(topicAudio.duration),timelineSlider.max=topicAudio.duration}),
+            // Listener para el evento 'error' del audio
+            topicAudio.addEventListener("error", (e) => {
+                console.error("Error al cargar el audio:", e);
+                console.error("Código de error de audio:", topicAudio.error.code);
+                console.error("Mensaje de error de audio:", topicAudio.error.message);
+                playPauseButton.disabled = true;
+                playPauseIcon.className = "fas fa-times";
+                totalDurationEl.textContent = "Error";
+
+                // Mostrar un mensaje de alerta más claro al usuario
+                let errorMessage = "No se pudo cargar el audio. Esto puede deberse a:";
+                if (topicAudio.error.code === 4) { // MEDIA_ERR_SRC_NOT_SUPPORTED o MEDIA_ERR_DECODE
+                    errorMessage += "\n- El archivo de audio no se encontró en la ruta especificada o el navegador no puede acceder a él por restricciones de seguridad (por ejemplo, si abres el HTML directamente desde tu equipo, o por políticas de seguridad del sitio).";
+                    errorMessage += "\n- El archivo de audio está dañado o en un formato no compatible.";
+                    errorMessage += "\n\nAsegúrate de que el archivo MP3 está en la carpeta 'audio' al mismo nivel que 'index.html' y que estás ejecutando la aplicación desde un servidor web (como GitHub Pages) y no directamente desde tu disco duro.";
+                } else {
+                    errorMessage += "\n- Un error desconocido al cargar el audio.";
+                }
+                alert(errorMessage);
+            }),
+            playPauseButton.addEventListener("click",()=>{currentChapterEndTime=null,currentChapterStartTime=null,topicAudio.paused?topicAudio.play():topicAudio.pause()}),topicAudio.addEventListener("play",()=>playPauseIcon.classList.replace("fa-play","fa-pause")),topicAudio.addEventListener("pause",()=>playPauseIcon.classList.replace("fa-pause","fa-play")),topicAudio.addEventListener("ended",()=>{
                 if (x3LoopState.active) {
                     topicAudio.dispatchEvent(new Event('timeupdate'));
                     return;
