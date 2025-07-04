@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual: Sostenibilidad Ambiental del Transporte</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-header .icon-bg {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-top: 1rem; }
+        .pill, .law-pill, .directive-pill, .actor-pill, .plan-pill, .definition-pill {
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0 0.2rem;
+        }
+        .pill-blue { background-color: #dbeafe; color: #1e4d91; border: 1px solid #93c5fd; }
+        .law-pill { background-color: #f3e8ff; color: #581c87; border: 1px solid #c084fc; }
+        .directive-pill { background-color: #dcfce7; color: #166534; border: 1px solid #4ade80; }
+        .actor-pill { background-color: #e5e7eb; color: #1f2937; border: 1px solid #9ca3af; }
+        .plan-pill { background-color: #cffafe; color: #164e63; border: 1px solid #67e8f9; }
+        .definition-pill { background-color: #cffafe; color: #155e75; border: 1px solid #22d3ee; }
+        .icon {
+            margin-right: 0.5rem;
+            width: 1.25em;
+            text-align: center;
+        }
+        .nested-list {
+            padding-left: 1.75rem;
+            margin-top: 0.75rem;
+            border-left: 3px dotted #cbd5e1;
+        }
+        .nested-list > li {
+            position: relative;
+        }
+        .nested-list > li::before {
+            content: '🔹';
+            position: absolute;
+            left: -1.75rem;
+            color: #3b82f6;
+        }
+        .deeper-nested-list {
+             padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+         .deeper-nested-list > li {
+            position: relative;
+        }
+        .deeper-nested-list > li::before {
+             content: '▪️';
+             position: absolute;
+             left: -1.25rem;
+             color: #3b82f6;
+        }
+        /* Estilos para la funcionalidad desplegable */
+        .collapsible-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.25rem 0;
+        }
+        .collapsible-trigger > span, .collapsible-trigger > h3 {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+            margin-right: 0.75rem;
+            width: 1em;
+            color: #3b82f6;
+        }
+        .collapsible-content {
+            padding-left: 1.75rem;
+        }
+        .collapsible-trigger.open .collapsible-icon {
+            transform: rotate(90deg);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 p-4 sm:p-6 md:p-8">
+    <div class="max-w-5xl mx-auto">
+
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-leaf"></i> MEC1T21: SOSTENIBILIDAD AMBIENTAL DEL TRANSPORTE <i class="fas fa-car"></i></h1>
+        </header>
+
+        <!-- Main Card 1 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-info-circle"></i></div>
+                <h2>1. SOSTENIBILIDAD, CONSUMO Y EFICIENCIA ENERGÉTICA</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-recycle mr-2 text-green-600"></i>Sostenibilidad Ambiental del Transporte</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-lightbulb icon"></i>La <strong><u>sostenibilidad</u></strong> se basa en <strong><u>aprovechar los recursos sin malgastarlos</u></strong>. Por tanto, el <span class="definition-pill"><strong>transporte sostenible</strong></span> es el que <u>reduce el consumo de energía</u> y apuesta por <u>energías limpias y renovables</u>, con vehículos que <u>contaminan menos</u> y <u>optimizan los traslados</u>.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-exclamation-triangle icon text-red-500"></i>Es <strong><u>fundamental un modelo de transporte sostenible</u></strong> porque el transporte consume cantidades crecientes de energía, hasta alcanzar más de <span class="pill pill-blue">2.700 millones de toneladas</span> equivalentes de petróleo en <span class="pill pill-blue">2018</span>, que representaron casi <strong><u>1/3 del consumo final de energía</u></strong> en el mundo.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>De estos, más de un <span class="pill pill-blue">90%</span> fueron <strong><u>derivados de petróleo</u></strong> y significaron más del <span class="pill pill-blue">60%</span> del consumo mundial de derivados.</li>
+                                 <li>A ello ha contribuido el <u>aumento de la población</u> mundial, la <u>expansión del comercio</u> y la <u>migración de población</u> hacia las grandes ciudades, que acogen más de la mitad de los habitantes del planeta, con un <strong><u>sistema ineficiente de transporte</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-smog icon text-gray-700"></i>El transporte es el <strong><u>mayor consumidor de energía</u></strong> y uno de los <strong><u>mayores emisores de dióxido de carbono</u></strong> del mundo. Este aumento de emisiones es cada vez mayor en las grandes urbes, donde la contaminación es ya cuestión de <strong><u>salud pública</u></strong>.</li>
+                    <li><i class="fas fa-bullseye icon text-green-600"></i>El <strong><u>objetivo a corto plazo</u></strong> más importante es que las ciudades cuenten con <strong><u>sistemas de transporte seguros, accesibles y sostenibles</u></strong>, reduciendo considerablemente la emisión de carbono. También es importante la presencia de <u>zonas verdes</u> y <u>espacios libres de vehículos</u> de motor.</li>
+                </ul>
+            </div>
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-bolt mr-2 text-orange-600"></i>Eficiencia Energética</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-info-circle icon"></i>Respecto a la <span class="definition-pill"><strong>eficiencia energética</strong></span>, puede definirse como la <strong><u>utilización de la misma cantidad de energía para proporcionar mayor cantidad de bienes o servicios</u></strong>.</li>
+                    <li><i class="fas fa-balance-scale icon"></i>Nos permite <strong><u>disminuir la intensidad energética</u></strong> necesaria, que es la relación entre la cantidad de energía necesaria para producir una unidad de PIB, pero <u>no son conceptos equivalentes</u>, dado que este término depende de otras variables, como los niveles de precios, la actividad económica, la estructura productiva, etc.</li>
+                    <li><i class="fas fa-not-equal icon text-red-500"></i>Y no debe confundirse con las <strong><u>intensidades energéticas</u></strong> que se usan para definir el consumo de energía por unidad de producto terminado (<span class="pill pill-blue">kWh/t acero producido</span>, por ejemplo).</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-lightbulb icon text-yellow-500"></i>La eficiencia energética es <strong><u>generadora de mayor crecimiento</u></strong> en el mundo, y <strong><u>no se debe confundir con el ahorro de energía</u></strong>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li>Por ejemplo, <u>apagar la luz es ahorrar energía</u>, mientras que <u>sustituir una lámpara por una LED</u>, que utiliza menos energía para producir la misma cantidad de luz, es <strong><u>mejorar la eficiencia energética</u></strong>.</li>
+                               <li>En el caso del transporte, la eficiencia energética se mide a través de los <strong><u>consumos para mover una carga a una cierta distancia</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li><i class="fas fa-chart-line icon text-green-600"></i>Un <strong><u>indicador alternativo</u></strong> de eficiencia energética es la <strong><u>medición de emisiones de GEI</u></strong>, en particular CO2, asumiéndose que una mejor eficiencia disminuirá las cantidades de GEI producidos.</li>
+                </ul>
+            </div>
+             <hr class="my-6">
+             <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-cogs mr-2 text-gray-700"></i>Factores de Preocupación y Acciones</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-exclamation-circle icon text-red-500"></i>La <strong><u>preocupación por la eficiencia energética</u></strong> proviene de la combinación de <strong><u>tres factores</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li><i class="fas fa-dollar-sign icon text-yellow-600"></i>El <strong><u>incremento de coste</u></strong> de los combustibles y su impacto en la cadena de suministro.</li>
+                               <li><i class="fas fa-shield-alt icon text-blue-600"></i>La creciente preocupación por la <strong><u>seguridad energética</u></strong>.</li>
+                               <li><i class="fas fa-leaf icon text-green-600"></i>La <strong><u>conciencia ambiental</u></strong> y el impacto del uso cada vez mayor de recursos no renovables con la consecuente emisión de GEI.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-arrow-up icon text-green-600"></i>Para <strong><u>incrementar los niveles de eficiencia energética</u></strong> en el transporte se desarrollan acciones en:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li><i class="fas fa-cogs icon"></i><strong><u>Tecnología</u></strong> (vehículos más eficientes y combustibles alternativos).</li>
+                               <li><i class="fas fa-truck icon"></i><strong><u>Operaciones de transporte</u></strong> (intermodalidad y economías de escala).</li>
+                               <li><i class="fas fa-road icon"></i><strong><u>Infraestructuras</u></strong> (mejores vías de comunicación).</li>
+                               <li><i class="fas fa-landmark icon"></i><strong><u>Política</u></strong> (reducción de impuestos a vehículos más eficientes, imposición de estándares de eficiencia mínimos).</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+       <!-- Main Card 2 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-smog"></i></div>
+                <h2>2. EMISIONES A LA ATMÓSFERA DE GASES DE EFECTO INVERNADERO Y OTROS CONTAMINANTES</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-history icon text-gray-500"></i>Hasta el descubrimiento de las consecuencias de la emisión de los GEI sobre el cambio climático, el <strong><u>agotamiento de los combustibles fósiles</u></strong> era la principal preocupación en lo que se refiere al consumo de energía en general y del transporte en particular.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-exclamation-triangle icon text-red-500"></i>En la actualidad, las <strong><u>emisiones de GEI</u></strong> constituyen la <strong><u>principal preocupación</u></strong> porque producen el <strong><u>calentamiento global del planeta</u></strong>, al retener la energía térmica en la capa inferior de la atmósfera.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>El principal de los GEI emitidos a la atmósfera por el ser humano es el <strong><u>dióxido de carbono</u></strong>, principalmente por la quema de combustibles fósiles utilizados para la producción de energía y en el transporte.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-chart-bar icon text-blue-600"></i>En <span class="actor-pill">España</span> en <span class="pill pill-blue">2019</span> se produjeron más de <span class="pill pill-blue">310 millones de toneladas</span> de CO2 equivalente, con un <strong><u>aumento incesante</u></strong> de las procedentes del transporte debido al incremento de la demanda pese a las mejoras tecnológicas.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li>Generalmente cuando se estiman las emisiones de GEI se consideran además del propio CO2, el <strong><u>metano</u></strong> y el <strong><u>óxido nitroso</u></strong>, con factores de equivalencia <span class="pill pill-blue">21</span> y <span class="pill pill-blue">310</span> respectivamente.</li>
+                               <li>En el caso del transporte prácticamente no se emiten GEI diferentes del dióxido de carbono, por ello puede establecerse una <strong><u>paridad entre CO2 y CO2 equivalente</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-plane-departure icon text-cyan-600"></i>En la <strong><u>aviación comercial</u></strong>, la acumulación de contaminantes, más cerca de las capas altas de la atmósfera, son <strong><u>más nocivas</u></strong> (<span class="pill pill-red">3 veces más</span> a <span class="pill pill-blue">10.000 m</span>).</p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                               <li>Aunque, gracias a las mejoras en la eficacia del combustible, las emisiones de dióxido de carbono de la aviación crecen a un <strong><u>ritmo más lento que el tráfico aéreo</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-wind icon text-purple-600"></i>El transporte también emite <strong><u>otros contaminantes</u></strong> que afectan a la calidad del aire:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li><i class="fas fa-gem icon text-gray-500"></i>Monóxido de carbono.</li>
+                               <li><i class="fas fa-burn icon text-orange-500"></i>Compuestos hidrocarburos sin quemar.</li>
+                               <li><i class="fas fa-braille icon text-gray-700"></i>Partículas en suspensión.</li>
+                               <li><i class="fas fa-vial icon text-blue-500"></i>Óxidos de nitrógeno.</li>
+                               <li><i class="fas fa-biohazard icon text-yellow-500"></i>Dióxido de azufre.</li>
+                            </ul>
+                            <p class="mt-4"><i class="fas fa-city icon text-red-700"></i>La emisión de estos gases produce <strong><u>efecto local</u></strong>, por lo que tienen especial importancia y efectos negativos en el <strong><u>transporte urbano</u></strong>, ya que en este caso se emiten en entornos muy poblados con una fuerte incidencia sobre la salud de muchas personas.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-solar-panel"></i></div>
+                <h2>3. FUENTES DE ENERGÍA ALTERNATIVAS Y TECNOLOGÍAS INNOVADORAS DE TRACCIÓN</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fab fa-teamspeak icon text-green-600"></i>La <span class="actor-pill">Unión Europea</span> tiene el objetivo de <strong><u>reforzar la competitividad y la seguridad energética</u></strong> mediante una utilización más eficiente de los recursos y de la energía. En el <span class="plan-pill">Libro Blanco de 2011</span> “Hoja de ruta hacia un espacio único europeo de transporte: por una política de transportes competitiva y sostenible”, ya se solicitó una <strong><u>reducción en la dependencia de los transportes respecto del petróleo</u></strong>, mediante la elaboración de una estrategia sostenible en materia de combustibles alternativos y el desarrollo de la infraestructura adecuada.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-gas-pump icon text-purple-600"></i>Los <strong><u>principales combustibles alternativos</u></strong> son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-bolt icon text-yellow-400"></i>La <strong><u>electricidad</u></strong> y el <strong><u>hidrógeno</u></strong> son fuentes de energía particularmente atractivas para las aglomeraciones urbanas.</li>
+                                <li><i class="fas fa-leaf icon text-green-500"></i>Los <strong><u>biocarburantes</u></strong>, constituyen actualmente la clase más importante de combustibles alternativos, representando el <span class="pill pill-blue">5%</span> del consumo de combustible del transporte en la UE.</li>
+                                <li><i class="fas fa-flask icon text-blue-500"></i>Los <strong><u>combustibles sintéticos y parafínicos</u></strong> pueden producirse a partir de diferentes materias primas como la biomasa, el gas, el carbón o los residuos plásticos.</li>
+                                <li><i class="fas fa-ship icon text-cyan-600"></i>El <strong><u>GNL y el GNC</u></strong> son interesantes combustibles alternativos que permiten a los barcos cumplir los requisitos de limitación del contenido de azufre de los combustibles marinos en las zonas de control de las emisiones, lo que concierne a la mitad de los barcos que realizan transporte marítimo de corta distancia en Europa.</li>
+                                <li><i class="fas fa-fire icon text-red-500"></i>El <strong><u>GLP</u></strong> es un combustible alternativo derivado de la transformación del gas natural y del refinado del petróleo con una menor huella de carbono y mucho menos contaminante que los combustibles convencionales. El GLP puede utilizarse para el transporte por carretera, la navegación interior y en el transporte marítimo de corta distancia.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-tools icon text-gray-700"></i>Los <span class="actor-pill">Estados miembros</span> deben velar por que la <strong><u>infraestructura de abastecimiento o recarga</u></strong> de todos estos combustibles alternativos tengan una <strong><u>cobertura adecuada</u></strong> en función de sus zonas de uso. Es necesario evitar la fragmentación del mercado interior europeo que supondría la introducción descoordinada de los combustibles alternativos, por lo que los Estados miembros deben aportar la seguridad a largo plazo necesaria para las inversiones públicas y privadas en las tecnologías de vehículos y de combustibles, así como para la creación de la infraestructura correspondiente.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-car-side icon text-blue-500"></i>Las <strong><u>tecnologías de tracción</u></strong> que pueden equipar los vehículos utilizando estos combustibles alternativos pueden ser:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li>Híbridos eléctrico-gasolina.</li>
+                               <li>Híbridos eléctrico-gas (GLP, GNL o GNC).</li>
+                               <li>Híbridos eléctrico-diésel.</li>
+                               <li>Híbridos enchufables gasolina o diésel.</li>
+                               <li>Eléctricos puros.</li>
+                               <li>Vehículos con combustible de hidrógeno.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card 4 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-cogs"></i></div>
+                <h2>4. TRANSPORTE Y POLÍTICAS EN MATERIA DE ENERGÍA Y CLIMA</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fab fa-teamspeak icon text-green-600"></i>El <strong><u>marco de actuación en materia de energía y clima</u></strong> contempla una serie de <strong><u>objetivos para <span class="pill pill-blue">2030</span></u></strong> en toda la <span class="actor-pill">UE</span>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li><i class="fas fa-smog icon text-gray-500"></i>Al menos un <span class="pill pill-blue">55%</span> de <strong><u>reducción de las emisiones de GEI</u></strong> (con respecto a 1990).</li>
+                                 <li><i class="fas fa-solar-panel icon text-yellow-500"></i>Al menos un <span class="pill pill-blue">32%</span> de cuota de <strong><u>energías renovables</u></strong>.</li>
+                                  <li><i class="fas fa-bolt icon text-orange-500"></i>Al menos un <span class="pill pill-blue">32,5%</span> de mejora de la <strong><u>eficiencia energética</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-check-circle icon text-green-600"></i>Estos objetivos permitirán a la <span class="actor-pill">UE</span> avanzar hacia una <strong><u>economía climáticamente neutra</u></strong> y cumplir sus compromisos con arreglo al <span class="plan-pill">Acuerdo de París</span>.</li>
+                     <li>
+                        <p><i class="fas fa-users-cog icon text-gray-700"></i>Para ello, la <span class="actor-pill">UE</span> cuenta con un sistema de <strong><u>gobernanza transparente y dinámico</u></strong> para adoptar normas integradas de <u>seguimiento y notificación</u>, que incluyen <u>consultas con los ciudadanos</u> y las partes interesadas.</p>
+                    </li>
+                     <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-file-signature icon text-blue-600"></i>Los <span class="actor-pill">Estados miembros</span> tienen la obligación de adoptar <span class="plan-pill"><strong>planes nacionales integrados de energía y clima (PNIEC)</strong></span> para el período <span class="pill pill-blue">2021-2030</span> y elaborar <strong><u>estrategias nacionales a largo plazo</u></strong>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Tener un planteamiento conjunto hasta <span class="pill pill-blue">2030</span> contribuye a garantizar la <strong><u>seguridad jurídica</u></strong> para los inversores y a <strong><u>coordinar los esfuerzos</u></strong> de los países.</li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-project-diagram icon text-purple-600"></i>El marco ayuda a avanzar hacia una <strong><u>economía baja en carbono</u></strong> y a establecer un sistema energético que:</p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                                <li><i class="fas fa-hand-holding-usd icon text-green-500"></i>Garantice <strong><u>energía asequible</u></strong> para todos los consumidores.</li>
+                                <li><i class="fas fa-shield-alt icon text-blue-500"></i>Aumente la <strong><u>seguridad del suministro</u></strong> energético de la UE.</li>
+                                <li><i class="fas fa-plane-arrival icon text-red-500"></i>Reduzca nuestra <strong><u>dependencia de las importaciones</u></strong> de energía.</li>
+                                <li><i class="fas fa-chart-line icon text-yellow-600"></i>Y cree <strong><u>nuevas oportunidades de crecimiento y empleo</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-flag icon text-yellow-500"></i>En <span class="actor-pill">España</span>, como <strong><u>medidas concretas</u></strong> en el transporte relacionadas con energía y clima, podemos señalar:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li>El fomento del <strong><u>cambio modal</u></strong> hacia modos más sostenibles (caminar, bicicleta y transporte colectivo).</li>
+                               <li>La <strong><u>renovación de flotas</u></strong> hacia vehículos con combustibles alternativos.</li>
+                               <li>
+                                   <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                       <p>Y el <strong><u>uso racional</u></strong> de los medios de transporte:</p>
+                                   </div>
+                                   <div class="collapsible-content hidden">
+                                       <ul class="nested-list deeper-nested-list">
+                                           <li>Conducción eficiente.</li>
+                                           <li>Gestión eficiente de las flotas.</li>
+                                           <li><span class="definition-pill"><strong>Car-pooling:</strong></span> Viajes compartidos en coche.</li>
+                                           <li><span class="definition-pill"><strong>Car-sharing:</strong></span> Uso compartido de coches.</li>
+                                       </ul>
+                                   </div>
+                               </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-building icon text-gray-700"></i>En España la EPE <span class="actor-pill"><strong>Instituto para la Diversificación y Ahorro de la Energía (IDAE)</strong></span>, es un organismo adscrito al <span class="actor-pill">MITECO</span>, a través de la Secretaría de Estado de Energía, que debe contribuir a <strong><u>cumplir los objetivos</u></strong> que tiene adquiridos nuestro país en materia de mejora de la eficiencia energética, energías renovables y otras tecnologías bajas en carbono. El <span class="actor-pill">IDAE</span> gestiona el <span class="plan-pill">“Fondo Nacional de Eficiencia Energética”</span> <strong><u>con el fin de aumentar la eficiencia energética en los diferentes sectores consumidores de energía, y de forma que contribuyan a alcanzar el objetivo de ahorro energético nacional establecido por la Unión Europea</u></strong>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card 5 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-balance-scale"></i></div>
+                <h2>5. MARCO NORMATIVO SOBRE INFRAESTRUCTURAS PARA COMBUSTIBLES ALTERNATIVOS</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fab fa-teamspeak icon text-green-600"></i>La <span class="actor-pill">UE</span> aprobó la <span class="directive-pill">Directiva 2014/94</span>, con el fin de <strong><u>unificar la implantación de las infraestructuras</u></strong> necesarias para el suministro de combustibles alternativos en la UE.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Ha sido <strong><u>derogada</u></strong> por el <span class="directive-pill">Reglamento 2023/1804</span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-flag icon text-yellow-500"></i>La <strong><u>trasposición</u></strong> de la Directiva anterior se hizo mediante el <span class="law-pill"><strong>RD 639/2016</strong></span>, cuyo <strong><u>objeto</u></strong> es el establecimiento del marco de medidas para la implantación de una infraestructura para los combustibles alternativos, a fin de:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-oil-can icon text-red-500"></i><strong><u>Minimizar la dependencia</u></strong> de los transportes respecto del petróleo.</li>
+                                <li><i class="fas fa-shield-alt icon text-green-500"></i><strong><u>Mitigar el impacto medioambiental</u></strong> del transporte.</li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-tasks icon text-blue-600"></i>Especificando los <strong><u>requisitos mínimos</u></strong> para la creación de una infraestructura para los combustibles alternativos, incluyendo:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li><i class="fas fa-charging-station icon text-blue-500"></i><strong><u>Puntos de recarga</u></strong> para vehículos eléctricos.</li>
+                               <li><i class="fas fa-gas-pump icon text-purple-500"></i><strong><u>Puntos de repostaje</u></strong> de gas natural y de hidrógeno.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const triggers = document.querySelectorAll('.collapsible-trigger');
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function (event) {
+                    // Evita que el evento de clic se propague a los triggers padres
+                    event.stopPropagation();
+                    
+                    const content = this.nextElementSibling;
+                    
+                    this.classList.toggle('open');
+                    
+                    if (content && content.classList.contains('collapsible-content')) {
+                        content.classList.toggle('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
