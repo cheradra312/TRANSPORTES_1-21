@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual: Legislación del Transporte Ferroviario en Europa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-header .icon-bg {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-top: 1rem; }
+        .pill, .law-pill, .directive-pill, .actor-pill, .plan-pill, .definition-pill {
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0 0.2rem;
+        }
+        .pill-blue { background-color: #dbeafe; color: #1e4d91; border: 1px solid #93c5fd; }
+        .pill-yellow { background-color: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
+        .law-pill { background-color: #f3e8ff; color: #581c87; border: 1px solid #c084fc; }
+        .directive-pill { background-color: #dcfce7; color: #166534; border: 1px solid #4ade80; }
+        .actor-pill { background-color: #e5e7eb; color: #1f2937; border: 1px solid #9ca3af; }
+        .plan-pill { background-color: #cffafe; color: #164e63; border: 1px solid #67e8f9; }
+        .definition-pill { background-color: #cffafe; color: #155e75; border: 1px solid #22d3ee; }
+        .icon {
+            margin-right: 0.5rem;
+            width: 1.25em;
+            text-align: center;
+        }
+        .nested-list {
+            padding-left: 1.75rem;
+            margin-top: 0.75rem;
+            border-left: 3px dotted #cbd5e1;
+        }
+        .nested-list > li {
+            position: relative;
+        }
+        .nested-list > li::before {
+            content: '🔹';
+            position: absolute;
+            left: -1.75rem;
+            color: #3b82f6;
+        }
+        .deeper-nested-list {
+             padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+        .deeper-nested-list > li::before {
+             content: '▪️';
+             left: -1.25rem;
+        }
+        .even-deeper-nested-list {
+             padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+        .even-deeper-nested-list > li::before {
+             content: '▫️';
+             left: -1.25rem;
+        }
+        /* Estilos para la funcionalidad desplegable */
+        .collapsible-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.25rem 0;
+        }
+        .collapsible-trigger > span, .collapsible-trigger > h3 {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+            margin-right: 0.75rem;
+            width: 1em;
+            color: #3b82f6;
+        }
+        .collapsible-content {
+            padding-left: 1.75rem;
+        }
+        .collapsible-trigger.open .collapsible-icon {
+            transform: rotate(90deg);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 p-4 sm:p-6 md:p-8">
+    <div class="max-w-5xl mx-auto">
+
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-train"></i> MEC1T5: EVOLUCIÓN Y PRINCIPIOS BÁSICOS DE LA LEGISLACIÓN DEL TRANSPORTE FERROVIARIO EN EUROPA <i class="fas fa-gavel"></i></h1>
+        </header>
+
+        <!-- Main Card 1 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-history"></i></div>
+                <h2>1. EVOLUCIÓN Y PRINCIPIOS BÁSICOS DE LA LEGISLACIÓN</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>La <span class="actor-pill">Unión Europea</span>, ante la necesidad de afrontar el <strong><u>problema económico</u></strong> y la <strong><u>paulatina pérdida de tráfico</u></strong> del sector ferroviario, presentó en <span class="pill pill-blue">1990</span> la <span class="plan-pill"><strong>“Política Ferroviaria Comunitaria”</strong></span>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <p>Ha servido de base para diseñar el actual <strong><u>sistema ferroviario común</u></strong> mediante:</p>
+                                    <ul class="nested-list deeper-nested-list">
+                                        <li>La <strong><u>separación</u></strong> de las áreas de infraestructura y de operaciones.</li>
+                                        <li>El desarrollo de procesos de <strong><u>liberalización y apertura al mercado</u></strong> con la incorporación de nuevos operadores.</li>
+                                    </ul>
+                                </li>
+                                 <li>Estos cambios han tenido su reflejo en las <strong><u>transformaciones organizativas</u></strong> de todas las empresas ferroviarias públicas, que realizaban una gestión de carácter monopolístico con gran dependencia de cada Estado.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-file-alt icon text-purple-600"></i>Las propuestas de esta comunicación han sido desarrolladas en varias Directivas, que se agrupan en los denominados <span class="definition-pill"><strong>“Paquetes Ferroviarios”</strong></span>, además de por el <span class="plan-pill"><strong>Libro Blanco de 2001</strong></span>.</li>
+                </ul>
+            </div>
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-file-contract mr-2 text-green-600"></i>Las Primeras Directivas sobre el Sector Ferroviario</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="directive-pill"><strong>Directiva 91/440</strong></i></p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    Constituye el <strong><u>punto de origen legislativo</u></strong> de una política común europea en el sector, por medio de las siguientes <strong><u>obligaciones</u></strong> a los estados miembros:
+                                    <ul class="nested-list deeper-nested-list">
+                                        <li><i class="fas fa-sitemap icon"></i>La <strong><u>separación de la gestión</u></strong> de la infraestructura, en manos del Estado, de la explotación de los servicios de transporte a cargo de las empresas de transporte, ya sean éstas públicas o privadas.</li>
+                                        <li><i class="fas fa-file-signature icon"></i>Promueve la creación de <strong><u>contratos de servicio público</u></strong> entre los Estados y las compañías para regular los servicios Regionales y de Cercanías. Los servicios de Larga Distancia y Mercancías deberán autofinanciarse.</li>
+                                        <li><i class="fas fa-hand-holding-usd icon"></i>El Estado deberá <strong><u>asumir la deuda histórica</u></strong> de las compañías ferroviarias, procediendo de esta forma a un saneamiento de su estructura financiera.</li>
+                                        <li><i class="fas fa-lock-open icon"></i>El Estado deberá garantizar el <strong><u>libre acceso y tránsito</u></strong> de las empresas ferroviarias para la prestación de servicios internacionales de transporte.</li>
+                                        <li><i class="fas fa-building icon"></i>Se establece la <strong><u>autonomía de gestión</u></strong> de las empresas ferroviarias, que contarán con un Estatuto independiente.</li>
+                                        <li><i class="fas fa-money-bill-wave icon"></i>Las empresas operadoras pagarán un <strong><u>canon</u></strong> a los Estados por la utilización de las infraestructuras ferroviarias.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="directive-pill"><strong>Directiva 95/18</strong></i></p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Fija los <strong><u>criterios para la concesión de las licencias</u></strong> a las empresas ferroviarias establecidas en la Unión Europea, entre los que se encuentran: <u>honorabilidad, situación financiera saneada, competencia profesional, y poseer seguro de responsabilidad civil</u>.</li>
+                                <li>
+                                    <p>En esta Directiva se recoge, además:</p>
+                                    <ul class="nested-list deeper-nested-list">
+                                        <li>Cada Estado designará una <span class="definition-pill"><strong>“Autoridad Otorgante”</strong></span> para conceder las licencias a las empresas ferroviarias.</li>
+                                        <li>Las empresas ferroviarias establecidas en la Unión Europea tendrán el <strong><u>derecho a solicitar una licencia</u></strong> en el Estado en el que estén establecidas, que será <strong><u>válida para toda la Comunidad</u></strong>.</li>
+                                        <li>La licencia no da por sí misma el derecho de acceso a la infraestructura, ya que es necesario también un <strong><u>certificado de seguridad</u></strong> concedido por una autoridad del Estado miembro en el que se encuentre la infraestructura por la que se desea circular, junto con la <strong><u>adjudicación de la capacidad</u></strong> de la infraestructura.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="directive-pill"><strong>Directiva 95/19</strong></i></p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    Establece las <strong><u>reglas para la adjudicación de la capacidad</u></strong> de infraestructura y determina:
+                                    <ul class="nested-list deeper-nested-list">
+                                        <li>El <strong><u>cobro de cánones</u></strong> por el uso de la capacidad de infraestructura.</li>
+                                        <li>La obligación de los gestores de infraestructura de publicar una <span class="definition-pill"><strong>declaración de red</strong></span>.</li>
+                                        <li>La creación de un <span class="definition-pill"><strong>Cuerpo Regulador</strong></span> en cada país para supervisar el desarrollo del sector ferroviario y arbitrar los conflictos, especialmente sobre el uso o el cobro de la red, que en España es la <span class="actor-pill">Comisión Nacional de los Mercados y la Competencia</span>.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+       <!-- Main Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-box"></i></div>
+                <h2>2. LOS PAQUETES FERROVIARIOS Y LA AGENCIA FERROVIARIA EUROPEA</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-file-contract mr-2 text-green-600"></i>El primer paquete ferroviario</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>Integrado por <strong><u>cuatro Directivas de <span class="pill pill-blue">2001</span></u></strong>, cuyos principales puntos, no incluidos en las directivas anteriores, son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-lock-open icon text-green-500"></i>▪️ <strong><u>Garantizar los derechos de acceso</u></strong> a la red transeuropea de transporte de mercancías por ferrocarril a todos los operadores ferroviarios autorizados que proporcionen servicios de transporte internacional de mercancías por ferrocarril en dicha red y que cumplan los requisitos de seguridad nacionales.</li>
+                                <li><i class="fas fa-euro-sign icon text-yellow-600"></i>▪️ <strong><u>Determinar los costes</u></strong> por el uso de la infraestructura de manera que las tarifas se establezcan de forma <strong><u>transparente y no discriminatoria</u></strong> y que se garantice la competitividad del transporte de mercancías internacional.</li>
+                                <li><i class="fas fa-tasks icon text-purple-600"></i>▪️ <strong><u>Definir normas y procedimientos</u></strong> transparentes y equitativos para la <strong><u>asignación de franjas ferroviarias</u></strong>.</li>
+                                <li><i class="fas fa-shield-alt icon text-blue-500"></i>▪️ <strong><u>Garantizar la seguridad</u></strong> en el sistema ferroviario integrado y la <strong><u>existencia de una coherencia</u></strong> entre las características de la infraestructura y del material rodante al objeto de conseguir un espacio ferroviario europeo único.</li>
+                                <li><i class="fas fa-network-wired icon text-gray-700"></i>▪️ <strong><u>Contribuir a la interoperabilidad</u></strong> de la red ferroviaria de las diferentes redes nacionales en aspectos como señalización, ancho de vía, corriente eléctrica, etc.</li>
+                                <li><i class="fas fa-user-cog icon text-gray-600"></i>▪️ <strong><u>Definir al administrador de infraestructura</u></strong> como un organismo, con independencia de gestión, encargado de la instalación y el mantenimiento de la infraestructura, tareas que podrán incluir la gestión de los sistemas de control y de seguridad.</li>
+                                <li><i class="fas fa-ban icon text-red-500"></i>▪️ La asignación de capacidad, decisiones sobre percepción de cánones, concesión de licencias y certificados de seguridad, establecimiento de normas y reglas de seguridad <strong><u>no podrán ser realizadas por un prestador de servicios ferroviarios</u></strong>.</li>
+                                <li><i class="fas fa-money-bill-wave icon text-green-700"></i>▪️ Por lo que se refiere a la <strong><u>percepción de cánones</u></strong> por utilización de la infraestructura, la tarificación se calculará sobre los <strong><u>costes marginales</u></strong> (los costes directamente vinculados a la explotación de los ferrocarriles).</li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="fas fa-file-alt icon text-blue-700"></i>▪️ Además, el administrador de infraestructuras publicará un documento de <span class="definition-pill"><strong>declaración de la red</strong></span> que contendrá:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>Las características de la infraestructura puesta a disposición de las empresas ferroviarias.</li>
+                                            <li>Las condiciones de acceso a dicha infraestructura.</li>
+                                            <li>Los principios de tarifación.</li>
+                                            <li>Los criterios y normas de adjudicación de capacidad.</li>
+                                            <li>Y los procedimientos y plazos que han de respetarse.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-flag icon text-yellow-500"></i>Estas Directivas se incorporaron al ordenamiento jurídico español a través de la <span class="law-pill"><strong>Ley 39/2003 del Sector Ferroviario</strong></span>.</li>
+                </ul>
+            </div>
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                 <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-box"></i> El segundo paquete ferroviario</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>Lo constituyen <strong><u>tres Directivas del año <span class="pill pill-blue">2004</span></u></strong>, cuyos principales puntos, no incluidos en las directivas anteriores, son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-shield-alt icon text-green-500"></i>▪️ <strong><u>Desarrollar un enfoque común</u></strong> de la seguridad ferroviaria, los <strong><u>certificados de seguridad</u></strong> reconocidos mutuamente deberán dar acceso a la red de todos los países.</li>
+                                <li><i class="fas fa-network-wired icon text-purple-600"></i>▪️ <strong><u>Principios fundamentales de la interoperabilidad</u></strong> para facilitar la circulación transfronteriza.</li>
+                                <li><i class="fas fa-building icon text-gray-700"></i>▪️ Creación de la <span class="actor-pill"><strong>Agencia Ferroviaria Europea</strong></span>, dirección de grupos de expertos encargados de encontrar soluciones comunes de interoperabilidad y seguridad.</li>
+                                <li><i class="fas fa-lock-open icon text-yellow-600"></i>▪️ <strong><u>Apertura del mercado</u></strong> del transporte ferroviario de mercancías.</li>
+                                <li><i class="fas fa-handshake icon text-blue-500"></i>▪️ Solicitar la <strong><u>adhesión de las compañías ferroviarias</u></strong> a la <span class="actor-pill">Organización Intergubernamental para los Transportes Internacionales por Ferrocarril (OTIF)</span>.</li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="far fa-calendar-alt icon text-red-500"></i>▪️ Establece que los servicios de transporte ferroviario internacional de mercancías que discurran por la red transeuropea quedarán <strong><u>liberalizados antes del <span class="pill pill-blue">1 de enero de 2006</span></u></strong>, y <strong><u>un año después</u></strong> los que se realicen dentro de cada país.</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>El transporte de mercancías por la <span class="plan-pill">RFIG</span> se liberalizó en <span class="actor-pill">España</span> en <strong><u><span class="pill pill-blue">enero de 2005</span></u></strong> para empresas españolas.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+             <hr class="my-6">
+             <div class="collapsible-trigger">
+                 <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-box"></i> El tercer paquete ferroviario</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>Se compone de <strong><u>dos Directivas y dos Reglamentos</u></strong> del año <span class="pill pill-blue">2007</span>, sus <strong><u>aspectos principales</u></strong> son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-user-friends icon text-blue-500"></i>▪️ Está más orientado al <strong><u>transporte de viajeros</u></strong>.</li>
+                                <li><i class="fas fa-check-double icon text-green-500"></i>▪️ La <span class="actor-pill">Unión Europea</span> esperaba <strong><u>completar la liberalización y regulación</u></strong> del sector ferroviario.</li>
+                                <li><i class="fas fa-globe-europe icon text-purple-600"></i>▪️ Destaca la <strong><u>liberalización internacional del transporte de viajeros</u></strong> por ferrocarril a partir del <span class="pill pill-blue">1 de enero de 2010</span>.</li>
+                                <li><i class="fas fa-truck icon text-orange-500"></i>▪️ Regula los <strong><u>servicios de cabotaje</u></strong> del transporte de mercancías.</li>
+                                <li><i class="fas fa-id-card icon text-yellow-600"></i>▪️ Adopta <strong><u>normas comunes</u></strong> para la <strong><u>certificación de maquinistas</u></strong>.</li>
+                                <li><i class="fas fa-landmark icon text-gray-700"></i>▪️ Las autoridades competentes podrán <strong><u>intervenir en el transporte público de viajeros</u></strong> para garantizar la prestación de servicios de interés general mediante <strong><u>obligaciones de servicio público</u></strong>, compensando a los operadores.</li>
+                                <li><i class="fas fa-balance-scale icon text-gray-500"></i>▪️ <strong><u>Regulación de los derechos y deberes</u></strong> de los pasajeros de un tren que utilicen rutas internacionales.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+             <hr class="my-6">
+             <div class="collapsible-trigger">
+                 <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-box-open"></i> El cuarto paquete ferroviario</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-info-circle icon text-blue-600"></i>Ha supuesto una <strong><u>revisión integral</u></strong> de la legislación en materia ferroviaria con el objetivo de dar el <strong><u>impulso definitivo</u></strong> a la constitución de un <span class="definition-pill"><strong>Espacio Ferroviario Único Europeo</strong></span>.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-sitemap icon text-purple-600"></i>En su planteamiento, se ha articulado en <strong><u>dos pilares</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="fas fa-cogs icon text-gray-700"></i><strong><u>El Pilar Técnico</u>:</strong></p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>Publicado en <span class="pill pill-blue">mayo de 2016</span>.</li>
+                                            <li>Incluye las directivas de <strong><u>Seguridad</u></strong> y de <strong><u>Interoperabilidad</u></strong> y el nuevo <strong><u>Reglamento de la <span class="actor-pill">Agencia Ferroviaria de la Unión Europea</span></u></strong>.</li>
+                                            <li>Su objetivo principal es permitir un <strong><u>acceso más sencillo al mercado común europeo</u></strong>.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="fas fa-landmark icon text-yellow-600"></i><strong><u>El Pilar Político</u>:</strong></p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>Cuya publicación se ha producido en <span class="pill pill-blue">diciembre de 2016</span>.</li>
+                                            <li>En él, además de medidas sobre la <strong><u>gobernanza</u></strong> de los administradores ferroviarios y los holdings integrados verticalmente para favorecer la <strong><u>transparencia</u></strong>, se incluye la <strong><u>liberalización del transporte interior de viajeros</u></strong>.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+             <hr class="my-6">
+             <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-building"></i> Agencia Ferroviaria de la Unión Europea</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-cogs icon text-purple-600"></i>▪️ Constituye un <strong><u>elemento motor</u></strong> en la política de <strong><u>modernización</u></strong> del sector ferroviario europeo.</li>
+                    <li><i class="fas fa-ruler-combined icon text-yellow-600"></i>▪️ <strong><u>Aproximará las normas técnicas nacionales</u></strong> y fijará los <strong><u>métodos y objetivos de seguridad comunes</u></strong> para el conjunto del sistema ferroviario europeo.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-tasks icon text-blue-500"></i>▪️ Sus <strong><u>cometidos</u></strong> son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list deeper-nested-list">
+                                <li><strong><u>Reforzar la seguridad</u></strong> del sistema ferroviario europeo.</li>
+                                <li><strong><u>Mejorar su nivel de interoperabilidad</u></strong>.</li>
+                                <li>Contribuir al establecimiento de un <strong><u>sistema europeo de certificación</u></strong> de los talleres de mantenimiento de vehículos.</li>
+                                <li>Y contribuir a la puesta en marcha de un <strong><u>sistema uniforme de formación</u></strong> de los conductores de trenes.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-check-circle icon text-green-600"></i>▪️ Desde <span class="pill pill-blue">2019</span>, es la <strong><u>autoridad competente</u></strong> para:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list deeper-nested-list">
+                                <li><strong><u>Emitir certificados de seguridad</u></strong> en toda la UE a las empresas ferroviarias.</li>
+                                <li><strong><u>Autorizar vehículos</u></strong> para operar en más de un país.</li>
+                                <li>Y para <strong><u>otorgar una aprobación previa</u></strong> para la infraestructura ERTMS.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-gavel icon text-red-500"></i>▪️ La <span class="actor-pill">Agencia Ferroviaria de la Unión Europea</span> <strong><u>no dispone del poder de decisión</u></strong>, que le corresponde a la <span class="actor-pill">Comisión</span> para lo que se apoya en el <span class="actor-pill">Comité de Seguridad e Interoperabilidad (RISC)</span>.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const triggers = document.querySelectorAll('.collapsible-trigger');
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function (event) {
+                    // Evita que el evento de clic se propague a los triggers padres
+                    event.stopPropagation();
+                    
+                    const content = this.nextElementSibling;
+                    
+                    this.classList.toggle('open');
+                    
+                    if (content && content.classList.contains('collapsible-content')) {
+                        content.classList.toggle('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
