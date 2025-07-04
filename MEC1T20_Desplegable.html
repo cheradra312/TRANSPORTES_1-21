@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual: Planificación de Infraestructuras y Transporte</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-header .icon-bg {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-top: 1rem; }
+        .pill, .law-pill, .directive-pill, .actor-pill, .plan-pill, .definition-pill {
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0 0.2rem;
+        }
+        .pill-blue { background-color: #dbeafe; color: #1e4d91; border: 1px solid #93c5fd; }
+        .actor-pill { background-color: #e5e7eb; color: #1f2937; border: 1px solid #9ca3af; }
+        .definition-pill { background-color: #cffafe; color: #155e75; border: 1px solid #22d3ee; }
+        .icon {
+            margin-right: 0.5rem;
+            width: 1.25em;
+            text-align: center;
+        }
+        .nested-list {
+            padding-left: 1.75rem;
+            margin-top: 0.75rem;
+            border-left: 3px dotted #cbd5e1;
+        }
+        .nested-list > li {
+            position: relative;
+        }
+        .nested-list > li::before {
+            content: '🔹';
+            position: absolute;
+            left: -1.75rem;
+            color: #3b82f6;
+        }
+        .deeper-nested-list {
+             padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+         .deeper-nested-list > li {
+            position: relative;
+        }
+        .deeper-nested-list > li::before {
+             content: '▪️';
+             position: absolute;
+             left: -1.25rem;
+             color: #3b82f6;
+        }
+        .even-deeper-nested-list {
+             padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+        .even-deeper-nested-list > li {
+            position: relative;
+        }
+        .even-deeper-nested-list > li::before {
+             content: '▫️';
+             position: absolute;
+             left: -1.25rem;
+             color: #3b82f6;
+        }
+        /* Estilos para la funcionalidad desplegable */
+        .collapsible-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.25rem 0;
+        }
+        .collapsible-trigger > span, .collapsible-trigger > h3 {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+            margin-right: 0.75rem;
+            width: 1em;
+            color: #3b82f6;
+        }
+        .collapsible-content {
+            padding-left: 1.75rem;
+        }
+        .collapsible-trigger.open .collapsible-icon {
+            transform: rotate(90deg);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 p-4 sm:p-6 md:p-8">
+    <div class="max-w-5xl mx-auto">
+
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-sitemap"></i> MEC1T20: PLANIFICACIÓN DE INFRAESTRUCTURAS Y TRANSPORTE <i class="fas fa-road"></i></h1>
+        </header>
+
+        <!-- Main Card 1 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-info-circle"></i></div>
+                <h2>1. PLANIFICACIÓN DEL SISTEMA DE INFRAESTRUCTURAS Y TRANSPORTE Y SU INTEGRACIÓN CON LAS POLÍTICAS DEL TERRITORIO Y AMBIENTALES</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-cogs icon text-blue-600"></i>La <span class="definition-pill"><strong>planificación</strong></span> es un <strong><u>proceso racional</u></strong> para <strong><u>optimizar la toma de decisiones</u></strong>, ya que se dispone de unos recursos limitados, y por tanto se hace necesario:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Definir <strong><u>fines y objetivos</u></strong> a alcanzar.</li>
+                                <li><strong><u>Distribuir los recursos</u></strong> disponibles.</li>
+                                <li>Y <strong><u>ordenar las actuaciones</u></strong> en el tiempo para conseguir un óptimo.</li>
+                                 <li>Esta tarea se hace <strong><u>más compleja</u></strong> cuando se incluyen objetivos no puramente económicos como la <u>calidad de vida, la seguridad, y el medio ambiente</u>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-leaf icon text-green-600"></i>La creciente <strong><u>valoración social de la calidad del medio ambiente</u></strong> condiciona notablemente todas las políticas públicas.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-times-circle icon text-red-500"></i><strong><u>Antes:</u></strong> la variable ambiental era una <strong><u>restricción</u></strong> que condicionaba las soluciones.</li>
+                                 <li><i class="fas fa-check-circle icon text-green-500"></i><strong><u>Ahora:</u></strong> se concibe más como un <strong><u>recurso que hay que preservar</u></strong> y utilizar racionalmente dentro del marco del desarrollo sostenible.</li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li><i class="fas fa-balance-scale-left icon text-red-500"></i>El <strong><u>transporte funciona como un mercado imperfecto</u></strong>, por lo que se hace necesaria su <strong><u>regulación por los Poderes Públicos</u></strong>.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-exclamation-triangle icon text-orange-500"></i>El transporte tiene un <strong><u>peso muy considerable en el desarrollo sostenible</u></strong> por los efectos ambientales, sociales y económicos asociados.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li>El <u>crecimiento continuo</u> y su <u>previsible aumento futuro</u> hacen que el <strong><u>transporte sostenible</u></strong> sea una <strong><u>prioridad estratégica</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-stream icon text-purple-600"></i>Existen <strong><u>dos grandes líneas de actuación</u></strong> en materia de transporte y medio ambiente:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li>
+                                   <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                       <p><i class="fas fa-shield-alt icon text-green-500"></i>Un conjunto de <strong><u>medidas preventivas y correctoras</u></strong> a lo largo del desarrollo de las infraestructuras.</p>
+                                   </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>La incorporación de criterios ambientales desde la planificación permite <strong><u>priorizar medidas preventivas</u></strong>, seleccionando alternativas menos agresivas y valorando las inversiones con sus costes ambientales.</li>
+                                        </ul>
+                                    </div>
+                               </li>
+                               <li><i class="fas fa-cogs icon text-blue-500"></i>Un conjunto de <strong><u>programas destinados a la realización de infraestructuras para la protección y mejora</u></strong> del patrimonio ambiental.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-lightbulb icon text-yellow-600"></i>En este sentido, el enfoque ha cambiado:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-arrow-up icon text-red-500"></i><strong><u>Políticas anteriores</u>:</strong> El objetivo era el <strong><u>incremento de la capacidad</u></strong> de las infraestructuras, justificado por la precariedad y el retraso histórico.</li>
+                                <li><i class="fas fa-recycle icon text-green-600"></i><strong><u>Políticas actuales</u>:</strong> La atención se desplaza a <strong><u>racionalizar y optimizar su uso</u></strong>, especialmente en ámbitos territoriales fuertemente urbanizados, donde los problemas ambientales derivados de los fenómenos de concentración espacial se plantean de forma más evidente.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card 2 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-exclamation-triangle"></i></div>
+                <h2>2. EFECTOS AMBIENTALES DE LAS INFRAESTRUCTURAS</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-heartbeat icon text-red-500"></i><strong><u>Impactos sobre la vida de las personas</u>:</strong> El transporte influye sobre la salud especialmente en el entorno de las grandes ciudades por los problemas de <u>contaminación atmosférica, ruido, sedentarismo o accidentes</u> que provoca.</li>
+                    <li><i class="fas fa-temperature-high icon text-orange-500"></i><strong><u>Afecciones en la modificación del clima</u>:</strong> Por la emisión de <strong>GEI</strong>, de los cuales el <strong>CO<sub>2</sub></strong> es el que supone el mayor reto, tanto por su dimensión e importancia para el cambio climático como por la dificultad para reducir su emisión.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-smog icon text-gray-600"></i><strong><u>Deterioro de la calidad del aire</u>:</strong> Por el lanzamiento a la atmósfera de sustancias químicas como:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                               <li><i class="fas fa-vial icon text-blue-500"></i>Óxidos de nitrógeno (NOx).</li>
+                               <li><i class="fas fa-biohazard icon text-yellow-500"></i>Anhídrido sulfuroso (SO<sub>2</sub>).</li>
+                               <li><i class="fas fa-gem icon text-gray-500"></i>Monóxido de carbono (CO).</li>
+                               <li><i class="fas fa-weight-hanging icon text-gray-400"></i>Metales pesados como el plomo (Pb).</li>
+                               <li><i class="fas fa-flask icon text-green-500"></i>Compuestos orgánicos volátiles (COV).</li>
+                               <li style="list-style-type: none; margin-top: 1em;">Estas emisiones se han <strong><u>reducido en términos unitarios</u></strong> por la incorporación de catalizadores, sin embargo, el <strong><u>aumento del tráfico viario</u></strong> y el uso de vehículos de <strong><u>mayor cilindrada</u></strong> está incrementando las emisiones de algunos de estos contaminantes.</li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-vector-square icon text-purple-600"></i><strong><u>Ocupación espacial</u>:</strong> En los años noventa se realizó una estimación que indicaba que las infraestructuras de transporte ocupaban en aquel momento de forma directa (suelo de dominio público) más del <span class="pill pill-blue">1%</span> y afectaban al potencial de uso de más del <span class="pill pill-blue">5%</span> del territorio total del Estado.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                                <li>Causan <strong><u>fragmentación del territorio</u></strong> y por tanto de los ecosistemas, especialmente las infraestructuras más “pesadas”, como las autovías o las líneas de ferrocarril de alta velocidad.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-leaf icon text-green-600"></i><strong><u>Impactos sobre la diversidad biológica</u>:</strong> Son <strong><u>consecuencia de todo el resto de efectos</u></strong> (ocupación creciente del suelo natural, contaminación del aire, del suelo, agua y acústica, etc.) afectando a las especies animales y vegetales con la <strong><u>pérdida de poblaciones, fragmentación de hábitats, y modificación y destrucción de los ecosistemas</u></strong>.</li>
+                     <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-mountain icon text-yellow-800"></i><strong><u>La degradación del suelo por el transporte</u>:</strong></p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li>Una parte importante de la <strong><u>biodiversidad se localiza en el suelo</u></strong> y es un <strong><u>elemento esencial del paisaje</u></strong> que proporciona materias primas, siendo al mismo tiempo un elemento fundamental de nuestro <strong><u>patrimonio cultural</u></strong>, al conservar parte de los restos de nuestro pasado.</li>
+                               <li>Además, es un <strong><u>recurso limitado y no renovable</u></strong> que se encuentra <strong><u>gravemente amenazado</u></strong> por el uso intensivo del suelo cada vez mayor.</li>
+                               <li>El suelo es <strong><u>esencial para el control del cambio climático</u></strong> ya que desempeña una importante función en el <strong><u>secuestro del carbono atmosférico</u></strong> a través de la materia orgánica presente en el mismo.</li>
+                               <li>Las infraestructuras de transporte provocan la <u>impermeabilización de los suelos, erosión, inestabilidad de laderas, contaminación, acidificación y procesos de aceleración de la desertificación</u>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li>
+                         <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-tint icon text-blue-500"></i><strong><u>Consecuencias ambientales sobre los recursos hídricos</u>:</strong></p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                                <li>Las aguas de escorrentía procedentes de las infraestructuras de transporte tienen, en general, <strong><u>elevados niveles de contaminación</u></strong> por los residuos procedentes de los vehículos, tratamientos para evitar el crecimiento de la vegetación, vertidos accidentales de mercancías transportadas (peligrosas y altamente contaminantes en algunos casos), que provocan la contaminación de las aguas tanto superficiales como subterráneas por infiltración.</li>
+                                <li>El <strong><u>transporte marítimo y fluvial</u></strong> también contamina las aguas superficiales tanto por el <strong><u>vertido deliberado como accidental</u></strong> de sustancias nocivas.</li>
+                             </ul>
+                        </div>
+                    </li>
+                     <li><i class="fas fa-volume-up icon text-red-700"></i><strong><u>La contaminación acústica</u>:</strong> Producida por el transporte se puede presentar en dos formas: <strong><u>ruido y vibraciones</u></strong>, afectando ambas a la salud de las personas (perturbación del aparato auditivo, afecciones al sistema nervioso, ruptura de la comunicación, problemas para conciliar el sueño, disminución de la concentración, estrés).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card 3 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-cogs"></i></div>
+                <h2>3. GESTIÓN Y MANTENIMIENTO SOSTENIBLE DE LAS INFRAESTRUCTURAS</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-bullseye icon text-green-600"></i>Una <strong><u>gestión y mantenimiento sostenible</u></strong> de las infraestructuras debe contemplar la administración de los bienes que aparecen en nuestro entorno con <strong><u>dos objetivos</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-hand-holding-usd icon text-green-500"></i><strong><u>Administrar los recursos naturales</u></strong> como materias primas (bienes utilizables directamente o transformados en otros productos) cuyo uso <strong><u>mantenga o, mejor aún, incremente su valor</u></strong>.</li>
+                                <li><i class="fas fa-project-diagram icon text-blue-500"></i><strong><u>Disponer de estrategias de acción</u></strong> que contemplen las <u>consecuencias del uso del producto</u> y las <u>implicaciones de los subproductos</u> (residuos, contaminantes, paisajes degradados, etc.).</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fab fa-teamspeak icon text-green-700"></i>A nivel europeo destaca el <span class="plan-pill"><strong>Registro EMAS</strong></span>, que certifica a las empresas y organizaciones que tiene implantado un <strong><u>sistema de gestión ambiental</u></strong> que les permite <u>evaluar, gestionar y mejorar</u> sus impactos ambientales.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-key icon text-yellow-600"></i><strong><u>Dos elementos clave</u></strong> para una correcta gestión ambiental son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-chalkboard-teacher icon text-purple-600"></i>La <strong><u>educación ambiental</u></strong> de la ciudadanía (induciendo al uso racional de los escasos recursos ambientales).</li>
+                                <li><i class="fas fa-user-shield icon text-gray-700"></i>Y en menor medida la <strong><u>labor policial</u></strong> en normativa que apoye la gestión.</li>
+                                 <li>Para ello se debe fomentar la <strong><u>disminución de residuos y su reciclaje</u></strong> cuando sea posible, promoviendo la conciencia de que en la naturaleza <u>todo está relacionado</u>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-heartbeat icon text-red-500"></i>La <strong><u>gestión medioambiental</u></strong> no sólo ha de referirse a la <u>mejora de la calidad de la vida humana</u>, sino también a la <u>vida en el planeta</u> (biodiversidad) y al <u>mantenimiento de los recursos naturales</u>, sin los cuales no se puede conseguir el primer objetivo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card 4 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-wind"></i></div>
+                <h2>4. RESILIENCIA DE LAS INFRAESTRUCTURAS DE TRANSPORTE FRENTE A FENÓMENOS METEOROLÓGICOS EXTREMOS</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-info-circle mr-2 text-blue-600"></i>Planes Nacionales de Adaptación al Cambio Climático (PNACC)</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-history icon text-gray-500"></i>Después de que en <span class="pill pill-blue">2006</span> el primer <span class="plan-pill"><strong>Plan Nacional de Adaptación al Cambio Climático (PNACC)</strong></span> propusiera iniciar la evaluación de la vulnerabilidad y de las posibilidades de adaptación de las infraestructuras de transporte, en <span class="pill pill-blue">2020</span> se ha aprobado el <strong><u>segundo PNACC 2021-2030</u></strong>.</li>
+                    <li><i class="fas fa-file-alt icon text-purple-600"></i>Constituye el <strong><u>instrumento básico de planificación</u></strong> para promover la <strong><u>acción coordinada y coherente</u></strong> frente a los efectos del cambio climático en España.</li>
+                    <li>
+                        <p><i class="fas fa-gavel icon text-gray-700"></i>Sin perjuicio de las competencias de las diversas Administraciones Públicas, el <span class="plan-pill">PNACC 2021-2030</span> define <strong><u>objetivos, criterios, ámbitos de trabajo y líneas de acción</u></strong> para fomentar la adaptación y la resiliencia frente al cambio del clima.</p>
+                    </li>
+                     <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-bullseye icon text-green-600"></i>El <span class="plan-pill">PNACC 2021-2030</span> define para la <strong><u>movilidad y el transporte</u></strong> los siguientes <strong><u>objetivos</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-binoculars icon text-blue-500"></i><strong><u>Revisar los sistemas</u></strong> de observación, análisis y predicción de la operatividad de las infraestructuras.</li>
+                                <li><i class="fas fa-cogs icon text-purple-500"></i><strong><u>Incorporar criterios de adaptación</u></strong> en la planificación, construcción, explotación y conservación de nuevas infraestructuras.</li>
+                                <li><i class="fas fa-clipboard-check icon text-yellow-600"></i><strong><u>Revisar los protocolos</u></strong> de prevención, mantenimiento y vigilancia de las infraestructuras.</li>
+                                <li><i class="fas fa-bell icon text-red-500"></i><strong><u>Completar el desarrollo y la integración</u></strong> de los sistemas de alerta por riesgos meteorológicos en los medios de transporte.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-tasks mr-2 text-yellow-700"></i>Estudio de Vulnerabilidad de la Red</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-search-location icon text-gray-700"></i>En este contexto, el <span class="actor-pill">MITMS</span> y el <span class="actor-pill">MITECO</span> han realizado en <span class="pill pill-blue">2018</span> un estudio para <strong><u>identificar qué partes de la red estatal</u></strong> de infraestructuras de transporte terrestre pueden estar <strong><u>más afectadas</u></strong> por el cambio climático y requerir una <strong><u>atención preferente</u></strong>.</p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                                <li>
+                                   <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                       <p>Sus <strong><u>conclusiones más destacables</u></strong> son:</p>
+                                   </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><i class="fas fa-check-circle icon text-green-600"></i>La <strong><u>atención a la vulnerabilidad</u></strong> de la red frente a eventos climáticos está <strong><u>bien priorizada</u></strong> con un escaso porcentaje de la misma en esa situación.</li>
+                                            <li><i class="fas fa-euro-sign icon text-yellow-600"></i>Se debe realizar una <strong><u>estimación de costes</u></strong> de la mejora de la resiliencia de las secciones de la red más críticas y vulnerables.</li>
+                                            <li><i class="fas fa-project-diagram icon text-blue-600"></i>Durante el proyecto de la infraestructura se deben <strong><u>analizar alternativas</u></strong> para mejorar la resiliencia frente al cambio climático.</li>
+                                            <li><i class="fas fa-file-signature icon text-purple-600"></i>Se deben <strong><u>revisar a corto plazo la normativa y recomendaciones</u></strong> para el diseño de obras de defensa y obras de tierra, puentes y viaductos, frente al caudal de avenidas y para prevenir la erosión en sus cimientos.</li>
+                                        </ul>
+                                   </div>
+                               </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- Main Card 5 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-shoe-prints"></i></div>
+                <h2>5. HUELLA DE CARBONO DE LOS PROYECTOS EN ANÁLISIS DE CICLO DE VIDA</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-info-circle icon text-blue-600"></i>La <span class="definition-pill"><strong>huella de carbono de los proyectos</strong></span> mide la <strong><u>totalidad de gases de efecto invernadero (GEI)</u></strong> emitidos durante su <strong><u>ciclo completo de vida</u></strong> (desde su gestación hasta su desmantelamiento final), para después convertir los resultados individuales de cada gas a <strong><u>equivalentes de CO2</u></strong>.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-arrow-down icon text-green-600"></i>Las <strong><u>medidas para la reducción de emisiones de GEI</u></strong> de las infraestructuras deben <strong><u>mejorar la eficiencia</u></strong> de todas las fases de su ciclo de vida: <u>planificación, proyecto, construcción, conservación y explotación</u>.</p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                                <li>
+                                   <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                       <p>Algunas <strong><u>medidas</u></strong> que pueden ser altamente efectivas en esta materia son:</p>
+                                   </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><i class="fas fa-car-side icon text-red-500"></i><strong><u>Incentivar la disminución del uso del transporte privado</u></strong>, por ejemplo, con la creación de carriles BUS-VAO, o con el desarrollo de puntos de recarga eléctricos o de suministro de combustibles alternativos.</li>
+                                            <li><i class="fas fa-subway icon text-blue-500"></i><strong><u>Optimizar las redes de los modos menos contaminantes</u></strong>, para favorecer la transferencia de tráficos desde la carretera hacia el ferrocarril o la bicicleta.</li>
+                                            <li><i class="fas fa-bolt icon text-yellow-500"></i>O <strong><u>promover la mejora en la eficiencia energética</u></strong> de los vehículos.</li>
+                                        </ul>
+                                   </div>
+                               </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const triggers = document.querySelectorAll('.collapsible-trigger');
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function (event) {
+                    // Evita que el evento de clic se propague a los triggers padres
+                    event.stopPropagation();
+                    
+                    const content = this.nextElementSibling;
+                    
+                    this.classList.toggle('open');
+                    
+                    if (content && content.classList.contains('collapsible-content')) {
+                        content.classList.toggle('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
