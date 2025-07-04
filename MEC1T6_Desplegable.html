@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual: Mercados de Transporte Liberalizados y en Monopolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-header .icon-bg {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-top: 1rem; }
+        .pill, .law-pill, .directive-pill, .actor-pill, .definition-pill {
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0 0.2rem;
+        }
+        .pill-blue { background-color: #dbeafe; color: #1e4d91; border: 1px solid #93c5fd; }
+        .law-pill { background-color: #f3e8ff; color: #581c87; border: 1px solid #c084fc; }
+        .directive-pill { background-color: #dcfce7; color: #166534; border: 1px solid #4ade80; }
+        .actor-pill { background-color: #e5e7eb; color: #1f2937; border: 1px solid #9ca3af; }
+        .definition-pill { background-color: #cffafe; color: #155e75; border: 1px solid #22d3ee; }
+        .icon {
+            margin-right: 0.5rem;
+            width: 1.25em;
+            text-align: center;
+        }
+        .nested-list {
+            padding-left: 1.75rem;
+            margin-top: 0.75rem;
+            border-left: 3px dotted #cbd5e1;
+        }
+        .nested-list > li {
+            position: relative;
+        }
+        .nested-list > li::before {
+            content: '🔹';
+            position: absolute;
+            left: -1.75rem;
+            color: #3b82f6;
+        }
+        .deeper-nested-list {
+             padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+         .deeper-nested-list > li {
+            position: relative;
+        }
+        .deeper-nested-list > li::before {
+             content: '▪️';
+             position: absolute;
+             left: -1.25rem;
+             color: #3b82f6;
+        }
+        /* Estilos para la funcionalidad desplegable */
+        .collapsible-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.25rem 0;
+        }
+        .collapsible-trigger > span, .collapsible-trigger > h3 {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+            margin-right: 0.75rem;
+            width: 1em;
+            color: #3b82f6;
+        }
+        .collapsible-content {
+            padding-left: 1.75rem;
+        }
+        .collapsible-trigger.open .collapsible-icon {
+            transform: rotate(90deg);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 p-4 sm:p-6 md:p-8">
+    <div class="max-w-5xl mx-auto">
+
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-balance-scale"></i> MEC1T6: MERCADOS DE TRANSPORTE LIBERALIZADOS Y MERCADOS EN MONOPOLIO <i class="fas fa-gavel"></i></h1>
+        </header>
+
+        <!-- Main Card 1 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-info-circle"></i></div>
+                <h2>1. MERCADOS DE TRANSPORTE LIBERALIZADOS Y MERCADOS EN MONOPOLIO</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-landmark icon text-gray-700"></i>Los <strong><u>gobiernos regulan el transporte</u></strong> por su importancia propia y para el resto de la actividad económica, además existe un <strong><u>derecho a la movilidad</u></strong>, pero ello no implica necesariamente que sea el sector público quien debe prestar esos servicios.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-sitemap icon text-purple-600"></i>Los mercados de transporte pueden organizarse según <strong><u>tres modelos principales</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="fas fa-university icon text-red-600"></i><span class="definition-pill"><strong>Monopolio público</strong></span>:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>Una <strong><u>sola empresa y pública</u></strong> presta el servicio de transporte, puede estar integrada con la propiedad de la infraestructura (ejemplo transporte por ferrocarril antes de la liberalización).</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="fas fa-user-tie icon text-blue-600"></i><span class="definition-pill"><strong>Monopolio privado regulado</strong></span>:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>Una <strong><u>sola empresa privada</u></strong> presta el servicio de transporte, puede haber <strong><u>competencia por el mercado</u></strong> mediante contratos de concesión.</li>
+                                            <li>En principio es <strong><u>más eficiente</u></strong> por los incentivos del negocio privado.</li>
+                                            <li>Puede aplicarse cuando no sea posible la competencia por <strong><u>inconvenientes operativos</u></strong> o porque <strong><u>no resulte deseable</u></strong>.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="fas fa-users icon text-green-600"></i><span class="definition-pill"><strong>Libre competencia en la provisión de servicios</strong></span>:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><strong><u>Varios operadores</u></strong> que tienen derecho de utilización de infraestructura pública.</li>
+                                            <li>Lo normal es mantener el <strong><u>control sobre el número de operadores</u></strong> a base de licencias o autorizaciones.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card 2 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-tasks"></i></div>
+                <h2>2. LAS OBLIGACIONES DE SERVICIO PÚBLICO EN LOS SERVICIOS DE TRANSPORTE DE COMPETENCIA ESTATAL</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-gavel icon text-purple-600"></i>La <span class="law-pill"><strong>Ley 38/2015 del Sector Ferroviario</strong></span> regula las <strong><u>obligaciones de servicio público</u></strong>.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-landmark icon text-gray-700"></i>El <span class="actor-pill"><strong>Consejo de Ministros</strong></span> podrá declarar, de oficio o a instancia de las <span class="actor-pill">CCAA</span> o <span class="actor-pill">corporaciones locales</span>, que la prestación de determinados servicios de transporte ferroviario de competencia estatal queda sujeta a <strong><u>obligaciones de servicio público</u></strong>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>La declaración se producirá cuando la <strong><u>oferta de servicios</u></strong> que realizarían los operadores, si considerasen exclusivamente su propio interés comercial, resultara <strong><u>insuficiente</u></strong> o no se adecuara a las condiciones de <u>frecuencia, calidad o precio</u> necesarias.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-balance-scale icon text-yellow-600"></i>El <span class="actor-pill">Consejo de Ministros</span> deberá basarse en criterios de <strong><u>eficiencia global y sostenibilidad</u></strong>, así como en la existencia de <strong><u>modos de transporte alternativos</u></strong> y los <strong><u>costes y beneficios</u></strong> derivados de su uso.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Los servicios sujetos a obligaciones de servicio público se prestarán en <strong><u>régimen de exclusividad</u></strong>, salvo que el acuerdo determine otro régimen.</li>
+                                <li>La declaración a instancia de las <span class="actor-pill">CCAA</span> o <span class="actor-pill">corporaciones locales</span> estará condicionada a que éstas <strong><u>asuman su financiación</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-file-signature icon text-blue-600"></i>Para la prestación de estos servicios, las empresas ferroviarias deberán disponer de una <strong><u>autorización</u></strong> que será otorgada por el <span class="actor-pill">MITMS</span>, previo informe favorable de los <span class="actor-pill">Ministerios de Economía y de Hacienda</span> y previo acuerdo de la <span class="actor-pill">Comisión Delegada del Gobierno para Asuntos Económicos</span>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Se otorgará a través de un <strong><u>procedimiento de licitación</u></strong> que se ajustará a los principios de <u>publicidad, transparencia y no discriminación</u>.</li>
+                                <li>Podrán ser objeto de <strong><u>adjudicación directa</u></strong> en los casos y supuestos permitidos en el <span class="directive-pill">Reglamento 1370/2007</span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+      <!-- Main Card 3 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-file-alt"></i></div>
+                <h2>3. NORMATIVA EUROPEA Y SU APLICACIÓN EN ESPAÑA</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-info-circle mr-2 text-blue-600"></i>El Reglamento 1370/2007 sobre los servicios públicos de transporte de viajeros</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-map-marked-alt icon text-yellow-600"></i>El <span class="directive-pill"><strong>Reglamento 1370/2007</strong></span> se aplica a la explotación <strong><u>nacional e internacional</u></strong> de servicios públicos de transporte de viajeros por <strong><u>ferrocarril y por carretera</u></strong>, a excepción de los servicios que se exploten esencialmente por su <u>interés histórico o su finalidad turística</u>.</li>
+                    <li><i class="fas fa-bullseye icon text-green-600"></i>El Reglamento pretende <strong><u>definir las modalidades</u></strong> según las cuales las <strong><u>autoridades competentes</u></strong> podrán intervenir en el sector del transporte público de viajeros para <strong><u>garantizar las obligaciones de servicio público</u></strong>.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-file-signature icon text-purple-600"></i>Cuando una autoridad competente decida conceder a un operador una <strong><u>compensación</u></strong> por la ejecución de obligaciones de servicio público, deberá hacerlo en el marco de un <span class="definition-pill"><strong>contrato de servicio público</strong></span>, en el que se deberán:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-tasks icon"></i><strong><u>Definir claramente las obligaciones</u></strong> de servicio público que el operador debe ejecutar.</li>
+                                <li><i class="fas fa-hand-holding-usd icon"></i><strong><u>Establecer por anticipado</u></strong>, de modo transparente, la forma de determinar las <strong><u>compensaciones</u></strong>.</li>
+                                <li><i class="fas fa-euro-sign icon"></i><strong><u>Definir los costes</u></strong> derivados de la prestación de los servicios.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="far fa-clock icon text-red-500"></i>La <strong><u>duración de los contratos</u></strong> de servicio público será <strong><u>limitada</u></strong> y no podrá superar:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-bus icon text-blue-500"></i><span class="pill pill-blue"><strong>10 años</strong></span> para los servicios de <strong><u>autobús</u></strong>.</li>
+                                <li><i class="fas fa-train icon text-purple-500"></i>Y <span class="pill pill-blue"><strong>15 años</strong></span> para los servicios de transporte de viajeros por <strong><u>ferrocarril</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-balance-scale-left icon text-gray-700"></i>Las <strong><u>compensaciones</u></strong> vinculadas a contratos de servicio público <strong><u>no podrán rebasar el importe correspondiente a la incidencia financiera neta</u></strong> del cumplimiento de la obligación en los costes y los ingresos del operador, más un <span class="definition-pill"><strong>beneficio razonable</strong></span>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Se entenderá como la <strong><u>tasa de remuneración del capital</u></strong> que sea la <strong><u>habitual para el sector</u></strong> en un determinado Estado miembro y que tenga en cuenta si hay riesgo o no.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card 4 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-train"></i></div>
+                <h2>4. LA LIBERALIZACIÓN DEL TRANSPORTE FERROVIARIO</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-history mr-2 text-blue-600"></i>Cronología de la Liberalización</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-truck-loading icon text-orange-600"></i>La <strong><u>liberalización del transporte de mercancías nacional</u></strong> en la RFIG se realizó el <span class="pill pill-blue">1/1/2005</span>.</li>
+                    <li><i class="fas fa-globe-europe icon text-blue-700"></i>La <strong><u>liberalización del transporte de mercancías internacional</u></strong> en la red transeuropea el <span class="pill pill-blue">1/1/2006</span>.</li>
+                    <li><i class="fas fa-users icon text-green-600"></i>La <strong><u>liberalización de viajeros internacional</u></strong> el <span class="pill pill-blue">1/1/2010</span>.</li>
+                    <li><i class="fas fa-user-friends icon text-purple-600"></i>La <strong><u>liberalización de viajeros en la RFIG</u></strong> se hizo efectiva el <span class="pill pill-blue">10/05/2021</span>.</li>
+                </ul>
+            </div>
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-sitemap mr-2 text-purple-600"></i>Modelos de Acceso al Mercado y Tipos de Competencia</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-door-open icon"></i>En general podemos hablar de <strong><u>dos modelos generales de acceso</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><span class="definition-pill"><strong>Modelo de acceso libre</strong></span> a todas las compañías que cumplen los requisitos (licencia + certificado de seguridad), que compiten por los surcos en igualdad de condiciones.</li>
+                                <li><span class="definition-pill"><strong>Modelos basados en contratos o concesiones</strong></span>, acceso tras un proceso de licitación que adjudica temporalmente los derechos de operación.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-balance-scale-left icon"></i>También podemos hablar de <strong><u>dos tipos de competencia</u></strong> diferentes:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><strong><u>Competencia EN el mercado</u>:</strong> requisitos de acceso: licencia + certificado; condiciones de prestación de servicio: libres; número de empresas operando: muchas.</li>
+                                <li><strong><u>Competencia POR el mercado</u>:</strong> requisitos de acceso: licencia + certificado + adjudicación de Contrato; condiciones de prestación de servicio: sujetas a la oferta de la adjudicación del contrato; número de empresas operando: una en cada ámbito de contrato.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-flag mr-2 text-yellow-500"></i>Situación Actual en España</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-user-friends icon text-blue-600"></i><strong><u>Viajeros</u>:</strong></p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>La apertura a la <strong><u>libre competencia</u></strong> del transporte de viajeros por ferrocarril se aplicó a partir del <span class="pill pill-blue">1 de enero de 2019</span>, a tiempo para el acceso a la infraestructura en el horario de servicio que se iniciaba el <span class="pill pill-blue">14 de diciembre de 2020</span>.</li>
+                                <li>Sin perjuicio de lo dispuesto en el <span class="directive-pill">Reglamento 1370/2007</span>, las empresas ferroviarias, en condiciones equitativas, no discriminatorias y transparentes, tendrán <strong><u>derecho de acceso</u></strong> a las infraestructuras ferroviarias para la explotación de servicios de transporte de viajeros por ferrocarril.</li>
+                                <li>Las empresas ferroviarias podrán <strong><u>recoger viajeros en cualquier estación y dejarlos en cualquier otra</u></strong>.</li>
+                                <li>Dicho derecho incluirá el acceso a infraestructuras que conecten las instalaciones de servicio.</li>
+                                <li>El primer operador privado (<span class="actor-pill">Ouigo</span>) comenzó a operar el <span class="pill pill-blue">10 de mayo de 2021</span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-truck-loading icon text-orange-600"></i><strong><u>Mercancías</u>:</strong></p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Desde el <span class="pill pill-blue">1 de enero de 2006</span>, las empresas ferroviarias con licencia europea tienen <strong><u>libre acceso a toda la Red de Interés General del Estado</u></strong> para realizar transporte ferroviario de mercancías internacional o nacional.</li>
+                                <li>Deberán, para ello, solicitar la correspondiente capacidad al <span class="actor-pill">ADIF</span>, siguiendo el procedimiento establecido.</li>
+                                <li>En el momento de la adjudicación de la misma, deberán, además, estar en posesión del <strong><u>certificado de seguridad</u></strong> necesario para poder circular, con su material rodante y su personal de conducción, por el itinerario solicitado.</li>
+                                <li>Se establece pues un sistema de acceso a mercado <strong><u>Libre con competencia pura "EN" el mercado</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-id-card icon text-purple-600"></i><strong><u>Licencias otorgadas de viajeros y mercancías</u>:</strong></p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>La <span class="actor-pill">Agencia Estatal de Seguridad Ferroviaria</span>, tiene emitidas <span class="pill pill-blue">38</span> licencias nacionales de empresa ferroviaria, entre las que se encuentran Renfe-Mercancías y Renfe-Viajeros, y <span class="pill pill-blue">2</span> habilitaciones (específicas para optar a adjudicación de capacidad).</li>
+                                <li>De estas <span class="pill pill-blue">38</span> empresas, <span class="pill pill-blue">29</span> poseen algún tipo de certificado de seguridad, ya sea de Mercancías, Viajeros, Construcción y mantenimiento, o una combinación de ellos; y <span class="pill pill-blue">9</span> tienen pendiente la obtención de algún certificado de seguridad.</li>
+                                <li>Asimismo, <span class="pill pill-blue">5</span> empresas cuentan con licencia otorgada en un país diferente a España (en Francia y Portugal) y certificado de seguridad en nuestro país, 3 de ellas para mercancías y 2 para viajeros.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-bus"></i></div>
+                <h2>5. EL MODELO CONCESIONAL EN LOS SERVICIOS DE TRANSPORTE DE VIAJEROS EN AUTOBÚS</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-file-signature icon text-purple-600"></i>Las <strong><u>Obligaciones de Servicio Público</u></strong> para el transporte de viajeros por carretera se desarrollan mediante <strong><u>contratos de concesión de servicios</u></strong> divididos en líneas cuya titularidad corresponde a la <span class="actor-pill">Administración General del Estado</span>.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>El <strong><u>transporte público interurbano en autobús</u></strong> es fundamental para la movilidad de las personas.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-thumbs-up icon text-green-500"></i>Es <strong><u>económico, sostenible, seguro y socialmente rentable</u></strong>, ofreciendo las <strong><u>tarifas más reducidas</u></strong> en comparación con los modos de transporte alternativos.</li>
+                                <li><i class="fas fa-star icon text-yellow-500"></i>El nivel de <strong><u>eficiencia</u></strong> del autobús, desde el punto de vista medioambiental, económico y social, es <strong><u>altamente destacable</u></strong>.</li>
+                                <li><i class="fas fa-gas-pump icon text-green-600"></i>Es <strong><u>tres veces más eficiente</u></strong> que el vehículo privado en términos de litros de combustible por viajero/kilómetro transportado.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-chart-bar icon text-green-600"></i>A principios de <span class="pill pill-blue">2023</span> son casi <span class="pill pill-blue">80</span> los <strong><u>contratos de concesión</u></strong> de servicios de transporte público de viajeros por carretera de titularidad estatal, con:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-map-pin icon"></i>Más de <span class="pill pill-blue">4.100</span> paradas repartidas en unas <span class="pill pill-blue">2.400</span> poblaciones pertenecientes a unos <span class="pill pill-blue">1.800</span> municipios.</li>
+                                <li><i class="fas fa-road icon"></i>La longitud total de líneas ronda los <span class="pill pill-blue">70.000 km</span>, con una longitud media de casi <span class="pill pill-blue">900 km</span> por concesión.</li>
+                                <li><i class="fas fa-bus-alt icon"></i>El número total de vehículos adscritos a dichas concesiones supera los <span class="pill pill-blue">1.000</span>.</li>
+                                <li><i class="fas fa-tachometer-alt icon"></i>Y el volumen total de vehículos-Km realizados en <span class="pill pill-blue">2022</span> fue superior a los <span class="pill pill-blue">150 millones</span>.</li>
+                                 <li><i class="fas fa-users icon"></i>Con más de <span class="pill pill-blue">23 millones</span> de viajeros transportados y con más de <span class="pill pill-blue">4.300 millones</span> de viajeros-km.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <p><i class="fas fa-ruler-horizontal icon text-yellow-600"></i>El <strong><u>recorrido medio</u></strong> realizado por cada viajero fue de <span class="pill pill-blue">190 km</span>, y la <strong><u>ocupación media</u></strong> por vehículo fue de en torno a <span class="pill pill-blue">29</span> viajeros.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const triggers = document.querySelectorAll('.collapsible-trigger');
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function (event) {
+                    // Evita que el evento de clic se propague a los triggers padres
+                    event.stopPropagation();
+                    
+                    const content = this.nextElementSibling;
+                    
+                    this.classList.toggle('open');
+                    
+                    if (content && content.classList.contains('collapsible-content')) {
+                        content.classList.toggle('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
