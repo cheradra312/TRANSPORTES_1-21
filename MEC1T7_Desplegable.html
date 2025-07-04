@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual: Subvenciones al Transporte</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-header .icon-bg {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-top: 1rem; }
+        .pill, .law-pill, .directive-pill, .actor-pill, .plan-pill, .definition-pill {
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0 0.2rem;
+        }
+        .pill-blue { background-color: #dbeafe; color: #1e4d91; border: 1px solid #93c5fd; }
+        .law-pill { background-color: #f3e8ff; color: #581c87; border: 1px solid #c084fc; }
+        .actor-pill { background-color: #e5e7eb; color: #1f2937; border: 1px solid #9ca3af; }
+        .plan-pill { background-color: #cffafe; color: #164e63; border: 1px solid #67e8f9; }
+        .definition-pill { background-color: #cffafe; color: #155e75; border: 1px solid #22d3ee; }
+        .icon {
+            margin-right: 0.5rem;
+            width: 1.25em;
+            text-align: center;
+        }
+        .nested-list {
+            padding-left: 1.75rem;
+            margin-top: 0.75rem;
+            border-left: 3px dotted #cbd5e1;
+        }
+        .nested-list > li {
+            position: relative;
+        }
+        .nested-list > li::before {
+            content: '🔹';
+            position: absolute;
+            left: -1.75rem;
+            color: #3b82f6;
+        }
+        .deeper-nested-list {
+             padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+         .deeper-nested-list > li {
+            position: relative;
+        }
+        .deeper-nested-list > li::before {
+             content: '▪️';
+             position: absolute;
+             left: -1.25rem;
+             color: #3b82f6;
+        }
+        .even-deeper-nested-list {
+             padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+        .even-deeper-nested-list > li {
+            position: relative;
+        }
+        .even-deeper-nested-list > li::before {
+             content: '▫️';
+             position: absolute;
+             left: -1.25rem;
+             color: #3b82f6;
+        }
+        /* Estilos para la funcionalidad desplegable */
+        .collapsible-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.25rem 0;
+        }
+        .collapsible-trigger > span, .collapsible-trigger > h3 {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+            margin-right: 0.75rem;
+            width: 1em;
+            color: #3b82f6;
+        }
+        .collapsible-content {
+            padding-left: 1.75rem;
+        }
+        .collapsible-trigger.open .collapsible-icon {
+            transform: rotate(90deg);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 p-4 sm:p-6 md:p-8">
+    <div class="max-w-5xl mx-auto">
+
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-euro-sign"></i> MEC1T7: SUBVENCIONES AL TRANSPORTE <i class="fas fa-hand-holding-usd"></i></h1>
+        </header>
+
+        <!-- Main Card 1 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-info-circle"></i></div>
+                <h2>1. SUBVENCIONES AL TRANSPORTE. CONCEPTOS BÁSICOS</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-landmark icon text-gray-700"></i>Parte de la <strong><u>actividad financiera del sector público</u></strong> se canaliza a través de <strong><u>subvenciones</u></strong> que dan respuesta, con apoyo financiero, a <u>demandas sociales y económicas</u> de personas y entidades públicas o privadas. Las subvenciones son una modalidad de <strong><u>gasto público</u></strong> y deben ajustarse a la política de <strong><u>estabilidad presupuestaria</u></strong>.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-gavel icon text-purple-600"></i>La regulación básica estatal viene marcada por la <span class="law-pill"><strong>Ley 38/2003 General de Subvenciones</strong></span>, que define <span class="definition-pill"><strong>subvención</strong></span> como:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li>Toda <strong><u>disposición dineraria</u></strong> realizada por las <span class="actor-pill">Administraciones públicas</span> a favor de personas públicas o privadas.</li>
+                               <li>Cuando la entrega se realiza <strong><u>sin contraprestación directa</u></strong> de los beneficiarios.</li>
+                               <li>Pero <strong><u>sujeta al cumplimiento de un determinado objetivo</u></strong>, debiendo el beneficiario cumplir las obligaciones que se hubieran establecido.</li>
+                               <li>Y teniendo por objeto el <strong><u>fomento de una actividad de utilidad pública o interés social</u></strong> o de promoción de una finalidad pública.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-file-alt icon text-blue-600"></i>La <span class="law-pill">Ley 38/2003</span> establece que las <span class="actor-pill">Administraciones Públicas</span> que propongan subvenciones, deberán concretar en un <span class="plan-pill"><strong>plan estratégico de subvenciones</strong></span>:</p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                               <li>Los <strong><u>objetivos</u></strong> que se pretenden con su aplicación.</li>
+                               <li>El <strong><u>plazo</u></strong> necesario para su consecución.</li>
+                               <li>Los <strong><u>costes previsibles</u></strong> y sus <strong><u>fuentes de financiación</u></strong>.</li>
+                               <li>Supeditándose en todo caso a la <strong><u>estabilidad presupuestaria</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-tasks mr-2 text-yellow-700"></i>Plan Estratégico de Subvenciones del MITMS 2025-2027</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-info-circle icon"></i>El <span class="plan-pill"><strong>Plan Estratégico de Subvenciones del Ministerio de Transportes y Movilidad Sostenible para el periodo 2025-2027</strong></span> tiene <strong><u>carácter programático</u></strong> y su contenido <u>no crea derechos ni obligaciones</u>. Su efectividad quedará condicionada a la puesta en práctica de las diferentes líneas de subvención, atendiendo, entre otros condicionantes, a las <strong><u>disponibilidades presupuestarias</u></strong> de cada ejercicio.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-bullseye icon text-green-600"></i>El Plan está orientado, entre otras, por la <span class="plan-pill"><strong>Estrategia de Movilidad Segura, Sostenible y Conectada 2030</strong></span>, e incluye una definición de indicadores para evaluar que las líneas de subvención coadyuvan de forma eficaz a la consecución de los <strong><u>4 objetivos estratégicos</u></strong> establecidos.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li>
+                                   <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                       <p>El <strong><u>objetivo estratégico nº 1</u></strong> pretende garantizar un sistema de transporte orientado a <u>mejorar la movilidad</u> de los ciudadanos y la <u>competitividad</u> de nuestra economía. Dentro de este objetivo se contemplan <span class="pill pill-blue">29</span> líneas de subvención, entre las que cabe mencionar:</p>
+                                   </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>
+                                                <div class="collapsible-trigger">
+                                                    <i class="fas fa-chevron-right collapsible-icon"></i>
+                                                    <p><i class="fas fa-plane-departure icon text-blue-500"></i><strong><u>Subvenciones al transporte de residentes en territorios no peninsulares</u></strong> (Canarias, Baleares, Ceuta y Melilla), para facilitar su movilidad en términos de equidad con el resto de los españoles. Se contemplan subvenciones de:</p>
+                                                </div>
+                                                <div class="collapsible-content hidden">
+                                                    <ul class="nested-list even-deeper-nested-list">
+                                                        <li>- Hasta el <span class="pill pill-blue">75%</span> del precio del billete en los vuelos o viajes en barco entre estos territorios y la península.</li>
+                                                        <li>- Hasta el <span class="pill pill-blue">75%</span> en los viajes interinsulares (en el transporte marítimo, el <span class="pill pill-blue">25%</span> de esta subvención es asumida por la Comunidad Autónoma, al ser el transporte marítimo entre islas de competencia autonómica).</li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li><i class="fas fa-truck-loading icon text-orange-600"></i><strong><u>Subvenciones al transporte de mercancías</u></strong> con los territorios no peninsulares, para compensar los mayores costes de transporte de mercancías entre la Península y los Archipiélagos, Ceuta y Melilla.</li>
+                                            <li>
+                                                <div class="collapsible-trigger">
+                                                    <i class="fas fa-chevron-right collapsible-icon"></i>
+                                                    <p><i class="fas fa-users icon text-green-600"></i><strong><u>Subvenciones al transporte aéreo, marítimo y ferroviario para familias numerosas</u></strong> en toda España:</p>
+                                                </div>
+                                                <div class="collapsible-content hidden">
+                                                    <ul class="nested-list even-deeper-nested-list">
+                                                        <li>- En el transporte aéreo, bonificación de la tarifa del <span class="pill pill-blue">5%</span> en categoría general y <span class="pill pill-blue">10%</span> en categoría especial.</li>
+                                                        <li>- En el transporte marítimo, bonificación de la tarifa del <span class="pill pill-blue">20%</span> en categoría general y <span class="pill pill-blue">50%</span> en categoría especial.</li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li><i class="fas fa-landmark icon text-gray-700"></i><strong><u>Ayudas a CCAA y Entidades Locales</u></strong> para medidas sociales y la mejora de la calidad en los servicios de transporte público.</li>
+                                            <li><i class="fas fa-hard-hat icon text-yellow-600"></i><strong><u>Ayudas a los profesionales del transporte por carretera</u></strong> que facilitan la jubilación de los transportistas autónomos, mejorando así la competitividad, en un sector con un número importante de profesionales de edad elevada y con empresas pequeñas con dificultades de financiación y carencia de recursos para abandonar la actividad antes de cumplir 65 años.</li>
+                                            <li><i class="fas fa-train icon text-purple-600"></i><strong><u>Ayudas a empresas ferroviarias</u></strong> de transporte de mercancías por restricciones temporales de capacidad en la RFIG.</li>
+                                            <li>
+                                                <div class="collapsible-trigger">
+                                                    <i class="fas fa-chevron-right collapsible-icon"></i>
+                                                    <p><i class="fas fa-building icon text-gray-500"></i><strong><u>Ayudas a organismos de interés</u></strong> en el sector:</p>
+                                                </div>
+                                                <div class="collapsible-content hidden">
+                                                    <ul class="nested-list even-deeper-nested-list">
+                                                        <li>- <span class="actor-pill">Centro de Estudios de Transportes del Mediterráneo Occidental, Fundación CETMO</span> para el Observatorio de la Digitalización del Transporte y para el Secretariado técnico del Grupo de Ministros de Transporte.</li>
+                                                        <li>- <span class="actor-pill">Asociación Foro de Nuevas Tecnologías en el Transporte – ITS</span>, cuyo objetivo es aunar al sector público, privado y académico relacionado con los Sistemas Inteligentes de Transporte, para hacer más segura, sostenible y eficiente la movilidad de personas y mercancías.</li>
+                                                        <li>- <span class="actor-pill">Universidad Politécnica de Madrid</span> para el Observatorio de la Movilidad Metropolitana.</li>
+                                                        <li>- <span class="actor-pill">Universidad Politécnica de Cataluña</span> para el Centro de Investigación e Innovación en Movilidad Avanzada.</li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                   </div>
+                               </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-database"></i></div>
+                <h2>2. BASE DE DATOS NACIONAL DE SUBVENCIONES</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-history icon text-gray-500"></i>El precedente inmediato de la <span class="definition-pill"><strong>Base de Datos Nacional de Subvenciones (BDNS)</strong></span> se encuentra en la <span class="law-pill">Ley 38/2003 General de Subvenciones</span>, que vino a refrendar la base de datos que ya operaba desde el año <span class="pill pill-blue">2000</span>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Sus rasgos fundamentales fueron su ámbito, <strong><u>generalizado a todas las Administraciones públicas</u></strong>, y su <strong><u>carácter reservado</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-eye icon text-blue-500"></i>Posteriormente, la <span class="law-pill">Ley 19/2013 de transparencia, acceso a la información pública y buen gobierno</span>, impuso la <strong><u>publicidad obligatoria</u></strong> de todas las subvenciones; que se ha instrumentado a partir de la BDNS para mostrar información de todas las subvenciones concedidas por todas las Administraciones públicas.</li>
+                    <li><i class="fab fa-teamspeak icon text-green-600"></i>Del mismo modo, a partir de la <span class="plan-pill">Estrategia 2020</span> en la <span class="actor-pill">Unión Europea</span>, se publicó la <strong><u>Comunicación de la Comisión sobre modernización de las ayudas estatales</u></strong> en la UE que ha derivado en la publicación de varios reglamentos UE en <span class="pill pill-blue">2014</span> que exigen la publicación de las ayudas estatales en un sitio web en cada Estado miembro.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-gavel icon text-purple-600"></i>Con todo ello se aprobó el <span class="law-pill"><strong>Real Decreto 130/2019</strong></span> por el que se regula la BDNS y la publicidad de las subvenciones y demás ayudas públicas, que contempla el <strong><u>rediseño de la BDNS</u></strong> y que pretende lograr los siguientes <strong><u>objetivos</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-search icon"></i>Poner en común en un <strong><u>único punto todas las convocatorias</u></strong> cuyo plazo de solicitud esté abierto para cada momento determinado, permitiendo su consulta a todos los posibles interesados.</li>
+                                <li><i class="fas fa-expand-arrows-alt icon"></i><strong><u>Extender el ámbito objetivo</u></strong> de la BDNS a todo tipo de ayudas, más allá de las subvenciones.</li>
+                                <li><i class="fas fa-sitemap icon"></i><strong><u>Extender el ámbito subjetivo</u></strong> de la BDNS a todas las Administraciones públicas y a sus entidades vinculadas, sea cual sea su naturaleza, pública o privada, siempre que concedan subvenciones o ayudas públicas.</li>
+                                <li><i class="fas fa-file-alt icon"></i>Dar respuesta a los <strong><u>requerimientos de información establecidos por la UE</u></strong> en materia de ayudas de estado.</li>
+                                <li><i class="fas fa-shield-alt icon"></i>Servir como instrumento para la <strong><u>planificación</u></strong> de las políticas públicas, la <strong><u>mejora de la gestión</u></strong> y la <strong><u>lucha contra el fraude</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-landmark"></i></div>
+                <h2>3. AYUDAS DE ESTADO</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-gavel icon text-purple-600"></i>El <span class="law-pill"><strong>Tratado de Funcionamiento de la UE (TFUE)</strong></span> declara <strong><u>incompatibles con el mercado interior</u></strong> las ayudas otorgadas por los Estados que <strong><u>falseen o amenacen falsear la competencia</u></strong>, favoreciendo a determinadas empresas o producciones.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-balance-scale icon text-yellow-600"></i>En el <span class="law-pill">TFUE</span> se declaran:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><strong><u>Compatibles</u></strong> con los Tratados las <u>compensaciones por coordinación de los transportes</u> y algunas inherentes a las <u>obligaciones de servicio público</u>.</li>
+                                <li><strong><u>Incompatibles</u></strong> con el mercado interior las <u>ayudas que afecten a los intercambios comerciales</u> entre los Estados, siendo necesario informar a la <span class="actor-pill">Comisión Europea</span> de las ayudas que se pretendan introducir para que esta institución, si considera que pueden ser incompatibles con el mercado interior, incoe expediente, sin que se pueda aplicar la ayuda hasta que se adopte la decisión correspondiente.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-bus icon text-blue-500"></i>En el marco del transporte es fundamental la particularización del <span class="directive-pill"><strong>Reglamento 1370/2007</strong></span> sobre los servicios públicos de transporte de viajeros por ferrocarril y carretera, que declara las <strong><u>compensaciones compatibles con el mercado común</u></strong> para la prestación de servicios públicos de transporte de viajeros o para cumplir las obligaciones tarifarias establecidas.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>En cumplimiento del <span class="law-pill">TFUE</span>, la regulación europea sobre ayudas se aplicará cuando:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Exista <strong><u>traslado de recursos estatales</u></strong>.</li>
+                                <li>Haya una <strong><u>ventaja económica</u></strong> para la empresa sobre la que sea la propia de su actividad normal.</li>
+                                <li>Sea <strong><u>selectiva</u></strong> dirigida a una empresa o conjunto de empresas y no una medida de carácter general.</li>
+                                <li>Y tenga <strong><u>influencia en los intercambios</u></strong> entre los Estados miembros distorsionando la competencia.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-landmark-flag icon text-red-600"></i>En el campo del transporte es paradigmática la <span class="definition-pill"><strong>sentencia ALTMARK</strong></span>, dictada por el <span class="actor-pill">Tribunal de Justicia de la UE</span> en <span class="pill pill-blue">2003</span>. El litigio se refería a la reclamación realizada por un operador contra el gobierno de Magdeburgo (Alemania) por haber concedido licencias de transporte y subvenciones a ALTMARK sin un procedimiento competitivo.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>En dicha sentencia se definió cuándo una ayuda, como compensación por obligaciones de servicio público, <strong><u>no debe considerarse ayuda de Estado</u></strong>, estableciendo los siguientes requisitos conocidos como <span class="definition-pill"><strong>“criterios Altmark”</strong></span>:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>Las <strong><u>obligaciones de servicio público</u></strong> tienen que estar claramente definidas.</li>
+                                            <li>Los <strong><u>parámetros para el cálculo de la compensación</u></strong> deben establecerse previamente de forma objetiva y transparente.</li>
+                                            <li>La <strong><u>compensación no puede superar el nivel necesario</u></strong> para cubrir los gastos ocasionados por la ejecución de las obligaciones de servicio público considerando los ingresos correspondientes y un beneficio razonable.</li>
+                                            <li>Incluso si la elección de la empresa no se ha realizado en el marco de un procedimiento de contratación pública que permita seleccionar al candidato capaz de prestar estos servicios originando el menor coste para la colectividad, ya que en este caso la compensación necesaria debe <strong><u>calcularse sobre la base de un análisis de los costes de una empresa media</u></strong>, bien gestionada y adecuadamente equipada para poder satisfacer las exigencias de servicio público requeridas.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const triggers = document.querySelectorAll('.collapsible-trigger');
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function (event) {
+                    // Evita que el evento de clic se propague a los triggers padres
+                    event.stopPropagation();
+                    
+                    const content = this.nextElementSibling;
+                    
+                    this.classList.toggle('open');
+                    
+                    if (content && content.classList.contains('collapsible-content')) {
+                        content.classList.toggle('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
