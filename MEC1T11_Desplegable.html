@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual: Movilidad Urbana y Metropolitana</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-header .icon-bg {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-top: 1rem; }
+        .pill, .law-pill, .directive-pill, .actor-pill, .plan-pill, .definition-pill {
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0 0.2rem;
+        }
+        .pill-blue { background-color: #dbeafe; color: #1e4d91; border: 1px solid #93c5fd; }
+        .pill-red { background-color: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+        .pill-yellow { background-color: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
+        .pill-green { background-color: #dcfce7; color: #166534; border: 1px solid #86efac; }
+        .law-pill { background-color: #f3e8ff; color: #581c87; border: 1px solid #c084fc; }
+        .directive-pill { background-color: #dcfce7; color: #166534; border: 1px solid #4ade80; }
+        .actor-pill { background-color: #e5e7eb; color: #1f2937; border: 1px solid #9ca3af; }
+        .plan-pill { background-color: #cffafe; color: #164e63; border: 1px solid #67e8f9; }
+        .formula-pill { background-color: #ffedd5; color: #9a3412; border: 1px solid #fb923c; }
+        .definition-pill { background-color: #cffafe; color: #155e75; border: 1px solid #22d3ee; }
+        .icon {
+            margin-right: 0.5rem;
+            width: 1.25em;
+            text-align: center;
+        }
+        .nested-list {
+            padding-left: 1.75rem;
+            margin-top: 0.75rem;
+            border-left: 3px dotted #cbd5e1;
+        }
+        .nested-list > li {
+            position: relative;
+        }
+        .nested-list > li::before {
+            content: '🔹';
+            position: absolute;
+            left: -1.75rem;
+            color: #3b82f6;
+        }
+        .deeper-nested-list {
+             padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+         .deeper-nested-list > li {
+            position: relative;
+        }
+        .deeper-nested-list > li::before {
+             content: '▪️';
+             position: absolute;
+             left: -1.25rem;
+             color: #3b82f6;
+        }
+        .even-deeper-nested-list {
+             padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+        .even-deeper-nested-list > li {
+            position: relative;
+        }
+        .even-deeper-nested-list > li::before {
+             content: '▫️';
+             position: absolute;
+             left: -1.25rem;
+             color: #3b82f6;
+        }
+        /* Estilos para la funcionalidad desplegable */
+        .collapsible-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.25rem 0;
+        }
+        .collapsible-trigger > span, .collapsible-trigger > h3 {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+            margin-right: 0.75rem;
+            width: 1em;
+            color: #3b82f6;
+        }
+        .collapsible-content {
+            padding-left: 1.75rem;
+        }
+        .collapsible-trigger.open .collapsible-icon {
+            transform: rotate(90deg);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 p-4 sm:p-6 md:p-8">
+    <div class="max-w-5xl mx-auto">
+
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-city"></i> MEC1T11: LA MOVILIDAD URBANA Y METROPOLITANA <i class="fas fa-bus"></i></h1>
+        </header>
+
+        <!-- Main Card 1 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-info-circle"></i></div>
+                <h2>1. LA MOVILIDAD URBANA Y METROPOLITANA, DE VIAJEROS Y DE MERCANCÍAS. PRINCIPALES ACTORES</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-route icon text-blue-600"></i>La <span class="definition-pill"><strong>movilidad urbana y metropolitana</strong></span> es el <strong><u>conjunto de desplazamientos</u></strong> de personas y mercancías que se producen en su entorno, satisfaciendo las necesidades de los ciudadanos, de abastecimiento de la ciudad, y del transporte de los bienes producidos en la ciudad hacia el exterior.</li>
+                    <li><i class="fas fa-heartbeat icon text-red-500"></i>Es <strong><u>relevante en el desarrollo</u></strong> de las ciudades y en la <strong><u>calidad de vida</u></strong> de los ciudadanos, y constituye un elemento esencial de <strong><u>cohesión social</u></strong>, de modo que las políticas están cada vez más orientadas a ofrecer el <strong><u>acceso a soluciones de movilidad de forma equitativa</u></strong> y con independencia de las circunstancias socioeconómicas, de edad, género o discapacidad. Y es precisamente el sistema de transporte de las ciudades el instrumento sobre el que reside y se articula esta movilidad.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-sync-alt icon text-purple-600"></i>La movilidad en las ciudades ha ido <strong><u>evolucionando en paralelo al desarrollo de las grandes áreas metropolitanas</u></strong>, basadas en un núcleo central y una órbita de ciudades satélites con múltiples relaciones de dependencia con la urbe principal.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Este fenómeno de dispersión, unido al aumento de la población urbana, es uno de los factores que más influye en el <strong><u>aumento de la movilidad metropolitana</u></strong> y en un <strong><u>mayor uso del vehículo privado</u></strong> frente a otras soluciones más eficientes y sostenibles.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-chart-line icon text-green-600"></i>De hecho, las previsiones a nivel global señalan que la <strong><u>demanda de transporte urbano de viajeros crecerá un <span class="pill pill-blue">60-70%</span> para 2050</u></strong>, con un aumento de la movilidad motorizada del <span class="pill pill-blue">94%</span> entre 2015 y 2050.</li>
+                </ul>
+            </div>
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-users-cog mr-2 text-gray-700"></i>Principales Actores</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-landmark icon"></i><strong><u>Administración Pública</u>:</strong></p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li>Los <strong><u>municipios</u></strong> son competentes en la planificación urbanística y el transporte urbano dentro de sus ciudades.</li>
+                               <li>En el ámbito de la movilidad metropolitana, las <strong><u>comunidades autónomas</u></strong> son competentes para planificar, gestionar y ordenar el transporte y la movilidad entre municipios dentro de una misma comunidad autónoma.</li>
+                               <li>Los municipios de un área metropolitana pueden ceder competencias de transporte urbano a una <strong><u>Autoridad de Transporte Público</u></strong>, que coordina los medios de transporte colectivos y realiza una integración tarifaria.</li>
+                               <li>La <span class="actor-pill"><strong>AGE</strong></span> lleva a cabo también algunas políticas relacionadas con el transporte urbano y metropolitano, como los servicios ferroviarios de <strong><u>Cercanías</u></strong> operados por Renfe, donde el <span class="actor-pill">MITMS</span> es el responsable de su planificación.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-car icon"></i>Otro actor importante es el <strong><u>usuario del coche particular</u></strong> (o moto), por el espacio que ocupan estos vehículos (más del 50% en ciertas ciudades), y por el uso que se hace de ellos y los impactos negativos que producen.</li>
+                    <li><i class="fas fa-road icon"></i>Las <strong><u>infraestructuras urbanas</u></strong> (viario, líneas ferroviarias, intercambiadores, aparcamientos, estaciones, aceras, carriles bici) posibilitan la utilización de los distintos medios de transporte.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-building icon"></i><strong><u>Empresas prestadoras de los servicios</u></strong> de transporte de viajeros, que pueden ser:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li><strong><u>Operadores públicos</u></strong>, cuando actúan bajo gestión directa (EMT de Madrid).</li>
+                               <li><strong><u>Operadores privados</u></strong>, cuando explotan el servicio en régimen de concesión (operadores interurbanos integrados en el Consorcio Regional de Transportes de Madrid).</li>
+                               <li>Además del transporte colectivo, se encuentran los servicios públicos de transporte de viajeros en vehículos de turismo, en <strong><u>taxis</u></strong> y mediante el <strong><u>arrendamiento de vehículos con conductor (VTC)</u></strong>, que son servicios puerta a puerta.</li>
+                               <li>Las competencias de regulación y otorgamiento de licencias de taxi son de las <span class="actor-pill">Comunidades Autónomas</span> y <span class="actor-pill">Entes Locales</span>, mientras que las licencias VTC son de titularidad estatal, ostentando las administraciones autonómicas competencias de gestión sobre la materia, por delegación del Estado.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card 2 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-leaf"></i></div>
+                <h2>2. MOVILIDAD SOSTENIBLE EN ÁMBITO URBANO Y METROPOLITANO</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-exclamation-triangle icon text-red-500"></i>El transporte produce <strong><u>impactos negativos o externalidades</u></strong>: emisiones de gases contaminantes y de efecto invernadero, ruido, accidentes y congestión que repercuten de forma negativa en la salud y la calidad de vida de los ciudadanos, la economía, y el clima del planeta.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Las <strong><u>áreas metropolitanas</u></strong> y, principalmente, los <strong><u>centros urbanos</u></strong> son polos de generación de actividad y de movilidad que <strong><u>concentran los impactos negativos</u></strong> asociados al transporte.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-robot icon text-blue-600"></i>La llegada de las <strong><u>nuevas tecnologías y la digitalización</u></strong> ha supuesto una <strong><u>transformación radical</u></strong> del transporte y la movilidad.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>No sólo está siendo esencial para la <strong><u>mejora de la seguridad y de la eficiencia</u></strong> del transporte, sino que está favoreciendo la aparición de <strong><u>nuevos servicios de movilidad</u></strong> que están cambiando la forma en la que los ciudadanos y las mercancías se mueven.</li>
+                                <li>Muchas de estas nuevas tecnologías y sistemas pueden contribuir además a la <strong><u>descarbonización del transporte</u></strong>.</li>
+                                <li>Igualmente, la tecnología también ha sido fundamental para la aparición del <strong><u>comercio electrónico</u></strong>, que ha modificado los hábitos de consumo y está transformando la distribución urbana de mercancías.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-sync-alt icon text-purple-600"></i>En definitiva, en estos últimos años el transporte y la movilidad están siendo protagonistas de <strong><u>transformaciones disruptivas</u></strong> con <strong><u>dos vectores de cambio principales</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>La <strong><u>descarbonización del transporte</u></strong> en el marco del objetivo general de descarbonización de la economía para <span class="pill pill-blue">2050</span>.</li>
+                                <li>Y la introducción de la <strong><u>digitalización de la movilidad</u></strong>.</li>
+                                <li>Esta situación se une, en las áreas metropolitanas, al fenómeno de <strong><u>crecimiento de actividad</u></strong> que se está produciendo a nivel global en las grandes urbes, y a las <strong><u>nuevas pautas de movilidad</u></strong> que se están generando en este ámbito.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-bullseye icon text-green-600"></i>En este contexto, la movilidad en las áreas metropolitanas supone un <strong><u>auténtico desafío</u></strong> para lograr ciudades más sostenibles.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>En la <span class="plan-pill"><strong>Agenda 2030 sobre el Desarrollo Sostenible</strong></span>, aprobada por las <span class="actor-pill">Naciones Unidas</span>, se establece para <span class="pill pill-blue">2030</span>, el <strong><u>objetivo</u></strong> de:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>Proporcionar <strong><u>acceso a sistemas de transporte seguros, asequibles, accesibles y sostenibles</u></strong>.</li>
+                                            <li>Y <strong><u>mejorar la seguridad vial</u></strong>, en particular mediante la <strong><u>ampliación del transporte público</u></strong>, prestando especial atención a las personas en situación de vulnerabilidad, las mujeres, los niños, las personas con discapacidad y las personas de edad.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-users"></i></div>
+                <h2>3. EL TRANSPORTE PÚBLICO EN LA MOVILIDAD DE VIAJEROS. ORGANIZACIÓN Y GESTIÓN</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-chart-bar icon text-blue-600"></i>El <strong><u>número total de viajes</u></strong> en transporte colectivo urbano y metropolitano en <span class="pill pill-blue">2023</span> en España superó los <span class="pill pill-blue"><strong>4.600 millones de viajeros</strong></span>, lo que representa el <span class="pill pill-blue">89%</span> de los viajes totales realizados en territorio nacional en modos de transporte colectivo.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Si se analiza la <strong><u>participación de los distintos modos</u></strong>, el <strong><u>autobús</u></strong> sigue siendo el predominante con el <span class="pill pill-blue">60%</span>, mientras que los <strong><u>modos ferroviarios</u></strong> (metro, metro ligero, tranvía y tren de cercanías) representan el <span class="pill pill-blue">40%</span> restante.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-sitemap mr-2 text-purple-600"></i>Organización y Gestión</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon"></i>En un espacio metropolitano de cierto tamaño es necesaria una <strong><u>colaboración</u></strong> entre las autoridades y empresas de los servicios urbanos de transporte, que puede responder a <strong><u>tres modelos diferentes</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><span class="definition-pill"><strong>Modelo integral</strong></span>: empresa única dependiendo de una autoridad única.</li>
+                                <li><span class="definition-pill"><strong>Modelo de coordinación</strong></span>: sistema explotado por varios operadores dependiendo de una autoridad única, se establece un convenio conjunto de explotación.</li>
+                                <li><span class="definition-pill"><strong>Modelo de cooperación</strong></span>: sistema explotado por varias empresas, que dependen de una o varias autoridades, y que establecen convenios sobre aspectos parciales de la explotación.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-cogs icon"></i>Las <strong><u>formas de gestión</u></strong> de los transportes públicos urbanos son:</p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                                <li>Gestión <strong><u>directa</u></strong>.</li>
+                                <li>Gestión <strong><u>indirecta mediante concesión</u></strong> (es la fórmula más común).</li>
+                                <li>Y gestión <strong><u>mixta</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-building icon text-gray-700"></i>En España son frecuentes las <span class="actor-pill"><strong>Autoridades de Transporte Público</strong></span>, que son organismos que planifican y gestionan los servicios de transporte público en las áreas metropolitanas, proporcionando una <strong><u>integración a 3 niveles</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-landmark icon"></i><strong><u>Integración administrativa</u>:</strong> con representación de la <span class="actor-pill">CA</span>, <span class="actor-pill">Ayuntamientos</span>, <span class="actor-pill">AGE</span>, empresas públicas relacionadas, etc.</li>
+                                <li><i class="fas fa-tags icon"></i><strong><u>Integración tarifaria</u>:</strong> fundamentalmente por distancia o por zonas.</li>
+                                <li><i class="fas fa-random icon"></i><strong><u>Integración modal</u>:</strong> de los diferentes modos de transporte disponibles.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-building"></i></div>
+                <h2>4. LAS AUTORIDADES DE TRANSPORTE METROPOLITANO</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>Las <span class="definition-pill"><strong>autoridades de transporte metropolitano</strong></span> son <strong><u>consorcios encargados de coordinar y planificar</u></strong> el transporte público en una región.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><strong><u>Regulan en zonas las tarifas</u></strong> de los distintos transportes públicos existentes (autobuses urbanos e interurbanos, cercanías, metro) <strong><u>unificándolas en un solo billete</u></strong>, conformando un <span class="definition-pill"><strong>sistema tarifario integrado</strong></span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-map-marker-alt icon text-yellow-600"></i>En <span class="actor-pill">España</span> existen <span class="actor-pill"><strong>Autoridades de Transporte Público</strong></span> en las <strong><u>principales áreas metropolitanas</u></strong>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-landmark"></i></div>
+                <h2>5. COMPETENCIAS DE LA ADMINISTRACIÓN GENERAL DEL ESTADO</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-info-circle icon text-blue-600"></i>La <span class="actor-pill"><strong>AGE</strong></span> <strong><u>no tiene competencias específicas</u></strong> en el transporte urbano y metropolitano, pero su <strong><u>aportación</u></strong> en términos de inversión en infraestructura y de aportación al funcionamiento del sistema de transporte público es de unos <span class="pill pill-blue"><strong>650 M€ anuales</strong></span>.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-building icon text-gray-700"></i>El <span class="actor-pill"><strong>MITMS</strong></span> está <strong><u>muy presente en el medio urbano</u></strong>, sus decisiones <strong><u>condicionan la evolución</u></strong> del sistema de transporte urbano y de la propia ciudad:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Las <strong><u>actuaciones en puertos, aeropuertos, accesos y circunvalaciones viarias e infraestructura ferroviaria</u></strong> suponen <strong><u>inversiones cuantiosas</u></strong> y marcan <strong><u>oportunidades o amenazas</u></strong> para el modelo de ciudad impulsado por las autoridades locales.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-hand-holding-usd icon text-green-600"></i>Aunque menos importantes en términos económicos, las siguientes acciones tienen una <strong><u>influencia decisiva</u></strong> en los sistemas de transporte público urbano y metropolitano, clave para el desarrollo de una movilidad sostenible en las ciudades:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li><i class="fas fa-money-bill-wave icon text-green-500"></i>Las <strong><u>subvenciones al transporte urbano</u></strong>.</li>
+                               <li><i class="fas fa-gavel icon text-purple-500"></i>Y la <strong><u>normativa básica sobre servicios de transporte</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-file-alt"></i></div>
+                <h2>6. LA AGENDA URBANA ESPAÑOLA. TENDENCIAS. RETOS</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>La <span class="plan-pill"><strong>Agenda Urbana Española</strong></span> es la <strong><u>hoja de ruta</u></strong> que va a marcar la estrategia hasta <span class="pill pill-blue">2030</span>, para hacer de nuestras ciudades <strong><u>ámbitos de convivencia amables, acogedores, saludables y concienciados</u></strong>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Constituye un <strong><u>“menú a la carta”</u></strong> para que todos los actores, públicos y privados, que intervienen en las ciudades y que buscan un desarrollo equitativo, justo y sostenible, puedan elaborar sus <span class="plan-pill"><strong>Planes de Acción</strong></span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-clipboard-list icon text-purple-600"></i>La <span class="plan-pill">Agenda Urbana Española</span> contiene:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Un <strong><u>diagnóstico</u></strong> de la realidad urbana.</li>
+                                <li>Un <strong><u>marco estratégico</u></strong> estructurado en <span class="pill pill-blue">10</span> objetivos.</li>
+                                <li>Un <strong><u>sistema de indicadores</u></strong> para evaluar su cumplimiento.</li>
+                                <li>Unas <strong><u>fichas</u></strong> sobre la elaboración de los planes de acción.</li>
+                                <li>Y un <span class="plan-pill"><strong>Plan de Acción para la AGE</strong></span> con propuestas concretas desde el ámbito de las competencias estatales.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-landmark icon text-gray-700"></i>El <span class="actor-pill"><strong>MITMS</strong></span> como anterior impulsor y responsable último de la elaboración de la <span class="plan-pill">Agenda Urbana Española</span>, y de la coherencia que la misma guarda con el <span class="plan-pill">Plan de Acción</span> ya aprobado por el <span class="actor-pill">Gobierno de España</span> para la <span class="plan-pill">Agenda 2030</span>, aprobó su propio <span class="plan-pill"><strong>Plan de Acción</strong></span>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>Que identifica una serie de <strong><u>actuaciones</u></strong> en el ámbito:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>Normativo y de la planificación.</li>
+                                            <li>En la financiación.</li>
+                                            <li>En la gobernanza.</li>
+                                            <li>En la participación ciudadana.</li>
+                                            <li>Y en el intercambio de los fenómenos urbanos.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-tractor"></i></div>
+                <h2>7. MOVILIDAD RURAL</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>En las <strong><u>zonas rurales</u></strong>, el transporte se caracteriza por una <strong><u>baja demanda muy heterogénea</u></strong>, que presta servicio a <strong><u>pocas personas diseminadas</u></strong> en áreas de gran extensión.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>El funcionamiento del transporte público se centra principalmente en el <strong><u>transporte escolar</u></strong> y en <strong><u>servicios regulares con escasas frecuencias</u></strong>, afluentes en ocasiones, de otros de mayor entidad.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-leaf icon text-green-600"></i>Los pueblos y las ciudades de pequeño y mediano tamaño son <strong><u>modelos idóneos para potenciar la movilidad activa sostenible</u></strong> (bicicleta, caminar) que debería ser la primera opción para moverse.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>Un <strong><u>paradigma</u></strong> de este tipo de movilidad sería comenzar por establecer <strong><u>caminos escolares seguros</u></strong>, que conseguirían:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><i class="fas fa-car-side icon text-red-500"></i><strong><u>Reducir el número de vehículos a motor</u></strong> que trasladan a los niños al colegio.</li>
+                                            <li><i class="fas fa-smog icon text-gray-600"></i><strong><u>Aminorando el exceso de emisiones</u></strong> contaminantes y el <strong><u>ruido</u></strong>.</li>
+                                            <li><i class="fas fa-recycle icon text-green-700"></i>Actuando en favor de la <strong><u>mejora del medio ambiente</u></strong>, la <strong><u>recuperación del espacio público</u></strong> y la <strong><u>seguridad vial infantil</u></strong>.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const triggers = document.querySelectorAll('.collapsible-trigger');
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function (event) {
+                    // Evita que el evento de clic se propague a los triggers padres
+                    event.stopPropagation();
+                    
+                    const content = this.nextElementSibling;
+                    
+                    this.classList.toggle('open');
+                    
+                    if (content && content.classList.contains('collapsible-content')) {
+                        content.classList.toggle('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
