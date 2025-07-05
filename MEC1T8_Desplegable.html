@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual: La Intermodalidad en el Transporte</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-header .icon-bg {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-top: 1rem; }
+        .pill, .law-pill, .directive-pill, .actor-pill, .plan-pill, .definition-pill {
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0 0.2rem;
+        }
+        .pill-blue { background-color: #dbeafe; color: #1e4d91; border: 1px solid #93c5fd; }
+        .actor-pill { background-color: #e5e7eb; color: #1f2937; border: 1px solid #9ca3af; }
+        .plan-pill { background-color: #cffafe; color: #164e63; border: 1px solid #67e8f9; }
+        .definition-pill { background-color: #cffafe; color: #155e75; border: 1px solid #22d3ee; }
+        .icon {
+            margin-right: 0.5rem;
+            width: 1.25em;
+            text-align: center;
+        }
+        .nested-list {
+            padding-left: 1.75rem;
+            margin-top: 0.75rem;
+            border-left: 3px dotted #cbd5e1;
+        }
+        .nested-list > li {
+            position: relative;
+        }
+        .nested-list > li::before {
+            content: '🔹';
+            position: absolute;
+            left: -1.75rem;
+            color: #3b82f6;
+        }
+        .deeper-nested-list {
+             padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+        .deeper-nested-list > li {
+            position: relative;
+        }
+        .deeper-nested-list > li::before {
+             content: '▪️';
+             position: absolute;
+             left: -1.25rem;
+             color: #3b82f6;
+        }
+        /* Estilos para la funcionalidad desplegable */
+        .collapsible-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.25rem 0;
+        }
+        .collapsible-trigger > span, .collapsible-trigger > h3 {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+            margin-right: 0.75rem;
+            width: 1em;
+            color: #3b82f6;
+        }
+        .collapsible-content {
+            padding-left: 1.75rem;
+        }
+        .collapsible-trigger.open .collapsible-icon {
+            transform: rotate(90deg);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 p-4 sm:p-6 md:p-8">
+    <div class="max-w-5xl mx-auto">
+
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-random"></i> MEC1T8: LA INTERMODALIDAD EN EL TRANSPORTE DE VIAJEROS Y MERCANCÍAS <i class="fas fa-network-wired"></i></h1>
+        </header>
+
+        <!-- Main Card 1 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-cogs"></i></div>
+                <h2>1. EL TRANSPORTE Y LA LOGÍSTICA COMO SECTOR EMPRESARIAL</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-info-circle icon text-blue-600"></i>El término <span class="definition-pill"><strong>multimodal</strong></span> se refiere al <strong><u>uso de varios modos de transporte</u></strong>, siendo uno de ellos el terrestre, con independencia del número de transportistas que intervenga en su ejecución, siempre que dicha operación se encuentre <strong><u>planificada de forma completa y coordinada</u></strong> por quien organizó el transporte, ya se trate del cargador, de un transportista o de un operador de transporte.</li>
+                    <li><i class="fas fa-exchange-alt icon text-purple-600"></i>Mientras que en el <span class="definition-pill"><strong>transporte intermodal</strong></span> la mercancía <strong><u>cambia de modo sin que exista manipulación de la carga</u></strong> gracias a elementos específicos diseñados para tal fin (<span class="definition-pill">contenedores de 20 pies, TEUs</span>; y otras <span class="definition-pill">unidades de transporte intermodal, UTIs</span>, como cajas móviles o semirremolques adecuados al transporte intermodal).</li>
+                    <li><i class="fas fa-truck-moving icon text-green-600"></i>El <span class="definition-pill"><strong>transporte combinado</strong></span> es un concepto europeo para el transporte intermodal de mercancías entre estados miembros, con recorridos en <u>tren, vía navegable, o travesía marítima</u>, y con el <strong><u>mínimo recorrido posible por carretera</u></strong> en la etapa inicial y final.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-warehouse icon text-yellow-700"></i>El <strong><u>intercambio de modos de transporte</u></strong> se realiza en <strong><u>infraestructuras especializadas</u></strong> entre las que se encuentran:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-ship icon"></i>▪️ Las <strong><u>terminales intermodales de los puertos</u></strong>, tanto para el intercambio con la carretera como con el ferrocarril.</li>
+                                <li><i class="fas fa-industry icon"></i>▪️ <strong><u>Puertos secos</u></strong>, que son terminales intermodales de mercancías situadas en el interior de un país y conectadas por ferrocarril o carretera con uno o varios puertos marítimos de origen o destino de los tráficos que recibe.</li>
+                                <li><i class="fas fa-road icon"></i>▪️ <strong><u>Áreas intermodales ferrocarril-carretera</u></strong>, que cuentan con una terminal ferroviaria con su sector de carga y descarga, junto con un sector de carga y descarga para la carretera.</li>
+                                <li><i class="fas fa-plane-departure icon"></i>▪️ <strong><u>Centros de carga aérea</u></strong>, ubicados en los aeropuertos para despachar la carga desde las aeronaves hasta los vehículos terrestres o viceversa.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card 2 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-bullseye"></i></div>
+                <h2>2. PRINCIPALES OBJETIVOS</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-check-circle icon text-green-600"></i>El <strong><u>principal objetivo</u></strong> que persigue la intermodalidad es lograr un <strong><u>sistema de transportes eficiente y sostenible</u></strong>, aprovechando las fortalezas que presenta cada modo de transporte y minimizando los posibles aspectos negativos que pueda tener.</li>
+                    <li>
+                        <p><i class="fab fa-teamspeak icon text-blue-600"></i>A <strong><u>nivel europeo</u></strong>, el <span class="plan-pill"><strong>Libro Blanco de transportes de 2011</strong></span> señala la necesidad de <strong><u>corredores multimodales</u></strong> que absorban el grueso del transporte, logrando una <strong><u>integración adecuada</u></strong> de los diferentes modos, con el objetivo último de <strong><u>transferir al ferrocarril y las vías navegables</u></strong> una parte importante del transporte que actualmente se realiza por carretera.</p>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-flag icon text-yellow-500"></i>A <strong><u>nivel nacional</u></strong>, el <span class="plan-pill"><strong>PITVI 2012-2024</strong></span> tenía como uno de sus objetivos principales <strong><u>favorecer la intermodalidad</u></strong>, estructurándose en tres grandes programas de actuación para mercancías y viajeros:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>El <strong><u>primer programa</u></strong> estaba dedicado a la <strong><u>regulación</u></strong> y contemplaba la normalización de equipos específicos de transporte intermodal de mercancías y de los medios móviles que los soportan, y servicios de transporte regular de viajeros por carretera alimentadores de estaciones ferroviarias, aeropuertos o puertos.</li>
+                                <li>El <strong><u>segundo programa</u></strong>, relativo a la <strong><u>gestión y prestación de servicios</u></strong>, consideraba actuaciones para aumentar la calidad del servicio intermodal mejorando las conexiones en las terminales ferroviarias intermodales para integrar el ferrocarril en la cadena logística del transporte de mercancías, y la creación de billetes integrados intermodales, incorporando la “última milla” en la venta de billetes para incluir un título metropolitano de transporte de viajeros.</li>
+                                <li>Y el <strong><u>tercer programa</u></strong> sobre la <strong><u>actuación inversora</u></strong> preveía la optimización de los nodos en las infraestructuras ferroviarias y en las infraestructuras portuarias, y también de los trasbordos para que no fueran percibidos por los usuarios como una barrera en su viaje intermodal.</li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-road icon text-purple-600"></i>La <span class="plan-pill"><strong>Estrategia de Movilidad Segura, Sostenible y Conectada 2030</strong></span> se articula en torno a <strong><u>9 ejes</u></strong>, de los cuales el <strong><u>eje 6</u></strong> está dedicado a las <strong><u>cadenas logísticas intermodales inteligentes</u></strong>, y centra su esfuerzo en mejorar la conectividad entre nodos y la aplicación de la tecnología para mejorar la eficiencia del sector logístico.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>Algunos de los <strong><u>aspectos que incluye el eje 6</u></strong> son:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><i class="fas fa-train icon text-purple-500"></i><strong><u>Impulso de actuaciones</u></strong> que permitan un incremento real del transporte de mercancías por ferrocarril, pues España sigue estando a la cola en el transporte ferroviario de mercancías en Europa y los planes impulsados en los últimos 30 años no han tenido éxito en este ámbito.</li>
+                                            <li><i class="fas fa-warehouse icon text-blue-500"></i>La <strong><u>priorización de terminales intermodales eficientes</u></strong> estratégicas y adaptadas a las necesidades de los clientes, así como la adaptación de un nuevo Marco Estratégico del Sistema Portuario Estatal de Interés General. También se programarán actuaciones de mejora de eficiencia en la intermodalidad de las infraestructuras de carga aérea, para fomentar el transporte internacional y el mercado único de carga.</li>
+                                            <li><i class="fas fa-truck icon text-orange-500"></i><strong><u>Abordar los retos del transporte por carretera</u></strong>, así como las soluciones para la “logística de proximidad o de último kilómetro” aplicada tanto a los entornos urbanos como a los dispersos o rurales.</li>
+                                            <li><i class="fas fa-digital-tachograph icon text-green-500"></i>La <strong><u>digitalización de la cadena logística</u></strong>, que permite incrementar el control y el conocimiento sobre los flujos de mercancías e información y, por tanto, la eficiencia de todo el proceso logístico.</li>
+                                             <li>Con medidas como la implantación de la plataforma <span class="plan-pill"><strong>SIMPLE</strong></span> (SIMplification of Processes for a Logistic Enhancement), que es una plataforma tecnológica impulsada por el <span class="actor-pill">MITMS</span> que permitirá una gestión integrada y digital de los documentos, datos y flujos de información vinculados al transporte de mercancías multimodal, entre los diferentes nodos y modos de la cadena de transporte.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-chart-bar"></i></div>
+                <h2>3. PRINCIPALES MAGNITUDES. EVOLUCIÓN</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-database icon text-gray-500"></i>Según el <span class="plan-pill">Informe anual del Observatorio del Transporte y la Logística en España 2024</span>, que incluye datos de <span class="pill pill-blue">2023</span>, la evolución en los últimos 17 años de las cadenas de transporte multimodal de mercancías en España ha sido la siguiente:</li>
+                </ul>
+                <div class="overflow-x-auto mt-4">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="p-2 border">Cadena multimodal</th>
+                                <th class="p-2 border">Millones de toneladas (2023)</th>
+                                <th class="p-2 border">Variación 2023/2022</th>
+                                <th class="p-2 border">Variación 2023/2007</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="p-2 border"><i class="fas fa-ship icon text-blue-700"></i><i class="fas fa-plus-circle fa-xs mx-1"></i><i class="fas fa-road icon text-blue-500"></i>Marítimo-carretera</td>
+                                <td class="p-2 border"><span class="pill pill-blue">230</span> (91% del total)</td>
+                                <td class="p-2 border"><span class="pill pill-green">+1%</span></td>
+                                <td class="p-2 border"><span class="pill pill-green">+3%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border"><i class="fas fa-ship icon text-blue-700"></i><i class="fas fa-plus-circle fa-xs mx-1"></i><i class="fas fa-train icon text-purple-500"></i>Marítimo-ferroviario</td>
+                                <td class="p-2 border"><span class="pill pill-blue">12</span> (5% del total)</td>
+                                <td class="p-2 border"><span class="pill pill-red">-5%</span></td>
+                                <td class="p-2 border"><span class="pill pill-green">+6%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border"><i class="fas fa-road icon text-blue-500"></i><i class="fas fa-plus-circle fa-xs mx-1"></i><i class="fas fa-train icon text-purple-500"></i>Carretera-ferroviario</td>
+                                <td class="p-2 border"><span class="pill pill-blue">10</span> (4% del total)</td>
+                                <td class="p-2 border"><span class="pill pill-red">-15%</span></td>
+                                <td class="p-2 border"><span class="pill pill-red">-49%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border"><i class="fas fa-road icon text-blue-500"></i><i class="fas fa-plus-circle fa-xs mx-1"></i><i class="fas fa-plane icon text-red-500"></i>Carretera-aéreo</td>
+                                <td class="p-2 border"><span class="pill pill-blue">1</span></td>
+                                <td class="p-2 border"><span class="pill pill-green">+9%</span></td>
+                                <td class="p-2 border"><span class="pill pill-green">+69%</span></td>
+                            </tr>
+                             <tr class="bg-gray-50 font-bold">
+                                <td class="p-2 border">Total cadenas multimodales</td>
+                                <td class="p-2 border"><span class="pill pill-blue">253</span></td>
+                                <td class="p-2 border"><span class="pill pill-yellow">0%</span></td>
+                                <td class="p-2 border"><span class="pill pill-red">-1%</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-box-open icon text-purple-600"></i>Por otra parte, en el año <span class="pill pill-blue">2023</span> el <strong><u>reparto de contenedores</u></strong> transportados en régimen intermodal fue:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Del <span class="pill pill-blue">67%</span> para el transporte marítimo.</li>
+                                <li>Del <span class="pill pill-blue">29%</span> para el transporte por carretera.</li>
+                                <li>Y del <span class="pill pill-blue">4%</span> para el transporte por ferrocarril.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <p><i class="fas fa-chart-line icon text-green-600"></i>En los últimos años, respecto al <span class="pill pill-blue">2007</span>, se está produciendo un <strong><u>crecimiento</u></strong> en el transporte <strong><u>marítimo</u></strong> (<span class="pill pill-green">+30%</span>) y <strong><u>ferroviario</u></strong> (<span class="pill pill-green">+91%</span>), y una <strong><u>caída</u></strong> en el transporte por <strong><u>carretera</u></strong> (<span class="pill pill-red">-12%</span>).</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-sitemap"></i></div>
+                <h2>4. CORREDORES Y NODOS INTERMODALES</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-project-diagram icon text-blue-600"></i>La <strong><u>red intermodal</u></strong> se estructura a partir de unos <strong><u>nodos</u></strong> de ámbito internacional y nacional, que en su mayoría ofrecen la totalidad de modos de transporte, y que quedan unidos tanto por <strong><u>ejes ferroviarios como de carretera</u></strong> de alta capacidad. La red ferroviaria que une estos puntos debe permitir circulaciones de trenes de mercancías de <span class="pill pill-blue">600 m</span>, como es habitual en el resto de Europa.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-route icon text-purple-600"></i>Los <strong><u>principales corredores de tráfico combinado nacional</u></strong> se sitúan en:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>El <span class="plan-pill">Eje Mediterráneo</span>.</li>
+                                <li>El <span class="plan-pill">Corredor Central</span> (Asturias-Madrid, País Vasco-Madrid y de Madrid-Andalucía).</li>
+                                <li>El <span class="plan-pill">Eje del Ebro</span>.</li>
+                                <li>Y el <span class="plan-pill">Corredor Madrid-Levante</span>.</li>
+                                <li>Cabe destacar la importancia de los <strong><u>pasos fronterizos</u></strong> de <span class="actor-pill">Irún</span> y <span class="actor-pill">Portbou</span>, así como <span class="actor-pill">Badajoz</span> en un nivel de tráficos inferior.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-train icon text-orange-600"></i><strong><u>Otros corredores</u></strong> de gran importancia por sus tráficos de mercancía por ferrocarril son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li>Las conexiones a <strong>Galicia</strong> y el <strong>eje litoral gallego</strong>.</li>
+                               <li>El eje <strong>Madrid-Badajoz-Portugal</strong>.</li>
+                               <li>El acceso a <strong>Cantabria</strong>.</li>
+                               <li>Y los <strong>corredores andaluces</strong> a Cádiz, Huelva, Algeciras y Málaga.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-globe-europe icon text-green-600"></i>La <strong><u>inserción del sistema dentro de los corredores internacionales</u></strong> exige la <strong><u>solución de las principales conexiones internacionales</u></strong> (<span class="actor-pill">Portbou</span>, <span class="actor-pill">Irún</span> y <span class="actor-pill">Badajoz</span>), haciendo imprescindible la <strong><u>interoperabilidad ferroviaria</u></strong>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Será una <strong><u>prioridad invertir</u></strong> en la creación de <strong><u>instalaciones logísticas de intercambio de ancho</u></strong> entre la red convencional y la nueva red, así como en el <strong><u>impulso del enlace central pirenaico</u></strong>, garantizando la continuidad del corredor con el resto de la red ferroviaria comunitaria.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-cogs icon text-gray-700"></i>Los <span class="definition-pill"><strong>nodos de transporte de mercancías</strong></span> son <strong><u>puntos de ruptura de carga o de tracción</u></strong> en donde se concentra buena parte de los costes globales de las cadenas, determinantes de la “factura logística global” del sistema.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>El futuro sistema se estructura en torno a una <strong><u>red de nodos multimodales jerarquizada</u></strong> (nivel internacional, nacional y regional).</li>
+                                 <li>Los nodos de transporte se configuran también como <strong><u>áreas de potencial desarrollo económico</u></strong> vinculado a la implantación de infraestructuras y actividades económicas y al impacto de éstas en la generación de empleo, inversiones, aumento de productividad o diversificación del tejido productivo.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-link"></i></div>
+                <h2>5. CADENAS LOGÍSTICAS INTERMODALES</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>Los <strong><u>principios</u></strong> de las cadenas logísticas intermodales son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>La <strong><u>intermodalidad</u></strong> como la firme aliada de la movilidad en España.</li>
+                                <li>Y la <strong><u>ganancia de competitividad y de eficiencia logística</u></strong> como elementos básicos de una intermodalidad eficiente.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-bullseye icon text-green-600"></i>Los <strong><u>objetivos a alcanzar</u></strong> con las cadenas logísticas intermodales son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-chart-line icon text-green-500"></i><strong><u>Potenciar la intermodalidad</u></strong> como elemento clave para aumentar la eficiencia, la competitividad y la fiabilidad del transporte de mercancías.</li>
+                                <li><i class="fas fa-train icon text-purple-500"></i><strong><u>Priorizar el transporte de mercancías por ferrocarril</u></strong> en las agendas públicas y privadas, involucrando a las empresas públicas adscritas al <span class="actor-pill">MITMS</span> en el desarrollo de la intermodalidad.</li>
+                                <li><i class="fas fa-city icon text-blue-500"></i><strong><u>Promover la distribución multimodal</u></strong> en el transporte de mercancías en el ámbito urbano.</li>
+                                <li><i class="fas fa-digital-tachograph icon text-red-500"></i><strong><u>Impulsar la digitalización</u></strong> de la cadena logística, favoreciendo la integración e interoperabilidad de los distintos modos de transporte.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const triggers = document.querySelectorAll('.collapsible-trigger');
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function (event) {
+                    // Evita que el evento de clic se propague a los triggers padres
+                    event.stopPropagation();
+                    
+                    const content = this.nextElementSibling;
+                    
+                    this.classList.toggle('open');
+                    
+                    if (content && content.classList.contains('collapsible-content')) {
+                        content.classList.toggle('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
