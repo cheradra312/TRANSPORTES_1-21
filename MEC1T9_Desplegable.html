@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual: El Transporte Internacional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgAb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-header .icon-bg {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-top: 1rem; }
+        .pill, .law-pill, .directive-pill, .actor-pill, .plan-pill, .definition-pill {
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0 0.2rem;
+        }
+        .pill-blue { background-color: #dbeafe; color: #1e4d91; border: 1px solid #93c5fd; }
+        .law-pill { background-color: #f3e8ff; color: #581c87; border: 1px solid #c084fc; }
+        .actor-pill { background-color: #e5e7eb; color: #1f2937; border: 1px solid #9ca3af; }
+        .plan-pill { background-color: #cffafe; color: #164e63; border: 1px solid #67e8f9; }
+        .definition-pill { background-color: #cffafe; color: #155e75; border: 1px solid #22d3ee; }
+        .icon {
+            margin-right: 0.5rem;
+            width: 1.25em;
+            text-align: center;
+        }
+        .nested-list {
+            padding-left: 1.75rem;
+            margin-top: 0.75rem;
+            border-left: 3px dotted #cbd5e1;
+        }
+        .nested-list > li {
+            position: relative;
+        }
+        .nested-list > li::before {
+            content: '🔹';
+            position: absolute;
+            left: -1.75rem;
+            color: #3b82f6;
+        }
+        .deeper-nested-list {
+             padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+         .deeper-nested-list > li {
+            position: relative;
+        }
+        .deeper-nested-list > li::before {
+             content: '▪️';
+             position: absolute;
+             left: -1.25rem;
+             color: #3b82f6;
+        }
+        /* Estilos para la funcionalidad desplegable */
+        .collapsible-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.25rem 0;
+        }
+        .collapsible-trigger > span, .collapsible-trigger > h3 {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+            margin-right: 0.75rem;
+            width: 1em;
+            color: #3b82f6;
+        }
+        .collapsible-content {
+            padding-left: 1.75rem;
+        }
+        .collapsible-trigger.open .collapsible-icon {
+            transform: rotate(90deg);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 p-4 sm:p-6 md:p-8">
+    <div class="max-w-5xl mx-auto">
+
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-globe-europe"></i> MEC1T9: EL TRANSPORTE INTERNACIONAL <i class="fas fa-plane-departure"></i></h1>
+        </header>
+
+        <!-- Main Card 1 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-info-circle"></i></div>
+                <h2>1. EL TRANSPORTE INTERNACIONAL</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-gavel icon text-purple-600"></i>La <span class="law-pill"><strong>Ley 16/1987 de Ordenación de los Transportes Terrestres (LOTT)</strong></span> define los <span class="definition-pill"><strong>transportes internacionales</strong></span> como aquellos cuyo itinerario discurre parcialmente por el territorio de Estados extranjeros.</li>
+                    <li><i class="fas fa-file-signature icon text-blue-600"></i>La <span class="law-pill"><strong> LOTT</strong></span> establece que la realización de servicios de transporte internacional que discurran parcialmente por territorio español utilizando vehículos que no se hayan matriculado en España, se regirá por lo dispuesto en los <strong><u>acuerdos internacionales</u></strong> de los que España forme parte.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-balance-scale icon text-yellow-600"></i>Según el <strong><u>grado de apertura del mercado</u></strong> previsto en los acuerdos internacionales, se distinguen:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-lock-open icon text-green-500"></i><strong><u>Transportes internacionales liberalizados</u></strong>, pueden ser realizados por transportistas españoles sin necesidad de proveerse previamente de una autorización específica, bastando con la habilitación genérica que prevé la normativa vigente.</li>
+                                <li><i class="fas fa-id-card icon text-red-500"></i><strong><u>Transportes internacionales sujetos a autorización</u></strong>, solo pueden ser realizados por transportistas españoles que hayan obtenido previamente una autorización específica que habilite para su realización.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-passport icon text-gray-700"></i>Por otra parte, hay <strong><u>dos tipos de autorizaciones extranjeras</u></strong> cuyo otorgamiento le ha sido encomendado a la Administración española según el convenio internacional suscrito:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-handshake icon text-blue-500"></i><strong><u>Autorizaciones bilaterales</u></strong>, que habilitan a un transportista español para realizar servicios de transporte con origen o destino en otro Estado o en tránsito a través de él.</li>
+                                <li><i class="fas fa-globe icon text-purple-500"></i><strong><u>Autorizaciones multilaterales</u></strong>, que habilitan a un transportista español para realizar servicios de transporte con origen o destino en otros Estados o en tránsito a través de ellos.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-file-signature"></i></div>
+                <h2>2. PRINCIPALES ACUERDOS INTERNACIONALES</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-road mr-2 text-blue-600"></i>Transporte por Carretera (Viajeros)</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-list-check icon text-purple-600"></i>Los <strong><u>requisitos previos</u></strong> que deben cumplir las empresas transportistas españolas para realizar transporte internacional de viajeros son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><strong><u>Inscripción en la Subsección de Empresas de Transporte Internacional de Viajeros (RETIVI)</u></strong> del <span class="plan-pill">Registro de Empresas y Actividades de Transporte (REAT)</span> para realizar transportes públicos internacionales de viajeros no liberalizados.</li>
+                                <li>
+                                   <p><strong><u>Posesión de la Licencia Comunitaria</u></strong> para efectuar transportes internacionales de viajeros con autocares o autobuses en el ámbito de la <span class="actor-pill">Unión Europea</span>.</p>
+                                    <ul class="nested-list deeper-nested-list">
+                                        <li>Esta licencia se otorga en Europa con un plazo de validez de <span class="pill pill-blue">10 años</span>, mientras que las otorgadas en España por la Dirección General de Transporte por Carretera y Ferrocarril del <span class="actor-pill">MITMS</span> tienen un plazo de validez de <span class="pill pill-blue">5 años</span>, a toda empresa con competencia profesional para el transporte de viajeros por carretera que sea titular de una autorización de transporte público discrecional de viajeros de ámbito nacional.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-id-card icon text-blue-500"></i>Se pueden distinguir los siguientes <strong><u>tipos de servicios</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><strong><u>Regulares</u></strong>: aseguran el transporte de personas con una frecuencia y un itinerario determinados.</li>
+                                <li><strong><u>Discrecionales</u></strong>: transportan grupos formados por encargo o por el propio transportista, en el ámbito de la Unión Europea todos los servicios discrecionales están liberalizados.</li>
+                                <li><strong><u>De cabotaje</u></strong>: transportes nacionales de viajeros por cuenta ajena realizados en otro Estado, únicamente pueden realizarse en los países miembros de la UE.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-handshake icon text-green-600"></i>Existen <strong><u>acuerdos especiales</u></strong> con <span class="actor-pill">Marruecos</span>, y el acuerdo <span class="plan-pill"><strong>INTERBUS</strong></span> que regula el transporte discrecional internacional de viajeros en autocar y autobús, que comprende a la <span class="actor-pill">UE</span> y a otros países europeos incluyendo <span class="actor-pill">Turquía</span>, recoge la mayor parte de las medidas de liberalización del <span class="plan-pill">Acuerdo ASOR</span>, sustituye a los acuerdos bilaterales celebrados entre las Partes Contratantes y exime de autorización los viajes a puerta cerrada, los servicios solo de ida o solo de vuelta, y los de sustitución de vehículo averiado.</li>
+                </ul>
+            </div>
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-truck mr-2 text-orange-600"></i>Transporte por Carretera (Mercancías)</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-file-contract icon text-yellow-600"></i>El convenio internacional más importante es el de <span class="plan-pill"><strong>Ginebra de 1956 (convenio CMR)</strong></span>.</li>
+                    <li><i class="fas fa-building icon text-gray-700"></i>La empresa que preste servicios de transporte internacional de mercancías por carretera debe estar inscrita, con carácter general, en la <strong><u>Subsección de Empresas de Transporte Internacional de Mercancías (RETIM)</u></strong> del <span class="plan-pill">Registro de Empresas y Actividades de Transporte (REAT)</span>.</li>
+                    <li><i class="fas fa-lock-open icon text-green-500"></i>En el ámbito de la <span class="actor-pill">Unión Europea</span> están <strong><u>liberalizados</u></strong> los transportes postales, los de vehículos accidentados o averiados, los de mercancías con vehículo automóvil cuyo peso máximo autorizado sea inferior a <span class="pill pill-blue">2,5 toneladas</span>, los de medicamentos y equipos médicos en casos de ayudas urgentes, y los de mercancías en régimen de servicio privado (sin remuneración por el transporte para transportar mercancías fabricadas o adquiridas por la empresa).</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-passport icon text-blue-600"></i><span class="actor-pill">España</span> dispone de <strong><u>dos tipos de autorizaciones</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>La <span class="definition-pill"><strong>Licencia Comunitaria</strong></span> (con un plazo de validez de 10 años en Europa y 5 años en España, y sirve para trayectos efectuados en el territorio de los estados miembros de la UE y de los estados de la Asociación Europea de Libre Comercio: Islandia, Liechtenstein, Noruega y Suiza; permite el transporte de cabotaje, excepto en Suiza).</li>
+                                <li>Y <span class="definition-pill"><strong>Autorizaciones de la Conferencia Europea de Ministros de Transportes (CEMT)</strong></span>, foro internacional del transporte ITF desde 2006, (que incluye todos los países europeos, incluida Rusia, y Turquía; no permiten la realización de transporte de cabotaje, con carga y descarga dentro del territorio de un país distinto al de matriculación del vehículo).</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-train mr-2 text-purple-600"></i>Transporte por Ferrocarril</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-file-contract icon text-yellow-600"></i>El convenio internacional más importante es el de <span class="plan-pill"><strong>Berna de 1980</strong></span> relativo a los transportes internacionales por ferrocarril (<span class="plan-pill"><strong>convenio COTIF</strong></span>), en respuesta al cual se estableció en <span class="pill pill-blue">1985</span> la <span class="actor-pill"><strong>Organización Intergubernamental para los Transportes Internacionales por Ferrocarril (OTIF)</strong></span>.</li>
+                </ul>
+            </div>
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-ship mr-2 text-cyan-700"></i>Transporte Marítimo</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-file-contract icon text-yellow-600"></i>El convenio más importante en esta materia es el <span class="plan-pill"><strong>Convenio de Bruselas de 1924</strong></span> complementado por los Protocolos de <span class="pill pill-blue">1968</span> y <span class="pill pill-blue">1979</span>, conocidos como las <span class="plan-pill"><strong>Reglas de La Haya-Visby</strong></span>, junto con las <span class="plan-pill"><strong>Reglas de Hamburgo de 1978</strong></span> y las <span class="plan-pill"><strong>Reglas de Rotterdam de 2008</strong></span>.</li>
+                    <li><i class="fas fa-shield-alt icon text-blue-500"></i>Otros convenios destacados son el <span class="plan-pill"><strong>Convenio SOLAS de 1914</strong></span> relativo a la seguridad de buques mercantes y el <span class="plan-pill"><strong>Convenio MARPOL de 1973</strong></span> para prevenir la contaminación por los buques.</li>
+                </ul>
+            </div>
+             <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-plane-departure mr-2 text-red-600"></i>Transporte Aéreo</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-landmark icon text-gray-700"></i>El <span class="plan-pill"><strong>Convenio Internacional de Navegación Aérea de 1919, CINA</strong></span>, fue el primer gran marco jurídico internacional que reguló el transporte aéreo.</li>
+                    <li><i class="fas fa-file-signature icon text-purple-600"></i>Y los convenios más importantes son el de <span class="plan-pill"><strong>Varsovia de 1929</strong></span> y el de <span class="plan-pill"><strong>Chicago de 1944</strong></span> que es el tratado normativo más importante sobre el derecho público internacional aeronáutico.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-biohazard"></i></div>
+                <h2>3. ACUERDOS INTERNACIONALES PARA EL TRANSPORTE DE MERCANCÍAS PELIGROSAS</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>En materia de transporte internacional de mercancías peligrosas destacan:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-road icon text-orange-500"></i>▪️ <span class="plan-pill"><strong>Acuerdo ADR</strong></span>, es un acuerdo europeo de <span class="pill pill-blue">1957</span> que nació en el seno de la <span class="actor-pill">Comisión Económica para Europa de las Naciones Unidas</span>, que establece una serie de normas comunes para el transporte de mercancías peligrosas por carretera. Entró en vigor en <span class="pill pill-blue">1968</span> y <span class="actor-pill">España</span> se adhirió en <span class="pill pill-blue">1972</span>.</li>
+                                <li><i class="fas fa-train icon text-purple-500"></i>▪️ <span class="plan-pill"><strong>Reglamento relativo al transporte internacional de mercancías peligrosas por ferrocarril (RID)</strong></span>, que es el apéndice C del <span class="plan-pill">Convenio COTIF</span>.</li>
+                                <li><i class="fas fa-ship icon text-cyan-700"></i>▪️ <span class="plan-pill"><strong>Código IMDG</strong></span>, que reúne las disposiciones sobre transporte internacional marítimo de mercancías peligrosas.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-users-cog"></i></div>
+                <h2>4. ORGANISMOS Y ASOCIACIONES INTERNACIONALES</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-plane-departure icon text-red-600"></i>La <span class="actor-pill"><strong>OACI (Organización de Aviación Civil Internacional)</strong></span>, organismo especializado de las <span class="actor-pill">Naciones Unidas</span>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Se creó en <span class="pill pill-blue">1944</span> por el <span class="plan-pill">Convenio de Chicago sobre Aviación Civil Internacional</span>.</li>
+                                <li>Tiene <span class="pill pill-blue">193</span> estados miembros.</li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>Sus <strong><u>objetivos estratégicos</u></strong> son:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><i class="fas fa-shield-alt icon"></i>Mejorar la <strong><u>seguridad</u></strong>.</li>
+                                            <li><i class="fas fa-chart-line icon"></i>Fomentar un <strong><u>sistema económicamente viable</u></strong>.</li>
+                                            <li><i class="fas fa-leaf icon"></i>Reducir los <strong><u>efectos ambientales negativos</u></strong>.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-ship icon text-cyan-700"></i>La <span class="actor-pill"><strong>OMI (Organización Marítima Internacional)</strong></span>, es el organismo especializado de las <span class="actor-pill">Naciones Unidas</span> responsable de:</p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                                 <li>La <strong><u>seguridad y protección de la navegación</u></strong>.</li>
+                                 <li>Y de <strong><u>prevenir la contaminación del mar</u></strong> por los buques.</li>
+                                 <li>Se creó en <span class="plan-pill">Ginebra</span> en <span class="pill pill-blue">1948</span>, y su función principal es establecer un <strong><u>marco normativo justo y eficaz</u></strong>.</li>
+                                 <li>La OMI cuenta con <span class="pill pill-blue">174</span> Estados Miembros.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-running"></i></div>
+                <h2>6. EUROPA EN MOVIMIENTO (EUROPE ON THE MOVE)</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-info-circle icon text-blue-600"></i><span class="plan-pill"><strong>“Europa en movimiento”</strong></span> es una iniciativa de <span class="pill pill-blue">2017</span> de la <span class="actor-pill">Comisión Europea</span>, cuyo <strong><u>objetivo</u></strong> es ayudar al sector del transporte a <strong><u>mantener su competitividad</u></strong> en una transición socialmente justa hacia la <strong><u>energía limpia</u></strong> y la <strong><u>digitalización</u></strong>.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-tasks icon text-green-600"></i>Las <strong><u>medidas</u></strong> que propone son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-shield-alt icon"></i>Hacer más <strong><u>seguro</u></strong> el tráfico.</li>
+                                <li><i class="fas fa-euro-sign icon"></i>Fomentar una <strong><u>tarificación más equitativa</u></strong> del uso de las carreteras.</li>
+                                <li><i class="fas fa-smog icon"></i>Reducir las <strong><u>emisiones de CO2</u></strong>.</li>
+                                <li><i class="fas fa-user-secret icon"></i>Combatir el <strong><u>empleo ilícito</u></strong>.</li>
+                                <li><i class="fas fa-bed icon"></i>Y garantizar unos <strong><u>tiempos de descanso adecuados</u></strong> a los trabajadores.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-chart-line icon text-purple-600"></i>Estas medidas a largo plazo <strong><u>promoverán</u></strong>:</p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                                <li>El <strong><u>empleo, el crecimiento y la inversión</u></strong>.</li>
+                                <li>Reforzarán la <strong><u>justicia social</u></strong>.</li>
+                                <li>Ampliarán la <strong><u>capacidad de elección</u></strong> de los consumidores.</li>
+                                <li>Y situarán con firmeza a Europa en la senda hacia el objetivo de <strong><u>cero emisiones</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-lightbulb"></i></div>
+                <h2>7. LA ESTRATEGIA EUROPEA DE MOVILIDAD SOSTENIBLE E INTELIGENTE DE 2020</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-info-circle icon text-blue-600"></i>En <span class="pill pill-blue">2020</span>, la <span class="actor-pill">Comisión Europea</span> aprobó la <span class="plan-pill"><strong>Estrategia Europea de Movilidad Sostenible e Inteligente</strong></span>, un <strong><u>instrumento de planificación</u></strong> con el que la Comisión pretende <strong><u>guiar y sentar las bases</u></strong> de la necesaria transformación hacia la <strong><u>sostenibilidad y la digitalización</u></strong> que debe emprender el sector de la movilidad y el transporte en los próximos años.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-tasks icon text-green-600"></i>En el documento, se contempla la puesta en marcha de <span class="pill pill-blue"><strong>82 iniciativas</strong></span> divididas en <strong><u>diez áreas de trabajo estratégicas</u></strong> a desarrollar en los próximos cuatro años, muchas de las cuales requerirán:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><strong><u>Cambios normativos</u></strong> sobre la legislación vigente.</li>
+                                <li>Y un <strong><u>esfuerzo económico importante</u></strong>: unos <span class="pill pill-blue">300.000 M €</span> durante los próximos 10 años.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-leaf icon text-green-700"></i>Dentro de la Estrategia, la <strong><u>sostenibilidad juega un papel central</u></strong>, ya que <strong><u>cinco de las diez áreas de trabajo</u></strong> están dirigidas a introducir medidas que contribuyan a la <strong><u>descarbonización del sector</u></strong> y de la economía europea, en línea con los compromisos adquiridos por los estados miembros y con los objetivos del <span class="directive-pill">Pacto Verde Europeo</span>.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const triggers = document.querySelectorAll('.collapsible-trigger');
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function (event) {
+                    // Evita que el evento de clic se propague a los triggers padres
+                    event.stopPropagation();
+                    
+                    const content = this.nextElementSibling;
+                    
+                    this.classList.toggle('open');
+                    
+                    if (content && content.classList.contains('collapsible-content')) {
+                        content.classList.toggle('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
