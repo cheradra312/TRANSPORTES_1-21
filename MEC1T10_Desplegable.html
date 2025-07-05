@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual: Políticas Nacionales de Transporte y Movilidad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-header .icon-bg {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-top: 1rem; }
+        .pill, .law-pill, .directive-pill, .actor-pill, .plan-pill, .definition-pill {
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0 0.2rem;
+        }
+        .pill-blue { background-color: #dbeafe; color: #1e4d91; border: 1px solid #93c5fd; }
+        .actor-pill { background-color: #e5e7eb; color: #1f2937; border: 1px solid #9ca3af; }
+        .plan-pill { background-color: #cffafe; color: #164e63; border: 1px solid #67e8f9; }
+        .definition-pill { background-color: #cffafe; color: #155e75; border: 1px solid #22d3ee; }
+        .law-pill { background-color: #f3e8ff; color: #581c87; border: 1px solid #c084fc; }
+        .icon {
+            margin-right: 0.5rem;
+            width: 1.25em;
+            text-align: center;
+        }
+        .nested-list {
+            padding-left: 1.75rem;
+            margin-top: 0.75rem;
+            border-left: 3px dotted #cbd5e1;
+        }
+        .nested-list > li {
+            position: relative;
+        }
+        .nested-list > li::before {
+            content: '🔹';
+            position: absolute;
+            left: -1.75rem;
+            color: #3b82f6;
+        }
+        .deeper-nested-list {
+             padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+         .deeper-nested-list > li {
+            position: relative;
+        }
+        .deeper-nested-list > li::before {
+             content: '▪️';
+             position: absolute;
+             left: -1.25rem;
+             color: #3b82f6;
+        }
+        /* Estilos para la funcionalidad desplegable */
+        .collapsible-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.25rem 0;
+        }
+        .collapsible-trigger > span, .collapsible-trigger > h3 {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+            margin-right: 0.75rem;
+            width: 1em;
+            color: #3b82f6;
+        }
+        .collapsible-content {
+            padding-left: 1.75rem;
+        }
+        .collapsible-trigger.open .collapsible-icon {
+            transform: rotate(90deg);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 p-4 sm:p-6 md:p-8">
+    <div class="max-w-5xl mx-auto">
+
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-flag"></i> MEC1T10: PRINCIPALES POLÍTICAS NACIONALES EN TRANSPORTE Y MOVILIDAD <i class="fas fa-road"></i></h1>
+        </header>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-info-circle"></i></div>
+                <h2>1. PRINCIPALES POLÍTICAS NACIONALES EN TRANSPORTE Y MOVILIDAD</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-sync-alt icon text-blue-600"></i>El sector del transporte y la movilidad se encuentra ante una <strong><u>etapa de grandes cambios</u></strong>, motivados fundamentalmente por:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-robot icon"></i>Las oportunidades que brinda la introducción de la <strong><u>tecnología</u></strong> en la movilidad.</li>
+                                <li><i class="fas fa-leaf icon"></i>La necesidad de avanzar hacia la <strong><u>descarbonización</u></strong> de la economía y la <strong><u>mejora de la calidad del aire</u></strong>, donde el transporte desempeña un papel fundamental.</li>
+                                <li><i class="fas fa-city icon"></i>Y por los retos que plantea para la movilidad la <strong><u>creciente concentración de la población</u></strong> en entornos urbanos y periurbanos.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-lightbulb icon text-yellow-600"></i>Este <strong><u>nuevo paradigma</u></strong> ha impulsado el concepto de <span class="definition-pill"><strong>movilidad</strong></span> como un concepto más amplio que engloba:</p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                                <li>No sólo aquello que es inherente al transporte desde una <strong><u>perspectiva tradicional</u></strong> (el desplazamiento de personas o bienes, entre un origen y un destino, consumiendo recursos cuantificables).</li>
+                                <li>Sino que además incluye todos aquellos <strong><u>condicionantes, necesidades, motivaciones y percepciones</u></strong> de los individuos, con el fin de <strong><u>situar al ciudadano y al usuario en el centro</u></strong> de todo el sistema.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-route icon text-purple-600"></i>El <span class="actor-pill">MITMS</span>, en línea con los <span class="plan-pill">ODS de la Agenda 2030</span> y las experiencias internacionales y europeas, ha diseñado la <span class="plan-pill"><strong>Estrategia de Movilidad Segura, Sostenible y Conectada 2030</strong></span>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li>Cuya visión es “<strong><u>hacer de la movilidad un derecho, un elemento de cohesión social y de crecimiento económico</u></strong>”.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-gavel icon text-gray-700"></i>Desde esta visión, se planteó la elaboración de una disposición normativa, la <span class="law-pill"><strong>Ley de Movilidad Sostenible</strong></span>, pendiente de aprobación, y cuyo <strong><u>objeto</u></strong> es:</p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                               <li>Introducir en el ordenamiento jurídico las <strong><u>reformas estructurales</u></strong> necesarias para crear las condiciones que favorezcan una movilidad de personas y mercancías basada en los principios de <u>seguridad, sostenibilidad y digitalización</u>.</li>
+                               <li>Así como establecer los <strong><u>principios aplicables a la financiación</u></strong> del transporte público.</li>
+                               <li>Además, permite establecer <strong><u>medidas encaminadas al cumplimiento de la Estrategia</u></strong>, que deben ser reguladas por normas con rango de Ley.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card 2 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-route"></i></div>
+                <h2>2. PRINCIPIOS BÁSICOS DE LA ESTRATEGIA ESPAÑOLA DE MOVILIDAD SEGURA, SOSTENIBLE Y CONECTADA 2030</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-info-circle icon text-blue-600"></i>El <span class="actor-pill">Ministerio de Transportes y Movilidad Sostenible</span> ha desarrollado la <span class="plan-pill"><strong>Estrategia Española de Movilidad Segura, Sostenible y Conectada 2030</strong></span> (también denominada es.movilidad), que, junto con la <span class="plan-pill">Agenda Urbana Española</span>, guiará las actuaciones del <span class="actor-pill">MITMS</span> en materia de movilidad, infraestructuras y transportes en los próximos <span class="pill pill-blue">10 años</span>, y que fue aprobada por el <span class="actor-pill">Consejo de Ministros</span> en <span class="pill pill-blue">diciembre de 2021</span>.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-globe-europe icon text-green-600"></i>La Estrategia está <strong><u>alineada</u></strong> con:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Los <strong><u>objetivos de desarrollo sostenible</u></strong> de la <span class="actor-pill">ONU</span>.</li>
+                                <li>Con el <span class="plan-pill"><strong>Acuerdo de París 2015</strong></span>.</li>
+                                <li>Con los objetivos y principios del <span class="plan-pill"><strong>Pacto Verde Europeo</strong></span>.</li>
+                                <li>Y con la <span class="plan-pill"><strong>Estrategia de Movilidad Sostenible e Inteligente de la UE</strong></span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-tasks icon text-purple-600"></i>Este instrumento surge para <strong><u>dar respuesta a los retos globales</u></strong> en movilidad y transporte que plantea el siglo XXI, como la necesidad de <strong><u>descarbonizar la economía</u></strong> y dar respuesta al <strong><u>cambio climático</u></strong>, la irrupción -muchas veces disruptiva- de <strong><u>nuevas tecnologías</u></strong>, y los desafíos producidos por la <strong><u>concentración cada vez mayor de población</u></strong> en las grandes ciudades.</li>
+                    <li><i class="fas fa-sync-alt icon text-blue-700"></i>Pero también por la necesidad de <strong><u>adaptar nuestra actividad a la realidad de nuestro país</u></strong>: ya no somos el país de los años 80, marcado por un fuerte déficit de infraestructuras, sino un <strong><u>país puntero en su dotación de infraestructuras</u></strong>. Esta situación requiere que el <span class="actor-pill">MITMS</span> <strong><u>priorice aquellas inversiones</u></strong> que optimicen su uso y supongan un <strong><u>mayor beneficio social</u></strong>, como lo son, por ejemplo, el adecuado mantenimiento y conservación, las soluciones de movilidad cotidiana, la digitalización, la intermodalidad o la seguridad.</li>
+                    <li><i class="fas fa-handshake icon text-blue-500"></i>La Estrategia se basa en la <strong><u>cooperación, coordinación e integración interadministrativa</u></strong>. Además, se sometió a un ambicioso proceso de <strong><u>participación pública</u></strong> durante el último trimestre de <span class="pill pill-blue">2020</span>, el <span class="plan-pill">Diálogo Abierto de Movilidad</span>, para entablar un debate real con todos los actores del ecosistema de la movilidad y con la sociedad en su conjunto. Durante 2021 se ha sometido a otras formas de participación pública (encuestas y talleres territoriales).</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-tools icon text-gray-700"></i>Cuenta con el apoyo de:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Un <strong><u>instrumento normativo</u></strong>, la <span class="law-pill">Ley de Movilidad Sostenible</span>.</li>
+                                <li>Y un <strong><u>instrumento presupuestario</u></strong>, el <span class="plan-pill">Plan de Recuperación, Transformación y Resiliencia</span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-sitemap icon text-gray-600"></i>Se desarrolla a través de <span class="pill pill-blue"><strong>9 ejes estratégicos</strong></span>, que se componen de más de <span class="pill pill-blue">40</span> líneas de actuación con más de <span class="pill pill-blue">150</span> medidas concretas, y se sustenta, como su nombre indica, en <strong><u>tres pilares o principios básicos</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-shield-alt icon text-green-500"></i>La <strong><u>Seguridad</u></strong> en los desplazamientos: garantizando una mayor protección de personas y bienes, mejorando los estándares y reduciendo la siniestralidad. Engloba la seguridad de las infraestructuras, seguridad operacional, seguridad en casos de emergencia y crisis, seguridad contra actos ilícitos y ciberseguridad.</li>
+                                <li><i class="fas fa-leaf icon text-green-700"></i>La <strong><u>Sostenibilidad</u></strong> en lo económico, en lo social y en lo ambiental: priorizando la movilidad cotidiana, la equidad económico-social, la eficiencia energética, y la lucha contra el cambio climático; minimizando la contribución del transporte a las emisiones contaminantes, tanto de viajeros como de mercancías; y fomentando los modos limpios, el transporte público, la “economía circular”, la “resiliencia climática” y la movilidad universal.</li>
+                                <li><i class="fas fa-network-wired icon text-blue-500"></i>La <strong><u>Conectividad</u></strong> desde tres vertientes: 1) la digitalización y el avance tecnológico, gran oportunidad para la trasformación del sector transporte, 2) la conectividad con Europa y el mundo, y 3) la conectividad multimodal.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card 3 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-file-alt"></i></div>
+                <h2>3. PLAN DE RECUPERACIÓN, TRANSFORMACIÓN Y RESILIENCIA DE ESPAÑA (PRTR)</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-info-circle mr-2 text-blue-600"></i>Marco Europeo: NextGenerationEU</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="far fa-calendar-alt icon text-blue-500"></i>En <span class="pill pill-blue">julio de 2020</span>, el <span class="actor-pill">Consejo Europeo</span> creó el instrumento excepcional de recuperación temporal <span class="plan-pill"><strong>NextGenerationEU</strong></span>, dotado con <span class="pill pill-blue">750.000 M€</span> para contribuir a reparar los daños económicos y sociales causados por la pandemia de la Covid-19, y que se estructura a través de <strong><u>dos instrumentos principales</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>El <span class="plan-pill"><strong>Mecanismo para la Recuperación y la Resiliencia (MRR)</strong></span>, que es el núcleo del fondo de recuperación, dotado con unos <span class="pill pill-blue">670.000 M€</span> (<span class="pill pill-blue">360.000 M€</span> en préstamos y <span class="pill pill-blue">310.000 M€</span> en transferencias no reembolsables).</li>
+                                <li>Y el <span class="plan-pill"><strong>REACT-EU</strong></span>, instrumento de ayuda a la recuperación para la cohesión y los territorios de Europa, que cuenta con <span class="pill pill-blue">47.500 M€</span>, y cuyo objetivo es ampliar y dar continuidad a las medidas de respuesta y reparación de la crisis puesta en marcha desde el inicio de la pandemia. Estos fondos operan como fondos estructurales, pero con mayor flexibilidad y agilidad en su ejecución.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-flag icon text-yellow-500"></i>En particular, <span class="actor-pill"><strong>España</strong></span> va a recibir unos <span class="pill pill-blue"><strong>140.000 M€</strong></span> del MRR hasta <span class="pill pill-blue">2026</span> (<span class="pill pill-blue">70.000 M€</span> en préstamos y <span class="pill pill-blue">70.000 M€</span> en transferencias no reembolsables), y unos <span class="pill pill-blue"><strong>12.500 M€</strong></span> del REACT-EU.</li>
+                </ul>
+            </div>
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-tasks mr-2 text-yellow-700"></i>Plan de Recuperación, Transformación y Resiliencia (PRTR)</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-file-signature icon"></i>Para beneficiarse del MRR, los Estados miembros de la UE debían elaborar <span class="plan-pill"><strong>Planes Nacionales de Recuperación y Resiliencia</strong></span> en los que se estableciera un programa de inversiones y reformas, detallando las metas y objetivos que perseguía e incluyendo indicadores para su seguimiento y control.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>A través de las inversiones y reformas, los planes debían: <strong><u>acelerar las transiciones verde</u></strong> (con una contribución de al menos el <span class="pill pill-green">37%</span> del presupuesto al objetivo climático) y <strong><u>digital</u></strong> (con al menos el <span class="pill pill-blue">20%</span> de los fondos para la digitalización de la economía); <strong><u>abordar las consecuencias económicas y sociales</u></strong> de la pandemia favoreciendo un crecimiento económico; y <strong><u>contribuir a la igualdad de género y de oportunidades</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-bullseye icon text-green-600"></i>Por ello, el <span class="actor-pill">Consejo de Ministros</span> aprobó en <span class="pill pill-blue">abril de 2021</span> el <span class="plan-pill"><strong>Plan de Recuperación, Transformación y Resiliencia España Puede (PRTR)</strong></span>, con <strong><u>cuatro ejes transversales</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-leaf icon text-green-500"></i>La transición ecológica.</li>
+                                <li><i class="fas fa-digital-tachograph icon text-blue-500"></i>La transformación digital.</li>
+                                <li><i class="fas fa-users icon text-yellow-500"></i>La cohesión territorial y social.</li>
+                                <li><i class="fas fa-venus-mars icon text-pink-500"></i>Y la igualdad de género.</li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li><i class="fas fa-sitemap icon"></i>El Plan, se estructura en torno a <strong><u>diez políticas palanca</u></strong> desarrolladas a través de <strong><u>30 componentes</u></strong> o líneas de acción, tanto de tipo regulatorio como de impulso a la inversión. Cada uno de los componentes contribuye de forma explícita a cumplir los objetivos generales del Plan y a los cuatro ejes transversales.</li>
+                     <li><i class="fas fa-road icon"></i>Dentro de las acciones del PRTR, el <span class="actor-pill">MITMS</span> lidera la correspondiente a la <strong><u>movilidad sostenible, segura y conectada</u></strong> (<span class="pill pill-blue">13.200 M€</span>), que se desarrolla a través de los <strong><u>componentes 1 y 6</u></strong>, con el foco puesto en reducir la brecha de género, potenciar la cohesión social y minimizar las emisiones contaminantes.</li>
+                </ul>
+            </div>
+             <hr class="my-6">
+             <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-city mr-2 text-blue-700"></i>Componente 1: Plan de choque de movilidad sostenible, segura y conectada en entornos urbanos y metropolitanos</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-euro-sign icon"></i>El Plan destinará unos <span class="pill pill-blue">6.600 M€</span> a <strong><u>reducir considerablemente las emisiones contaminantes</u></strong> (SO2, NOx, NH3, CO2 y PM2,5) en los entornos urbanos y metropolitanos mediante la apuesta por un transporte público sostenible y fiable, la movilidad eléctrica y los desplazamientos en modos activos (a pie y en bicicleta).</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-lightbulb icon"></i>La principal fuerza motriz del cambio es la <strong><u>transformación de los entornos urbanos</u></strong>, generalizando a partir de <span class="pill pill-blue">2023</span> las <span class="definition-pill"><strong>Zonas de Bajas Emisiones (ZBE)</strong></span> en los municipios de más de <span class="pill pill-blue">50.000</span> habitantes, donde se concentra el <span class="pill pill-blue">50%</span> de la población.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>Así, los <strong><u>tres pilares</u></strong> de esta componente son:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><i class="fas fa-walking icon text-green-600"></i>La <strong><u>delimitación de zonas centrales</u></strong> con acceso limitado a los vehículos privados y/o más contaminantes en favor del peatón y el transporte público.</li>
+                                            <li><i class="fas fa-bolt icon text-yellow-500"></i>El <strong><u>impulso a la movilidad eléctrica</u></strong> o cero emisiones.</li>
+                                            <li><i class="fas fa-bus icon text-blue-500"></i>Y la <strong><u>mejora del transporte público</u></strong>, que ha sufrido por la pandemia de la Covid-19.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                 <li>De esta componente, el <span class="actor-pill">MITECO</span> se encargará del “Plan de incentivos a la instalación de puntos de recarga, a la adquisición de vehículos eléctricos y de pila de combustible y a la innovación en electromovilidad, recarga e hidrógeno verde”, y los otros dos programas estarán liderados por el <span class="actor-pill">MITMS</span>, cogestionando uno de ellos con el <span class="actor-pill">MITECO</span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+             <hr class="my-6">
+             <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-network-wired mr-2 text-purple-600"></i>Componente 6: Movilidad sostenible, segura y conectada</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-euro-sign icon"></i>El Plan tiene previsto destinar unos <span class="pill pill-blue">6.600 M€</span> de los fondos <span class="plan-pill">NextGenerationEU</span> al impulso de una movilidad “sostenible, segura y conectada” con la mirada puesta en el <strong><u>ferrocarril</u></strong> como una de las principales palancas para lograr su descarbonización y reducir la siniestralidad.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-check-double icon"></i>Entre otras cosas, busca:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-project-diagram icon"></i>▫️ <strong><u>Completar los corredores europeos</u></strong> en España (Atlántico y Mediterráneo).</li>
+                                <li><i class="fas fa-exchange-alt icon"></i>▫️ <strong><u>Acelerar el trasvase modal</u></strong> de la carretera al tren, especialmente en el transporte de mercancías, para reducir la dependencia del país del petróleo importado.</li>
+                                <li><i class="fas fa-smog icon"></i>▫️ Y <strong><u>reducir las emisiones</u></strong> de gases de efecto invernadero.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-tasks icon"></i>El <span class="actor-pill">MITMS</span> va a <strong><u>priorizar los proyectos en fase más avanzada</u></strong> de desarrollo para acelerar la recuperación de la economía y promoverá la inversión privada en el programa de apoyo al transporte sostenible (GNL, Hidrógeno, electricidad) y digital.</li>
+                    <li><i class="fas fa-train icon"></i>La implementación del grueso de esta estrategia se llevará a cabo mediante los <strong><u>programas de actividad</u></strong> elaborados por los administradores de infraestructuras ferroviarias <span class="actor-pill">Adif</span> y <span class="actor-pill">Adif-AV</span>, vía inversión directa. También incluye la convocatoria de ayudas a empresas públicas y privadas a través del <span class="actor-pill">MITMS</span> y las <span class="actor-pill">CCAA</span>, para impulsar el transporte ferroviario de mercancías, la seguridad y el uso de energías de propulsión alternativas en todos los modos.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const triggers = document.querySelectorAll('.collapsible-trigger');
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function (event) {
+                    // Evita que el evento de clic se propague a los triggers padres
+                    event.stopPropagation();
+                    
+                    const content = this.nextElementSibling;
+                    
+                    this.classList.toggle('open');
+                    
+                    if (content && content.classList.contains('collapsible-content')) {
+                        content.classList.toggle('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
