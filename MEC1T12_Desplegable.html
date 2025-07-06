@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual: El Coste del Transporte</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-header .icon-bg {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-top: 1rem; }
+        .pill, .law-pill, .directive-pill, .actor-pill, .plan-pill, .definition-pill {
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0 0.2rem;
+        }
+        .pill-blue { background-color: #dbeafe; color: #1e4d91; border: 1px solid #93c5fd; }
+        .pill-red { background-color: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+        .pill-yellow { background-color: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
+        .pill-green { background-color: #dcfce7; color: #166534; border: 1px solid #86efac; }
+        .actor-pill { background-color: #e5e7eb; color: #1f2937; border: 1px solid #9ca3af; }
+        .definition-pill { background-color: #cffafe; color: #155e75; border: 1px solid #22d3ee; }
+        .icon {
+            margin-right: 0.5rem;
+            width: 1.25em;
+            text-align: center;
+        }
+        .nested-list {
+            padding-left: 1.75rem;
+            margin-top: 0.75rem;
+            border-left: 3px dotted #cbd5e1;
+        }
+        .nested-list > li {
+            position: relative;
+        }
+        .nested-list > li::before {
+            content: '▪️';
+            position: absolute;
+            left: -1.5rem;
+            color: #3b82f6;
+        }
+        .deeper-nested-list {
+             padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+         .deeper-nested-list > li {
+            position: relative;
+        }
+        .deeper-nested-list > li::before {
+             content: '▫️';
+             position: absolute;
+             left: -1.25rem;
+             color: #3b82f6;
+        }
+        /* Estilos para la funcionalidad desplegable */
+        .collapsible-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.25rem 0;
+        }
+        .collapsible-trigger > span, .collapsible-trigger > h3 {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+            margin-right: 0.75rem;
+            width: 1em;
+            color: #3b82f6;
+        }
+        .collapsible-content {
+            padding-left: 1.75rem;
+        }
+        .collapsible-trigger.open .collapsible-icon {
+            transform: rotate(90deg);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 p-4 sm:p-6 md:p-8">
+    <div class="max-w-5xl mx-auto">
+
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-euro-sign"></i> MEC1T12: EL COSTE DEL TRANSPORTE <i class="fas fa-calculator"></i></h1>
+        </header>
+
+        <!-- Main Card 1 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-info-circle"></i></div>
+                <h2>1. EL COSTE DEL TRANSPORTE</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-question-circle icon text-red-500"></i>El <strong><u>coste del transporte</u></strong> es de <strong><u>muy difícil determinación</u></strong> porque hay numerosos efectos sin un valor monetario claro.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                   <p>Su <strong><u>valoración</u></strong> puede hacerse desde <strong><u>diversos puntos de vista</u></strong>:</p>
+                                    <ul class="nested-list deeper-nested-list">
+                                        <li><i class="fas fa-building icon text-blue-600"></i>Desde la <strong><u>empresa</u></strong> se considerarán los factores productivos bajo su gestión.</li>
+                                        <li><i class="fas fa-users icon text-green-600"></i>Desde los <strong><u>usuarios</u></strong> el coste del servicio incluirá su tiempo, las molestias, etc.</li>
+                                        <li><i class="fas fa-landmark icon text-gray-700"></i>La <strong><span class="actor-pill">Administración</span></strong> considerará además los costes sociales.</li>
+                                        <li><i class="fas fa-user-slash icon text-orange-600"></i>Los <strong><u>no usuarios</u></strong> del servicio podrán soportar costes de forma indirecta como la contaminación.</li>
+                                    </ul>
+                               </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-balance-scale icon text-yellow-600"></i>Al prestar un servicio de transporte, surgen dos tipos de costes:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-user-tie icon text-blue-600"></i><strong><u>Costes directos (privados)</u>:</strong> A los que ha de hacer frente el operador.</li>
+                                <li>
+                                    <p><i class="fas fa-users icon text-red-500"></i><strong><u>Costes externos (sociales)</u>:</strong></p>
+                                    <ul class="nested-list deeper-nested-list">
+                                        <li>Son soportados por <strong><u>terceros sin recibir compensación</u></strong> por ello.</li>
+                                        <li>Y <strong><u>no afectan de forma directa al operador</u></strong> del servicio, al menos en principio.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card 2 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-building"></i></div>
+                <h2>2. COSTES DESDE EL PUNTO DE VISTA ECONÓMICO-PRIVADO (COSTES INTERNOS)</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>El <strong><u>coste desde el punto de vista privado</u></strong> tiene en cuenta los gastos a los que hacen frente los <strong><u>operadores de transporte</u></strong> (costes de los vehículos y costes de la infraestructura). Estos gastos totales serán una función del servicio obtenido que se mide en:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-users icon"></i>Viajeros-km o viajeros (en el transporte de viajeros).</li>
+                                <li><i class="fas fa-box icon"></i>O en toneladas-km o toneladas (en el de mercancías).</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-car icon text-purple-600"></i><strong><u>Coste de los vehículos</u></strong>, pueden distinguirse entre costes variables o fijos, según su dependencia de la distancia recorrida:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="fas fa-chart-line icon text-red-500"></i><strong><u>Costes variables</u></strong>, son:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>Energía para tracción.</li>
+                                            <li>Lubricantes.</li>
+                                            <li>Operaciones de mantenimiento.</li>
+                                            <li>Reparaciones.</li>
+                                            <li>Y personal (si existe la posibilidad de destinarlo a otros servicios en caso de inmovilizar el vehículo, será un coste fijo si las tripulaciones están adscritas a un vehículo determinado).</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="fas fa-tags icon text-green-600"></i><strong><u>Costes fijos</u></strong>, pueden indicarse:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>Impuestos y licencias por utilización del vehículo.</li>
+                                            <li>Seguros.</li>
+                                            <li>Gastos de administración.</li>
+                                            <li>Y amortización del vehículo (si se realiza de acuerdo con el tiempo de vida del vehículo, será un coste variable si se hace depender de la distancia recorrida).</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-balance-scale icon text-yellow-600"></i>De forma general:</p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                                <li><i class="fas fa-road icon text-blue-500"></i>El <strong><u>coste del personal</u></strong> tiene <strong><u>más importancia en el transporte por carretera</u></strong> porque la capacidad de transporte por vehículo es menor que en otros modos.</li>
+                                <li><i class="fas fa-plane-departure icon text-red-500"></i>La <strong><u>amortización de los vehículos</u></strong> y el <strong><u>coste de la energía</u></strong> tendrán un <strong><u>mayor peso en el transporte aéreo</u></strong> (mayor coste y consumo energético de sus vehículos por unidad de capacidad).</li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-users icon text-blue-700"></i>Entre las variables que influyen sobre los costes por unidad, una de las más importantes es el <strong><u>grado de ocupación</u></strong>, ya que la mayor parte de los gastos varían muy poco con ella.</p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                                <li>Generalmente, las <strong><u>ocupaciones son mayores en los servicios discrecionales</u></strong> por su mayor flexibilidad para adaptarse a la demanda, mientras que los <strong><u>servicios regulares</u></strong> la ocupación puede ser <strong><u>muy variable</u></strong> y alcanzar valores muy bajos con costes unitarios muy altos en caso de demanda reducida.</li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-chart-line icon text-green-600"></i>En todos los modos se registran <strong><u>economías de escala respecto al tamaño de los vehículos</u></strong>, ya que el coste de explotación de los vehículos por km recorrido crece menos que proporcionalmente a su capacidad.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Por el contrario, en muchos modos de transporte, <strong><u>no parecen existir economías de escala respecto al tamaño de las flotas</u></strong> que utilizan las empresas de transporte. Ello explicaría que, en sectores como el transporte de mercancías por carretera o el transporte discrecional de viajeros por carretera, coexistan empresas pequeñas con otras de gran tamaño. Las ventajas que en la gestión comercial pudiera encontrar la gran empresa parecen quedar compensados por los mayores gastos administrativos.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-road icon text-gray-500"></i>Sobre los costes de explotación de los vehículos ejercen una gran influencia las <strong><u>características de la infraestructura</u></strong> (especialmente en carretera y ferrocarril), una <strong><u>mayor calidad de infraestructura</u></strong> supone un mayor coste de la misma, pero permite un <strong><u>menor coste de explotación</u></strong> de los vehículos, además de una <strong><u>mayor calidad del transporte</u></strong>.</li>
+                     <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-sitemap icon text-purple-600"></i><strong><u>Coste de la infraestructura</u></strong>, las empresas de transporte perciben los costes de infraestructura de diversas maneras.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>En el <strong><u><i class="fas fa-train"></i> transporte ferroviario, <i class="fas fa-ship"></i> marítimo y <i class="fas fa-plane-departure"></i> aéreo</u></strong>, las empresas transportistas pagan a los organismos gestores según el uso que hacen de las infraestructuras con arreglo a unos <strong><u>cánones</u></strong>, que pueden tener componentes fijas y variables.</li>
+                                <li>La situación en el <strong><u><i class="fas fa-road"></i> transporte por carretera</u></strong> es distinta, pues, aunque en algunos casos como en las <strong><u>carreteras de peaje</u></strong> el sistema es parecido, lo más frecuente es que la utilización de las infraestructuras sea <strong><u>libre</u></strong>, y que los ingresos necesarios para construir las infraestructuras provengan de <strong><u>inversión directa a través de los presupuestos</u></strong> de la Administración.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-chart-pie"></i></div>
+                <h2>3. ESTRUCTURA DE COSTES EN LOS DISTINTOS MODOS DE TRANSPORTE</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-database icon text-gray-500"></i>Los datos que se exponen a continuación son los últimos publicados de los transportes terrestres por el <span class="actor-pill">OTLE</span> relativos a <span class="pill pill-blue">2023</span>.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-car-side icon text-blue-600"></i><strong><u>Transporte en vehículo privado</u>:</strong></p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>El coste superó los <span class="pill pill-blue"><strong>0,35 €/vehículo-km</strong></span>, repartiéndose en <u>amortización, combustible, seguros, reparaciones, lubricante y neumáticos</u>.</li>
+                                <li><strong><u>Amortización y combustible</u></strong> suponen el <span class="pill pill-blue"><strong>86%</strong></span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-bus icon text-green-600"></i><strong><u>Transporte público de viajeros por carretera</u>:</strong></p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>En autocares de más de 55 plazas asciende a <span class="pill pill-blue"><strong>1,6 €/vehículo-km</strong></span>, que se distribuyen principalmente en:</li>
+                                <ul class="nested-list deeper-nested-list">
+                                    <li><strong><u>Coste laboral del conductor</u></strong>: <span class="pill pill-blue">27%</span>.</li>
+                                    <li><strong><u>Combustible</u></strong>: <span class="pill pill-blue">20%</span>.</li>
+                                    <li><strong><u>Amortización del vehículo</u></strong>: <span class="pill pill-blue">13%</span>.</li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-truck icon text-orange-600"></i><strong><u>Transporte de mercancías por carretera</u>:</strong></p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Varía según el tipo de vehículo entre <span class="pill pill-blue"><strong>1,1 y 1,9 €/vehículo-km</strong></span>, distribuidos fundamentalmente en:</li>
+                                 <ul class="nested-list deeper-nested-list">
+                                    <li><strong><u>Combustible</u></strong>: <span class="pill pill-blue">32%</span>.</li>
+                                    <li><strong><u>Conductor</u></strong>: <span class="pill pill-blue">21%</span>.</li>
+                                    <li><strong><u>Amortización del vehículo</u></strong>: <span class="pill pill-blue">11%</span>.</li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-train icon text-purple-600"></i><strong><u>Transporte ferroviario de viajeros</u>:</strong></p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>En los servicios de <strong><u>alta velocidad</u></strong> tiene una percepción media de <span class="pill pill-blue"><strong>0,08 €/viajero-km</strong></span>.</li>
+                                <li>Y en los servicios de <strong><u>cercanías</u></strong> no alcanza los <span class="pill pill-blue"><strong>0,02 €/viajero-km</strong></span>.</li>
+                                <li>Su estructura esencial de costes se divide en: <u>cánones</u> (<span class="pill pill-blue">31%</span>), <u>mantenimiento y seguridad</u> (<span class="pill pill-blue">30%</span>), <u>personal</u> (<span class="pill pill-blue">18%</span>), <u>energía</u> (<span class="pill pill-blue">9%</span>) y <u>amortización</u> (<span class="pill pill-blue">9%</span>).</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-train-track icon text-gray-700"></i><strong><u>Transporte ferroviario de mercancías</u>:</strong></p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                                <li>Tiene una percepción media de <span class="pill pill-blue"><strong>0,04 €/tonelada neta-km</strong></span> en Renfe Mercancías.</li>
+                                <li>Distribuidos en: <u>mantenimiento y seguridad</u> (<span class="pill pill-blue">38%</span>), <u>personal</u> (<span class="pill pill-blue">29%</span>), <u>energía</u> (<span class="pill pill-blue">16%</span>) y <u>amortización</u> (<span class="pill pill-blue">10%</span>).</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- Main Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-users"></i></div>
+                <h2>4. COSTES DESDE EL PUNTO DE VISTA ECONÓMICO-SOCIAL (COSTES EXTERNOS)</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-info-circle icon text-blue-600"></i>Estos costes pretenden <strong><u>reflejar la influencia en el conjunto de la sociedad</u></strong>. Los principales <span class="definition-pill"><strong>costes externos</strong></span> del transporte son el <strong><u>coste de congestión</u></strong>, el de <strong><u>accidentes</u></strong> y las <strong><u>incidencias sobre el medio ambiente</u></strong>, todos ellos de <strong><u>difícil evaluación</u></strong>.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-car-burst icon text-orange-500"></i><strong><u>Costes de congestión</u>:</strong></p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Se producen cuando la <strong><u>demanda es del mismo orden o superior a la capacidad</u></strong> del sistema de transporte.</li>
+                                <li>La utilización incontrolada de las infraestructuras, en especial en los ámbitos urbanos, da lugar a <strong><u>colapsos</u></strong> en los niveles de servicio que generan <strong><u>costes extraordinarios</u></strong> (tiempos consumidos, costes de operación, calidad medioambiental).</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-car-crash icon text-red-500"></i><strong><u>Costes de accidentes</u>:</strong></p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>Los efectos externos de accidentes presentan <strong><u>múltiples elementos</u></strong>. Una parte de ellos son <strong><u>fácilmente cuantificables</u></strong> como costes, mientras que otros no. Dentro de los primeros pueden señalarse:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>Costes de tratamiento y readaptación de heridos.</li>
+                                            <li>Costes de las distintas invalideces.</li>
+                                            <li>Costes materiales de los accidentes.</li>
+                                            <li>Costes de muerte desde el punto de vista de los seguros.</li>
+                                            <li>Costes jurídicos y policiales de los accidentados, etc.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                 <li>Entre los de <strong><u>difícil cuantificación</u></strong> pueden citarse: pérdidas de producción, pérdidas de tiempo libre y daño familiar y social por las heridas y muerte de personas.</li>
+                                 <li>La <span class="law-pill">NS 3/2014 de la DGC</span> ofrece <strong><u>valores monetarios</u></strong> de lo que supone cada tipo de víctima en accidente de circulación (<span class="pill pill-blue">1.400.000 €</span> víctima mortal, <span class="pill pill-blue">219.000 €</span> herido grave y <span class="pill pill-blue">6.100 €</span> herido leve, en valores de 2011).</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-leaf icon text-green-600"></i><strong><u>Costes medioambientales</u>:</strong></p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>Dentro de estos costes se incluyen:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><i class="fas fa-volume-up icon"></i>El ruido.</li>
+                                            <li><i class="fas fa-smog icon"></i>La contaminación atmosférica y de las aguas.</li>
+                                            <li><i class="fas fa-eye-slash icon"></i>La intrusión visual o pérdida de calidad paisajística.</li>
+                                            <li><i class="fas fa-ban icon"></i>El efecto barrera.</li>
+                                            <li><i class="fas fa-vector-square icon"></i>La ocupación de suelo.</li>
+                                            <li><i class="fas fa-seedling icon"></i>Los daños al patrimonio natural y la biodiversidad, la flora, la fauna, los hábitats, etc.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-sign-in-alt"></i></div>
+                <h2>5. INTERNALIZACIÓN DE COSTES EXTERNOS</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-info-circle icon text-blue-600"></i>La <span class="definition-pill"><strong>internalización de los costes externos</strong></span> consiste en <strong><u>repercutirlos sobre operadores y finalmente sobre los usuarios</u></strong>, trasladando los costes de los daños ambientales a quienes los producen con el fin de <strong><u>minimizar las externalidades</u></strong> del transporte.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-question-circle icon text-red-500"></i>La mayoría de investigaciones sugieren que los impactos externos del transporte <strong><u>no están representados adecuadamente</u></strong> en el paquete actual de medidas fiscales relacionadas con el transporte.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Según los principios rectores <span class="pill pill-yellow">“quien contamina paga”</span> y <span class="pill pill-yellow">“quien utiliza paga”</span>, el precio pagado por el usuario debería reflejar el <strong><u>coste total</u></strong> de las actividades de transporte, incluidos los costes de las externalidades del transporte.</li>
+                                <li>No obstante, las investigaciones <strong><u>no han dado resultados concluyentes</u></strong> que den una indicación sobre qué nivel de precios pudiera ser “justo” para el transporte y los combustibles.</li>
+                                <li>Además, el cálculo de los costes externos totales depende de los <strong><u>valores que otorgue la sociedad</u></strong> en función del contexto socioeconómico y de las prioridades éticas y políticas a un gran número de atributos tales como la seguridad, la calidad del aire, etc.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-tasks icon text-green-600"></i>Los niveles a los que hay que internalizar los costes externos <strong><u>dependen de las condiciones locales</u></strong>. Dado que los costes externos no se pueden calcular con precisión, la mejor forma posible de internalizarlos parece ser <strong><u>incrementar los precios por etapas</u></strong> hasta que se hayan alcanzado los objetivos medioambientales.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>La disponibilidad de alternativas comparables, respetuosas con el medio ambiente, puede suponer que haya que <strong><u>subvencionar alternativas</u></strong> como el transporte público, idealmente mediante la recaudación de <strong><u>impuestos de circulación progresivos</u></strong> que aumenten según los ingresos o sobre los <strong><u>vehículos más contaminantes</u></strong>, y teniendo en cuenta las diferencias regionales, aplicando <strong><u>peajes y restricciones de acceso</u></strong> en las zonas urbanas más colapsadas.</li>
+                                <li>Las especificaciones y los límites se deberían aplicar <strong><u>gradualmente</u></strong> con el fin de dejar tiempo a los mercados locales para que se adapten.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-gavel icon text-purple-600"></i>El principio general propuesto por la <span class="actor-pill">Comisión Europea</span> para la internalización de los costes externos del transporte es el de la <span class="definition-pill"><strong>“tarificación al coste social marginal”</strong></span>, según el cual los precios del transporte deben equivaler al <strong><u>coste adicional que genera a corto plazo un usuario adicional</u></strong> de la infraestructura.</p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                                <li>Este tipo de tarificación contribuiría a la <strong><u>equidad entre los usuarios del transporte y los que no lo son</u></strong>, estableciendo una relación directa entre la utilización de recursos comunes y el pago, según los principios de “quien contamina paga” y “quien utiliza paga”.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-leaf"></i></div>
+                <h2>6. FISCALIDAD VERDE</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>Según organismos internacionales como <span class="actor-pill">Eurostat</span>, la <span class="actor-pill">Comisión Europea</span>, la <span class="actor-pill">OCDE</span> o la <span class="actor-pill">Agencia Internacional de Energía</span>, los <span class="definition-pill"><strong>impuestos verdes</strong></span> son los que <strong><u>gravan actividades con un impacto ambiental negativo</u></strong>, para desincentivarlas.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>Pueden aplicarse a actividades como:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><i class="fas fa-smog icon"></i>Las emisiones de GEI.</li>
+                                            <li><i class="fas fa-mountain icon"></i>Consumo de recursos naturales.</li>
+                                            <li><i class="fas fa-trash-alt icon"></i>Gestión incorrecta de residuos.</li>
+                                            <li><i class="fas fa-car icon"></i>El transporte y sus consecuencias ambientales, etc.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-lightbulb icon text-yellow-500"></i>Según la <span class="actor-pill">Agencia Europea del Medio Ambiente</span>, los impuestos verdes son un <strong><u>instrumento eficaz</u></strong> para <strong><u>incorporar los costes ambientales</u></strong> a los productos o servicios gravados, funcionando como <strong><u>incentivos</u></strong> para que empresas y ciudadanos tengan comportamientos más sostenibles.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Además, lo recaudado puede emplearse en <strong><u>mejorar el gasto en medio ambiente</u></strong> y <strong><u>reducir otros impuestos</u></strong>, como los que se aplican sobre el trabajo, el capital y el ahorro.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-chart-line icon text-green-600"></i>El <span class="actor-pill">Banco Interamericano de Desarrollo</span> publicó en <span class="pill pill-blue">2013</span> un estudio que demostraba que aquellos países con <strong><u>mayores ingresos por impuestos ambientales</u></strong> presentaban <strong><u>menos emisiones contaminantes</u></strong>, <strong><u>mayor implantación de energías renovables</u></strong> y una <strong><u>disminución general en la contaminación</u></strong>.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-flag icon text-yellow-600"></i>En <span class="pill pill-blue">2023</span> se recaudaron en <span class="actor-pill">España</span> unos <span class="pill pill-blue"><strong>23.000 M€</strong></span> por impuestos medioambientales, según el <span class="actor-pill">INE</span>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Esa cantidad ha supuesto el <span class="pill pill-blue"><strong>7%</strong></span> del total recaudado impositivamente, frente al objetivo marcado por la <span class="actor-pill">UE</span> del <span class="pill pill-blue">10%</span>.</li>
+                                <li>Tanto la <span class="actor-pill">Comisión Europea</span> como la <span class="actor-pill">OCDE</span> han instado a nuestro país a <strong><u>reformar la fiscalidad ambiental</u></strong>, por el <u>bajo nivel de ingresos</u> por impuestos verdes y por el <u>mantenimiento de los subsidios a los combustibles fósiles</u> que tiene como consecuencia que el parque de vehículos diésel en España sea superior a la media europea.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const triggers = document.querySelectorAll('.collapsible-trigger');
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function (event) {
+                    // Evita que el evento de clic se propague a los triggers padres
+                    event.stopPropagation();
+                    
+                    const content = this.nextElementSibling;
+                    
+                    this.classList.toggle('open');
+                    
+                    if (content && content.classList.contains('collapsible-content')) {
+                        content.classList.toggle('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
