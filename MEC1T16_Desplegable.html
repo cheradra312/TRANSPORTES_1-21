@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual: Planificación del sistema de infraestructuras y transporte</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Estilos CSS personalizados -->
+    <style>
+        /* Fuentes y fondo base */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        /* Estructura principal de las tarjetas */
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-header .icon-bg {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        /* Reset de listas */
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-top: 1rem; }
+
+        /* Estilos para las "píldoras" de colores */
+        .pill, .law-pill, .directive-pill, .actor-pill, .plan-pill, .definition-pill {
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0 0.2rem;
+        }
+        .pill-blue { background-color: #dbeafe; color: #1e4d91; border: 1px solid #93c5fd; }
+        .law-pill { background-color: #f3e8ff; color: #581c87; border: 1px solid #c084fc; }
+        .actor-pill { background-color: #e5e7eb; color: #1f2937; border: 1px solid #9ca3af; }
+        .plan-pill { background-color: #cffafe; color: #164e63; border: 1px solid #67e8f9; }
+        .definition-pill { background-color: #cffafe; color: #155e75; border: 1px solid #22d3ee; }
+
+        /* Iconos dentro del texto */
+        .icon {
+            margin-right: 0.5rem;
+            width: 1.25em;
+            text-align: center;
+        }
+
+        /* --- Estilos para las listas anidadas y viñetas --- */
+        .nested-list, .deeper-nested-list {
+            padding-left: 1.75rem;
+            margin-top: 0.75rem;
+            border-left: 3px dotted #cbd5e1;
+        }
+        .nested-list > li, .deeper-nested-list > li {
+            position: relative;
+        }
+        .nested-list > li::before {
+            content: '🔹';
+            position: absolute;
+            left: -1.75rem;
+            top: 0.25rem;
+            color: #3b82f6;
+        }
+        .deeper-nested-list > li::before {
+             content: '▪️';
+             position: absolute;
+             left: -1.5rem;
+             top: 0.25rem;
+        }
+        /* Regla para ocultar la viñeta CSS si un icono es el PRIMER elemento */
+        .nested-list > li:has(> i.icon:first-child)::before,
+        .deeper-nested-list > li:has(> i.icon:first-child)::before {
+            content: none;
+        }
+
+        /* --- Estilos para la funcionalidad desplegable --- */
+        .collapsible-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.25rem 0;
+            transition: background-color 0.2s ease;
+        }
+        .collapsible-trigger:hover {
+            background-color: #f9fafb;
+        }
+        .collapsible-trigger > p, .collapsible-trigger > h3, .collapsible-trigger > span {
+            margin: 0;
+        }
+        .collapsible-trigger > h3, .collapsible-trigger > span {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+            margin-right: 0.75rem;
+            width: 1em;
+            color: #3b82f6;
+        }
+        .collapsible-content {
+            padding-left: 1.75rem;
+        }
+        .collapsible-trigger.open .collapsible-icon {
+            transform: rotate(90deg);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 p-4 sm:p-6 md:p-8">
+    <div class="max-w-5xl mx-auto">
+
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-sitemap"></i> MEC1T16. Planificación del sistema de infraestructuras y transporte <i class="fas fa-drafting-compass"></i></h1>
+        </header>
+
+        <!-- Card 1: Planificación -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-project-diagram"></i></div>
+                <h2>1. Planificación del sistema de infraestructuras y transporte de ámbito estatal</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>La <span class="definition-pill"><strong>planificación</strong></span> es un <strong><u>proceso de decisión racional</u></strong> para aplicar del modo más <strong>eficaz</strong> los <u>limitados recursos disponibles</u> para alcanzar unos ciertos objetivos en un <u>escenario futuro</u>, por tanto, debe definir:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Fines</li>
+                                <li>Financiación</li>
+                                <li>y Programación.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><p><i class="fas fa-landmark icon text-purple-600"></i>El <strong>transporte</strong> es una <strong><u>actividad esencial</u></strong> para el adecuado funcionamiento del <u>mercado</u>, por lo que los <span class="actor-pill">estados</span> <strong>regulan</strong> el marco operativo entre <u>usuarios</u> y <u>operadores de transporte</u>, facilitando además las <strong>infraestructuras de transporte</strong>.</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-exclamation-circle icon text-orange-600"></i>Si en toda actividad económica es necesaria una planificación en orden a la consecución de unos objetivos a medio y largo plazo, en el transporte se hace <strong><u>especialmente necesaria</u></strong> por varias <strong>razones</strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>es una actividad que se considera un <strong><u>servicio público</u></strong>;</li>
+                                <li>los <strong>recursos</strong> empleados son <strong><u>públicos</u></strong> y en <strong>cantidades importantes</strong> por lo que debe buscarse su <u>óptima utilización social</u>;</li>
+                                <li>el <strong>largo plazo</strong> que requiere el proyecto y ejecución de estas obras hace que <u>no deban tomarse decisiones improvisadas</u> que comprometen recursos a largo plazo;</li>
+                                <li>y las infraestructuras son <strong><u>“irreversibles”</u></strong>, pues no pueden trasladarse o modificar sus características fácilmente.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-users icon text-indigo-600"></i>En la elaboración de un plan intervienen esencialmente <strong><u>tres agentes</u></strong>;</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>el <span class="actor-pill"><strong>decisor político</strong></span> (<u>establece los objetivos</u>, <u>toma las decisiones finales</u> y <u>aprueba el plan</u>),</li>
+                                <li>el <span class="actor-pill"><strong>técnico analista</strong></span> (<u>diseña las alternativas</u> y <u>elabora el plan</u>, tendencia a equipos multidisciplinares),</li>
+                                <li>y la <span class="actor-pill"><strong>participación pública</strong></span> (conjunto de <u>influencias sobre el proceso planificador</u> que ejercen los diversos ciudadanos, grupos sociales y organismos públicos).</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-tasks icon text-green-600"></i>El <strong><u>proceso planificador</u></strong> incluye las siguientes <strong>etapas</strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><strong>definición</strong> de <u>directrices y objetivos</u>;</li>
+                                <li><strong>análisis y diagnóstico</strong> de la <u>situación actual</u>;</li>
+                                <li><strong>generación</strong> de <u>alternativas</u>;</li>
+                                <li><strong>selección</strong> de alternativas mediante técnicas de <u>análisis multicriterio</u>;</li>
+                                <li><strong>proceso de aprobación</strong> que conlleva <u>información pública</u> y <u>modificaciones</u> para convertirse en el <strong>Plan definitivo</strong>;</li>
+                                <li>y <strong>desarrollo y seguimiento</strong> del Plan.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 2: Historia Reciente -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-history"></i></div>
+                <h2>2. Historia reciente de la planificación estratégica de infraestructuras y transporte en España</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-scroll icon text-blue-600"></i>En lo que va de siglo, el <strong>Ministerio competente</strong> en materia de infraestructuras y transporte en <span class="actor-pill">España</span> ha elaborado <u>diversos planes</u>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><strong><u><span class="plan-pill">Plan de Infraestructuras de Transportes 2000-2007 (PIT)</span></u></strong>, con una inversión de unos <span class="pill-blue">100.000M €</span>;</li>
+                                <li><strong><u><span class="plan-pill">Plan Estratégico de Infraestructuras y Transporte 2005-2020 (PEIT)</span></u></strong>, inversión cercana a los <span class="pill-blue">250.000 M €</span> (por año unos <span class="pill-blue">15.000 M €</span>, <span class="pill-blue">1,5%</span> del PIB);</li>
+                                <li>y <strong><u><span class="plan-pill">Plan Estratégico de Infraestructuras, Transportes y Vivienda 2012-2024 (PITVI)</span></u></strong>, con unas inversiones contempladas para infraestructuras y transporte en euros constantes del año 2012 entre <span class="pill-blue">133.000 M €</span> en el escenario desfavorable y <span class="pill-blue">141.000 M €</span> en el escenario optimista, situándose sobre el <span class="pill-blue">0,9%</span> del PIB.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-chart-line icon text-green-600"></i>Bajo los mencionados planes, <span class="actor-pill">España</span> ha sido capaz de realizar un <strong><u>esfuerzo histórico</u></strong> que ha permitido pasar de tener unas infraestructuras <u>muy alejadas</u> de las de los principales países europeos, a disponer de unas redes situadas a la <strong>cabeza de la Unión Europea</strong>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Todo ello se ha logrado en un <strong>plazo muy breve</strong> teniendo presente los <u>tiempos de construcción</u> de las infraestructuras y la <u>experiencia en otros países europeos</u>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-search-minus icon text-red-500"></i>Sin embargo, el análisis realizado ha permitido detectar <strong><u>carencias relevantes</u></strong> en el sistema de planificación español, como ha sido:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>un <strong>excesivo optimismo</strong> en ciertos casos a la hora de <u>prever la demanda</u> de uso de las infraestructuras, que realmente ha sido <strong>inferior a la prevista</strong>,</li>
+                                <li>o de <strong>subestimar los costes</strong> de construcción, que realmente han sido <strong>superiores a los esperados</strong>,</li>
+                                <li>lo que se ha traducido en una <strong>rentabilidad</strong> de algunas infraestructuras <strong><u>inferior a la que se había considerado</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-gavel icon text-purple-600"></i>En <span class="actor-pill">España</span> <strong><u>no existe un marco regulatorio</u></strong> que ordene la redacción de los planes de infraestructuras de transporte.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Por tanto, su <u>amplitud</u>, <u>horizonte temporal</u> y <u>evaluación</u> ha dependido de la <strong>voluntad política</strong> de cada uno de los equipos ministeriales.</li>
+                                <li>Bien es cierto que los dos últimos planes aprobados, <span class="plan-pill">PEIT</span> y <span class="plan-pill">PITVI</span>, siguen una cierta <strong>ortodoxia metodológica</strong> (diagnóstico, objetivos, propuestas de actuación y marco económico financiero) y fueron sometidos a <strong>largas tramitaciones</strong> administrativas y ambientales, superando el procedimiento de <u>Evaluación Ambiental Estratégica</u>.</li>
+                                <li>Para poner fin a la <strong>desregulación</strong> en esta materia está prevista la aprobación de la <span class="law-pill"><strong>Ley de Movilidad Sostenible</strong></span>, que contempla la necesaria <u>justificación de las nuevas inversiones</u> de acuerdo con criterios de <strong>rentabilidad</strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 3: Planificación Estratégica en Vigor -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-lightbulb"></i></div>
+                <h2>3. Planificación estratégica en vigor</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><p><i class="fas fa-info-circle icon text-blue-600"></i>La <span class="definition-pill"><strong>planificación estratégica</strong></span> surge por la necesidad de dar un <strong><u>marco estable</u></strong> a la planificación ante los <u>cambios imprevistos</u> en la tendencia de las variables básicas de los <span class="definition-pill">modelos de transporte</span>.</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-cogs icon text-purple-600"></i>El <strong>método empleado</strong> se basa en las técnicas de planificación de la <u>empresa privada</u>, con las siguientes <strong>características</strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-balance-scale icon"></i><strong>identifica</strong> los <u>puntos fuertes y débiles</u>, <strong>detecta</strong> las <u>amenazas y oportunidades</u> (<span class="definition-pill"><strong>análisis DAFO</strong></span>);</li>
+                                <li><i class="fas fa-key icon"></i><strong>concentra</strong> los <u>recursos disponibles</u> en <strong>acciones clave</strong>;</li>
+                                <li><i class="fas fa-project-diagram icon"></i><strong>pone énfasis</strong> en <strong><u>proceso</u></strong> y no en <strong><u>producto</u></strong>;</li>
+                                <li><i class="fas fa-users icon"></i>y <strong>potencia</strong> la <u>participación de los</u> <span class="actor-pill">agentes decisores</span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-undo icon text-orange-600"></i>Se utilizan en este caso técnicas de <span class="definition-pill"><strong>backcasting</strong></span>, que consisten en <strong>desplazarse paso a paso en el tiempo</strong> desde un <u>escenario futuro</u> hasta el <u>momento actual</u>, identificando las <strong>acciones y decisiones críticas</strong> que se deben tomar, y el <strong>momento adecuado</strong> para que el escenario futuro pueda alcanzarse.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>Estos serían sus <strong>pasos</strong>:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="deeper-nested-list">
+                                            <li><i class="fas fa-map-signs icon"></i><strong>enmarcar estratégicamente el problema</strong> con los objetivos generales, marco espacial y temporal, número y tipos de escenarios;</li>
+                                            <li><i class="fas fa-sliders-h icon"></i><strong>especificación de las variables externas</strong> que definen el contexto en el que actúa el sistema de transporte;</li>
+                                            <li><i class="fas fa-layer-group icon"></i><strong>construcción de los escenarios</strong>, incluyendo el análisis de su consistencia interna;</li>
+                                            <li><i class="fas fa-history icon"></i><strong>análisis hacia atrás (backcasting)</strong>, valorando los efectos sociales, económicos y ambientales de las posibles medidas;</li>
+                                            <li><i class="fas fa-calendar-check icon"></i>y <strong>definición de una agenda de actuación y seguimiento</strong>.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-file-signature icon text-green-600"></i>El actual <strong><u>instrumento de planificación estratégica a largo plazo</u></strong> del <span class="actor-pill">Gobierno de España</span> en materia de infraestructuras y transporte es la <span class="plan-pill"><strong>Estrategia de Movilidad Segura, Sostenible y Conectada 2030</strong></span>, que da cumplimiento a uno de los hitos del <span class="plan-pill"><strong>Plan de Recuperación, Transformación y Resiliencia</strong></span>;</p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>siendo el otro hito la futura aprobación de la <span class="law-pill"><strong>Ley de Movilidad Sostenible</strong></span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 4: Planificación Sectorial -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-puzzle-piece"></i></div>
+                <h2>4. La planificación sectorial por modo de transporte</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>Los <span class="definition-pill"><strong>modelos de tipo sectorial</strong></span> consideran el sistema de transporte como <strong>algo aislado</strong>, aunque algunas variables se traten de relacionar con <u>aspectos socieconómicos y territoriales</u>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Son <strong>más sencillos</strong>, necesitan <strong>menos datos</strong>, son <strong>más rápidos</strong> y especialmente <strong>aptos</strong> para <u>ámbito interurbano</u>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-tasks icon text-purple-600"></i>En <strong>primer lugar</strong>, se <strong><u>obtiene información</u></strong> del <strong>estado actual</strong> mediante:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-map-marked-alt icon"></i>la <strong>zonificación</strong> del <u>área de estudio</u> afectada por el plan;</li>
+                                <li><i class="fas fa-network-wired icon"></i>la <strong>recopilación de datos</strong> sobre las <u>redes de transporte</u>;</li>
+                                <li><i class="fas fa-chart-bar icon"></i>la <strong>cuantificación de la demanda actual</strong> de las infraestructuras y servicios (<span class="definition-pill">IMD</span> por tramos, <span class="definition-pill">viajeros-km</span> y <span class="definition-pill">t-km</span> en cada itinerario, <span class="definition-pill">matriz O-D</span> entre zonas);</li>
+                                <li><i class="fas fa-users-cog icon"></i>los <strong>parámetros socioeconómicos</strong> que puedan influir en la utilización de las redes de transporte (<u>producto interior bruto</u>, <u>valor añadido por sectores</u>, <u>renta disponible</u>, <u>distribución de la población</u>; <u>superficie y densidad de población</u>, <u>índice de motorización</u>).</li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-cogs icon text-orange-600"></i>Y, en <strong>segundo lugar</strong>, se realiza un <strong><u>modelo de transporte</u></strong> que permita <strong>evaluar las alternativas</strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-check-double icon"></i><strong>definiendo los parámetros</strong> que sirvan para evaluar el sistema de transporte (<u>mejora de los tiempos de recorrido</u>, <u>reducción de accidentalidad</u>, <u>aumento de la ocupación del transporte público</u>);</li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="fas fa-calculator icon"></i>y <strong>ajustando un modelo</strong> que explique los <u>flujos de viajeros y mercancías existentes</u> según un <span class="definition-pill"><strong>proceso de cuatro etapas</strong></span>:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="deeper-nested-list">
+                                            <li><strong>generación/atracción</strong>,</li>
+                                            <li><strong>distribución zonal</strong>,</li>
+                                            <li><strong>reparto modal</strong></li>
+                                            <li>y <strong>asignación</strong>.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 5: Participación Pública -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-users-cog"></i></div>
+                <h2>5. La participación pública en el proceso de planificación</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-globe-europe icon text-blue-600"></i>El análisis de las <strong><u>buenas prácticas internacionales</u></strong> en planificación de infraestructuras y servicios de transporte determina que hay <strong>dos pilares compartidos</strong> en las mejores experiencias de los países de la <span class="actor-pill">OCDE</span>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>la <strong><u>transparencia</u></strong> en la toma de decisiones,</li>
+                                <li>y la <strong><u>participación efectiva</u></strong> de la sociedad en los planes de infraestructuras.</li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li><p><i class="fas fa-chart-line icon text-orange-500"></i>En ambos aspectos, el <u>sistema español de planificación estratégica</u> y de toma de decisiones tiene un <strong>amplio margen de mejora</strong>.</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-balance-scale-left icon text-red-500"></i>Tanto el <span class="plan-pill">PEIT</span> como el <span class="plan-pill">PITVI</span> siguieron el procedimiento de <span class="definition-pill">Evaluación Ambiental Estratégica</span>, fueron remitidos para consulta a un amplio número de <u>administraciones</u> y <span class="actor-pill">agentes sociales</span>, y además se sometieron a <u>información pública</u>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Sin embargo, estos procesos tuvieron un <strong><u>escaso papel en la toma de decisiones</u></strong>, porque se iniciaron cuando <strong>ya estaban decididas las nuevas infraestructuras</strong> en los mapas de cada horizonte temporal.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><p><i class="fas fa-check-circle icon text-green-600"></i>Para garantizar que las decisiones y el debate sobre las infraestructuras sea <strong><u>realmente participativo</u></strong>, las <span class="actor-pill">partes interesadas</span> deben incorporarse en una <strong>etapa anterior</strong>, en el <u>momento de definición de objetivos</u>.</p></li>
+                     <li><p><i class="fas fa-users-viewfinder icon text-purple-600"></i>Del mismo modo, llevar a cabo la <strong>identificación de las partes interesadas</strong> puede garantizar una <strong><u>participación sea efectiva</u></strong>, incluyendo a <u>grupos relevantes</u> en la toma de decisiones.</p></li>
+                    <li><p><i class="fas fa-handshake-slash icon text-gray-700"></i><strong>Fomentar la participación</strong> debe ser compatible con <strong><u>evitar la paralización</u></strong> y las <strong><u>dilaciones innecesarias</u></strong> en el largo proceso de toma de decisiones, <strong>evitando otorgar <u>poder de veto</u></strong> a colectivos concretos en inversiones prioritarias.</p></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 6: Nuevo Enfoque -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-directions"></i></div>
+                <h2>6. Nuevo enfoque en las políticas de inversión</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-landmark icon text-blue-600"></i>En su <strong>informe de 2019</strong> la <span class="actor-pill">Autoridad Independiente de Responsabilidad Fiscal (AIReF)</span> emitió unas <strong><u>recomendaciones</u></strong> en las que el <span class="actor-pill">MITMS</span> debe basar un <strong><u>nuevo enfoque</u></strong> de las políticas de inversión, entre las que se pueden destacar:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-gavel icon"></i><strong>desarrollar una <span class="law-pill">ley transversal de movilidad</span></strong> que defina <u>objetivos comunes</u> para una movilidad sostenible en todos los modos de transporte;</li>
+                                <li><i class="fas fa-map-signs icon"></i><strong>desarrollar un nuevo <span class="plan-pill">plan integral de infraestructuras</span></strong> y servicios de transporte;</li>
+                                <li><i class="fas fa-puzzle-piece icon"></i><strong>redactar <span class="plan-pill">planes sectoriales de transporte</span></strong> vinculados con el plan nacional;</li>
+                                <li><i class="fas fa-balance-scale icon"></i><strong>crear un nuevo <u>marco de priorización de proyectos</u></strong> mediante una <span class="actor-pill">autoridad administrativa independiente de evaluación</span> de proyectos;</li>
+                                <li><i class="fas fa-sort-amount-down icon"></i><strong>priorizar</strong> los <u>proyectos planificados pendientes</u> de ejecutar;</li>
+                                <li><i class="fas fa-users icon"></i><strong>fortalecer</strong> la <u>participación pública</u>;</li>
+                                <li><i class="fas fa-database icon"></i><strong>implementar</strong> una política de <strong><u>datos abiertos (<span class="definition-pill">Open Data</span>)</u></strong>;</li>
+                                <li><i class="fas fa-question-circle icon"></i><strong>aplicar el principio de <u>cumplir</u></strong> (con la planificación) <strong><u>o explicar</u></strong> (porqué no se ha cumplido);</li>
+                                <li><i class="fas fa-handshake icon"></i>y <strong>mejorar la <u>cooperación</u></strong> entre las diferentes administraciones.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-rocket icon text-purple-600"></i>Por otro lado, en <strong>febrero de 2018</strong> el <span class="actor-pill">MITMS</span> presentó el <span class="plan-pill"><strong>Plan de Innovación para el Transporte y las Infraestructuras</strong></span>, cuyos <strong>objetivos</strong> son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-tachometer-alt icon"></i><strong>acelerar la incorporación de la tecnología</strong> al servicio del <u>bienestar de las personas</u>, dando protagonismo a la innovación en <u>seguridad</u>, <u>accesibilidad</u> y <u>sostenibilidad</u>;</li>
+                                <li><i class="fas fa-chart-pie icon"></i><strong>elevar la <u>rentabilidad económica y social</u></strong> de las inversiones;</li>
+                                <li><i class="fas fa-building icon"></i><strong>hacer de <span class="actor-pill">España</span> un lugar más atractivo</strong> para las <u>empresas e inversiones innovadoras</u> en movilidad y transporte;</li>
+                                <li><i class="fas fa-globe-europe icon"></i>y <strong>promover la inversión y la tecnología</strong> desde fuera de nuestras fronteras y <strong><u>consolidar nuestro liderazgo internacional</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-clipboard-list icon text-orange-600"></i>El <strong>Plan</strong> contempla <strong><u>cuatro aspectos fundamentales</u></strong>:</p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-digital-tachograph icon"></i>la <strong>transformación digital</strong> de nuestras infraestructuras y sistemas de transporte;</li>
+                                <li><i class="fas fa-road icon"></i>constituir una <strong>hoja de ruta</strong> en los <u>esfuerzos de innovación públicos y privados</u>;</li>
+                                <li><i class="fas fa-tasks icon"></i><strong>concretar las iniciativas</strong> en materia de <u>innovación</u>;</li>
+                                <li><i class="fas fa-hands-helping icon"></i>e <strong>impulsar procesos de <u>colaboración público-privada</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script para la funcionalidad desplegable -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Selecciona todos los elementos que servirán como disparadores
+            const triggers = document.querySelectorAll('.collapsible-trigger');
+
+            // Itera sobre cada disparador para añadirle un detector de clics
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function (event) {
+                    // Evita que el clic en un desplegable anidado afecte a su contenedor padre
+                    event.stopPropagation();
+                    
+                    // Encuentra el elemento de contenido que sigue inmediatamente al disparador
+                    const content = this.nextElementSibling;
+                    
+                    // Alterna la clase 'open' en el disparador (para rotar el icono)
+                    this.classList.toggle('open');
+                    
+                    // Verifica que el siguiente elemento sea un contenido desplegable y alterna la clase 'hidden'
+                    if (content && content.classList.contains('collapsible-content')) {
+                        content.classList.toggle('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
