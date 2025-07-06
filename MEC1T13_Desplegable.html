@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual: I+D+i en Transportes y Movilidad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-header .icon-bg {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-top: 1rem; }
+        .pill, .law-pill, .directive-pill, .actor-pill, .plan-pill, .definition-pill {
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0 0.2rem;
+        }
+        .pill-blue { background-color: #dbeafe; color: #1e4d91; border: 1px solid #93c5fd; }
+        .law-pill { background-color: #f3e8ff; color: #581c87; border: 1px solid #c084fc; }
+        .actor-pill { background-color: #e5e7eb; color: #1f2937; border: 1px solid #9ca3af; }
+        .plan-pill { background-color: #cffafe; color: #164e63; border: 1px solid #67e8f9; }
+        .definition-pill { background-color: #cffafe; color: #155e75; border: 1px solid #22d3ee; }
+        .icon {
+            margin-right: 0.5rem;
+            width: 1.25em;
+            text-align: center;
+        }
+        .nested-list {
+            padding-left: 1.75rem;
+            margin-top: 0.75rem;
+            border-left: 3px dotted #cbd5e1;
+        }
+        .nested-list > li {
+            position: relative;
+        }
+        .nested-list > li::before {
+            content: '🔹';
+            position: absolute;
+            left: -1.75rem;
+            color: #3b82f6;
+        }
+        .deeper-nested-list {
+             padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+         .deeper-nested-list > li {
+            position: relative;
+        }
+        .deeper-nested-list > li::before {
+             content: '▪️';
+             position: absolute;
+             left: -1.25rem;
+             color: #3b82f6;
+        }
+        /* Estilos para la funcionalidad desplegable */
+        .collapsible-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.25rem 0;
+        }
+        .collapsible-trigger > span, .collapsible-trigger > h3 {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+            margin-right: 0.75rem;
+            width: 1em;
+            color: #3b82f6;
+        }
+        .collapsible-content {
+            padding-left: 1.75rem;
+        }
+        .collapsible-trigger.open .collapsible-icon {
+            transform: rotate(90deg);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 p-4 sm:p-6 md:p-8">
+    <div class="max-w-5xl mx-auto">
+
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-flask"></i> MEC1T13: LA I+D+i EN TRANSPORTES Y MOVILIDAD <i class="fas fa-lightbulb"></i></h1>
+        </header>
+
+        <!-- Main Card 1 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-info-circle"></i></div>
+                <h2>1. LA INVESTIGACIÓN, DESARROLLO E INNOVACIÓN EN TRANSPORTES Y MOVILIDAD</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-lightbulb icon text-yellow-500"></i>Las siglas <strong><u>I+D+i</u></strong> significan investigación, desarrollo e innovación:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><span class="definition-pill"><strong>Investigación</strong></span>: es descubrir nuevos conocimientos científicos o tecnológicos.</li>
+                                <li><span class="definition-pill"><strong>Desarrollo</strong></span>: es la aplicación de estos conocimientos en el diseño de nuevos procesos o la fabricación de nuevos materiales o productos.</li>
+                                <li><span class="definition-pill"><strong>Innovación</strong></span>: es la introducción con éxito en el mercado de nuevos procesos, productos o servicios.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-tools icon text-gray-600"></i>Y es una <strong><u>herramienta fundamental</u></strong> para la mejora de la eficiencia de las actividades económicas y su competitividad.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-history icon text-blue-600"></i>Hasta hace unos años, la investigación en cuestiones de transporte se centraba en los <strong><u>sistemas inteligentes de transportes</u></strong> y en los <strong><u>vehículos</u></strong>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Actualmente, se está añadiendo la investigación sobre el <strong><u>sistema global del transporte</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card 2 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fab fa-teamspeak"></i></div>
+                <h2>2. LOS PROGRAMAS MARCO DE LA UNIÓN EUROPEA</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-gavel icon text-purple-600"></i>El marco legal de los programas Marco está recogido en el <span class="law-pill"><strong>Tratado de Funcionamiento de la Unión Europea</strong></span>, donde se establece que el <span class="actor-pill">Parlamento Europeo</span> y el <span class="actor-pill">Consejo</span> establecerán un <strong><u>programa marco plurianual</u></strong> que:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Fijará los <strong><u>objetivos científicos y tecnológicos</u></strong> y las prioridades correspondientes.</li>
+                                <li>Indicará las <strong><u>grandes líneas</u></strong> de dichas acciones.</li>
+                                <li>Fijará el <strong><u>importe global máximo</u></strong> y la <strong><u>participación financiera</u></strong> de la Unión en el programa marco, así como la proporción de cada una de las acciones previstas.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-tasks icon text-blue-600"></i>El programa marco se ejecutará mediante <strong><u>programas específicos</u></strong> desarrollados dentro de cada una de las acciones. Y como complemento de las acciones previstas en el programa marco plurianual, el <span class="actor-pill">Parlamento Europeo</span> y el <span class="actor-pill">Consejo</span> establecerán las medidas necesarias para la realización del <span class="plan-pill"><strong>Espacio Europeo de Investigación (ERA)</strong></span>.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-chart-line icon text-green-600"></i>Las actividades de investigación a nivel de la <span class="actor-pill">UE</span> y su financiación se amparan desde <span class="pill pill-blue">1984</span> en <strong><u>programas marco de investigación y desarrollo tecnológico</u></strong>, cuyo presupuesto ha ido aumentando de manera significativa a lo largo de los años:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Pasando de unos <span class="pill pill-blue">3.000 M€</span> del primer programa marco (<span class="pill pill-blue">1984-1987</span>), a más de <span class="pill pill-blue">95.500 M€</span> en el noveno programa marco <span class="plan-pill"><strong>“Horizonte Europa”</strong></span> para el periodo <span class="pill pill-blue">2021-2027</span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-globe-europe"></i></div>
+                <h2>3. HORIZONTE EUROPA 2021-2027</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-info-circle icon text-blue-600"></i><span class="plan-pill"><strong>Horizonte Europa</strong></span> es el <strong><u>programa marco de investigación e innovación</u></strong> de la <span class="actor-pill">UE</span> para el período <span class="pill pill-blue">2021-2027</span> que, como su predecesor el <span class="plan-pill">Programa Horizonte 2020</span>, será el <strong><u>instrumento fundamental</u></strong> para llevar a cabo las políticas de I+D+i de la Unión. Su <strong><u>objetivo general</u></strong> es alcanzar un <strong><u>impacto científico, tecnológico, económico y social</u></strong> de las inversiones de la UE en investigación e innovación, fortaleciendo de esta manera sus bases científicas y tecnológicas y fomentando la <strong><u>competitividad de todos los Estados Miembros</u></strong>.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-euro-sign icon text-green-600"></i>Con un presupuesto de más de <span class="pill pill-blue">95.500 M€</span> para el periodo de siete años, Horizonte Europa será el Programa Marco con el mayor presupuesto hasta la fecha, teniendo el potencial de generar importantes beneficios económicos, sociales y científicos. Se estima que:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><strong><u>Generará <span class="pill pill-green">11 €</span> en ganancia del PIB</u></strong> por cada euro invertido.</li>
+                                <li><strong><u>Creará hasta <span class="pill pill-blue">320.000</span> nuevos puestos de trabajo</u></strong> altamente cualificados para el año <span class="pill pill-blue">2040</span>.</li>
+                                <li>Y <strong><u>consolidará el liderazgo de Europa</u></strong> en Investigación e Innovación.</li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li><i class="fas fa-chart-line icon text-purple-600"></i>El Programa está diseñado con una <strong><u>mentalidad de inversión</u></strong> más que como un instrumento exclusivamente de financiación, y contará con una <strong><u>planificación que ayudará a la UE</u></strong> a realizar la transición hacia un futuro próspero y sostenible.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-sitemap icon text-purple-600"></i>El Programa Horizonte Europa se estructura en torno a <strong><u>tres pilares</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="fas fa-atom icon text-blue-500"></i><strong><u>Pilar 1: Ciencia Excelente</u></strong>, que:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><strong><u>Financiará</u></strong>, a través del <span class="actor-pill">Consejo Europeo de Investigación (ERC)</span>, proyectos de investigación en la frontera del conocimiento, diseñados y dirigidos por investigadores.</li>
+                                            <li><strong><u>Apoyará</u></strong> el desarrollo profesional y la formación del personal investigador, a través de actividades de movilidad internacionales e intersectoriales dentro del programa <span class="plan-pill">Marie Sklodowska-Curie</span>.</li>
+                                            <li>E <strong><u>invertirá</u></strong> en mejorar y optimizar el acceso transnacional a las infraestructuras de investigación de nivel mundial.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="fas fa-industry icon text-gray-700"></i><strong><u>Pilar 2: Desafíos Globales y Competitividad Industrial Europea</u></strong>, que:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><strong><u>Financiará</u></strong> la investigación dentro de los retos sociales.</li>
+                                            <li><strong><u>Reforzará</u></strong> las capacidades tecnológicas industriales.</li>
+                                            <li><strong><u>Establecerá misiones</u></strong> con objetivos ambiciosos orientados hacia los grandes desafíos globales (salud, cambio climático, energías renovables, movilidad, seguridad, etc.).</li>
+                                            <li><strong><u>Apoyará</u></strong> la creación de asociaciones europeas con los Estados Miembros y la industria para trabajar conjuntamente en investigación e innovación.</li>
+                                            <li><strong><u>Incluirá al <span class="actor-pill">Centro Común de Investigación (JRC)</span></u></strong> que asistirá a la UE y a los gobiernos nacionales en su toma de decisiones aportándoles evidencias científicas y soporte técnico.</li>
+                                            <li>Las actividades de este pilar se estructuran en torno a <strong><u>6 grupos</u></strong>, de los que uno (Clima, Energía y Movilidad), busca abordar uno de los retos mundiales más importantes: la sostenibilidad y el futuro de nuestro medio ambiente, nuestra economía y nuestro modo de vida.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="fas fa-lightbulb icon text-yellow-500"></i><strong><u>Pilar 3: Europa Innovadora</u></strong>, que:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>Tiene como objetivo hacer de Europa una <strong><u>potencia pionera en la innovación de creación de mercado</u></strong> y en el crecimiento de pymes innovadoras a través del <span class="actor-pill">Consejo Europeo de Innovación (EIC)</span>.</li>
+                                            <li>Éste apoyará a innovadores, empresarios, pymes y científicos de primer orden y con ambición de crecer a escala internacional.</li>
+                                            <li>Adicionalmente, el <span class="actor-pill">Instituto Europeo de Innovación y Tecnología (EIT)</span> continuará fomentando la <strong><u>integración de la investigación, la educación superior y el emprendimiento</u></strong> a través de las <span class="definition-pill">Comunidades de conocimiento e innovación (KIC)</span>.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li><i class="fas fa-expand-arrows-alt icon text-gray-500"></i>Estos tres pilares se sustentarán sobre un <strong><u>programa horizontal</u></strong>, <span class="plan-pill"><strong>Ampliando la participación y fortaleciendo el Espacio Europeo de Investigación (ERA)</strong></span>, dedicado a ayudar a los Estados de la UE en sus esfuerzos por desarrollar su potencial nacional de investigación e innovación, y especialmente, a aquellos con menor rendimiento en investigación e innovación para que mejoren su participación en Horizonte Europa.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-handshake icon text-green-600"></i>Una de las principales novedades del Horizonte Europa es la redefinición de las <span class="definition-pill"><strong>asociaciones europeas</strong></span> para la investigación, que reúnen a la <span class="actor-pill">Comisión Europea</span> y a los socios privados o públicos para abordar algunos de los retos más acuciantes de Europa a través de iniciativas concertadas de investigación e innovación. Son un <strong><u>instrumento clave</u></strong> de aplicación de Horizonte Europa y contribuyen significativamente a la consecución de las prioridades políticas de la UE. Al reunir a socios públicos y privados, ayudan a evitar la duplicación de inversiones y contribuyen a reducir la fragmentación del panorama de la investigación y la innovación en la UE.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>La propuesta Horizonte Europa establece las condiciones y los principios para la creación de asociaciones europeas, estableciendo <strong><u>tres tipos</u></strong>:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li>Las <strong><u>co-programadas</u></strong> (entre la Comisión y, en su mayoría, socios privados).</li>
+                                            <li>Las <strong><u>cofinanciadas</u></strong> (formadas mayoritariamente por Estados Miembros y otras autoridades públicas).</li>
+                                            <li>Y <strong><u>nueve asociaciones europeas institucionalizadas</u></strong> (que reúnen a diferentes agentes y que están creadas específicamente para buscar el cumplimiento de un objetivo concreto), entre las que se encuentra, por ejemplo, la <span class="actor-pill">Empresa Común para el Ferrocarril Europeo</span>.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-flag"></i></div>
+                <h2>4. EL SISTEMA ESPAÑOL DE INVESTIGACIÓN, DESARROLLO E INNOVACIÓN</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-sitemap icon text-purple-600"></i>La <span class="plan-pill"><strong>Estrategia Española de Ciencia y Tecnología y de Innovación 2021-2027 (EECTI)</strong></span> ha sido diseñada para <strong><u>maximizar la coordinación</u></strong> entre la planificación y programación estatal y autonómica y para <strong><u>facilitar la articulación</u></strong> de nuestra política de I+D+i con el programa marco de ciencia e innovación de la UE, <span class="plan-pill">Horizonte Europa (2021-2027)</span>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Incluye actividades dirigidas a solventar los problemas causados por la pandemia, por lo que muestra especial énfasis en el área de salud en los dos primeros años del plan (<span class="pill pill-blue">2021-2022</span>). También subraya la importancia de consolidar y potenciar la ciencia y la innovación como una herramienta para la reconstrucción social, económica e industrial de nuestro país.</li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>Sus <strong><u>principales objetivos</u></strong> son:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><i class="fas fa-handshake icon text-blue-500"></i>Reforzar la <strong><u>colaboración público-privada</u></strong>.</li>
+                                            <li><i class="fas fa-exchange-alt icon text-purple-500"></i>Favorecer la <strong><u>transferencia de conocimiento</u></strong>.</li>
+                                            <li><i class="fas fa-user-graduate icon text-gray-600"></i>Mejorar la situación del <strong><u>personal investigador</u></strong> y de las instituciones.</li>
+                                            <li><i class="fas fa-magnet icon text-red-500"></i>Potenciar la capacidad de España para <strong><u>atraer, recuperar y retener talento</u></strong>.</li>
+                                            <li><i class="fas fa-venus-mars icon text-pink-500"></i>Y garantizar la aplicación del principio de <strong><u>igualdad real entre mujeres y hombres</u></strong> en I+D+i.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-gavel icon text-gray-700"></i>Por otro lado, la <span class="law-pill"><strong>Ley 14/2011 de la Ciencia, la Tecnología y la Innovación</strong></span>, establece los <span class="plan-pill"><strong>Planes de Investigación Científica y Técnica y de Innovación</strong></span> como esenciales para el desarrollo de la EECTI por la <span class="actor-pill">Administración General del Estado</span>.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-tasks icon text-blue-600"></i>En este sentido, los <span class="plan-pill"><strong>Planes Estatales de Investigación Científica y Técnica y de Innovación 2021-2023 y 2024-2027</strong></span> constituyen el <strong><u>instrumento fundamental</u></strong> de la <span class="actor-pill">AGE</span> para el desarrollo y consecución de los objetivos de la Estrategia, e incluyen las <strong><u>ayudas estatales</u></strong> destinadas a la I+D+i.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>El <span class="plan-pill">Plan Estatal 2024-2027</span> tiene <span class="pill pill-blue">19</span> objetivos integrados en <u>cinco programas verticales</u>, <u>tres programas transversales</u>, y <u>cuatro condiciones marco</u>.</li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>Dentro de las <strong><u>Líneas Estratégicas</u></strong> se puede resaltar la de <strong><u>Movilidad inteligente y sostenible</u></strong>, que está alineada con la <span class="plan-pill">Estrategia de Movilidad Segura, Sostenible y Conectada 2030</span> del <span class="actor-pill">MITMS</span>, que apuesta, entre otras medidas, por el impulso a la I+D+i en movilidad y transporte como un instrumento para favorecer su transformación y avanzar en los retos que se plantean:</p>
+                                    </div>
+                                     <div class="collapsible-content hidden">
+                                         <ul class="nested-list deeper-nested-list">
+                                            <li>La introducción de nuevas tecnologías y la digitalización de la actividad del transporte.</li>
+                                            <li>La necesidad de avanzar hacia la descarbonización de la economía.</li>
+                                            <li>Y la mayor concentración de población en las grandes ciudades y zonas periurbanas, con sus implicaciones en congestión, salud de las personas (calidad del aire, ruido, accesibilidad, etc.), así como en la despoblación del mundo rural.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                 <li>
+                                     <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                         <p>Las <strong><u>actividades de I+D+i</u></strong> están encaminadas a:</p>
+                                    </div>
+                                     <div class="collapsible-content hidden">
+                                         <ul class="nested-list deeper-nested-list">
+                                            <li><i class="fas fa-brain icon"></i>Desarrollo de sistemas inteligentes de transporte para aumentar la eficiencia facilitando la intermodalidad del transporte de mercancías y la interoperabilidad ferroviaria.</li>
+                                            <li><i class="fas fa-satellite-dish icon"></i>Desarrollo de nuevas tecnologías basadas en programas europeos de navegación por satélite (<span class="plan-pill">EGNOS</span> y <span class="plan-pill">Galileo</span>).</li>
+                                            <li><i class="fas fa-leaf icon"></i>Impulso a la investigación de nuevos medios de transporte más eficientes energéticamente y limpios.</li>
+                                            <li><i class="fas fa-cogs icon"></i>Investigación y aplicación de nuevos materiales avanzados para el transporte y construcción de infraestructuras incluidos los de recuperación y reciclado.</li>
+                                            <li><i class="fas fa-recycle icon"></i>Desarrollo de nuevas tecnologías destinadas a reducir el impacto ambiental de los distintos sistemas y medios de transporte, etc.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                 <li>En el marco del <span class="plan-pill">Plan de Recuperación, Transformación y Resiliencia</span> se han desarrollado los <span class="plan-pill"><strong>Proyectos Estratégicos para la Recuperación y Transformación Económica (PERTE)</strong></span> que priorizan las inversiones españolas, siendo necesario articular las Líneas Estratégicas del Plan Estatal en torno a los ámbitos en los que están focalizados los PERTE.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const triggers = document.querySelectorAll('.collapsible-trigger');
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function (event) {
+                    // Evita que el evento de clic se propague a los triggers padres
+                    event.stopPropagation();
+                    
+                    const content = this.nextElementSibling;
+                    
+                    this.classList.toggle('open');
+                    
+                    if (content && content.classList.contains('collapsible-content')) {
+                        content.classList.toggle('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
