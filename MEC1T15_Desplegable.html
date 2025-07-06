@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual: Nuevas Tecnologías en Transporte (II)</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Estilos CSS personalizados -->
+    <style>
+        /* Fuentes y fondo base */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        /* Estructura principal de las tarjetas */
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-header .icon-bg {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        /* Reset de listas */
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-top: 1rem; }
+
+        /* Estilos para las "píldoras" de colores */
+        .pill, .law-pill, .directive-pill, .actor-pill, .plan-pill, .definition-pill {
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0 0.2rem;
+        }
+        .pill-blue { background-color: #dbeafe; color: #1e4d91; border: 1px solid #93c5fd; }
+        .law-pill { background-color: #f3e8ff; color: #581c87; border: 1px solid #c084fc; }
+        .actor-pill { background-color: #e5e7eb; color: #1f2937; border: 1px solid #9ca3af; }
+        .plan-pill { background-color: #cffafe; color: #164e63; border: 1px solid #67e8f9; }
+        .definition-pill { background-color: #cffafe; color: #155e75; border: 1px solid #22d3ee; }
+
+        /* Iconos dentro del texto */
+        .icon {
+            margin-right: 0.5rem;
+            width: 1.25em;
+            text-align: center;
+        }
+
+        /* --- Estilos para las listas anidadas y viñetas --- */
+        .nested-list, .deeper-nested-list, .even-deeper-nested-list {
+            padding-left: 1.75rem;
+            margin-top: 0.75rem;
+            border-left: 3px dotted #cbd5e1;
+        }
+        .nested-list > li, .deeper-nested-list > li, .even-deeper-nested-list > li {
+            position: relative;
+        }
+        .nested-list > li::before {
+            content: '🔹';
+            position: absolute;
+            left: -1.75rem;
+            top: 0.25rem;
+            color: #3b82f6;
+        }
+        .deeper-nested-list > li::before {
+             content: '▪️';
+             position: absolute;
+             left: -1.5rem;
+             top: 0.25rem;
+        }
+        .even-deeper-nested-list > li::before {
+             content: '▫️';
+             position: absolute;
+             left: -1.5rem;
+             top: 0.25rem;
+        }
+        /* Regla para ocultar la viñeta CSS si un icono es el PRIMER elemento */
+        .nested-list > li:has(> i.icon:first-child)::before,
+        .deeper-nested-list > li:has(> i.icon:first-child)::before,
+        .even-deeper-nested-list > li:has(> i.icon:first-child)::before {
+            content: none;
+        }
+
+        /* --- Estilos para la funcionalidad desplegable --- */
+        .collapsible-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.25rem 0;
+            transition: background-color 0.2s ease;
+        }
+        .collapsible-trigger:hover {
+            background-color: #f9fafb;
+        }
+        .collapsible-trigger > p, .collapsible-trigger > h3, .collapsible-trigger > span {
+            margin: 0;
+        }
+        .collapsible-trigger > h3, .collapsible-trigger > span {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+            margin-right: 0.75rem;
+            width: 1em;
+            color: #3b82f6;
+        }
+        .collapsible-content {
+            padding-left: 1.75rem;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        .collapsible-trigger.open .collapsible-icon {
+            transform: rotate(90deg);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 p-4 sm:p-6 md:p-8">
+    <div class="max-w-5xl mx-auto">
+
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-satellite-dish"></i>MEC1T15. Nuevas tecnologías y desarrollos en el transporte y la movilidad (II) <i class="fas fa-road"></i></h1>
+        </header>
+
+        <!-- Card 1: ITS -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-brain"></i></div>
+                <h2>1. Los Sistemas Inteligentes de Transporte (ITS)</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><p><i class="fas fa-info-circle icon text-blue-600"></i>En la actualidad, se emplea el término <span class="definition-pill"><strong>ITS (Intelligent Transportation Systems)</strong></span> para el <strong>amplio abanico</strong> de tecnologías orientadas a <u>solucionar los problemas del transporte</u> mediante la <strong><u>telemática</u></strong> (informática y telecomunicaciones).</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-bullseye icon text-purple-600"></i>Sus <strong><u>principales objetivos</u></strong> son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><strong>mejorar</strong> la <u>movilidad</u>, <u>seguridad</u> y <u>productividad</u>;</li>
+                                <li><strong>optimizar</strong> la <u>utilización de las infraestructuras</u> existentes;</li>
+                                <li><strong>mejorar la eficiencia</strong> del <u>consumo de energía</u>;</li>
+                                <li>y <strong>solucionar</strong> <u>problemas ambientales</u> del transporte.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-cogs icon text-orange-600"></i>Por lo que respecta a las <strong>bases de su funcionamiento</strong>, la principal herramienta que utilizan es la <strong><u>información</u></strong>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Se <strong>toman datos</strong> del sistema a través de diferentes dispositivos.</li>
+                                <li>Estos datos son <strong><u>analizados, depurados</u></strong>, y finalmente se envía una <strong><u>respuesta optimizada</u></strong>.</li>
+                                <li>Por ejemplo, los sistemas de <u>regulación de la velocidad</u> en función del tráfico real en una autovía, toman información del <strong>número de vehículos</strong> que están pasando por diferentes secciones de la carretera, se analizan, y en base a un algoritmo, se envía una <strong>velocidad óptima de circulación</strong> a la señalización variable para <u>mejorar la capacidad</u>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-history icon text-indigo-600"></i>En cuanto a su <strong>evolución reciente</strong>, a mediados de la <span class="pill-blue">década de los 80</span> se pusieron en marcha, a nivel europeo, <strong><u>dos iniciativas</u></strong> encaminadas a <strong>potenciar el desarrollo de nuevas tecnologías</strong> como resultado de la confluencia del enorme avance de la microinformática y no querer desfasarse respecto a la posición de preponderancia industrial que iban alcanzando <span class="actor-pill">Estados Unidos</span> y <span class="actor-pill">Japón</span>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>En primer lugar, se diseñó el <strong><u><span class="plan-pill">Programa EUREKA</span></u></strong>, en la búsqueda de <strong>nuevas soluciones</strong> a distintos problemas: información al conductor, ayuda a la conducción, gestión de flotas, etc.</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="deeper-nested-list">
+                                            <li>Se puso en marcha una gran operación encaminada a la consecución del denominado <strong><u>“Vehículo Inteligente”</u></strong>.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>En segundo lugar, dado que no es posible deshacer el <u>binomio vehículo-infraestructura</u>, se vio la necesidad de promocionar la investigación encaminada hacia la consecución de la <strong><u>“Carretera Inteligente”</u></strong>.</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                         <ul class="deeper-nested-list">
+                                            <li>Como consecuencia de ello, se puso en marcha, por parte de la <span class="actor-pill">UE</span>, el <strong><u><span class="plan-pill">Programa DRIVE</span></u></strong> (Dedicated Road Infraestructure for Vehicle Safety in Europe), con el <strong>objetivo básico</strong> de aplicar las nuevas tecnologías a la <u>gestión dinámica del tráfico</u> y los transportes por carretera, englobando conceptos que van desde la regulación dinámica del tráfico urbano hasta la transmisión de información al conductor a bordo del propio vehículo, pasando por el control logístico de flotas o el peaje sin detención (<span class="definition-pill">Free-Flow</span>).</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-landmark icon text-gray-700"></i>Las <strong>competencias</strong> en materia de <u>Sistemas Inteligentes de Transporte (ITS)</u> están <strong><u>compartidas</u></strong> entre los siguientes organismos del <span class="actor-pill">MITMS</span>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>la <span class="actor-pill">Dirección General de Transporte por Carretera y Ferrocarril</span>,</li>
+                                <li>la <span class="actor-pill">Dirección General de Carreteras</span>,</li>
+                                <li>la <span class="actor-pill">División de Estudios y Tecnología del Transporte</span>,</li>
+                                <li>y la <span class="actor-pill">Subdirección General de Tecnologías de la Información y Administración Digital</span>.</li>
+                                <li>Todo lo anterior sin perjuicio de las competencias que sobre esta materia tiene la <span class="actor-pill">Dirección General de Tráfico</span> del <span class="actor-pill">Ministerio del Interior</span>, razón por la cual ambos Ministerios vienen manteniendo los <u>contactos pertinentes</u>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-users-cog icon text-blue-700"></i>La <span class="actor-pill">Dirección General de Transporte por Carretera y Ferrocarril (DGTCF)</span>, por medio de la <span class="actor-pill">Subdirección General de Gestión, Análisis e Innovación</span>, <strong>participa</strong> desde el año <span class="pill-blue">2009</span> en los principales <u>eventos y foros</u> que sobre ITS han tenido lugar dentro y fuera de <span class="actor-pill">España</span>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>En concreto, es <strong>socio estratégico</strong> de la Asociación <span class="actor-pill">Foro de Nuevas Tecnologías en el Transporte - ITS España</span>, entidad que reúne a las principales empresas y organismos del sector y en la que la <span class="actor-pill">DGTCF</span> ostenta la <u>presidencia de varios Comités tecnológicos</u>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-globe-europe icon text-yellow-600"></i>En el exterior, la <span class="actor-pill">DGTC</span>, ha venido participando, dentro de la Representación Española, en las reuniones del <span class="actor-pill">Comité ITS Europeo</span> promovido por la <span class="actor-pill">Comisión Europea</span>, desde su constitución en <span class="pill-blue">2010</span>.</p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Reuniones que están enfocadas al desarrollo de la <span class="law-pill"><strong>Directiva 2010/40</strong></span> por la que se establece el <u>marco para la implantación de los ITS</u> en el sector del transporte por carretera y para las interfaces con otros modos de transporte, que está transpuesta a nuestro ordenamiento jurídico por el <span class="law-pill"><strong>Real Decreto 662/2012</strong></span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 2: Aplicaciones -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-mobile-alt"></i></div>
+                <h2>2. Aplicación de la tecnología a la gestión del sistema de infraestructuras y transporte</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <p class="mb-4"><i class="fas fa-info-circle icon text-blue-600"></i>Existen una <strong>gran cantidad de aplicaciones</strong> que están en <u>continuo desarrollo</u>, se citan a continuación algunas de las más importantes:</p>
+                <ul>
+                    <li><p><i class="fas fa-traffic-light icon text-red-500"></i><strong><u>Gestión del tráfico (<span class="definition-pill">ATMS</span> advanced traffic management systems)</u></strong>, tiene como objetivo principal <strong>distribuir los movimientos</strong> en la red de forma <u>eficiente</u>, con sistemas de comunicación entre el vehículo y la infraestructura.</p></li>
+                    <li><p><i class="fas fa-info icon text-blue-500"></i><strong><u>Información al viajero (<span class="definition-pill">ATIS</span> advanced traveler information systems)</u></strong>, sus objetivos principales son la <strong>reducción de tiempos de viaje</strong>, del <u>consumo de combustible</u>, <strong>aumentar la satisfacción del usuario</strong>, etc.</p></li>
+                    <li><p><i class="fas fa-bus icon text-green-500"></i><strong><u>Transporte público (<span class="definition-pill">APTS</span> advanced public transportation systems)</u></strong>, útiles para una <strong>mejor gestión</strong> del <u>transporte público</u>, y también para la gestión del <u>transporte compartido</u>.</p></li>
+                    <li><p><i class="fas fa-truck icon text-yellow-500"></i><strong><u>Vehículos de transporte de mercancías (<span class="definition-pill">CFO</span> comercial freight operations)</u></strong>, herramientas ITS para <u>procesos administrativos</u>, <u>control de la seguridad</u> y <u>gestión de flotas</u>, sus principales objetivos son la <strong>reducción de costes</strong> para las empresas transportistas y el <strong>aumento de la seguridad</strong>.</p></li>
+                    <li><p><i class="fas fa-first-aid icon text-red-600"></i><strong><u>Gestión de emergencias (<span class="definition-pill">EMS</span> emergency management systems)</u></strong>, incluyen <u>alerta de emergencias</u> y <u>seguridad individual</u>, gestión de <u>vehículos de auxilio</u>, <u>mercancías peligrosas</u> y <u>alerta en caso de accidente</u>, <u>postes SOS</u>, y <u>control de seguridad en túneles</u>.</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-credit-card icon text-purple-500"></i><strong><u>Pago electrónico (<span class="definition-pill">ETC</span> electronic toll collection)</u></strong>, procedimiento <strong>seguro de pago</strong> de un peaje con una <u>mínima o nula perturbación</u> para el tráfico.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Se pueden diferenciar sistemas de <strong>cobro en tráfico libre</strong>, que detectan la matrícula a través de unos dispositivos instalados en pórticos, o también sistemas de <strong>tráfico canalizado</strong> como el pago sin parada en los peajes tradicionales (<u>vía T</u> en España).</li>
+                                <li>Puede tener su aplicación a la hora de la <strong>gestión del tráfico</strong> <u>variando el coste del peaje</u> en función de las condiciones de la vía, y servir como herramienta para <u>internalizar costes externos</u>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><p><i class="fas fa-map-marked-alt icon text-orange-500"></i><strong><u>Guiado y navegación (<span class="definition-pill">RGNS</span> route guidance and navigation systems)</u></strong>, permiten a los usuarios conocer las <strong>rutas óptimas</strong>, totalmente extendidos al público con los <u>GPS</u>.</p></li>
+                    <li><p><i class="fas fa-shield-alt icon text-teal-500"></i><strong><u>Control de los vehículos (<span class="definition-pill">AVCS</span> advanced vehicle control systems)</u></strong>, para <strong>prevenir las colisiones</strong>, con la <u>activación previa a un accidente</u> de dispositivos de protección y <u>sistemas de ayuda a la conducción</u>.</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-leaf icon text-green-700"></i><strong><u>Gestión medioambiental</u></strong>, con los ITS se actúa sobre <strong>cuatro áreas</strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>el <strong>alumbrado público</strong> (cuyo <u>control centralizado</u> consigue un ahorro energético muy importante al encender cuando es necesario);</li>
+                                <li>la <strong>contaminación atmosférica</strong>;</li>
+                                <li>las <strong>condiciones meteorológicas</strong> (que pueden suponer un <u>peligro potencial</u>, presencia de hielo en la calzada, niebla, viento racheado);</li>
+                                <li>y los <strong>parámetros físicos de los vehículos</strong> (<u>limitaciones del gálibo o peso por eje</u> de los vehículos).</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><p><i class="fas fa-video icon text-gray-600"></i><strong><u><span class="definition-pill">Safety truck</span></u></strong>, camión que cuenta con <strong>dos cámaras incorporadas al frente</strong> del camión conectadas con una <u>pantalla en su parte trasera</u>, que permite a los vehículos que circulan detrás <strong>tomar la decisión de adelantar de forma más segura</strong>.</p></li>
+                    <li><p><i class="fas fa-road icon text-blue-700"></i><strong><u><span class="definition-pill">eHighway</span></u></strong>, inaugurada en <span class="pill-blue">2016</span> en <span class="actor-pill">Suecia</span>, la carretera da a los vehículos eléctricos la <strong>energía suficiente</strong> para que <u>no pierdan carga</u> durante el trayecto.</p></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 3: GNSS -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-satellite"></i></div>
+                <h2>3. Los sistemas de navegación por satélite (GNSS) Galileo y EGNOS y su aplicación en transporte y movilidad</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-rocket icon text-blue-600"></i><span class="plan-pill"><strong>Galileo</strong></span> es el <strong><u>sistema europeo de radionavegación y posicionamiento por satélite</u></strong> desarrollado por la <span class="actor-pill">Unión Europea</span> conjuntamente con la <span class="actor-pill">Agencia Espacial Europea</span>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Este dota a la <span class="actor-pill">Unión Europea</span> de una <strong>tecnología independiente</strong> del <u>GPS</u> estadounidense y del <u>GLONASS</u> ruso.</li>
+                                <li>Al contrario de estos dos, es de <strong>creación, gestión y uso civil</strong>.</li>
+                                <li>El sistema se puso en marcha en <span class="pill-blue">diciembre de 2016</span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-wave-square icon text-green-600"></i>En <span class="pill-blue">julio de 2005</span>, entró en funcionamiento el sistema <span class="plan-pill"><strong>EGNOS</strong></span>, un <strong>sistema de aumentación</strong> basado en satélites que <u>corrige las señales</u> de sistemas de navegación por satélite en <span class="actor-pill">Europa</span>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Por el momento, este sistema está disponible para <strong>mejorar la precisión y dar integridad</strong> a las señales de <span class="plan-pill">GPS</span> y <span class="plan-pill">GLONASS</span>, y se espera que en un futuro mejore también la señal de <span class="plan-pill">GALILEO</span>.</li>
+                                <li>En otras regiones del mundo hay otros <u>sistemas similares compatibles</u> con <span class="plan-pill">EGNOS</span>: <span class="plan-pill">WAAS</span> de <span class="actor-pill">Estados Unidos</span>, <span class="plan-pill">MSAS</span> de <span class="actor-pill">Japón</span> y el <span class="plan-pill">GAGAN</span> de la <span class="actor-pill">India</span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-tasks icon text-purple-600"></i>La <strong>implantación del sistema Galileo</strong> de la navegación por satélite, a través de las numerosas aplicaciones que permitirá desarrollar, tendrá su <strong><u>aplicación en el transporte y movilidad</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-road icon"></i><strong><u>Transporte por carretera:</u></strong> este ámbito abarca asimismo un amplio abanico de funciones, desde los <u>dispositivos de navegación</u> hasta los sistemas de <u>cobro automático de peajes</u>, pasando por las aplicaciones relacionadas con la <u>seguridad</u> o los <u>seguros con primas</u> que se calculan en función de los kilómetros recorridos; <span class="plan-pill">Galileo</span> se une así a la iniciativa <span class="plan-pill">eSafety</span>, que comprende un sinfín de aplicaciones que pueden aprovechar las ventajas de conocer el posicionamiento preciso de los vehículos.</li>
+                                <li><i class="fas fa-train icon"></i><strong><u>Transporte ferroviario:</u></strong> las infraestructuras ferroviarias disponen de <u>sistemas de señalización y de localización de trenes</u>, en su mayor parte instalados en el suelo, que están siendo sustituidos paulatinamente por los sistemas <span class="plan-pill">ERTMS/ETCS</span>; <span class="plan-pill">Galileo</span> permitirá <strong>mejorar la seguridad</strong> de los sistemas de control de la velocidad y de conducción de los trenes.</li>
+                                <li><i class="fas fa-ship icon"></i><strong><u>Navegación marítima y por vía navegable y sector pesquero:</u></strong> la navegación por satélite puede contribuir a la <u>eficacia, seguridad y optimización</u> de los transportes marítimos; <span class="plan-pill">Galileo</span> va a realizar una valiosa aportación a las <u>aplicaciones de salvamento</u>, a la <u>mejora de la seguridad</u> y a los <u>sistemas de identificación automática</u>; podrá asimismo utilizarse para la <u>aproximación a los puertos</u>; en lo que concierne al sector pesquero, el <span class="law-pill">Reglamento de Ejecución (UE) 404/2011</span> establece el uso de las tecnologías de posicionamiento por satélite para la <strong>localización y seguimiento de los buques</strong>.</li>
+                                <li><i class="fas fa-plane icon"></i><strong><u>Transporte aéreo:</u></strong> en este ámbito, la navegación por satélite ofrece <strong>perspectivas de gran interés</strong>; la <u>precisión y la integridad</u> del sistema <span class="plan-pill">Galileo</span> permitirán <strong>optimizar la utilización de los aeropuertos</strong> existentes; además, la empresa común <span class="actor-pill">SESAR</span>, que lleva a la práctica el marco legislativo establecido por la normativa sobre el <strong>cielo único europeo</strong>, se basará en la navegación por satélite.</li>
+                                <li><i class="fas fa-biohazard icon"></i><strong><u>Mercancías peligrosas:</u></strong> será necesario <strong>revisar el marco legislativo</strong> de este ámbito en función de las numerosas posibilidades que va a ofrecer <span class="plan-pill">Galileo</span>; además, la navegación por satélite permitirá <strong>mejorar las intervenciones de urgencia</strong> cuando surjan problemas.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script para la funcionalidad desplegable -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Selecciona todos los elementos que servirán como disparadores
+            const triggers = document.querySelectorAll('.collapsible-trigger');
+
+            // Itera sobre cada disparador para añadirle un detector de clics
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function (event) {
+                    // Evita que el clic en un desplegable anidado afecte a su contenedor padre
+                    event.stopPropagation();
+                    
+                    // Encuentra el elemento de contenido que sigue inmediatamente al disparador
+                    const content = this.nextElementSibling;
+                    
+                    // Alterna la clase 'open' en el disparador (para rotar el icono)
+                    this.classList.toggle('open');
+                    
+                    // Verifica que el siguiente elemento sea un contenido desplegable y alterna la clase 'hidden'
+                    if (content && content.classList.contains('collapsible-content')) {
+                        content.classList.toggle('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
