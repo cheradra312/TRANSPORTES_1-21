@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEC1T17. Demanda de transporte y análisis coste-beneficio</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Estilos CSS personalizados -->
+    <style>
+        /* Fuentes y fondo base */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        /* Estructura principal de las tarjetas */
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-header .icon-bg {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        /* Reset de listas */
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-top: 1rem; }
+
+        /* Estilos para las "píldoras" de colores */
+        .pill, .law-pill, .directive-pill, .actor-pill, .plan-pill, .definition-pill {
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0 0.2rem;
+        }
+        .pill-blue { background-color: #dbeafe; color: #1e4d91; border: 1px solid #93c5fd; }
+        .law-pill { background-color: #f3e8ff; color: #581c87; border: 1px solid #c084fc; }
+        .actor-pill { background-color: #e5e7eb; color: #1f2937; border: 1px solid #9ca3af; }
+        .plan-pill { background-color: #cffafe; color: #164e63; border: 1px solid #67e8f9; }
+        .definition-pill { background-color: #cffafe; color: #155e75; border: 1px solid #22d3ee; }
+
+        /* Iconos dentro del texto */
+        .icon {
+            margin-right: 0.5rem;
+            width: 1.25em;
+            text-align: center;
+        }
+
+        /* --- Estilos para las listas anidadas y viñetas --- */
+        .nested-list, .deeper-nested-list {
+            padding-left: 1.75rem;
+            margin-top: 0.75rem;
+            border-left: 3px dotted #cbd5e1;
+        }
+        .nested-list > li, .deeper-nested-list > li {
+            position: relative;
+        }
+        .nested-list > li::before {
+            content: '🔹';
+            position: absolute;
+            left: -1.75rem;
+            top: 0.25rem;
+            color: #3b82f6;
+        }
+        .deeper-nested-list > li::before {
+             content: '▪️';
+             position: absolute;
+             left: -1.5rem;
+             top: 0.25rem;
+        }
+        /* Regla para ocultar la viñeta CSS si un icono es el PRIMER elemento */
+        .nested-list > li:has(> i.icon:first-child)::before,
+        .deeper-nested-list > li:has(> i.icon:first-child)::before {
+            content: none;
+        }
+
+        /* --- Estilos para la funcionalidad desplegable --- */
+        .collapsible-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.25rem 0;
+            transition: background-color 0.2s ease;
+        }
+        .collapsible-trigger:hover {
+            background-color: #f9fafb;
+        }
+        .collapsible-trigger > p, .collapsible-trigger > h3, .collapsible-trigger > span {
+            margin: 0;
+        }
+        .collapsible-trigger > h3, .collapsible-trigger > span {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+            margin-right: 0.75rem;
+            width: 1em;
+            color: #3b82f6;
+        }
+        .collapsible-content {
+            padding-left: 1.75rem;
+        }
+        .collapsible-trigger.open .collapsible-icon {
+            transform: rotate(90deg);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 p-4 sm:p-6 md:p-8">
+    <div class="max-w-5xl mx-auto">
+
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-chart-line"></i> MEC1T17. Demanda de transporte y análisis coste-beneficio <i class="fas fa-search-dollar"></i></h1>
+        </header>
+
+        <!-- Card 1: Demanda de transporte -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-traffic-light"></i></div>
+                <h2>1. Demanda de transporte</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><p><i class="fas fa-info-circle icon text-blue-600"></i>La <span class="definition-pill"><strong>demanda</strong></span> es el <strong>número de viajes</strong> que los ciudadanos realizan o el <strong>volumen de transporte de mercancías</strong> que solicitan, se mide en <u>viajeros</u>, <u>viajeros-km</u>, <u>vehículos</u>, <u>toneladas</u> o <u>toneladas-km</u>.</p></li>
+                    <li><p><i class="fas fa-cogs icon text-purple-600"></i>Depende de un <strong>gran número de factores</strong> cuyas relaciones son <u>difíciles de determinar</u>, pero para los que se puede analizar su <span class="definition-pill"><strong>elasticidad</strong></span>, que es la relación entre el <u>cambio que sufre la demanda</u> y el <u>cambio del factor correspondiente</u> (manteniendo constantes todos los demás factores).</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-truck icon text-orange-600"></i><strong><u>Factores de la demanda</u></strong> en el <strong>transporte de mercancías</strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-tachometer-alt icon"></i><strong>Velocidad</strong> (para las perecederas es <u>esencial</u>, determina el <u>tamaño del almacenamiento</u> necesario),</li>
+                                <li><i class="fas fa-check-double icon"></i><strong>Fiabilidad</strong> (posibilidad de <u>predecir cuándo se recibirán</u> las mercancías),</li>
+                                <li><i class="fas fa-shield-alt icon"></i><strong>Seguridad</strong> (durante el transporte existe la posibilidad de que las mercancías resulten <u>dañadas</u> por embalaje inadecuado, robos, accidentes, o en las operaciones de carga y descarga, por ello en el transporte de objetos delicados suele preferirse el transporte <u>puerta a puerta</u>, sin rupturas de carga intermedias, que se pueden evitar con <u>transporte intermodal</u> que necesita una sola estiba),</li>
+                                <li><i class="fas fa-euro-sign icon"></i><strong>Coste</strong> (<u>función del modo</u>, <u>longitud a recorrer</u> y <u>cantidad a transportar</u>, su influencia en el coste total puede ser sensible en el caso de productos baratos, mientras que puede resultar inapreciable en mercancías de mucho valor).</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><p><i class="fas fa-random icon text-indigo-600"></i>A la hora de <strong>elegir el modo de transporte</strong> a utilizar, todos estos factores tienen influencia, aunque su <strong>peso relativo varíe</strong> de unos casos a otros. Por ejemplo, en el transporte de <u>áridos</u> será probablemente el <strong>coste</strong> del transporte el factor más importante, mientras que en el de <u>materiales frágiles</u> será la <strong>seguridad</strong>, o en el de <u>productos perecederos</u> la <strong>velocidad</strong>.</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-users icon text-teal-600"></i><strong><u>Factores de la demanda</u></strong> en el <strong>transporte de viajeros</strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-tachometer-alt icon"></i><strong>Velocidad</strong> (su influencia depende del <u>valor que los viajeros atribuyen al tiempo</u>),</li>
+                                <li><i class="fas fa-clock icon"></i><strong>Regularidad</strong> (en los servicios regulares de transporte público este aspecto es <u>fundamental</u> por los horarios y frecuencias),</li>
+                                <li><i class="fas fa-shield-alt icon"></i><strong>Seguridad</strong> (<u>factor decisivo</u> en las decisiones de los usuarios, aunque no manejan estimaciones objetivas de probabilidades de accidentes, sino más bien <u>juicios emocionales</u> influidos por experiencias propias o ajenas),</li>
+                                <li><i class="fas fa-euro-sign icon"></i><strong>Coste</strong> (el usuario considera el <u>“coste percibido”</u> cuando realiza el viaje, en los coches privados son inferiores a los costes totales),</li>
+                                <li><i class="fas fa-couch icon"></i><strong>Comodidad</strong> (<u>mayor peso en larga distancia</u> o relacionados con la privacidad y el uso discrecional).</li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-suitcase-rolling icon text-pink-600"></i>El <strong>peso de los factores</strong> mencionados dependerá del <strong><u>motivo del viaje</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>en viajes entre <u>domicilio y trabajo</u>, será más importante la <strong>regularidad</strong>,</li>
+                                <li>en viajes por <u>motivos de trabajo</u> puede serlo la <strong>velocidad</strong>,</li>
+                                <li>y en viajes <u>turísticos</u>, la <strong>comodidad</strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><p><i class="fas fa-users-cog icon"></i>Además, existen <strong>diferencias entre los usuarios</strong>, ligadas a sus <u>características socioeconómicas</u>: usuarios con <strong>mayor nivel de renta</strong> darán a su tiempo un <strong>valor mayor</strong>, por lo que emplearán modos <u>más rápidos, cómodos, y por consiguiente más caros</u>.</p></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 2: Modelos de demanda -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-sitemap"></i></div>
+                <h2>2. Modelos de demanda de transporte</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><p><i class="fas fa-tasks icon text-blue-600"></i>La <strong>prospección y evaluación</strong> de la demanda de transporte comprenderá las siguientes <strong>etapas</strong>: <u>obtención de datos básicos</u>, <u>análisis de la situación actual</u> (diagnosis), y <u>prognosis de la evolución</u> de los distintos parámetros.</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-project-diagram icon text-purple-600"></i>La <strong>complejidad</strong> de los métodos de previsión de la demanda dependerá de la <strong>incidencia prevista</strong> de la actuación. Así, para las actuaciones con <strong><u>impacto general</u></strong> sobre el sistema territorial y de transporte, será necesario utilizar modelos basados en la generación de viajes, denominados de <strong><u><span class="definition-pill">cuatro etapas</span></u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><strong>generación/atracción</strong> de viajes por las zonas consideradas,</li>
+                                <li><strong>distribución</strong> de viajes en función de la accesibilidad entre las distintas zonas,</li>
+                                <li><strong>reparto modal</strong> para determinar los usuarios de los diferentes modos,</li>
+                                <li>y <strong>asignación</strong> que permite estimar la carga en las distintas redes de un mismo modo.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-compress-arrows-alt icon text-orange-600"></i>Por contra, en el caso de actuaciones con <strong><u>impacto local</u></strong> sobre el sistema territorial y de transporte pueden plantearse <strong>métodos simplificados</strong> de proyección de la demanda, porque <u>no producirán modificaciones del reparto modal</u> y, en general, tendrán una <u>incidencia poco significativa</u> sobre las pautas de movilidad.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                                 <li>Estos son los <strong><u><span class="definition-pill">modelos tendenciales</span></u></strong> de crecimiento de tráfico, que permiten una <strong>proyección de las matrices actuales</strong> de viajes a partir de previsiones globales de evolución del tráfico.</li>
+                                 <li>Actualmente el <span class="actor-pill">MITMS</span> considera una tasa de crecimiento del <span class="pill-blue">1,44%</span> según su <span class="law-pill">Orden de Eficiencia</span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><p><i class="fas fa-calculator icon text-indigo-600"></i>Además, otros <strong>modelos</strong> que se pueden considerar son los <strong><u>econométricos</u></strong> que están basados en la <u>evolución de las variables socioeconómicas y demográficas</u>, y los <strong><u>basados en actividades</u></strong> que están en <u>fase de desarrollo</u>.</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-puzzle-piece icon text-teal-600"></i>Y, por último, los modelos se pueden <strong>clasificar</strong> en:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><strong><u>Agregados</u></strong> (se analiza el comportamiento a <u>nivel zona o ciudad</u>) y <strong><u>desagregados</u></strong> (función de <u>comportamientos medios de familia o personas</u>);</li>
+                                <li>y <strong><u>modelos directos</u></strong> (el viajero elige de una sola vez el destino del viaje, el modo del transporte, la ruta, etc.) y <strong><u>secuenciales</u></strong> (el viajero decide en primer lugar si hace o no el viaje, luego cuál será su destino, después qué modo de transporte usará y finalmente qué ruta elegirá).</li>
+                                <li>Los modelos más empleados para el análisis de la demanda de viajeros son los de tipo <strong><u>secuencial desagregado</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 3: Big Data -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-database"></i></div>
+                <h2>3. Empleo de la tecnología Big Data en la planificación</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><p><i class="fas fa-mobile-alt icon text-blue-600"></i>Los <strong>datos de telefonía móvil</strong> son actualmente la fuente de <span class="definition-pill"><strong>datos masivos (Big Data)</strong></span> más utilizada en la planificación del transporte. La <strong>geolocalización</strong> se realiza a partir de las <u>áreas de influencia de las torres de comunicaciones</u>, por <u>triangulación de señales</u>, lo que permite <strong>aumentar la exactitud posicional</strong> de cada registro en las áreas urbanas, porque cuentan con <u>mayor densidad de antenas</u>.</p></li>
+                    <li><p><i class="fas fa-map-signs icon text-purple-600"></i>El <strong>análisis de los registros de actividad</strong> de cada usuario permite conocer su <u>localización en el espacio y en el tiempo</u>, analizar sus <u>patrones de movilidad</u> y generar <strong><u>matrices de viajes origen-destino</u></strong> por franjas horarias.</p></li>
+                    <li><p><i class="fas fa-poll icon text-orange-600"></i>Hasta ahora, los <strong>estudios de movilidad urbana</strong> y la <strong>planificación del transporte</strong> se han basado sobre todo en las <strong><u>encuestas de movilidad</u></strong>, pero esa información se refiere a un momento en el tiempo y queda <u>pronto desactualizada</u>. En cambio, el <span class="definition-pill">Big Data</span> genera información de <strong>forma continua</strong>, por lo que puede <strong><u>mantener actualizada la información</u></strong> de las encuestas, particularmente en lo que se refiere a las <u>matrices de viajes</u>, lo que resulta <strong>fundamental</strong> en la evaluación de planes de infraestructuras y servicios de transporte.</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-thumbs-up icon text-green-600"></i>La utilización de esta fuente de datos presenta ciertas <strong><u>ventajas</u></strong> sobre las encuestas:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>los datos se recogen de <strong>forma pasiva</strong> sin la intervención del usuario y se registran de <strong>forma continua y actualizada</strong>;</li>
+                                <li>las <strong>muestras son mucho mayores</strong>;</li>
+                                <li>los <strong>plazos y el coste</strong> de los estudios de movilidad son <strong>mucho menores</strong>;</li>
+                                <li>y los datos registran también los viajes de la <strong>población con residencia fuera</strong> del área de estudio, como los <span class="actor-pill">turistas</span>, y son capaces de <strong>penetrar en barrios conflictivos</strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-thumbs-down icon text-red-500"></i>Por el contrario, sus <strong><u>inconvenientes</u></strong> son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>la <strong>dificultad para almacenar y procesar</strong> los datos;</li>
+                                <li>y la <strong>limitación de la información</strong> en comparación con la de las encuestas de movilidad (p.e. el <u>motivo del viaje</u> o <u>diferenciar viajeros en coche y autobús</u>).</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><p><i class="fas fa-balance-scale icon text-indigo-600"></i>Así pues, tanto las <strong>encuestas de movilidad</strong> como los <strong>datos de telefonía móvil</strong> presentan <u>ventajas y limitaciones</u>. No se puede afirmar que una fuente de datos sea mejor que la otra, ni que los datos de telefonía móvil vayan a <strong>sustituir</strong> a los de las encuestas de movilidad, pero si no hay recursos suficientes para hacer una encuesta de movilidad, la utilización de datos de telefonía móvil puede ser una <strong>buena alternativa</strong>.</p></li>
+                    <li><p><i class="fas fa-lightbulb icon text-yellow-600"></i>Para ciertos objetivos bastará con utilizar datos de telefonía móvil, p.e. para <u>analizar el impacto de un evento</u> en la movilidad de una ciudad o para <u>estudiar la movilidad de los turistas</u>.</p></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Card 4: Encuestas y Billetaje -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-file-alt"></i></div>
+                <h2>4. Encuestas y billetaje en la cuantificación y cualificación de la movilidad</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-poll-h icon text-blue-600"></i>Los <strong>estudios de movilidad a través de encuestas</strong> permiten:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><strong>conocer la satisfacción</strong> con el servicio y los <u>hábitos o necesidades de desplazamiento</u> de un determinado territorio o medio de transporte,</li>
+                                <li><strong>evaluar el impacto</strong> de <u>cambios en la oferta</u> (aparición/desaparición de nuevas líneas o cambios de horario) o de <u>campañas de marketing</u>,</li>
+                                <li><strong>detectar anomalías o déficits</strong> en el servicio, como la existencia de momentos de <u>sobreocupación</u> en que se supera el límite de confort recomendado o la presencia de <u>asimetrías importantes</u> en los trayectos.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><p><i class="fas fa-map-pin icon text-purple-600"></i>Las <strong>encuestas</strong> pueden ser <strong><u>domiciliarias</u></strong> o <strong><u>a pie de transporte</u></strong> (en ruta, estaciones, gasolineras), y a partir de ellas se realizan <strong>estudios</strong> de: <u>movilidad de residentes</u>, <u>origen-destino (O-D)</u>, <u>cargas y aforos (sube/baja)</u>, y <u>satisfacción del usuario</u>.</p></li>
+                    <li><p><i class="fas fa-ticket-alt icon text-orange-600"></i>Hoy en día, los <strong><u>sistemas de billetaje electrónico</u></strong> pueden proporcionar una <strong>información útil</strong>, y <strong>en tiempo real</strong>, sobre el uso del transporte público por los clientes. Las <strong>nuevas tendencias</strong> en el campo del billetaje en transportes públicos se mueven entre la <u>integración de varios operadores y redes</u> y el <u>uso de las nuevas tecnologías</u> de cara al <strong>billete virtual</strong>.</p></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 5: Análisis Coste-Beneficio -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-search-dollar"></i></div>
+                <h2>5. Análisis coste-beneficio (ACB) en el ámbito del transporte</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><p><i class="fas fa-landmark icon text-blue-600"></i>Dado que los <strong>presupuestos</strong> de las <span class="actor-pill">Administraciones Públicas</span> son <strong>limitados</strong>, la <strong><u>eficiencia en la asignación de los recursos</u></strong> debe dar prioridad a aquellos programas que <strong>mayor beneficio</strong> puedan proporcionar en relación a sus costes.</p></li>
+                    <li><p><i class="fas fa-balance-scale icon text-purple-600"></i>Mientras que los proyectos de <strong>inversión privada</strong> están guiados por el principio de <u>maximización del beneficio puramente económico</u>, los de <strong>inversión pública</strong> obedecen a razones de <u>interés general</u> que mejoren el <strong>bienestar social</strong>.</p></li>
+                    <li><p><i class="fas fa-calculator icon text-orange-600"></i>Dentro de este planteamiento general, el <span class="definition-pill"><strong>análisis coste-beneficio</strong></span> es una técnica de análisis cuyo objetivo es determinar si las <strong>ventajas</strong> que proporcionaría un determinado proyecto <strong>superarían los costes</strong>, proporcionando <strong>criterios</strong> para poder <u>elegir entre diferentes alternativas</u> posibles.</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-clipboard-list icon text-indigo-600"></i>Para seleccionar la <strong>opción óptima</strong>, existirán <u>objetivos económicos, sociales, territoriales y ambientales</u>, que deberán analizarse con el correspondiente <span class="definition-pill"><strong>análisis multicriterio</strong></span>, que obtiene la <strong>clasificación</strong> de las distintas alternativas según distintos criterios, a los que se asignan ciertas <strong>ponderaciones</strong> para obtener la puntuación total.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Para <strong>evitar la posible subjetividad</strong> en la asignación de los pesos, se puede recurrir a técnicas con <u>análisis de sensibilidad y robustez</u> complementarios, que analizan la <u>influencia de la variación de los pesos</u> en la alternativa seleccionada.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><p><i class="fas fa-coins icon text-teal-600"></i>Respecto a la <strong>valoración de acciones y efectos</strong> podemos encontrar <strong>costes valorables en términos monetarios</strong> o asimilables a ellos (las <u>obras</u> y su <u>mantenimiento</u>, la <u>circulación de los vehículos</u>, <u>tiempo empleado</u> por los viajeros), y <strong>efectos no valorables económicamente</strong> (<u>ambientales</u>, <u>sociales</u>, <u>territoriales</u>).</p></li>
+                    <li><p><i class="fas fa-chart-pie icon text-green-600"></i>Por tanto, en la <strong>evaluación de las opciones</strong> se analizan <strong>separadamente</strong> aquellos <u>costes y efectos que pueden medirse en unidades monetarias</u>, empleando procedimientos de valoración económica, como el <span class="definition-pill">análisis coste-beneficio</span>, y aquellos <u>efectos no valorables monetariamente</u>.</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-percentage icon text-red-500"></i>En general, se contará con los siguientes <strong><u>indicadores</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><strong><u>Indicadores económicos:</u></strong></p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="deeper-nested-list">
+                                            <li><span class="definition-pill"><strong>Valor Actualizado Neto (VAN)</strong></span>, es el sumatorio de los beneficios anuales actualizados;</li>
+                                            <li><span class="definition-pill"><strong>Relación Beneficio/Coste</strong></span>, que es el cociente entre los ingresos y los costes actualizados, su valor debe ser superior a uno para que el proyecto sea viable;</li>
+                                            <li><span class="definition-pill"><strong>Periodo de Recuperación de la Inversión</strong></span>, es el número de años necesario para que, a la tasa de actualización correspondiente, el valor actual de los ingresos se iguale con el de los costes;</li>
+                                            <li><span class="definition-pill"><strong>Tasa Interna de Retorno (TIR)</strong></span>, es la tasa de actualización que iguala el valor actual de los ingresos con el valor actual de todos los costes.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><strong><u>Indicadores socioeconómicos</u></strong>, pretenden reflejar la <strong>demanda potencial</strong> de un territorio a través de datos de <u>población</u>, <u>potencial turístico</u>, <u>renta media</u> y otras <u>infraestructuras</u>.</li>
+                                <li><strong><u>Indicadores territoriales</u></strong>, pretender reflejar el territorio en los siguientes aspectos: <u>accesibilidad</u>, <u>equilibrio regional</u>, <u>pertenencia a grandes redes</u>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-file-contract icon text-gray-700"></i>La entonces <span class="actor-pill">Subdirección General de Proyectos</span> ha redactado la <span class="law-pill"><strong>Nota de Servicio 3/2014</strong></span> sobre prescripciones y recomendaciones técnicas relativas a los contenidos mínimos a incluir en los estudios de rentabilidad de los estudios informativos o anteproyectos, donde se establecen <strong>criterios homogéneos</strong> para realizar los estudios de rentabilidad, que deben analizar:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>además de la <strong>rentabilidad económica</strong> de la carretera, donde se estudia la <u>contribución del proyecto al bienestar social</u>,</li>
+                                <li>la <strong>rentabilidad financiera</strong> que determina si dicho proyecto permitiría la <u>participación privada</u> y, por tanto, si la <u>generación de ingresos cubriría sus costes</u>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script para la funcionalidad desplegable -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Selecciona todos los elementos que servirán como disparadores
+            const triggers = document.querySelectorAll('.collapsible-trigger');
+
+            // Itera sobre cada disparador para añadirle un detector de clics
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function (event) {
+                    // Evita que el clic en un desplegable anidado afecte a su contenedor padre
+                    event.stopPropagation();
+                    
+                    // Encuentra el elemento de contenido que sigue inmediatamente al disparador
+                    const content = this.nextElementSibling;
+                    
+                    // Alterna la clase 'open' en el disparador (para rotar el icono)
+                    this.classList.toggle('open');
+                    
+                    // Verifica que el siguiente elemento sea un contenido desplegable y alterna la clase 'hidden'
+                    if (content && content.classList.contains('collapsible-content')) {
+                        content.classList.toggle('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
