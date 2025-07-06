@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual: Digitalización y Nuevas Formas de Movilidad</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Estilos CSS personalizados -->
+    <style>
+        /* Fuentes y fondo base */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        /* Estructura principal de las tarjetas */
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-header .icon-bg {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        /* Reset de listas */
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-top: 1rem; }
+
+        /* Estilos para las "píldoras" de colores */
+        .pill, .law-pill, .directive-pill, .actor-pill, .plan-pill, .definition-pill {
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0 0.2rem;
+        }
+        .pill-blue { background-color: #dbeafe; color: #1e4d91; border: 1px solid #93c5fd; }
+        .pill-red { background-color: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+        .pill-yellow { background-color: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
+        .pill-green { background-color: #dcfce7; color: #166534; border: 1px solid #86efac; }
+        .law-pill { background-color: #f3e8ff; color: #581c87; border: 1px solid #c084fc; }
+        .actor-pill { background-color: #e5e7eb; color: #1f2937; border: 1px solid #9ca3af; }
+        .plan-pill { background-color: #cffafe; color: #164e63; border: 1px solid #67e8f9; }
+        .definition-pill { background-color: #cffafe; color: #155e75; border: 1px solid #22d3ee; }
+
+        /* Iconos dentro del texto */
+        .icon {
+            margin-right: 0.5rem;
+            width: 1.25em;
+            text-align: center;
+        }
+
+        /* --- Estilos para las listas anidadas y viñetas --- */
+        .nested-list, .deeper-nested-list {
+            padding-left: 1.75rem;
+            margin-top: 0.75rem;
+            border-left: 3px dotted #cbd5e1;
+        }
+        .nested-list > li, .deeper-nested-list > li {
+            position: relative;
+        }
+        .nested-list > li::before {
+            content: '🔹';
+            position: absolute;
+            left: -1.75rem;
+            top: 0.25rem;
+            color: #3b82f6;
+        }
+        .deeper-nested-list > li::before {
+             content: '▪️';
+             position: absolute;
+             left: -1.5rem;
+             top: 0.25rem;
+        }
+        /* Regla para ocultar la viñeta CSS si un icono es el PRIMER elemento */
+        .nested-list > li:has(> i.icon:first-child)::before,
+        .deeper-nested-list > li:has(> i.icon:first-child)::before {
+            content: none;
+        }
+
+        /* --- Estilos para la funcionalidad desplegable --- */
+        .collapsible-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.25rem 0;
+            transition: background-color 0.2s ease;
+        }
+        .collapsible-trigger:hover {
+            background-color: #f9fafb;
+        }
+        .collapsible-trigger > p, .collapsible-trigger > h3, .collapsible-trigger > span {
+            margin: 0;
+        }
+        .collapsible-trigger > h3, .collapsible-trigger > span {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+            margin-right: 0.75rem;
+            width: 1em;
+            color: #3b82f6;
+        }
+        .collapsible-content {
+            padding-left: 1.75rem;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        .collapsible-trigger.open .collapsible-icon {
+            transform: rotate(90deg);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 p-4 sm:p-6 md:p-8">
+    <div class="max-w-5xl mx-auto">
+
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-digital-tachograph"></i> MEC1T14: NUEVAS TECNOLOGÍAS Y DESARROLLOS EN EL TRANSPORTE Y LA MOVILIDAD (I) <i class="fas fa-lightbulb"></i></h1>
+        </header>
+
+        <!-- Card 1 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-info-circle"></i></div>
+                <h2>1. DIGITALIZACIÓN Y NUEVOS SERVICIOS Y FORMAS DE MOVILIDAD</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><p><i class="fas fa-cogs icon text-blue-600"></i>La <span class="definition-pill"><strong>digitalización</strong></span> es la conversión de la información analógica en formato digital. Como consecuencia de disponer de la información en formato digital, las instituciones, empresas o particulares comienzan a digitalizar sus procesos. El resultado final de combinar la digitalización de la información y de los procesos desemboca en la <strong><u>transformación digital</u></strong>.</p></li>
+                    <li><p><i class="fas fa-chart-line icon text-green-600"></i>Este proceso de transformación digital ha fomentado el <strong><u>crecimiento y el incremento en la eficiencia</u></strong> de las empresas e instituciones, dando lugar a <strong><u>nuevos modelos de negocio</u></strong> y a <strong><u>modificaciones en los patrones de consumo</u></strong>, que se suceden a gran velocidad, llevando aparejados nuevos desafíos en materia de políticas públicas, cuyo objetivo final es obtener el mayor beneficio posible de este nuevo paradigma digital.</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-truck-fast icon text-purple-600"></i>El <strong><u>transporte y la logística</u></strong> es uno de los sectores donde el impacto de la transformación digital puede ser <strong><u>más disruptivo</u></strong>, por algunos aspectos claves:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-database icon"></i>En los últimos años, se ha producido un <strong><u>vertiginoso incremento en el volumen de información</u></strong> generada, debido a la proliferación de dispositivos conectados a internet. Y no se trata solo de los dispositivos personales como los teléfonos móviles, sino también de elementos vinculados a la propia infraestructura y a los vehículos, lo que se conoce como el <span class="definition-pill"><strong>Internet de las Cosas</strong></span>. En este sentido, el crecimiento en el volumen de información está siguiendo una función exponencial, previendo alcanzar los <span class="pill pill-blue">175 zettabytes</span> en <span class="pill pill-blue">2025</span> (1 zettabyte = 10<sup>9</sup> terabytes = 10<sup>12</sup> gigabytes), unas <span class="pill pill-blue">175</span> veces la cantidad generada en <span class="pill pill-blue">2011</span>.</li>
+                                <li><i class="fas fa-map-marker-alt icon"></i>Otro aspecto fundamental es la <strong><u>posibilidad de georreferenciar los datos</u></strong>. Esto permite conocer la posición de los viajeros y de las mercancías con una mayor precisión y cobertura, incluso en tiempo real, representando una mejora sustancial frente a los procesos tradicionales de definición de patrones de movilidad, configurando un instrumento fundamental para la toma de decisiones.</li>
+                                <li><i class="fas fa-user-cog icon"></i>Por último, la <strong><u>posibilidad de personalización de los servicios</u></strong> de transporte, de forma que mediante el empleo de estas nuevas tecnologías se puedan tener en cuenta las necesidades y los obstáculos específicos de cada usuario mediante soluciones adaptadas.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                             <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-check-circle icon text-green-700"></i>En la actualidad son <strong><u>numerosos los campos</u></strong> dentro de la actividad del transporte y la logística donde este proceso de digitalización ya está presente:</p>
+                        </div>
+                         <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                               <li>Billetes electrónicos, gestión centralizada del tráfico, sistemas de ayuda a la explotación de servicios de transporte, aplicaciones para información al usuario, o gestión electrónica de equipajes en los aeropuertos, son avances en materia de digitalización que ya forman parte del transporte y la logística de hoy.</li>
+                               <li>Pero este proceso no acaba aquí, sino que al amparo de todo este desarrollo de las tecnologías de la información están surgiendo <strong><u>nuevas tendencias, servicios y modelos de negocio</u></strong> relacionados con la actividad del transporte y la logística.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-database"></i></div>
+                <h2>2. DATOS ABIERTOS. PUNTOS DE ACCESO NACIONALES</h2>
+            </div>
+             <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>En el ámbito de la disponibilidad de los datos, el <span class="directive-pill"><strong>Reglamento UE 2017/1926</strong></span> relativo al suministro de servicios de información sobre desplazamientos multimodales, establece la <strong><u>obligatoriedad de aportar datos estáticos e históricos</u></strong> de desplazamiento y tráfico a los distintos agentes intervinientes en el transporte:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-landmark icon"></i>Autoridades de transporte.</li>
+                                <li><i class="fas fa-building icon"></i>Prestadores de servicios de transportes.</li>
+                                <li><i class="fas fa-road icon"></i>Gestores de las infraestructuras, etc.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-cogs icon text-purple-600"></i>Asimismo, el reglamento deja la <strong><u>decisión sobre el suministro de datos dinámicos</u></strong> a los <span class="actor-pill">estados miembros</span>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Todos estos datos, los <strong><u>estáticos de forma obligatoria</u></strong> y los <strong><u>dinámicos cuando se decida</u></strong> incorporar esa información, estarán disponibles en los <span class="definition-pill"><strong>puntos de acceso nacional</strong></span> que habilite cada país.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><p><i class="fas fa-flag icon text-yellow-500"></i>En esta línea, el <span class="actor-pill"><strong>MITMS</strong></span> ha desarrollado el <span class="plan-pill"><strong>Punto de Acceso Nacional de datos del transporte</strong></span>, con información de la oferta de transporte de viajeros existente en nuestro país.</p></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-mobile-alt"></i></div>
+                <h2>3. LA MOVILIDAD COMO SERVICIO (MaaS)</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><p><i class="fas fa-info-circle icon text-blue-600"></i>La <span class="definition-pill"><strong>Movilidad como Servicio (MaaS)</strong></span> consiste en la <strong><u>integración de varias formas de servicios de transporte</u></strong> en una misma plataforma de movilidad, habitualmente a través de una aplicación móvil. Este tipo de aplicaciones ofrecen al usuario <strong><u>soluciones de movilidad personalizadas</u></strong> basadas en sus preferencias y necesidades individuales.</p></li>
+                    <li>
+                         <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-building icon text-gray-700"></i>Según la <span class="actor-pill"><strong>UITP (Asociación Internacional del Transporte Público)</strong></span> MaaS es la <strong><u>integración y el acceso a diferentes servicios de transporte</u></strong> (transporte público, coches compartidos, bicicletas compartidas, motos compartidas, taxis, etc.) en una <strong><u>única oferta de movilidad digital</u></strong>, con un sistema de transporte público eficiente como base.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>La principal ventaja de MaaS es su <strong><u>flexibilidad</u></strong>, ya que ofrece <strong><u>soluciones puerta a puerta</u></strong> combinando diferentes modos de transporte; y es esta flexibilidad la que puede resultar atractiva para los usuarios del coche particular.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-cogs icon text-purple-600"></i>Un <strong><u>operador de MaaS</u></strong> podrá facilitar las necesidades de movilidad de un usuario ofreciendo distintas opciones de <strong><u>combinación de servicios de transporte multimodales</u></strong>, incluyendo tanto los públicos como los privados, para llevar al viajero desde un origen hasta el destino solicitado.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                                <li>MaaS ofrece además el <strong><u>valor añadido</u></strong> de completar el <strong><u>pago de estos servicios</u></strong> por parte del usuario a través de un <strong><u>único canal de pago</u></strong>, eliminando así las barreras físicas que suponen la adquisición de varios billetes, con el consecuente ahorro de tiempo y aumento de la comodidad.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-lightbulb icon text-yellow-500"></i>Como <strong><u>ejemplo</u></strong>, actualmente está disponible la primera fase de la aplicación <span class="plan-pill"><strong>Madrid Mobility360</strong></span> desarrollada por la <span class="actor-pill">Empresa Municipal de Transportes de Madrid</span>, que aglutina a la mayoría de prestadores de servicios de movilidad en la capital.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                                <li>Permitiendo, mediante los sistemas de georreferenciación de los dispositivos móviles, conocer los servicios de movilidad más próximos a su ubicación con información sobre el transporte público, incluyendo coches compartidos, motos compartidas, bicicletas compartidas, así como el acceso a las distintas aplicaciones y servicios de radiotaxi.</li>
+                                <li>En fases posteriores se quieren incorporar mayores funcionalidades como la comparación de rutas, o el pago de servicios.</li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li><p><i class="fas fa-train icon text-red-600"></i>Otro ejemplo es <span class="plan-pill"><strong>dōcō</strong></span>, un MaaS desarrollado recientemente por <span class="actor-pill">Renfe</span> que permite planificar, reservar, pagar y viajar en tren, taxi, VTC, moto o patinete de la manera más económica, rápida y sostenible.</p></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-database"></i></div>
+                <h2>4. Big Data</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><p><i class="fas fa-chart-bar icon text-blue-600"></i><span class="definition-pill"><strong>Big Data</strong></span> es la <strong><u>capacidad analítica en tiempo real de grandes volúmenes de datos</u></strong>, que permite <strong><u>incrementar la riqueza de la información</u></strong> y el conocimiento que proporcionan estos datos; lo que ha inducido el <strong><u>desarrollo de nuevas tecnologías</u></strong> que permitan <strong><u>generar inteligencia</u></strong> a partir de la información que se está almacenando.</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-cogs icon text-purple-600"></i>Estas <strong><u>técnicas que analizan grandes volúmenes de datos</u></strong> están siendo utilizadas para <strong><u>tomar mejores decisiones</u></strong> y definir <strong><u>estrategias más adecuadas</u></strong> en diversos sectores de la sociedad.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>En el <span class="definition-pill"><strong>sector transporte</strong></span>, por ejemplo, las <span class="actor-pill">Administraciones competentes</span> podrían obtener <strong><u>beneficios del uso del big data</u></strong> para:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="deeper-nested-list">
+                                            <li><i class="fas fa-clock icon text-cyan-600"></i>La <strong><u>optimización de los tiempos</u></strong> de transporte.</li>
+                                            <li><i class="fas fa-leaf icon text-green-600"></i>La <strong><u>disminución del impacto ambiental</u></strong>.</li>
+                                            <li><i class="fas fa-route icon text-orange-600"></i>La <strong><u>planificación de rutas inteligentes</u></strong>.</li>
+                                            <li><i class="fas fa-tasks icon text-indigo-600"></i>O la <strong><u>gestión de activos y previsión de la demanda</u></strong> en los sistemas de transporte.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-car-alt"></i></div>
+                <h2>5. Vehículos autónomos</h2>
+            </div>
+             <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><p><i class="fas fa-microchip icon text-blue-600"></i>En los últimos tiempos los vehículos incorporan <strong><u>cada vez más <span class="definition-pill">controles automáticos y funciones semiautónomas</span></u></strong>. Aunque el <strong><u>esfuerzo innovador</u></strong> en este campo alcanza a la mayoría de modos de transporte, en la actualidad hay un <strong><u>especial interés por el desarrollo del <span class="definition-pill">coche autónomo</span></u></strong>, habiendo pasado a ser un <strong><u>objetivo oficial</u></strong> de numerosas <span class="actor-pill">compañías automovilísticas</span>.</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-shield-alt icon text-green-600"></i>Las <strong><u>nuevas tecnologías</u></strong> ya permiten que:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Gracias a los <span class="definition-pill"><strong>sistemas de asistencia automática</strong></span>, el conductor de un automóvil haga frente a <strong><u>situaciones peligrosas</u></strong>.</li>
+                                <li>Gracias a herramientas como los <span class="definition-pill"><strong>sistemas integrales de navegación móvil</strong></span>, se <strong><u>optimicen los trayectos</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-robot icon text-purple-600"></i>Se puede definir un <span class="definition-pill"><strong>vehículo autónomo</strong></span> como aquel <strong><u>capaz de replicar las capacidades humanas</u></strong> de manejo y control, pudiendo:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><strong><u>Percibir y analizar los estímulos</u></strong> de su entorno, y <strong><u>actuar en consecuencia</u></strong>.</li>
+                                <li><strong><u>Detectar peatones, vehículos, obstáculos, señalización</u></strong>, y otros agentes que intervienen en la movilidad.</li>
+                                <li>Y <strong><u>trazar una ruta de navegación segura</u></strong> que tenga en cuenta esta información.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-project-diagram icon text-orange-600"></i>El desarrollo de un coche autónomo requiere la <strong><u>integración precisa de muy diversas tecnologías</u></strong> para poder completar la difícil tarea de <strong><u>sustituir a un conductor humano</u></strong>. Su funcionamiento depende de <strong><u>dos elementos imprescindibles</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="fas fa-brain icon text-cyan-700"></i>Debe poder <strong><u>“tomar decisiones”</u></strong>, siendo capaz de <strong><u>analizar cada situación</u></strong> y <strong><u>escoger cual es la solución más eficiente</u></strong>.</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="deeper-nested-list">
+                                             <li><i class="fas fa-code icon"></i>Para ello debe disponer de un <strong><u><span class="definition-pill">software</span></u></strong> que interactúe con todos los componentes del vehículo (acelerador, freno, dirección, intermitentes) y <strong><u>estructure el funcionamiento</u></strong> de cada uno de ellos.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p><i class="fas fa-eye icon text-indigo-700"></i>Debe ser capaz de <strong><u>“ver”</u></strong>, percibiendo las señales de tráfico, evitando a otros vehículos y peatones, o negociando su turno en una intersección, que son <strong><u>tareas de gran complejidad</u></strong>.</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="deeper-nested-list">
+                                            <li><i class="fas fa-road icon"></i>La mayoría de pruebas realizadas hasta el momento plantean <strong><u>escenarios de autopistas vacías</u></strong> o con <strong><u>obstáculos sencillos</u></strong>, por lo que este aspecto tiene aún por delante un <strong><u>gran margen de mejora y evolución</u></strong>.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-wifi"></i></div>
+                <h2>6. Movilidad conectada</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><p><i class="fas fa-info-circle icon text-blue-600"></i>La <span class="definition-pill"><strong>conectividad</strong></span> hace alusión al <strong><u>uso de tecnologías</u></strong> que permiten al vehículo <strong><u>comunicarse con otros vehículos y con las infraestructuras</u></strong> de la carretera.</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-car icon text-purple-600"></i>El <span class="definition-pill"><strong>vehículo conectado</strong></span> es un coche en el que el conductor, además de lo que puede ver y oír, <strong><u>recibe ayuda a través de otras funciones</u></strong> que aporta la tecnología.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-broadcast-tower icon text-cyan-600"></i>En concreto, aunque no vea lo que está ocurriendo en la carretera, <strong><u>puede saberlo porque es avisado</u></strong> por los sistemas del vehículo.</li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-project-diagram icon text-orange-600"></i>El coche conectado utiliza <strong><u>dos capacidades de la red</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-satellite-dish icon"></i>Por una parte, un <strong><u>protocolo para comunicarse con el entorno</u></strong>.</li>
+                                <li><i class="fas fa-server icon"></i>Por otra, la tecnología <span class="definition-pill"><strong>edge computing</strong></span> (que consiste básicamente en <strong><u>acercar el procesamiento de los datos</u></strong> donde éstos están siendo generados).</li>
+                                <li><i class="fas fa-code-branch icon text-indigo-600"></i>A pesar de que la <span class="actor-pill">Unión Europea</span> defiende el uso de la <strong><u>tecnología WiFi</u></strong> para el desarrollo de los servicios del coche autónomo, los <strong><u>principales operadores del mundo apuestan</u></strong> por protocolos de comunicación basados en el recién llegado <strong><u><span class="definition-pill">5G</span></u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-dolly-flatbed"></i></div>
+                <h2>7. Automatización de la cadena logística</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-robot icon text-blue-600"></i>La <span class="definition-pill"><strong>automatización o control automático</strong></span> en logística se refiere al <strong><u>uso de sistemas de control, maquinaria o software</u></strong> para <strong><u>mejorar la eficiencia</u></strong> de las operaciones.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-warehouse icon text-gray-600"></i>Normalmente se aplica a los <strong><u>procesos que se deben realizar en un almacén</u></strong> o centro de distribución con el resultado de una <strong><u>intervención humana mínima</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><p><i class="fas fa-link icon text-purple-600"></i>De hecho, a lo largo de una <span class="definition-pill"><strong>cadena de suministro</strong></span> (aprovisionamiento, distribución, atención al cliente) hay una <strong><u>multitud de procesos que podrían ser automatizados</u></strong>.</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-thumbs-up icon text-green-600"></i>Las <strong><u>principales ventajas</u></strong> que conlleva la logística de automatización son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-chart-pie icon"></i>El <strong><u>acceso en tiempo real a datos de carga</u></strong> y su análisis para <strong><u>mejorar la toma de decisiones</u></strong>.</li>
+                                <li><i class="fas fa-dollar-sign icon"></i>La <strong><u>disminución de errores</u></strong> que aumentan los <strong><u>gastos de envío</u></strong>.</li>
+                                <li><i class="fas fa-sitemap icon"></i>El <strong><u>control de la organización y gestión</u></strong> con sistemas suficientemente <strong><u>flexibles</u></strong> para adaptarse a las reglas de negocio de la empresa, y a la vez <strong><u>potentes</u></strong> como para obligar a todos los usuarios a seguirlos para asegurar un <strong><u>envío eficiente y rentable</u></strong>.</li>
+                                <li><i class="fas fa-headset icon"></i>La <strong><u>mejora del servicio al cliente</u></strong>, al poder hacer un <strong><u>seguimiento en tiempo real</u></strong> de carga, <strong><u>auto pick-up</u></strong> y el <strong><u>seguro adecuado</u></strong> incorporando todo ello a sus especificaciones de encargo.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-thumbs-down icon text-red-500"></i>La automatización logística, no obstante, también cuenta con algunas <strong><u>desventajas</u></strong> como:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-project-diagram icon"></i><strong><u>Menor flexibilidad</u></strong> en los procesos con la duda de que se pueda lograr <strong><u>estandarizar algunos procesos</u></strong> de forma que sean ejecutables de manera más eficiente en un sistema automatizado.</li>
+                                <li><i class="fas fa-users-cog icon"></i><strong><u>Dificultades para incluir las soluciones tecnológicas</u></strong> necesarias para la automatización en <strong><u>todos los actores de cadena de suministro</u></strong> (proveedores, fabricantes, clientes, distribuidores).</li>
+                                <li><i class="fas fa-hourglass-half icon"></i>Y el <strong><u>tiempo de implantación</u></strong> que puede ser unos <span class="pill-blue"><strong>10 años</strong></span> de media, lo que junto con el <strong><u>coste de ponerlo en funcionamiento</u></strong>, puede dar <strong><u>retornos sobre la inversión</u></strong> que las empresas consideren <strong><u>demasiado bajos</u></strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script para la funcionalidad desplegable -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Selecciona todos los elementos que servirán como disparadores
+            const triggers = document.querySelectorAll('.collapsible-trigger');
+
+            // Itera sobre cada disparador para añadirle un detector de clics
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function (event) {
+                    // Evita que el clic en un desplegable anidado afecte a su contenedor padre
+                    event.stopPropagation();
+                    
+                    // Encuentra el elemento de contenido que sigue inmediatamente al disparador
+                    const content = this.nextElementSibling;
+                    
+                    // Alterna la clase 'open' en el disparador (para rotar el icono)
+                    this.classList.toggle('open');
+                    
+                    // Verifica que el siguiente elemento sea un contenido desplegable y alterna la clase 'hidden'
+                    if (content && content.classList.contains('collapsible-content')) {
+                        content.classList.toggle('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
