@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapa Conceptual: La Red Transeuropea de Transporte (RTE-T)</title>
+    <title>Mapa Conceptual: El Transporte Internacional</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
@@ -49,9 +49,7 @@
             margin: 0 0.2rem;
         }
         .pill-blue { background-color: #dbeafe; color: #1e4d91; border: 1px solid #93c5fd; }
-        .pill-yellow { background-color: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
         .law-pill { background-color: #f3e8ff; color: #581c87; border: 1px solid #c084fc; }
-        .directive-pill { background-color: #dcfce7; color: #166534; border: 1px solid #4ade80; }
         .actor-pill { background-color: #e5e7eb; color: #1f2937; border: 1px solid #9ca3af; }
         .plan-pill { background-color: #cffafe; color: #164e63; border: 1px solid #67e8f9; }
         .definition-pill { background-color: #cffafe; color: #155e75; border: 1px solid #22d3ee; }
@@ -88,15 +86,6 @@
              left: -1.25rem;
              color: #3b82f6;
         }
-         .even-deeper-nested-list {
-             padding-left: 1.5rem;
-            margin-top: 0.5rem;
-            border-left: 2px solid #e2e8f0;
-        }
-        .even-deeper-nested-list > li::before {
-             content: '▫️';
-             left: -1.25rem;
-        }
         /* Estilos para la funcionalidad desplegable */
         .collapsible-trigger {
             cursor: pointer;
@@ -130,14 +119,156 @@
     <div class="max-w-5xl mx-auto">
 
         <header class="mb-10 text-center">
-            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-project-diagram"></i> MEC1T19: LA RED TRANSEUROPEA DE TRANSPORTE (RTE-T) <i class="fas fa-road"></i></h1>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-globe-europe"></i> MEC1T9: EL TRANSPORTE INTERNACIONAL <i class="fas fa-plane-departure"></i></h1>
         </header>
 
-        <!-- Main Card 1 -->
         <div class="card">
             <div class="card-header">
                 <div class="icon-bg"><i class="fas fa-info-circle"></i></div>
-                <h2>1. LA RED TRANSEUROPEA DE TRANSPORTE (RTE-T)</h2>
+                <h2>1. EL TRANSPORTE INTERNACIONAL</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-gavel icon text-purple-600"></i>La <span class="law-pill"><strong>Ley 16/1987 de Ordenación de los Transportes Terrestres (LOTT)</strong></span> define los <span class="definition-pill"><strong>transportes internacionales</strong></span> como aquellos cuyo itinerario discurre parcialmente por el territorio de Estados extranjeros.</li>
+                    <li><i class="fas fa-file-signature icon text-blue-600"></i>La <span class="law-pill"><strong> LOTT</strong></span> establece que la realización de servicios de transporte internacional que discurran parcialmente por territorio español utilizando vehículos que no se hayan matriculado en España, se regirá por lo dispuesto en los <strong><u>acuerdos internacionales</u></strong> de los que España forme parte.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-balance-scale icon text-yellow-600"></i>Según el <strong><u>grado de apertura del mercado</u></strong> previsto en los acuerdos internacionales, se distinguen:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-lock-open icon text-green-500"></i><strong><u>Transportes internacionales liberalizados</u></strong>, pueden ser realizados por transportistas españoles sin necesidad de proveerse previamente de una autorización específica, bastando con la habilitación genérica que prevé la normativa vigente.</li>
+                                <li><i class="fas fa-id-card icon text-red-500"></i><strong><u>Transportes internacionales sujetos a autorización</u></strong>, solo pueden ser realizados por transportistas españoles que hayan obtenido previamente una autorización específica que habilite para su realización.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-passport icon text-gray-700"></i>Por otra parte, hay <strong><u>dos tipos de autorizaciones extranjeras</u></strong> cuyo otorgamiento le ha sido encomendado a la Administración española según el convenio internacional suscrito:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-handshake icon text-blue-500"></i><strong><u>Autorizaciones bilaterales</u></strong>, que habilitan a un transportista español para realizar servicios de transporte con origen o destino en otro Estado o en tránsito a través de él.</li>
+                                <li><i class="fas fa-globe icon text-purple-500"></i><strong><u>Autorizaciones multilaterales</u></strong>, que habilitan a un transportista español para realizar servicios de transporte con origen o destino en otros Estados o en tránsito a través de ellos.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-file-signature"></i></div>
+                <h2>2. PRINCIPALES ACUERDOS INTERNACIONALES</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-road mr-2 text-blue-600"></i>Transporte por Carretera (Viajeros)</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-list-check icon text-purple-600"></i>Los <strong><u>requisitos previos</u></strong> que deben cumplir las empresas transportistas españolas para realizar transporte internacional de viajeros son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><strong><u>Inscripción en la Subsección de Empresas de Transporte Internacional de Viajeros (RETIVI)</u></strong> del <span class="plan-pill">Registro de Empresas y Actividades de Transporte (REAT)</span> para realizar transportes públicos internacionales de viajeros no liberalizados.</li>
+                                <li>
+                                   <p><strong><u>Posesión de la Licencia Comunitaria</u></strong> para efectuar transportes internacionales de viajeros con autocares o autobuses en el ámbito de la <span class="actor-pill">Unión Europea</span>.</p>
+                                    <ul class="nested-list deeper-nested-list">
+                                        <li>Esta licencia se otorga en Europa con un plazo de validez de <span class="pill pill-blue">10 años</span>, mientras que las otorgadas en España por la Dirección General de Transporte por Carretera y Ferrocarril del <span class="actor-pill">MITMS</span> tienen un plazo de validez de <span class="pill pill-blue">5 años</span>, a toda empresa con competencia profesional para el transporte de viajeros por carretera que sea titular de una autorización de transporte público discrecional de viajeros de ámbito nacional.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-id-card icon text-blue-500"></i>Se pueden distinguir los siguientes <strong><u>tipos de servicios</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><strong><u>Regulares</u></strong>: aseguran el transporte de personas con una frecuencia y un itinerario determinados.</li>
+                                <li><strong><u>Discrecionales</u></strong>: transportan grupos formados por encargo o por el propio transportista, en el ámbito de la Unión Europea todos los servicios discrecionales están liberalizados.</li>
+                                <li><strong><u>De cabotaje</u></strong>: transportes nacionales de viajeros por cuenta ajena realizados en otro Estado, únicamente pueden realizarse en los países miembros de la UE.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-handshake icon text-green-600"></i>Existen <strong><u>acuerdos especiales</u></strong> con <span class="actor-pill">Marruecos</span>, y el acuerdo <span class="plan-pill"><strong>INTERBUS</strong></span> que regula el transporte discrecional internacional de viajeros en autocar y autobús, que comprende a la <span class="actor-pill">UE</span> y a otros países europeos incluyendo <span class="actor-pill">Turquía</span>, recoge la mayor parte de las medidas de liberalización del <span class="plan-pill">Acuerdo ASOR</span>, sustituye a los acuerdos bilaterales celebrados entre las Partes Contratantes y exime de autorización los viajes a puerta cerrada, los servicios solo de ida o solo de vuelta, y los de sustitución de vehículo averiado.</li>
+                </ul>
+            </div>
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-truck mr-2 text-orange-600"></i>Transporte por Carretera (Mercancías)</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-file-contract icon text-yellow-600"></i>El convenio internacional más importante es el de <span class="plan-pill"><strong>Ginebra de 1956 (convenio CMR)</strong></span>.</li>
+                    <li><i class="fas fa-building icon text-gray-700"></i>La empresa que preste servicios de transporte internacional de mercancías por carretera debe estar inscrita, con carácter general, en la <strong><u>Subsección de Empresas de Transporte Internacional de Mercancías (RETIM)</u></strong> del <span class="plan-pill">Registro de Empresas y Actividades de Transporte (REAT)</span>.</li>
+                    <li><i class="fas fa-lock-open icon text-green-500"></i>En el ámbito de la <span class="actor-pill">Unión Europea</span> están <strong><u>liberalizados</u></strong> los transportes postales, los de vehículos accidentados o averiados, los de mercancías con vehículo automóvil cuyo peso máximo autorizado sea inferior a <span class="pill pill-blue">2,5 toneladas</span>, los de medicamentos y equipos médicos en casos de ayudas urgentes, y los de mercancías en régimen de servicio privado (sin remuneración por el transporte para transportar mercancías fabricadas o adquiridas por la empresa).</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-passport icon text-blue-600"></i><span class="actor-pill">España</span> dispone de <strong><u>dos tipos de autorizaciones</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>La <span class="definition-pill"><strong>Licencia Comunitaria</strong></span> (con un plazo de validez de 10 años en Europa y 5 años en España, y sirve para trayectos efectuados en el territorio de los estados miembros de la UE y de los estados de la Asociación Europea de Libre Comercio: Islandia, Liechtenstein, Noruega y Suiza; permite el transporte de cabotaje, excepto en Suiza).</li>
+                                <li>Y <span class="definition-pill"><strong>Autorizaciones de la Conferencia Europea de Ministros de Transportes (CEMT)</strong></span>, foro internacional del transporte ITF desde 2006, (que incluye todos los países europeos, incluida Rusia, y Turquía; no permiten la realización de transporte de cabotaje, con carga y descarga dentro del territorio de un país distinto al de matriculación del vehículo).</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-train mr-2 text-purple-600"></i>Transporte por Ferrocarril</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-file-contract icon text-yellow-600"></i>El convenio internacional más importante es el de <span class="plan-pill"><strong>Berna de 1980</strong></span> relativo a los transportes internacionales por ferrocarril (<span class="plan-pill"><strong>convenio COTIF</strong></span>), en respuesta al cual se estableció en <span class="pill pill-blue">1985</span> la <span class="actor-pill"><strong>Organización Intergubernamental para los Transportes Internacionales por Ferrocarril (OTIF)</strong></span>.</li>
+                </ul>
+            </div>
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-ship mr-2 text-cyan-700"></i>Transporte Marítimo</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-file-contract icon text-yellow-600"></i>El convenio más importante en esta materia es el <span class="plan-pill"><strong>Convenio de Bruselas de 1924</strong></span> complementado por los Protocolos de <span class="pill pill-blue">1968</span> y <span class="pill pill-blue">1979</span>, conocidos como las <span class="plan-pill"><strong>Reglas de La Haya-Visby</strong></span>, junto con las <span class="plan-pill"><strong>Reglas de Hamburgo de 1978</strong></span> y las <span class="plan-pill"><strong>Reglas de Rotterdam de 2008</strong></span>.</li>
+                    <li><i class="fas fa-shield-alt icon text-blue-500"></i>Otros convenios destacados son el <span class="plan-pill"><strong>Convenio SOLAS de 1914</strong></span> relativo a la seguridad de buques mercantes y el <span class="plan-pill"><strong>Convenio MARPOL de 1973</strong></span> para prevenir la contaminación por los buques.</li>
+                </ul>
+            </div>
+             <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-plane-departure mr-2 text-red-600"></i>Transporte Aéreo</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-landmark icon text-gray-700"></i>El <span class="plan-pill"><strong>Convenio Internacional de Navegación Aérea de 1919, CINA</strong></span>, fue el primer gran marco jurídico internacional que reguló el transporte aéreo.</li>
+                    <li><i class="fas fa-file-signature icon text-purple-600"></i>Y los convenios más importantes son el de <span class="plan-pill"><strong>Varsovia de 1929</strong></span> y el de <span class="plan-pill"><strong>Chicago de 1944</strong></span> que es el tratado normativo más importante sobre el derecho público internacional aeronáutico.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-biohazard"></i></div>
+                <h2>3. ACUERDOS INTERNACIONALES PARA EL TRANSPORTE DE MERCANCÍAS PELIGROSAS</h2>
             </div>
             <div class="collapsible-trigger">
                 <i class="fas fa-chevron-right collapsible-icon"></i>
@@ -148,68 +279,13 @@
                     <li>
                         <div class="collapsible-trigger">
                             <i class="fas fa-chevron-right collapsible-icon"></i>
-                            <p><i class="fas fa-sitemap icon text-blue-600"></i>Las <span class="definition-pill"><strong>Redes Transeuropeas de Transporte (RTE-T)</strong></span> son un <strong><u>conjunto de infraestructuras</u></strong> que están planificadas para dar servicio al transporte de viajeros y mercancías dentro de la <span class="actor-pill">UE</span>.</p>
+                            <p><i class="fas fa-info-circle icon text-blue-600"></i>En materia de transporte internacional de mercancías peligrosas destacan:</p>
                         </div>
                         <div class="collapsible-content hidden">
                             <ul class="nested-list">
-                                <li>
-                                   <p>Sus <strong><u>principales objetivos</u></strong> son:</p>
-                                   <ul class="nested-list deeper-nested-list">
-                                       <li>Servir al desarrollo del <strong><u>mercado interior</u></strong> permitiendo la libre circulación de bienes y personas.</li>
-                                       <li>Consolidar la <strong><u>cohesión económica y social</u></strong>.</li>
-                                       <li>Y <strong><u>conectar las regiones periféricas</u></strong> con las regiones centrales de la Unión, ya que la apertura de las fronteras a la libre circulación no ha producido el efecto de facilitar las comunicaciones entre los países, dificultando el desarrollo de las regiones más periféricas.</li>
-                                   </ul>
-                               </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-trigger">
-                            <i class="fas fa-chevron-right collapsible-icon"></i>
-                            <p><i class="fas fa-history icon text-gray-700"></i>El <span class="law-pill"><strong>Tratado de Maastricht de 1992</strong></span> reconoció la importancia de la creación de las redes transeuropeas (RTE) en el ámbito de los transportes, la energía y las telecomunicaciones.</p>
-                        </div>
-                         <div class="collapsible-content hidden">
-                             <ul class="nested-list">
-                               <li>El <strong><u>verdadero impulso político</u></strong> a la creación de las RTE se dio en el <span class="actor-pill"><strong>Consejo Europeo de Copenhague de 1993</strong></span>.</li>
-                               <li>En el <span class="plan-pill"><strong>Libro Blanco de la Comisión</strong></span> sobre competitividad y empleo se hace hincapié en los <strong><u>efectos potenciales</u></strong> de estas redes sobre la <strong><u>creación de empleo</u></strong> tanto en forma de puestos directos como indirectos al fomentar el crecimiento económico.</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-trigger">
-                            <i class="fas fa-chevron-right collapsible-icon"></i>
-                            <p><i class="fas fa-exclamation-triangle icon text-red-500"></i>Posteriormente, la <span class="actor-pill">Unión Europea</span> estableció <strong><u>orientaciones comunitarias</u></strong> para los tres tipos de RTE, que se revisan periódicamente.</p>
-                        </div>
-                        <div class="collapsible-content hidden">
-                            <ul class="nested-list">
-                               <li>Los distintos informes sobre la aplicación de las orientaciones comunitarias ponen de relieve la <strong><u>dificultad para lograr los objetivos</u></strong> fijados.</li>
-                               <li>Los <strong><u>retrasos</u></strong> se deben, sobre todo, a la <u>falta de medios disponibles y de voluntad política</u>, y al <u>carácter transfronterizo</u> y las <u>barreras naturales</u> que deben cruzarse.</li>
-                            </ul>
-                        </div>
-                    </li>
-                     <li>
-                        <div class="collapsible-trigger">
-                            <i class="fas fa-chevron-right collapsible-icon"></i>
-                            <p><i class="fas fa-file-alt icon text-purple-600"></i><strong><u>Orientaciones comunitarias de <span class="pill pill-blue">1996</span></u></strong>:</p>
-                        </div>
-                        <div class="collapsible-content hidden">
-                            <ul class="nested-list">
-                               <li>Establecieron las <strong><u>líneas generales de actuación</u></strong> aplicables a la RTE-T, determinando las <u>características</u> de las redes para los diferentes modos de transporte e indicando que proyectos de <strong><u>interés común</u></strong> podían optar a financiación, haciendo hincapié en los modos de transporte <strong><u>más respetuosos con el medio ambiente</u></strong>, especialmente el <strong><u>ferrocarril</u></strong>.</li>
-                               <li>La RTE-T cubre todo el territorio de la Unión y puede <strong><u>extenderse a la Asociación Europea de Libre Comercio</u></strong> (<span class="actor-pill">Suiza</span>, <span class="actor-pill">Noruega</span>, <span class="actor-pill">Islandia</span> y <span class="actor-pill">Liechtenstein</span>), a los países de <u>Europa sudoriental</u> y a los <u>países mediterráneos</u>.</li>
-                               <li>En un primer momento, se incorporaron <span class="pill pill-blue">14</span> proyectos de interés común.</li>
-                            </ul>
-                        </div>
-                    </li>
-                     <li>
-                        <div class="collapsible-trigger">
-                            <i class="fas fa-chevron-right collapsible-icon"></i>
-                            <p><i class="fas fa-sync-alt icon text-blue-700"></i><strong><u>Revisión de las orientaciones de la RTE-T de <span class="pill pill-blue">2004</span></u></strong>:</p>
-                        </div>
-                        <div class="collapsible-content hidden">
-                            <ul class="nested-list">
-                                <li>La <strong><u>ampliación de la UE en <span class="pill pill-blue">2004</span></u></strong>, así como <u>retrasos importantes</u> y <u>problemas de financiación</u>, especialmente en relación con los tramos transfronterizos, exigieron una revisión exhaustiva de las orientaciones de la RTE-T.</li>
-                                <li>Se aumentó el número de <strong><u>proyectos prioritarios</u></strong> hasta un total de <span class="pill pill-blue">30</span>.</li>
-                                <li>Y se introdujo asimismo un nuevo concepto de <span class="definition-pill"><strong>“autopistas del mar”</strong></span> con vistas a aumentar la eficacia de ciertas rutas marítimas.</li>
+                                <li><i class="fas fa-road icon text-orange-500"></i>▪️ <span class="plan-pill"><strong>Acuerdo ADR</strong></span>, es un acuerdo europeo de <span class="pill pill-blue">1957</span> que nació en el seno de la <span class="actor-pill">Comisión Económica para Europa de las Naciones Unidas</span>, que establece una serie de normas comunes para el transporte de mercancías peligrosas por carretera. Entró en vigor en <span class="pill pill-blue">1968</span> y <span class="actor-pill">España</span> se adhirió en <span class="pill pill-blue">1972</span>.</li>
+                                <li><i class="fas fa-train icon text-purple-500"></i>▪️ <span class="plan-pill"><strong>Reglamento relativo al transporte internacional de mercancías peligrosas por ferrocarril (RID)</strong></span>, que es el apéndice C del <span class="plan-pill">Convenio COTIF</span>.</li>
+                                <li><i class="fas fa-ship icon text-cyan-700"></i>▪️ <span class="plan-pill"><strong>Código IMDG</strong></span>, que reúne las disposiciones sobre transporte internacional marítimo de mercancías peligrosas.</li>
                             </ul>
                         </div>
                     </li>
@@ -217,11 +293,10 @@
             </div>
         </div>
 
-        <!-- Main Card -->
         <div class="card">
             <div class="card-header">
-                <div class="icon-bg"><i class="fas fa-file-alt"></i></div>
-                <h2>2. REGLAMENTOS DE DESARROLLO Y FINANCIACIÓN DE LA RTE-T. CORREDORES EUROPEOS</h2>
+                <div class="icon-bg"><i class="fas fa-users-cog"></i></div>
+                <h2>4. ORGANISMOS Y ASOCIACIONES INTERNACIONALES</h2>
             </div>
             <div class="collapsible-trigger">
                 <i class="fas fa-chevron-right collapsible-icon"></i>
@@ -232,163 +307,117 @@
                     <li>
                         <div class="collapsible-trigger">
                             <i class="fas fa-chevron-right collapsible-icon"></i>
-                            <p><i class="fas fa-gavel icon text-purple-600"></i>El <span class="directive-pill"><strong>Reglamento 1315/2013</strong></span>, derogado por el <span class="directive-pill">Reglamento 2024/1679</span>, estableció las <strong><u>orientaciones para el desarrollo</u></strong> de la RTE-T, identificando una serie de <strong><u>proyectos de interés común</u></strong>.</p>
+                            <p><i class="fas fa-plane-departure icon text-red-600"></i>La <span class="actor-pill"><strong>OACI (Organización de Aviación Civil Internacional)</strong></span>, organismo especializado de las <span class="actor-pill">Naciones Unidas</span>:</p>
                         </div>
                         <div class="collapsible-content hidden">
                             <ul class="nested-list">
-                                <li>Aquella nueva política de infraestructuras de la Unión convirtió el <strong><u>mosaico</u></strong> de carreteras, vías férreas, aeropuertos y canales europeos en una <strong><u>red unificada</u></strong>.</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-trigger">
-                            <i class="fas fa-chevron-right collapsible-icon"></i>
-                            <p><i class="fas fa-sitemap icon text-blue-600"></i>El nuevo Reglamento estructura la RTE-T en:</p>
-                        </div>
-                        <div class="collapsible-content hidden">
-                            <ul class="nested-list">
-                                <li>Una <span class="definition-pill"><strong>Red Básica (Core Network)</strong></span>, cuya finalización se espera para <span class="pill pill-blue">2030</span>.</li>
-                                <li>Una <span class="definition-pill"><strong>Red Básica Ampliada (Expanded Core Network)</strong></span>, para <span class="pill pill-blue">2040</span>.</li>
-                                <li>Y una <span class="definition-pill"><strong>Red Global (Comprehensive Network)</strong></span>, para <span class="pill pill-blue">2050</span>.</li>
-                            </ul>
-                        </div>
-                    </li>
-                     <li>
-                        <div class="collapsible-trigger">
-                            <i class="fas fa-chevron-right collapsible-icon"></i>
-                            <p><i class="fas fa-project-diagram icon text-green-600"></i>La <strong><u>Red Básica</u></strong> está conformada por:</p>
-                        </div>
-                        <div class="collapsible-content hidden">
-                            <ul class="nested-list">
-                               <li><strong><u>Nueve grandes corredores</u></strong> (dos pasan por España: <span class="plan-pill">Corredor Atlántico</span> y <span class="plan-pill">Corredor Mediterráneo</span>), que abarcan los flujos de larga distancia más importantes y siendo multimodales están destinados a <strong><u>mejorar los enlaces transfronterizos</u></strong>.</li>
-                               <li>Y por un conjunto de <strong><u>nodos</u></strong>, que comprenden los <strong><u>puertos, aeropuertos y las plataformas multimodales</u></strong>.</li>
-                               <li>
-                                   <div class="collapsible-trigger">
+                                <li>Se creó en <span class="pill pill-blue">1944</span> por el <span class="plan-pill">Convenio de Chicago sobre Aviación Civil Internacional</span>.</li>
+                                <li>Tiene <span class="pill pill-blue">193</span> estados miembros.</li>
+                                <li>
+                                    <div class="collapsible-trigger">
                                         <i class="fas fa-chevron-right collapsible-icon"></i>
-                                       <p>Esta red busca:</p>
-                                   </div>
-                                   <div class="collapsible-content hidden">
-                                       <ul class="nested-list deeper-nested-list">
-                                           <li>Eliminar los <strong><u>cuellos de botella</u></strong>.</li>
-                                           <li>Mejorar las <strong><u>infraestructuras</u></strong>.</li>
-                                           <li>Simplificar las <strong><u>operaciones transfronterizas</u></strong>.</li>
-                                           <li>Mejorar las <strong><u>conexiones</u></strong> entre diferentes modos de transporte.</li>
-                                           <li>Y lograr la <strong><u>interoperabilidad</u></strong> de las redes y un <strong><u>transporte sostenible</u></strong>, con baja emisión de carbono y eficiente en el uso de la energía, persiguiendo en paralelo la reducción de todas las formas de contaminación.</li>
-                                       </ul>
-                                   </div>
-                               </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><i class="fas fa-globe-europe icon text-blue-700"></i>La <strong><u>Red Global</u></strong>, por su parte, garantizará una <strong><u>cobertura completa</u></strong> de toda la Unión y la <strong><u>accesibilidad</u></strong> de todas las regiones, con el objetivo de que la mayoría de los ciudadanos y empresas se encuentren a menos de <span class="pill pill-blue">30 minutos</span> de viaje de esta Red. Todos los usuarios disfrutarán de servicios de transporte de pasajeros de alta calidad, asequibles y accesibles para personas de movilidad reducida.</li>
-                     <li>
-                        <div class="collapsible-trigger">
-                            <i class="fas fa-chevron-right collapsible-icon"></i>
-                            <p><i class="fas fa-network-wired icon text-gray-700"></i>Las <strong><u>redes</u></strong> que forman la RTE-T son:</p>
-                        </div>
-                         <div class="collapsible-content hidden">
-                             <ul class="nested-list">
-                               <li><i class="fas fa-road icon text-blue-500"></i>▪️ <strong>Red viaria</strong> (autopistas y carreteras de alta calidad).</li>
-                               <li><i class="fas fa-train icon text-purple-500"></i>▪️ <strong>Red ferroviaria</strong> (red de alta velocidad y líneas convencionales).</li>
-                               <li><i class="fas fa-water icon text-cyan-500"></i>▪️ <strong>Red de vías navegables y puertos de navegación interior</strong>.</li>
-                               <li><i class="fas fa-ship icon text-blue-700"></i>▪️ <strong>Red de puertos marítimos y autopistas del mar</strong> (unión marítima de varios puertos para disminuir el impacto ambiental del tráfico rodado).</li>
-                               <li><i class="fas fa-plane icon text-red-500"></i>▪️ <strong>Red aeroportuaria</strong> (aeropuertos de interés común).</li>
-                               <li><i class="fas fa-truck-moving icon text-orange-500"></i>▪️ <strong>Red de transporte combinado</strong> (formada por vías navegables y ferroviarias, con eventuales rutas viarias, para el transporte de mercancías a larga distancia).</li>
+                                        <p>Sus <strong><u>objetivos estratégicos</u></strong> son:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="nested-list deeper-nested-list">
+                                            <li><i class="fas fa-shield-alt icon"></i>Mejorar la <strong><u>seguridad</u></strong>.</li>
+                                            <li><i class="fas fa-chart-line icon"></i>Fomentar un <strong><u>sistema económicamente viable</u></strong>.</li>
+                                            <li><i class="fas fa-leaf icon"></i>Reducir los <strong><u>efectos ambientales negativos</u></strong>.</li>
+                                        </ul>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </li>
                     <li>
                         <div class="collapsible-trigger">
                             <i class="fas fa-chevron-right collapsible-icon"></i>
-                            <p><i class="fas fa-chart-line icon text-yellow-600"></i>Hoy, la red transeuropea de transporte acoge cerca de la <strong><u>mitad del tráfico total</u></strong> de mercancías y pasajeros de la Unión. Se han logrado <strong><u>notables progresos</u></strong> en interoperabilidad ferroviaria y en la ejecución de los eslabones que faltaban.</p>
+                            <p><i class="fas fa-ship icon text-cyan-700"></i>La <span class="actor-pill"><strong>OMI (Organización Marítima Internacional)</strong></span>, es el organismo especializado de las <span class="actor-pill">Naciones Unidas</span> responsable de:</p>
                         </div>
                          <div class="collapsible-content hidden">
                              <ul class="nested-list">
-                               <li>La <span class="definition-pill">Red Básica</span> está formada por <i class="fas fa-train text-purple-500 icon"></i><span class="pill pill-blue">51.000 km</span> de líneas ferroviarias, <i class="fas fa-road text-blue-500 icon"></i><span class="pill pill-blue">34.000 km</span> de carreteras, <i class="fas fa-water text-cyan-500 icon"></i><span class="pill pill-blue">13.000 km</span> de vías navegables interiores, <i class="fas fa-ship text-blue-700 icon"></i><span class="pill pill-blue">150</span> puertos y <i class="fas fa-plane text-red-500 icon"></i><span class="pill pill-blue">90</span> aeropuertos.</li>
-                               <li>Esta Red Básica forma parte de una <span class="definition-pill">Red Global</span> formada por <i class="fas fa-train text-purple-500 icon"></i><span class="pill pill-blue">138.000 km</span> de líneas ferroviarias, <i class="fas fa-road text-blue-500 icon"></i><span class="pill pill-blue">137.000 km</span> de carreteras, y <i class="fas fa-water text-cyan-500 icon"></i><span class="pill pill-blue">24.000 km</span> de vías navegables interiores.</li>
+                                 <li>La <strong><u>seguridad y protección de la navegación</u></strong>.</li>
+                                 <li>Y de <strong><u>prevenir la contaminación del mar</u></strong> por los buques.</li>
+                                 <li>Se creó en <span class="plan-pill">Ginebra</span> en <span class="pill pill-blue">1948</span>, y su función principal es establecer un <strong><u>marco normativo justo y eficaz</u></strong>.</li>
+                                 <li>La OMI cuenta con <span class="pill pill-blue">174</span> Estados Miembros.</li>
                             </ul>
                         </div>
                     </li>
-                    <li><i class="fas fa-euro-sign icon text-green-700"></i>Por otra parte, el <span class="directive-pill">Reglamento 1316/2013</span> creó el <span class="definition-pill"><strong>Mecanismo Conectar Europa</strong></span> y reguló la financiación, y actualmente está derogado por el <span class="directive-pill">Reglamento 2021/1153</span> que actualiza dicho Mecanismo.</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Main Card -->
         <div class="card">
             <div class="card-header">
-                <div class="icon-bg"><i class="fas fa-map-marker-alt"></i></div>
-                <h2>3. La RTE-T en España</h2>
+                <div class="icon-bg"><i class="fas fa-globe-europe"></i></div>
+                <h2>5. PRINCIPIOS Y NORMATIVA MÁS DESTACABLE DE LA UNIÓN EUROPEA EN MATERIA DE POLÍTICA DE TRANSPORTES</h2>
             </div>
             <div class="collapsible-trigger">
-                 <i class="fas fa-chevron-right collapsible-icon"></i>
-                <span>Ver detalles</span>
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-gavel mr-2 text-purple-600"></i>Principios</h3>
             </div>
             <div class="collapsible-content hidden">
                 <ul>
-                    <li><i class="fas fa-route icon text-blue-600"></i>De los nueve corredores de la red básica o principal, una parte de los corredores <span class="plan-pill">Atlántico</span> y <span class="plan-pill">Mediterráneo</span> discurren por <strong><span class="actor-pill">España</span></strong>.</li>
+                    <li><i class="fas fa-landmark icon text-gray-700"></i>Los <span class="actor-pill">Estados miembros</span> ya establecieron en el <span class="law-pill"><strong>Tratado de Roma</strong></span> la importancia de la creación de un <strong><u>mercado común de transportes</u></strong> con <u>libre prestación de servicios</u> y <u>apertura de los mercados de transportes</u>.</li>
                     <li>
                         <div class="collapsible-trigger">
                             <i class="fas fa-chevron-right collapsible-icon"></i>
-                            <p><i class="fas fa-network-wired icon text-purple-600"></i>Los <strong><u>nodos de la Red Básica RTE-T</u></strong> que existen en España son los siguientes:</p>
+                            <p><i class="fas fa-leaf icon text-green-600"></i>En los últimos <span class="pill pill-blue">30 años</span>, el transporte de personas y mercancías se ha <strong><u>duplicado ampliamente</u></strong> con negativas consecuencias por sus <u>costes sociales y ecológicos</u>. Por ello ha adquirido una importancia creciente la <strong><u>movilidad sostenible</u></strong> que minimice los costes externos.</p>
                         </div>
                         <div class="collapsible-content hidden">
                             <ul class="nested-list">
                                 <li>
                                     <div class="collapsible-trigger">
                                         <i class="fas fa-chevron-right collapsible-icon"></i>
-                                        <p><i class="fas fa-ship icon text-cyan-700"></i><strong><u>Puertos</u>:</strong></p>
+                                        <p>Dos <strong><u>principios fundamentales</u></strong> son:</p>
                                     </div>
                                     <div class="collapsible-content hidden">
                                         <ul class="nested-list deeper-nested-list">
-                                            <li><span class="actor-pill">Coruña</span>, <span class="actor-pill">Gijón</span>, <span class="actor-pill">Bilbao</span>, <span class="actor-pill">Barcelona</span>, <span class="actor-pill">Tarragona</span>, <span class="actor-pill">Valencia</span>, <span class="actor-pill">Cartagena</span>, <span class="actor-pill">Algeciras</span>, <span class="actor-pill">Sevilla</span>, <span class="actor-pill">Huelva</span>, <span class="actor-pill">Palma de Mallorca</span>, <span class="actor-pill">Santa Cruz de Tenerife</span> y <span class="actor-pill">Las Palmas de Gran Canaria</span>, junto con la vía navegable del Guadalquivir hasta Sevilla.</li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-trigger">
-                                        <i class="fas fa-chevron-right collapsible-icon"></i>
-                                        <p><i class="fas fa-truck-loading icon text-orange-600"></i><strong><u>Terminales Intermodales de Carreteras y Ferrocarril</u>:</strong></p>
-                                    </div>
-                                    <div class="collapsible-content hidden">
-                                        <ul class="nested-list deeper-nested-list">
-                                            <li>Además de las ubicadas en los puertos, las de: <span class="actor-pill">Córdoba</span>, <span class="actor-pill">Antequera</span>, <span class="actor-pill">Zaragoza-Plaza</span>, <span class="actor-pill">León</span>, <span class="actor-pill">Valladolid</span>, <span class="actor-pill">Alcázar de San Juan</span>, <span class="actor-pill">Barcelona</span>, <span class="actor-pill">Madrid</span>, <span class="actor-pill">ZAL de Murcia</span> y <span class="actor-pill">Bilbao</span>.</li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-trigger">
-                                        <i class="fas fa-chevron-right collapsible-icon"></i>
-                                        <p><i class="fas fa-plane-departure icon text-red-600"></i><strong><u>Aeropuertos</u>:</strong></p>
-                                    </div>
-                                    <div class="collapsible-content hidden">
-                                        <ul class="nested-list deeper-nested-list">
-                                            <li><span class="actor-pill">Alicante</span>, <span class="actor-pill">Barcelona</span>, <span class="actor-pill">Bilbao</span>, <span class="actor-pill">Madrid</span>, <span class="actor-pill">Las Palmas de Gran Canaria</span>, <span class="actor-pill">Málaga</span>, <span class="actor-pill">Palma de Mallorca</span>, <span class="actor-pill">Sevilla</span>, <span class="actor-pill">Tenerife Sur</span> y <span class="actor-pill">Valencia</span>.</li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-trigger">
-                                        <i class="fas fa-chevron-right collapsible-icon"></i>
-                                        <p><i class="fas fa-city icon text-blue-700"></i><strong><u>Nodos Urbanos</u>:</strong></p>
-                                    </div>
-                                     <div class="collapsible-content hidden">
-                                         <ul class="nested-list deeper-nested-list">
-                                            <li><span class="actor-pill">Barcelona</span>, <span class="actor-pill">Bilbao</span>, <span class="actor-pill">Madrid</span>, <span class="actor-pill">Sevilla</span>, <span class="actor-pill">Valencia</span>, <span class="actor-pill">Palma de Mallorca</span>, <span class="actor-pill">Las Palmas de Gran Canaria</span> y <span class="actor-pill">Santa Cruz de Tenerife</span>.</li>
+                                            <li><i class="fas fa-dollar-sign icon text-green-500"></i>Quien contamina paga.</li>
+                                            <li><i class="fas fa-user-check icon text-blue-500"></i>Quien utiliza paga.</li>
                                         </ul>
                                     </div>
                                 </li>
                             </ul>
                         </div>
                     </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-book-open icon text-blue-600"></i>La <span class="actor-pill">Comisión Europea</span> en su <span class="plan-pill"><strong>Libro Blanco de 2011</strong></span> por un transporte competitivo y sostenible, fija los siguientes <strong><u>objetivos</u></strong>:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-smog icon"></i><strong><u>Reducir en un <span class="pill pill-blue">60%</span> las emisiones de GEI</u></strong> para <span class="pill pill-blue">2050</span> (respecto a 1990) sin comprometer la movilidad, junto con un objetivo intermedio del <span class="pill pill-blue">20%</span> para <span class="pill pill-blue">2030</span>.</li>
+                                <li><i class="fas fa-network-wired icon"></i>Establecer una <strong><u>red básica eficiente</u></strong> y basada en las nuevas tecnologías, como el sistema europeo de navegación por satélite <span class="plan-pill">Galileo</span>, el sistema europeo de gestión del tráfico ferroviario (<span class="plan-pill">ERTMS</span>) y el programa <span class="plan-pill">SESAR</span> de mejora de la infraestructura de gestión del tráfico aéreo.</li>
+                                <li><i class="fas fa-recycle icon"></i><strong><u>Reforzar la competitividad</u></strong> de medios de transporte más respetuosos con el medio ambiente mediante la <strong><u>intermodalidad</u></strong>.</li>
+                                <li><i class="fas fa-gas-pump icon"></i><strong><u>Desarrollar y utilizar nuevos combustibles sostenibles</u></strong>, como reducir a la mitad el uso de automóviles de propulsión convencional en el transporte urbano para <span class="pill pill-blue">2030</span>, eliminándolos en las ciudades para <span class="pill pill-blue">2050</span>.</li>
+                                <li><i class="fas fa-exchange-alt icon"></i>Intentar <strong><u>transferir al ferrocarril y a la navegación fluvial</u></strong>, de aquí a <span class="pill pill-blue">2030</span>, el <span class="pill pill-blue">30%</span> del transporte de mercancías por carretera, y para <span class="pill pill-blue">2050</span>, más del <span class="pill pill-blue">50%</span>.</li>
+                                <li><i class="fas fa-train icon"></i>Y realizar por <strong><u>ferrocarril la mayor parte del transporte de pasajeros de media distancia</u></strong> (hasta unos 300 km) en <span class="pill pill-blue">2050</span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <hr class="my-6">
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <h3 class="text-xl font-bold text-gray-700"><i class="fas fa-file-alt mr-2 text-purple-600"></i>Normativa</h3>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-info-circle icon text-blue-600"></i>La <span class="actor-pill">Unión Europea</span> ha publicado un importante número de reglamentos y directivas, destacando los reglamentos sobre <u>transportes internacionales de viajeros con autocares o autobuses</u>, sobre <u>transporte internacional de mercancías por carretera</u>, sobre <u>libre prestación de servicios de transporte marítimo de cabotaje</u>, sobre la <u>explotación de servicios aéreos</u>, así como los reglamentos y las directivas de los <u>cuatro paquetes ferroviarios</u>.</li>
                 </ul>
             </div>
         </div>
 
+
+
+
         <div class="card">
             <div class="card-header">
-                <div class="icon-bg"><i class="fas fa-euro-sign"></i></div>
-                <h2>4. FINANCIACIÓN EUROPEA DE INFRAESTRUCTURAS</h2>
+                <div class="icon-bg"><i class="fas fa-running"></i></div>
+                <h2>6. EUROPA EN MOVIMIENTO (EUROPE ON THE MOVE)</h2>
             </div>
             <div class="collapsible-trigger">
                 <i class="fas fa-chevron-right collapsible-icon"></i>
@@ -396,89 +425,33 @@
             </div>
             <div class="collapsible-content hidden">
                 <ul>
-                    <li><i class="fas fa-handshake icon text-blue-600"></i>Las redes transeuropeas (RTE) están <strong><u>cofinanciadas</u></strong> por la <span class="actor-pill">Unión Europea</span> y por los <span class="actor-pill">Estados miembros</span>. La ayuda financiera de la Unión sirve de <strong><u>catalizador</u></strong>, mientras que los Estados miembros aportan la mayor parte de los fondos.</li>
+                    <li><i class="fas fa-info-circle icon text-blue-600"></i><span class="plan-pill"><strong>“Europa en movimiento”</strong></span> es una iniciativa de <span class="pill pill-blue">2017</span> de la <span class="actor-pill">Comisión Europea</span>, cuyo <strong><u>objetivo</u></strong> es ayudar al sector del transporte a <strong><u>mantener su competitividad</u></strong> en una transición socialmente justa hacia la <strong><u>energía limpia</u></strong> y la <strong><u>digitalización</u></strong>.</li>
                     <li>
                         <div class="collapsible-trigger">
                             <i class="fas fa-chevron-right collapsible-icon"></i>
-                            <p><i class="fas fa-coins icon text-yellow-500"></i>Las <strong><u>ayudas de la Unión</u></strong> a los proyectos han adoptado las siguientes formas:</p>
+                            <p><i class="fas fa-tasks icon text-green-600"></i>Las <strong><u>medidas</u></strong> que propone son:</p>
                         </div>
                         <div class="collapsible-content hidden">
                             <ul class="nested-list">
-                                <li>Cofinanciación de estudios relacionados con los proyectos.</li>
-                                <li>Contribución a las primas de garantías de créditos.</li>
-                                <li>Bonificaciones de intereses sobre préstamos concedidos.</li>
-                                <li>Y subvenciones directas a las inversiones.</li>
+                                <li><i class="fas fa-shield-alt icon"></i>Hacer más <strong><u>seguro</u></strong> el tráfico.</li>
+                                <li><i class="fas fa-euro-sign icon"></i>Fomentar una <strong><u>tarificación más equitativa</u></strong> del uso de las carreteras.</li>
+                                <li><i class="fas fa-smog icon"></i>Reducir las <strong><u>emisiones de CO2</u></strong>.</li>
+                                <li><i class="fas fa-user-secret icon"></i>Combatir el <strong><u>empleo ilícito</u></strong>.</li>
+                                <li><i class="fas fa-bed icon"></i>Y garantizar unos <strong><u>tiempos de descanso adecuados</u></strong> a los trabajadores.</li>
                             </ul>
-                             <p class="mt-4"><i class="fas fa-percentage icon"></i>Las ayudas de la Unión destinadas a los proyectos representaron entre un <span class="pill pill-blue">10%</span> y un <span class="pill pill-blue">30%</span> de cada proyecto (con el máximo para los tramos transfronterizos de proyectos prioritarios), y su selección se ha realizado con criterios de <strong><u>rentabilidad económica y social</u></strong>, y <strong><u>armonización</u></strong> con los objetivos de la RTE-T.</p>
                         </div>
                     </li>
-                     <li>
+                    <li>
                         <div class="collapsible-trigger">
                             <i class="fas fa-chevron-right collapsible-icon"></i>
-                            <p><i class="fas fa-tools icon text-gray-700"></i>Para la financiación de las RTE-T, existen <strong><u>diferentes instrumentos</u></strong>:</p>
+                            <p><i class="fas fa-chart-line icon text-purple-600"></i>Estas medidas a largo plazo <strong><u>promoverán</u></strong>:</p>
                         </div>
-                        <div class="collapsible-content hidden">
-                            <ul class="nested-list">
-                               <li>
-                                   <div class="collapsible-trigger">
-                                        <i class="fas fa-chevron-right collapsible-icon"></i>
-                                       <p><i class="fas fa-university icon text-blue-700"></i><strong><u>El Banco Europeo de Inversiones (BEI)</u></strong>, que es propiedad de los <span class="pill pill-blue">27</span> países de la <span class="actor-pill">UE</span>.</p>
-                                   </div>
-                                    <div class="collapsible-content hidden">
-                                        <ul class="nested-list deeper-nested-list">
-                                           <li>Pide prestado dinero en los mercados de capital y lo presta <strong><u>sin ánimo de lucro</u></strong> a proyectos destinados a mejorar las infraestructuras, el suministro de energía o las condiciones medioambientales tanto dentro de la UE (<span class="pill pill-blue">90%</span>) como en países vecinos o en desarrollo.</li>
-                                           <li>Sus <strong><u>servicios</u></strong> que presta son: créditos, asistencia técnica, garantías, y capital riesgo.</li>
-                                           <li>El BEI tiene <strong><u>6 objetivos prioritarios</u></strong> de crédito: cohesión y convergencia, ayuda a Pymes, sostenibilidad medioambiental, innovación, desarrollo de las redes transeuropeas de transporte y energía, y energía sostenible.</li>
-                                            <li>La participación en España alcanzó en <span class="pill pill-blue">2022</span> los <span class="pill pill-blue">10.000 M€</span>.</li>
-                                        </ul>
-                                    </div>
-                               </li>
-                               <li>
-                                   <div class="collapsible-trigger">
-                                        <i class="fas fa-chevron-right collapsible-icon"></i>
-                                       <p><i class="fas fa-project-diagram icon text-purple-600"></i><strong><u>El Fondo Europeo para Inversiones Estratégicas (EFSI)</u></strong>:</p>
-                                   </div>
-                                    <div class="collapsible-content hidden">
-                                        <ul class="nested-list deeper-nested-list">
-                                           <li>Es el elemento central del <span class="plan-pill">Plan de Inversiones para Europa (Plan Juncker)</span>, destinado a impulsar el crecimiento económico y la competitividad a largo plazo en la UE.</li>
-                                           <li>Pretende <strong><u>movilizar financiación pública</u></strong> con cargo al presupuesto de la UE, para <strong><u>atraer la inversión privada</u></strong> hacia una amplia variedad de proyectos.</li>
-                                           <li>Es gestionado por el <span class="actor-pill">BEI</span>, y fue creado mediante el <span class="directive-pill">Reglamento UE 2015/1017</span>.</li>
-                                        </ul>
-                                    </div>
-                               </li>
-                               <li>
-                                   <div class="collapsible-trigger">
-                                        <i class="fas fa-chevron-right collapsible-icon"></i>
-                                       <p><i class="fas fa-link icon text-green-600"></i><strong><u>Mecanismo “Conectar Europa”</u>:</strong></p>
-                                   </div>
-                                    <div class="collapsible-content hidden">
-                                        <ul class="nested-list deeper-nested-list">
-                                            <li>En <span class="pill pill-blue">2013</span>, se crea un nuevo instrumento para la financiación de la RTE-T, el Mecanismo “Conectar Europa” que pretende lograr sinergias, reforzando la eficacia de la acción de la Unión y posibilitando la optimización de los costes de ejecución.</li>
-                                             <li>Persigue <strong><u>acelerar la inversión</u></strong> en el campo de las redes transeuropeas y funcionar como un <strong><u>factor multiplicador</u></strong> de fondos públicos y privados.</li>
-                                             <li>En <span class="pill pill-blue">2021</span>, se llevó a cabo una revisión del mismo, para orientarlo al cumplimiento de los ODS y del Acuerdo de París, estableciéndose un presupuesto de más de <span class="pill pill-blue">33.700 M€</span> para el periodo <span class="pill pill-blue">2021-2027</span>.</li>
-                                        </ul>
-                                    </div>
-                               </li>
-                                <li><i class="fas fa-landmark icon text-gray-500"></i><strong><u>Fondo Europeo de Desarrollo Regional (FEDER)</u>:</strong> cuyo objetivo es fomentar el desarrollo equilibrado en las distintas regiones de la Unión Europea.</li>
-                                <li>
-                                    <div class="collapsible-trigger">
-                                        <i class="fas fa-chevron-right collapsible-icon"></i>
-                                        <p><i class="fas fa-building icon text-blue-500"></i><strong><u>Next Generation EU</u>:</strong></p>
-                                    </div>
-                                     <div class="collapsible-content hidden">
-                                         <ul class="nested-list deeper-nested-list">
-                                            <li>
-                                                <p>Para el periodo <span class="pill pill-blue">2021-2027</span>, y en base a los fondos <span class="plan-pill">NextGenerationEU</span>, el <span class="plan-pill">Plan de Recuperación, Transformación y Resiliencia</span> incluye para la RTE-T en nuestro país:</p>
-                                                 <ul class="nested-list even-deeper-nested-list">
-                                                    <li><i class="fas fa-train icon text-purple-600"></i>- Casi <span class="pill pill-blue">3.000 M€</span> para el desarrollo de los <strong><u>corredores ferroviarios básicos</u></strong> Mediterráneo y Atlántico.</li>
-                                                     <li><i class="fas fa-tools icon text-yellow-600"></i>- <span class="pill pill-blue">1.000 M€</span> para la <strong><u>renovación de líneas ferroviarias</u></strong> que no sean de la Red Básica.</li>
-                                                     <li><i class="fas fa-road icon text-blue-600"></i>- <span class="pill pill-blue">700 M€</span> para la <strong><u>Red de Carreteras del Estado</u></strong>.</li>
-                                                     <li><i class="fas fa-plane-up icon text-cyan-600"></i>- <span class="pill pill-blue">100 M€</span> para el desarrollo del <strong><u>Cielo Único Europeo</u></strong>.</li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                   </div>
-                               </li>
+                         <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                                <li>El <strong><u>empleo, el crecimiento y la inversión</u></strong>.</li>
+                                <li>Reforzarán la <strong><u>justicia social</u></strong>.</li>
+                                <li>Ampliarán la <strong><u>capacidad de elección</u></strong> de los consumidores.</li>
+                                <li>Y situarán con firmeza a Europa en la senda hacia el objetivo de <strong><u>cero emisiones</u></strong>.</li>
                             </ul>
                         </div>
                     </li>
@@ -486,7 +459,34 @@
             </div>
         </div>
 
-
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-lightbulb"></i></div>
+                <h2>7. LA ESTRATEGIA EUROPEA DE MOVILIDAD SOSTENIBLE E INTELIGENTE DE 2020</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><i class="fas fa-info-circle icon text-blue-600"></i>En <span class="pill pill-blue">2020</span>, la <span class="actor-pill">Comisión Europea</span> aprobó la <span class="plan-pill"><strong>Estrategia Europea de Movilidad Sostenible e Inteligente</strong></span>, un <strong><u>instrumento de planificación</u></strong> con el que la Comisión pretende <strong><u>guiar y sentar las bases</u></strong> de la necesaria transformación hacia la <strong><u>sostenibilidad y la digitalización</u></strong> que debe emprender el sector de la movilidad y el transporte en los próximos años.</li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-tasks icon text-green-600"></i>En el documento, se contempla la puesta en marcha de <span class="pill pill-blue"><strong>82 iniciativas</strong></span> divididas en <strong><u>diez áreas de trabajo estratégicas</u></strong> a desarrollar en los próximos cuatro años, muchas de las cuales requerirán:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><strong><u>Cambios normativos</u></strong> sobre la legislación vigente.</li>
+                                <li>Y un <strong><u>esfuerzo económico importante</u></strong>: unos <span class="pill pill-blue">300.000 M €</span> durante los próximos 10 años.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-leaf icon text-green-700"></i>Dentro de la Estrategia, la <strong><u>sostenibilidad juega un papel central</u></strong>, ya que <strong><u>cinco de las diez áreas de trabajo</u></strong> están dirigidas a introducir medidas que contribuyan a la <strong><u>descarbonización del sector</u></strong> y de la economía europea, en línea con los compromisos adquiridos por los estados miembros y con los objetivos del <span class="directive-pill">Pacto Verde Europeo</span>.</li>
+                </ul>
+            </div>
+        </div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -501,8 +501,10 @@
                     
                     this.classList.toggle('open');
                     
-                    if (content && content.classList.contains('collapsible-content')) {
-                        content.classList.toggle('hidden');
+                    if (content && content.classList.contains('hidden')) {
+                        content.classList.remove('hidden');
+                    } else {
+                        content.classList.add('hidden');
                     }
                 });
             });
@@ -510,3 +512,4 @@
     </script>
 </body>
 </html>
+
