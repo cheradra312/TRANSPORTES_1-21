@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEC1T18. Infraestructuras de transporte, inversión y financiación</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Estilos CSS personalizados -->
+    <style>
+        /* Fuentes y fondo base */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        /* Estructura principal de las tarjetas */
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-header .icon-bg {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        /* Reset de listas */
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-top: 1rem; }
+
+        /* Estilos para las "píldoras" de colores */
+        .pill, .law-pill, .directive-pill, .actor-pill, .plan-pill, .definition-pill, .pill-blue, .principle-pill {
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0 0.2rem;
+        }
+        .pill-blue { background-color: #dbeafe; color: #1e4d91; border: 1px solid #93c5fd; }
+        .law-pill { background-color: #f3e8ff; color: #581c87; border: 1px solid #c084fc; }
+        .actor-pill { background-color: #e5e7eb; color: #1f2937; border: 1px solid #9ca3af; }
+        .plan-pill { background-color: #cffafe; color: #164e63; border: 1px solid #67e8f9; }
+        .definition-pill { background-color: #cffafe; color: #155e75; border: 1px solid #22d3ee; }
+        .principle-pill { background-color: #dcfce7; color: #166534; border: 1px solid #86efac; }
+        
+        /* Iconos dentro del texto */
+        .icon {
+            margin-right: 0.5rem;
+            width: 1.25em;
+            text-align: center;
+        }
+
+        /* --- Estilos para las listas anidadas y viñetas --- */
+        .nested-list, .deeper-nested-list, .even-deeper-nested-list {
+            padding-left: 1.75rem;
+            margin-top: 0.75rem;
+            border-left: 3px dotted #cbd5e1;
+        }
+        .nested-list > li, .deeper-nested-list > li, .even-deeper-nested-list > li {
+            position: relative;
+        }
+        .nested-list > li::before {
+            content: '🔹';
+            position: absolute;
+            left: -1.75rem;
+            top: 0.25rem;
+            color: #3b82f6;
+        }
+        .deeper-nested-list > li::before {
+             content: '▪️';
+             position: absolute;
+             left: -1.5rem;
+             top: 0.25rem;
+        }
+        .even-deeper-nested-list > li::before {
+             content: '▫️';
+             position: absolute;
+             left: -1.5rem;
+             top: 0.25rem;
+        }
+        /* Regla para ocultar la viñeta CSS si un icono es el PRIMER elemento */
+        .nested-list > li:has(> i.icon:first-child)::before,
+        .deeper-nested-list > li:has(> i.icon:first-child)::before,
+        .even-deeper-nested-list > li:has(> i.icon:first-child)::before {
+            content: none;
+        }
+
+        /* --- Estilos para la funcionalidad desplegable --- */
+        .collapsible-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.25rem 0;
+            transition: background-color 0.2s ease;
+        }
+        .collapsible-trigger:hover {
+            background-color: #f9fafb;
+        }
+        .collapsible-trigger > p, .collapsible-trigger > h3, .collapsible-trigger > span {
+            margin: 0;
+        }
+        .collapsible-trigger > h3, .collapsible-trigger > span {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+            margin-right: 0.75rem;
+            width: 1em;
+            color: #3b82f6;
+        }
+        .collapsible-content {
+            padding-left: 1.75rem;
+        }
+        .collapsible-trigger.open .collapsible-icon {
+            transform: rotate(90deg);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 p-4 sm:p-6 md:p-8">
+    <div class="max-w-5xl mx-auto">
+
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2"><i class="fas fa-road"></i> MEC1T18. Infraestructuras de transporte, inversión y financiación <i class="fas fa-coins"></i></h1>
+        </header>
+
+        <!-- Card 1: Infraestructuras, Inversión y Financiación -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-chart-area"></i></div>
+                <h2>1. Infraestructuras de transporte, inversión y financiación. Dotación de infraestructuras de transporte y comparativa con otros países de la Unión Europea. Volumen de inversión en infraestructuras de transporte.</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><p><i class="fas fa-money-bill-wave icon text-green-600"></i>La <span class="definition-pill"><strong>financiación</strong></span> es la <strong><u>contribución de dinero</u></strong> que se requiere para poder concretar un proyecto, que puede provenir de <u>patrimonio propio o ajeno</u>.</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-university icon text-purple-600"></i>Las infraestructuras tienen, en un cierto grado, características típicas de lo que los economistas denominan <span class="definition-pill"><strong>bienes públicos</strong></span>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Un <strong>bien público puro</strong> se caracterizaría por el hecho de que su <u>consumo por una determinada persona no excluiría</u> que otra persona distinta también lo consumiera.</li>
+                                <li>El grado del <strong>carácter público</strong> de las infraestructuras <strong>varía</strong>, siendo <u>máximo en las vías urbanas</u> y <u>menor en los puertos o aeropuertos</u>, pudiendo haber una cierta correspondencia entre ese carácter de las infraestructuras y su forma de financiación.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-road icon text-orange-600"></i>La <strong><u>red de carreteras en España</u></strong> cuenta con unos <span class="pill-blue"><strong>165.000 km</strong></span> (<u>autopistas de peaje</u> <span class="pill-blue">2.000 km</span>, <u>autovías y autopistas libres</u> <span class="pill-blue">13.000 km</span>, <u>carreteras multicarril</u> <span class="pill-blue">1.600 km</span>, y <u>carreteras convencionales</u> <span class="pill-blue">149.000 km</span>) sin considerar la red de los ayuntamientos.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>Está distribuida así:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="deeper-nested-list">
+                                            <li><strong><span class="actor-pill">Red de Carreteras del Estado</span></strong> <span class="pill-blue">26.500 km</span> (<u>autopistas de peaje</u> 1.400 km, <u>autovías y autopistas libres</u> 10.300 km, <u>carreteras de doble calzada</u> 500 km y <u>carreteras convencionales</u> 14.300 km);</li>
+                                            <li><strong><span class="actor-pill">Red de las Comunidades Autónomas</span></strong> <span class="pill-blue">71.000 km</span>;</li>
+                                            <li>y <strong><span class="actor-pill">Red de Diputaciones Provinciales, Cabildos y Consejos Insulares</span></strong> <span class="pill-blue">68.000 km</span>.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><p><i class="fas fa-train icon text-indigo-600"></i>La <strong><u>red ferroviaria de interés general</u></strong> consta de <span class="pill-blue"><strong>15.600 km</strong></span>, de los cuales unos <span class="pill-blue">11.200 km</span> son de <u>ancho ibérico</u>, <span class="pill-blue">3.000 km</span> de <u>ancho internacional</u>, <span class="pill-blue">1.200 km</span> de <u>ancho métrico</u> y <span class="pill-blue">200 km</span> de <u>ancho mixto</u> (ibérico + internacional).</p></li>
+                    <li><p><i class="fas fa-trophy icon text-yellow-500"></i><span class="actor-pill"><strong>España</strong></span> es el <strong><u>país europeo con mayor dotación</u></strong> de <u>carreteras de gran capacidad</u> (autopistas y autovías) y <u>líneas ferroviarias de alta velocidad</u>, en este último aspecto solo superado a nivel mundial por <span class="actor-pill">China</span>.</p></li>
+                    <li><p><i class="fas fa-ship icon text-teal-600"></i>El <strong><u>Sistema Portuario estatal</u></strong> está integrado por <strong><span class="pill-blue">46</span> puertos de interés general</strong>, gestionados por <strong><span class="pill-blue">28</span> Autoridades Portuarias</strong>, cuya coordinación y control de eficiencia corresponde al Organismo Público <span class="actor-pill">Puertos del Estado</span>, dependiente del <span class="actor-pill">MITMS</span>.</p></li>
+                    <li><p><i class="fas fa-plane icon text-cyan-600"></i>Los <strong><u>aeropuertos de interés general</u></strong>, gestionados por <span class="actor-pill">Aeropuertos Españoles y Navegación Aérea (AENA)</span>, son <strong><span class="pill-blue">46</span></strong>, incluidas las bases aéreas abiertas al tráfico civil, más <strong><span class="pill-blue">2</span> helipuertos</strong>.</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-chart-line icon text-red-500"></i>El <strong><u>principal impulsor de infraestructuras</u></strong> en <span class="actor-pill">España</span> es el <span class="actor-pill">Ministerio de Transportes y Movilidad Sostenible</span>, y todos sus entes vinculados (<span class="definition-pill">Grupo MITMS</span>), que en <span class="pill-blue"><strong>2023</strong></span> tuvo una <strong>inversión prevista</strong> con cargo a los Presupuestos Generales del Estado de:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><span class="pill-blue">6.200 M€</span> en <strong>ferrocarriles</strong>,</li>
+                                <li><span class="pill-blue">2.700 M€</span> en <strong>carreteras</strong>,</li>
+                                <li><span class="pill-blue">1.200 M€</span> en <strong>puertos</strong>,</li>
+                                <li>y <span class="pill-blue">800 M€</span> en <strong>aeropuertos</strong>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 2: Financiación de las infraestructuras -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-money-check-alt"></i></div>
+                <h2>2. La financiación de las infraestructuras: financiación presupuestaria y extrapresupuestaria</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-university icon text-blue-600"></i>La <span class="definition-pill"><strong>financiación presupuestaria</strong></span> es aquella en la que el dinero que se requiere proviene de los <strong><u>presupuestos de las Administraciones Públicas</u></strong>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                             <ul class="nested-list">
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>Los <strong>métodos</strong> de financiación presupuestaria son los siguientes:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="deeper-nested-list">
+                                            <li><i class="fas fa-dolly icon"></i><strong><u>Inversión directa</u></strong>, es la <u>inversión tradicional presupuestaria</u> donde la infraestructura se aborda con <strong>fondos públicos</strong>, el abono de dichas actuaciones se realiza mediante <strong>certificaciones</strong> en función del grado de avance de la obra que computan íntegramente como <u>gasto público en el ejercicio en que se realizan</u>.</li>
+                                            <li>
+                                                <div class="collapsible-trigger">
+                                                    <i class="fas fa-chevron-right collapsible-icon"></i>
+                                                    <p><i class="fas fa-history icon"></i><strong><u>Inversión diferida</u></strong>, se consideran:</p>
+                                                </div>
+                                                <div class="collapsible-content hidden">
+                                                    <ul class="even-deeper-nested-list">
+                                                        <li><i class="fas fa-file-invoice-dollar icon"></i><strong>abono total de precio</strong> o <span class="definition-pill">“método alemán”</span> (el coste de la infraestructura se abona <u>tras su finalización</u> en uno o varios pagos, el importe de la obra computa como <u>gasto público según se va realizando</u> de acuerdo con el principio del devengo),</li>
+                                                        <li><i class="fas fa-road icon"></i>y <strong><span class="definition-pill">peaje en sombra</span></strong> (inversión financiada por el <u>sector privado</u> con el compromiso de la Administración de abonarla durante un plazo determinado a través de unas <u>tarifas pactadas por demanda o por disponibilidad</u>, los pagos computarán como <u>gasto público en el ejercicio en que se realizan</u>, salvo que se hayan transferido al concesionario <strong>2 riesgos</strong>, entre los que se incluye el de <strong>construcción</strong>).</li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="collapsible-trigger">
+                                                    <i class="fas fa-chevron-right collapsible-icon"></i>
+                                                    <p><i class="fas fa-directions icon"></i><strong><u>Inversión indirecta</u></strong>, hay tres tipos:</p>
+                                                </div>
+                                                <div class="collapsible-content hidden">
+                                                    <ul class="even-deeper-nested-list">
+                                                        <li><i class="fas fa-exchange-alt icon"></i><strong>transferencias de capital</strong> (con cargo a los Presupuestos públicos se realiza una transferencia de capital a un <u>agente inversor de carácter público</u>, que computa como <u>gasto público en el momento en que se genera el compromiso de abono</u>),</li>
+                                                        <li><i class="fas fa-chart-pie icon"></i><strong>aportaciones de capital</strong> (se realizan vía presupuestos a <u>Entes de capital público</u> con capacidad de gestión propia que tienen capacidad de generación de recursos y por tanto existen <u>expectativas de recuperación</u> de las aportaciones, por este motivo las aportaciones son consideradas <u>inversiones financieras y no computan como gasto público</u>),</li>
+                                                        <li><i class="fas fa-credit-card icon"></i>y <strong>créditos participativos</strong> (la Administración financia a una sociedad que invierte en una infraestructura, la aportación es necesaria para <u>hacer viable un proyecto</u> que no es capaz de captar los recursos necesarios en el mercado financiero, se trata de <u>inversiones financieras del Estado que no computan como gasto público</u>).</li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><p><i class="fas fa-cash-register icon text-purple-600"></i>El dinero que integra los presupuestos de las diferentes <span class="actor-pill">Administraciones Públicas</span>, a su vez proviene generalmente de la <strong>recaudación, vía impuestos</strong>, de los ciudadanos y las empresas según el <span class="definition-pill"><strong>principio de caja única</strong></span> (lo recaudado por las diferentes vías impositivas va una <u>“caja común”</u> desde la que se atienden todos los gastos, sin que haya una correspondencia directa entre el origen de los ingresos y el destino de los gastos), pero también puede tener su origen en flujos provenientes de la <span class="actor-pill">Unión Europea</span> (<span class="definition-pill">Fondos europeos</span>) que se aplican a las <span class="actor-pill">Administraciones Públicas</span>, incorporándose a sus Presupuestos.</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-hand-holding-usd icon text-orange-600"></i>Dentro de la <span class="definition-pill"><strong>financiación extrapresupuestaria</strong></span> se consideran una serie de <strong>instrumentos</strong> para la provisión de infraestructuras con financiación proveniente del <strong><u>mercado financiero privado</u></strong>. Se trata básicamente de inversiones soportadas por la <u>generación de recursos con cargo al usuario</u> de la infraestructura. Se distinguen:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li><i class="fas fa-file-signature icon"></i><strong><u>Concesión de obra pública</u></strong>, la Administración adjudica un contrato de concesión para la <strong>explotación</strong> de una infraestructura, por su parte el <u>agente privado</u> además de este derecho adquiere la obligación de ejecutar un <strong>programa de inversiones</strong>, por todo ello se retribuye cobrando unas <u>tarifas pactadas al usuario</u> de la infraestructura que es finalmente el que soporta el coste de la inversión. Es el caso de las <strong>autopistas de peaje</strong>.</li>
+                                <li><i class="fas fa-tags icon"></i><strong><u>Utilización de infraestructuras</u></strong>, es el caso de los <strong>cánones</strong> que abonan las <u>empresas ferroviarias</u> por utilizar las infraestructuras ferroviarias a <span class="actor-pill">ADIF</span>, o las <strong>tasas</strong> abonadas a las <span class="actor-pill">Autoridades Portuarias</span> por la utilización de las instalaciones portuarias.</li>
+                                <li><i class="fas fa-landmark-flag icon"></i><strong><u>Concesión de dominio público</u></strong>, figura que plantea similitudes con la concesión de obra pública por la que la Administración adjudica el <strong>derecho de explotación o uso</strong> de un bien de <u>dominio público</u>. Las inversiones que lleve a cabo el agente privado en el bien de dominio público <strong>revierten a la Administración</strong> libres de cargas y gravámenes al término de la concesión y, además, debe abonar un <strong>canon anual</strong> durante el periodo de concesión.</li>
+                                <li><i class="fas fa-donate icon"></i><strong><u>Contribuciones especiales</u></strong>, que se pueden imponer cuando de la ejecución de obras que realice la administración, resulte un <strong>beneficio especial y directo</strong> para personas o empresas.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><p><i class="fas fa-random icon text-green-600"></i>Es habitual encontrar infraestructuras que se financian por un <span class="definition-pill"><strong>sistema mixto</strong></span> combinación de varios de los descritos, así, por ejemplo, hay <u>autopistas de peaje</u> en las que la administración puede entrar a financiar una parte de la inversión con <u>créditos participativos</u>, o entidades públicas empresariales como <span class="actor-pill">ADIF</span>, que pueden financiar parte de sus inversiones en infraestructuras con la aportación del Estado a través de <u>transferencias de capital</u> o <u>aportaciones de capital</u>.</p></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 3: Participación del sector privado -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-users-cog"></i></div>
+                <h2>3. Participación del sector privado en la financiación de infraestructuras</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><p><i class="fas fa-thumbs-up icon text-green-600"></i>La <strong><u>gran ventaja</u></strong> de la <strong>conjunción público-privada</strong> en la financiación de infraestructuras, aparte de <u>suplir las insuficiencias presupuestarias</u>, es la <strong>introducción de <u>criterios de mercado</u></strong> en la selección de los proyectos a realizar, <strong>aumentando la <u>eficiencia</u></strong> en la utilización de los recursos.</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-globe-europe icon text-blue-600"></i>La <span class="actor-pill">Unión Europea</span> ha aclarado las <strong>condiciones</strong> para que dichas inversiones <strong><u>no computen como gasto público</u></strong>, que son:</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>que el <span class="actor-pill">socio privado</span> <strong>asuma</strong> el <strong>riesgo de construcción</strong> y:
+                                    <ul class="deeper-nested-list">
+                                        <li>el <strong><span class="definition-pill">riesgo de demanda</span></strong> (asociado al <u>volumen de tráfico</u> que va a utilizar la infraestructura)</li>
+                                        <li>o el <strong><span class="definition-pill">riesgo de disponibilidad</span></strong> (vinculado a <u>disponer de la infraestructura en condiciones adecuadas</u> la mayor parte del tiempo).</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><p><i class="fas fa-file-signature icon text-purple-600"></i>La <strong>fórmula utilizada</strong> es la del <strong><u><span class="definition-pill">régimen concesional</span></u></strong>, un modelo caracterizado por el <strong>fuerte vínculo</strong> existente entre el <span class="actor-pill">usuario</span> y el <span class="actor-pill">sector privado</span>, que presta el servicio <u>en lugar del sector público</u>, pero <u>bajo el control de éste</u>.</p></li>
+                    <li><p><i class="fas fa-money-bill-alt icon text-orange-600"></i>El modo en que se <strong>remunera al concesionario</strong> consiste básicamente en <strong><u>cánones abonados por los usuarios</u></strong> del servicio.</p></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 4: Tarificación -->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-bg"><i class="fas fa-euro-sign"></i></div>
+                <h2>4. Tarificación por el uso de las infraestructuras</h2>
+            </div>
+            <div class="collapsible-trigger">
+                <i class="fas fa-chevron-right collapsible-icon"></i>
+                <span>Ver detalles</span>
+            </div>
+            <div class="collapsible-content hidden">
+                <ul>
+                    <li><p><i class="fas fa-recycle icon text-green-600"></i>La <span class="definition-pill"><strong>internalización de los costes externos</strong></span> consiste en <strong>repercutirlos sobre operadores</strong> y finalmente sobre los <strong>usuarios</strong>, trasladando los <u>costes de los daños ambientales</u> a quienes los producen con el fin de <strong>minimizar las externalidades</strong> del transporte.</p></li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-balance-scale-left icon text-red-500"></i>La mayoría de investigaciones sugieren que los <strong>impactos externos</strong> del transporte <strong><u>no están representados adecuadamente</u></strong> en el paquete actual de <u>medidas fiscales</u> relacionadas con el transporte.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Según los <strong>principios rectores</strong> <span class="principle-pill">“quien contamina paga”</span> y <span class="principle-pill">“quien utiliza paga”</span>, el <strong>precio pagado por el usuario</strong> debería reflejar el <strong><u>coste total</u></strong> de las actividades de transporte, incluidos los <u>costes de las externalidades</u> del transporte.</li>
+                                <li>No obstante, las investigaciones <strong>no han dado resultados concluyentes</strong> que den una indicación sobre qué nivel de precios pudiera ser <strong>“justo”</strong> para el transporte y los combustibles.</li>
+                                <li>Además, el <strong>cálculo de los costes externos totales</strong> depende de los <strong>valores que otorgue la sociedad</strong>, en función del <u>contexto socioeconómico</u> y de las <u>prioridades éticas y políticas</u>, a atributos como la <strong>seguridad</strong>, la <strong>calidad del aire</strong>, etc.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-map-marker-alt icon text-purple-600"></i>Los <strong>niveles</strong> a los que hay que internalizar los costes externos <strong>dependen de las <u>condiciones locales</u></strong>.</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>Dado que los costes externos <strong>no se pueden calcular con precisión</strong>, la <strong>mejor forma posible</strong> de internalizarlos parece ser <strong><u>incrementar los precios por etapas</u></strong> hasta que se hayan alcanzado los <u>objetivos medioambientales</u>.</li>
+                                <li>
+                                    <div class="collapsible-trigger">
+                                        <i class="fas fa-chevron-right collapsible-icon"></i>
+                                        <p>La <strong>disponibilidad de alternativas</strong> comparables, respetuosas con el medio ambiente, puede suponer que haya que <strong>subvencionar alternativas</strong> como el <u>transporte público</u>, idealmente mediante:</p>
+                                    </div>
+                                    <div class="collapsible-content hidden">
+                                        <ul class="deeper-nested-list">
+                                            <li>la <strong>recaudación de impuestos</strong> de circulación progresivos que aumenten según los ingresos o sobre los vehículos más contaminantes,</li>
+                                            <li>y teniendo en cuenta las <strong>diferencias regionales</strong>, aplicando <strong>peajes y restricciones de acceso</strong> en las zonas urbanas más colapsadas.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                 <li>Las <strong>especificaciones y los límites</strong> se deberían <strong>aplicar gradualmente</strong> con el fin de dejar tiempo a los <u>mercados locales para que se adapten</u>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-trigger">
+                            <i class="fas fa-chevron-right collapsible-icon"></i>
+                            <p><i class="fas fa-gavel icon text-indigo-600"></i>El <strong>principio general</strong> propuesto por la <span class="actor-pill">Comisión Europea</span> para la internalización de los costes externos del transporte es el de la <span class="definition-pill"><strong>“tarificación al coste social marginal”</strong></span>,</p>
+                        </div>
+                        <div class="collapsible-content hidden">
+                            <ul class="nested-list">
+                                <li>según el cual los <strong>precios del transporte</strong> deben equivaler al <strong><u>coste adicional</u></strong> que genera a corto plazo un <u>usuario adicional</u> de la infraestructura.</li>
+                                <li>Este tipo de tarificación contribuiría a la <strong>equidad</strong> entre los usuarios del transporte y los que no lo son, estableciendo una <strong>relación directa</strong> entre la <u>utilización de recursos comunes</u> y el <u>pago</u>, según los principios de <span class="principle-pill">“quien contamina paga”</span> y <span class="principle-pill">“quien utiliza paga”</span>.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><p><i class="fas fa-lightbulb icon text-yellow-600"></i>La <strong>toma de conciencia</strong> de la existencia de unos <u>costes externos</u> generados por el transporte, junto con las <u>necesidades de financiación</u> de las infraestructuras, han despertado el <strong>interés por las políticas de tarificación</strong> mediante <strong>tasas e impuestos</strong> para mantener la <u>sostenibilidad del sistema de transporte</u>.</p></li>
+                     <li><p><i class="fas fa-hand-holding-usd icon text-green-700"></i>La <strong>tarificación de las infraestructuras</strong> de transporte, aplicando los principios <span class="principle-pill">“quien contamina paga”</span> y <span class="principle-pill">“quien utiliza paga”</span>, puede <strong>contribuir a resolver esta clase de problemas</strong> al ejercer <u>influencia en los precios</u>, los cuales a su vez <u>modifican los patrones de utilización</u> del transporte.</p></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script para la funcionalidad desplegable -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Selecciona todos los elementos que servirán como disparadores
+            const triggers = document.querySelectorAll('.collapsible-trigger');
+
+            // Itera sobre cada disparador para añadirle un detector de clics
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function (event) {
+                    // Evita que el clic en un desplegable anidado afecte a su contenedor padre
+                    event.stopPropagation();
+                    
+                    // Encuentra el elemento de contenido que sigue inmediatamente al disparador
+                    const content = this.nextElementSibling;
+                    
+                    // Alterna la clase 'open' en el disparador (para rotar el icono)
+                    this.classList.toggle('open');
+                    
+                    // Verifica que el siguiente elemento sea un contenido desplegable y alterna la clase 'hidden'
+                    if (content && content.classList.contains('collapsible-content')) {
+                        content.classList.toggle('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
