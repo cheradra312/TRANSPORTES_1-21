@@ -322,201 +322,202 @@
 
 			await initializeAndAuthFirebase();
             handleSession();
-
 			const topics = [
-                { file: 'MEC1T1_Desplegable.html', title: 'Transporte y movilidad en España (I)', color: 'blue', icon: 'fa-car', videoId: '',
-                    chapters: [
-                        { "title": "1. Movilidad interior y movilidad exterior de viajeros y mercancías. Repartos modales, principales magnitudes y evolución", "start": 0, "end": 0 },
-                        { "title": "2. Comparación con otros países de la Unión Europea", "start": 0, "end": 0 },
-                        { "title": "3. Relación entre movilidad y actividad económica", "start": 0, "end": 0 },
-                        { "title": "4. El transporte y la industria del turismo", "start": 0, "end": 0 }
-                    ]
-                },
-                { file: 'MEC1T2_Desplegable.html', title: 'Transporte y movilidad en España (II)', color: 'green', icon: 'fa-truck', videoId: '',
-                    chapters: [
-                        { "title": "1. El transporte y la logística como sector empresarial", "start": 0, "end": 0 },
-                        { "title": "2. Participación en la economía nacional, empresas y participación en el empleo. Comparativa con otros países de la Unión Europea", "start": 0, "end": 0 },
-                        { "title": "3. Gasto de los ciudadanos en transporte", "start": 0, "end": 0 },
-                        { "title": "4. Gasto de los diferentes sectores empresariales en transporte de mercancías y logística", "start": 0, "end": 0 },
-                        { "title": "5. El Observatorio del Transporte y la Logística en España", "start": 0, "end": 0 }
-                    ]
-                },
-                { file: 'MEC1T3_Desplegable.html', title: 'Organización del sistema de transporte en España', color: 'purple', icon: 'fa-building', videoId: '',
-                    chapters: [
-                        { "title": "1. Organización del sistema de transporte en España", "start": 0, "end": 0 },
-                        { "title": "2. Función normativa", "start": 0, "end": 0 },
-                        { "title": "3. Inspección, supervisión y otorgamiento de permisos", "start": 0, "end": 0 },
-                        { "title": "4. Gestores de infraestructuras", "start": 0, "end": 0 },
-                        { "title": "5. Operadores", "start": 0, "end": 0 },
-                        { "title": "6. Prestadores de servicios auxiliares", "start": 0, "end": 0 },
-                        { "title": "7. Comisiones de estudio de accidentes", "start": 0, "end": 0 },
-                        { "title": "8. Regulador del mercado", "start": 0, "end": 0 }
-                    ]
-                },
-                { file: 'MEC1T4_Desplegable.html', title: 'La legislación en el transporte terrestre', color: 'orange', icon: 'fa-road', videoId: '',
-                    chapters: [
-                        { "title": "1. Conceptos básicos de la legislación en el transporte terrestre. Ley 16/1987 de Ordenación de los Transportes Terrestres (modificada por la Ley 9/2013) y su Reglamento", "start": 0, "end": 0 },
-                        { "title": "2. TÍTULO PRELIMINAR", "start": 0, "end": 0 },
-                        { "title": "3. TÍTULO I Disposiciones comunes a los diferentes modos de transporte terrestre", "start": 0, "end": 0 },
-                        { "title": "4. TÍTULO II Disposiciones de aplicación general a los transportes por carretera y a las actividades auxiliares y complementarias de los mismos", "start": 0, "end": 0 },
-                        { "title": "5. TÍTULO III De los servicios y actividades del transporte por carretera", "start": 0, "end": 0 },
-                        { "title": "6. TÍTULO IV Actividades auxiliares y complementarias del transporte por carretera", "start": 0, "end": 0 },
-                        { "title": "7. TÍTULO V Régimen sancionador y de control de los transportes terrestres, y de sus actividades auxiliares y complementarias", "start": 0, "end": 0 }
-                    ]
-                },
-                { file: 'MEC1T5_Desplegable.html', title: 'Evolución y principios básicos de la legislación del transporte ferroviario en Europa', color: 'teal', icon: 'fa-train', videoId: '',
-                    chapters: [
-                        { "title": "1. Evolución y principios básicos de la legislación del transporte ferroviario en Europa", "start": 0, "end": 0 },
-                        { "title": "2. Las primeras directivas sobre el sector ferroviario: Directiva 91/440 y Directivas 95/18 y 95/19", "start": 0, "end": 0 },
-                        { "title": "3. Los paquetes ferroviarios y la Agencia Ferroviaria Europea. El cuarto paquete ferroviario", "start": 0, "end": 0 },
-                        { "title": "4. Agencia Ferroviaria de la Unión Europea", "start": 0, "end": 0 }
-                    ]
-                },
-                { file: 'MEC1T6_Desplegable.html', title: 'Mercados de transporte liberalizados y mercados en monopolio', color: 'red', icon: 'fa-handshake', videoId: '',
-                    chapters: [
-                        { "title": "1. Mercados de transporte liberalizados y mercados en monopolio", "start": 0, "end": 0 },
-                        { "title": "2. Las obligaciones de servicio público en los servicios de transporte de competencia estatal", "start": 0, "end": 0 },
-                        { "title": "3. Normativa europea y su aplicación en España. El Reglamento 1370/2007 sobre los servicios públicos de transporte de viajeros por ferrocarril y carretera", "start": 0, "end": 0 },
-                        { "title": "4. La liberalización del transporte ferroviario: modelos de acceso al mercado y situación actual en España", "start": 0, "end": 0 },
-                        { "title": "5. El modelo concesional en los servicios de transporte de viajeros en autobús", "start": 0, "end": 0 }
-                    ]
-                },
-                { file: 'MEC1T7_Desplegable.html', title: 'Subvenciones al transporte', color: 'amber', icon: 'fa-euro-sign', videoId: '',
-                    chapters: [
-                        { "title": "1. Subvenciones al transporte. Conceptos básicos", "start": 0, "end": 0 },
-                        { "title": "2. Base de datos nacional de subvenciones", "start": 0, "end": 0 },
-                        { "title": "3. Ayudas de Estado", "start": 0, "end": 0 }
-                    ]
-                },
-                { file: 'MEC1T8_Desplegable.html', title: 'La intermodalidad en el transporte de viajeros y mercancías', color: 'cyan', icon: 'fa-exchange-alt', videoId: '',
-                    chapters: [
-                        { "title": "1. La intermodalidad en el transporte de viajeros y mercancías", "start": 0, "end": 0 },
-                        { "title": "2. Principales objetivos", "start": 0, "end": 0 },
-                        { "title": "3. Principales magnitudes. Evolución", "start": 0, "end": 0 },
-                        { "title": "4. Corredores y nodos intermodales", "start": 0, "end": 0 },
-                        { "title": "5. Cadenas logísticas intermodales", "start": 0, "end": 0 }
-                    ]
-                },
-                { file: 'MEC1T9_Desplegable.html', title: 'El transporte internacional', color: 'indigo', icon: 'fa-globe', videoId: '',
-                    chapters: [
-                        { "title": "1. El transporte internacional", "start": 0, "end": 0 },
-                        { "title": "2. Principales acuerdos internacionales", "start": 0, "end": 0 },
-                        { "title": "3. Acuerdos internacionales para el transporte de mercancías peligrosas", "start": 0, "end": 0 },
-                        { "title": "4. Organismos y asociaciones internacionales: OACI, OMI", "start": 0, "end": 0 },
-                        { "title": "5. Principios y normativa más destacable de la Unión Europea en materia de política de transportes", "start": 0, "end": 0 },
-                        { "title": "6. Europa en Movimiento (Europe on the Move)", "start": 0, "end": 0 },
-                        { "title": "7. La Estrategia Europea de Movilidad Sostenible e Inteligente de 2020", "start": 0, "end": 0 }
-                    ]
-                },
-                { file: 'MEC1T10_Desplegable.html', title: 'Principales políticas nacionales en transporte y movilidad', color: 'lime', icon: 'fa-compass', videoId: '',
-                    chapters: [
-                        { "title": "1. Principales políticas nacionales en transporte y movilidad", "start": 0, "end": 0 },
-                        { "title": "2. Principios básicos de la Estrategia Española de Movilidad Segura, Sostenible y Conectada 2030", "start": 0, "end": 0 },
-                        { "title": "3. Estrategia Estatal por la Bicicleta", "start": 0, "end": 0 },
-                        { "title": "4. Plan de Recuperación, Transformación y Resiliencia de España (PRTR). Componentes 1 y 6", "start": 0, "end": 0 }
-                    ]
-                },
-                { file: 'MEC1T11_Desplegable.html', title: 'La movilidad urbana y metropolitana, de viajeros y de mercancías', color: 'fuchsia', icon: 'fa-city', videoId: '',
-                    chapters: [
-                        { "title": "1. La movilidad urbana y metropolitana, de viajeros y de mercancías. Principales actores", "start": 0, "end": 0 },
-                        { "title": "2. Movilidad sostenible en ámbito urbano y metropolitano", "start": 0, "end": 0 },
-                        { "title": "3. El transporte público en la movilidad de viajeros. Organización y gestión", "start": 0, "end": 0 },
-                        { "title": "4. Las autoridades de transporte metropolitano", "start": 0, "end": 0 },
-                        { "title": "5. Competencias de la Administración General del Estado", "start": 0, "end": 0 },
-                        { "title": "6. La Agenda Urbana Española. Tendencias. Retos", "start": 0, "end": 0 },
-                        { "title": "7. Movilidad rural", "start": 0, "end": 0 }
-                    ]
-                },
-                { file: 'MEC1T12_Desplegable.html', title: 'El coste del transporte', color: 'sky', icon: 'fa-coins', videoId: '',
-                    chapters: [
-                        { "title": "1. El coste del transporte", "start": 0, "end": 0 },
-                        { "title": "2. Costes desde el punto de vista económico-privado (costes internos)", "start": 0, "end": 0 },
-                        { "title": "3. Estructura de costes en los distintos modos de transporte, en viajeros y mercancías", "start": 0, "end": 0 },
-                        { "title": "4. Costes desde el punto de vista económico-social (costes externos)", "start": 0, "end": 0 },
-                        { "title": "5. Internalización de costes externos", "start": 0, "end": 0 },
-                        { "title": "6. Fiscalidad verde", "start": 0, "end": 0 }
-                    ]
-                },
-                { file: 'MEC1T13_Desplegable.html', title: 'La investigación, desarrollo e innovación en transportes y movilidad', color: 'violet', icon: 'fa-lightbulb', videoId: '',
-                    chapters: [
-                        { "title": "1. La investigación, desarrollo e innovación en transportes y movilidad", "start": 0, "end": 0 },
-                        { "title": "2. Los Programas Marco de la Unión Europea", "start": 0, "end": 0 },
-                        { "title": "3. Horizonte Europa 2021-2027: pilares y programas horizontales, elementos principales, asociaciones", "start": 0, "end": 0 },
-                        { "title": "4. El sistema español de investigación, desarrollo e innovación en transportes y movilidad", "start": 0, "end": 0 }
-                    ]
-                },
-                { file: 'MEC1T14_Desplegable.html', title: 'Nuevas tecnologías y desarrollos en el transporte y la movilidad (I)', color: 'emerald', icon: 'fa-robot', videoId: '',
-                    chapters: [
-                        { "title": "1. Digitalización y nuevos servicios y formas de movilidad", "start": 0, "end": 0 },
-                        { "title": "2. Datos abiertos. Puntos de Acceso Nacionales", "start": 0, "end": 0 },
-                        { "title": "3. La Movilidad como Servicio (MaaS)", "start": 0, "end": 0 },
-                        { "title": "4. Big Data", "start": 0, "end": 0 },
-                        { "title": "5. Vehículos autónomos", "start": 0, "end": 0 },
-                        { "title": "6. Movilidad conectada", "start": 0, "end": 0 },
-                        { "title": "7. Automatización de la cadena logística", "start": 0, "end": 0 }
-                    ]
-                },
-                { file: 'MEC1T15_Desplegable.html', title: 'Nuevas tecnologías y desarrollos en el transporte y la movilidad (II)', color: 'pink', icon: 'fa-wifi', videoId: '',
-                    chapters: [
-                        { "title": "1. Los Sistemas Inteligentes de Transporte (ITS)", "start": 0, "end": 0 },
-                        { "title": "2. Aplicación de la tecnología a la gestión del sistema de infraestructuras y transporte", "start": 0, "end": 0 },
-                        { "title": "3. Los sistemas de navegación por satélite (GNSS) Galileo y EGNOS y su aplicación en transporte y movilidad", "start": 0, "end": 0 }
-                    ]
-                },
-                { file: 'MEC1T16_Desplegable.html', title: 'Planificación del sistema de infraestructuras y transporte de ámbito estatal', color: 'yellow', icon: 'fa-map-marked-alt', videoId: '',
-                    chapters: [
-                        { "title": "1. Planificación del sistema de infraestructuras y transporte de ámbito estatal", "start": 0, "end": 0 },
-                        { "title": "2. Historia reciente de la planificación estratégica de infraestructuras y transporte en España", "start": 0, "end": 0 },
-                        { "title": "3. Planificación estratégica en vigor", "start": 0, "end": 0 },
-                        { "title": "4. La planificación sectorial por modo de transporte", "start": 0, "end": 0 },
-                        { "title": "5. La participación pública en el proceso de planificación", "start": 0, "end": 0 },
-                        { "title": "6. Nuevo enfoque en las políticas de inversión", "start": 0, "end": 0 }
-                    ]
-                },
-                { file: 'MEC1T17_Desplegable.html', title: 'Demanda de transporte y análisis coste-beneficio', color: 'slate', icon: 'fa-chart-line', videoId: '',
-                    chapters: [
-                        { "title": "1. Demanda de transporte", "start": 0, "end": 0 },
-                        { "title": "2. Modelos de demanda de transporte", "start": 0, "end": 0 },
-                        { "title": "3. Empleo de la tecnología Big Data en la planificación", "start": 0, "end": 0 },
-                        { "title": "4. Encuestas y billetaje en la cuantificación y cualificación de la movilidad", "start": 0, "end": 0 },
-                        { "title": "5. Análisis coste-beneficio (ACB) en el ámbito del transporte", "start": 0, "end": 0 }
-                    ]
-                },
-                { file: 'MEC1T18_Desplegable.html', title: 'Infraestructuras de transporte, inversión y financiación', color: 'rose', icon: 'fa-dollar-sign', videoId: '',
-                    chapters: [
-                        { "title": "1. Infraestructuras de transporte, inversión y financiación. Dotación de infraestructuras de transporte y comparativa con otros países de la Unión Europea. Volumen de inversión en infraestructuras de transporte.", "start": 0, "end": 0 },
-                        { "title": "2. La financiación de las infraestructuras: financiación presupuestaria y extrapresupuestaria", "start": 0, "end": 0 },
-                        { "title": "3. Participación del sector privado en la financiación de infraestructuras", "start": 0, "end": 0 },
-                        { "title": "4. Tarificación por el uso de las infraestructuras", "start": 0, "end": 0 }
-                    ]
-                },
-                { file: 'MEC1T19_Desplegable.html', title: 'La Red Transeuropea de Transporte (RTE-T)', color: 'blue', icon: 'fa-route', videoId: '',
-                    chapters: [
-                        { "title": "1. La Red Transeuropea de transporte (RTE-T)", "start": 0, "end": 0 },
-                        { "title": "2. Reglamentos CE de desarrollo y financiación de la RTE-T. Los corredores Europeos de Transporte", "start": 0, "end": 0 },
-                        { "title": "3. La RTE-T en España", "start": 0, "end": 0 },
-                        { "title": "4. Financiación europea de infraestructuras. El Banco Europeo de Inversiones. Fondo Europeo de Inversiones Estratégicas (EFSI). Mecanismo Conectar Europa. Fondo Europeo de Desarrollo Regional. Next Generation EU", "start": 0, "end": 0 }
-                    ]
-                },
-                { file: 'MEC1T20_Desplegable.html', title: 'La planificación del sistema de infraestructuras y transporte y su integración con las políticas del territorio y ambientales', color: 'green', icon: 'fa-tree', videoId: '',
-                    chapters: [
-                        { "title": "1. La planificación del sistema de infraestructuras y transporte y su integración con las políticas del territorio y ambientales", "start": 0, "end": 0 },
-                        { "title": "2. Efectos ambientales de las infraestructuras", "start": 0, "end": 0 },
-                        { "title": "3. Gestión y mantenimiento sostenible de las infraestructuras", "start": 0, "end": 0 },
-                        { "title": "4. Resiliencia de las infraestructuras de transporte frente a los fenómenos meteorológicos extremos y su adaptación al cambio climático durante su ciclo de vida: análisis y diseño de medidas de adaptación", "start": 0, "end": 0 },
-                        { "title": "5. Huella de carbono de los proyectos en análisis de ciclo de vida. Principales medidas en infraestructuras para contribuir a la reducción de emisiones de gases de efecto invernadero", "start": 0, "end": 0 }
-                    ]
-                },
-                { file: 'MEC1T21_Desplegable.html', title: 'Sostenibilidad ambiental del transporte', color: 'purple', icon: 'fa-leaf', videoId: '',
-                    chapters: [
-                        { "title": "1. Sostenibilidad ambiental del transporte. Consumo energético y eficiencia energética", "start": 0, "end": 0 },
-                        { "title": "2. Emisiones a la atmósfera de gases de efecto invernadero y otros contaminantes: papel del transporte en las causas del cambio climático y del deterioro de la calidad del aire", "start": 0, "end": 0 },
-                        { "title": "3. Fuentes de energía alternativas y tecnologías innovadoras de tracción para una movilidad de bajas emisiones", "start": 0, "end": 0 },
-                        { "title": "4. Transporte y políticas en materia de energía y clima: categorización y ejemplos", "start": 0, "end": 0 },
-                        { "title": "5. Marco normativo europeo y nacional sobre infraestructuras para combustibles alternativos", "start": 0, "end": 0 }
-                    ]
-                }
-            ];
+                 { file: 'MEC1T1_Desplegable.html', title: 'Transporte y movilidad en España (I)', color: 'blue', icon: 'fa-car', videoId: 'https://drive.google.com/file/d/1NJWTH7EYZARIup2G9L8ihiRGOT0QmYco/view?usp=drive_link',
+                     chapters: [
+                         { "title": "1. Movilidad interior y movilidad exterior de viajeros y mercancías. Repartos modales, principales magnitudes y evolución", "start": 0, "end": 0 },
+                         { "title": "2. Comparación con otros países de la Unión Europea", "start": 0, "end": 0 },
+                         { "title": "3. Relación entre movilidad y actividad económica", "start": 0, "end": 0 },
+                         { "title": "4. El transporte y la industria del turismo", "start": 0, "end": 0 }
+                     ]
+                 },
+                 { file: 'MEC1T2_Desplegable.html', title: 'Transporte y movilidad en España (II)', color: 'green', icon: 'fa-truck', videoId: 'https://drive.google.com/file/d/1NJWTH7EYZARIup2G9L8ihiRGOT0QmYco/view?usp=drive_link',
+                     chapters: [
+                         { "title": "1. El transporte y la logística como sector empresarial", "start": 0, "end": 0 },
+                         { "title": "2. Participación en la economía nacional, empresas y participación en el empleo. Comparativa con otros países de la Unión Europea", "start": 0, "end": 0 },
+                         { "title": "3. Gasto de los ciudadanos en transporte", "start": 0, "end": 0 },
+                         { "title": "4. Gasto de los diferentes sectores empresariales en transporte de mercancías y logística", "start": 0, "end": 0 },
+                         { "title": "5. El Observatorio del Transporte y la Logística en España", "start": 0, "end": 0 }
+                     ]
+                 },
+                 { file: 'MEC1T3_Desplegable.html', title: 'Organización del sistema de transporte en España', color: 'purple', icon: 'fa-building', videoId: 'https://drive.google.com/file/d/1NJWTH7EYZARIup2G9L8ihiRGOT0QmYco/view?usp=drive_link',
+                     chapters: [
+                         { "title": "1. Organización del sistema de transporte en España", "start": 0, "end": 0 },
+                         { "title": "2. Función normativa", "start": 0, "end": 0 },
+                         { "title": "3. Inspección, supervisión y otorgamiento de permisos", "start": 0, "end": 0 },
+                         { "title": "4. Gestores de infraestructuras", "start": 0, "end": 0 },
+                         { "title": "5. Operadores", "start": 0, "end": 0 },
+                         { "title": "6. Prestadores de servicios auxiliares", "start": 0, "end": 0 },
+                         { "title": "7. Comisiones de estudio de accidentes", "start": 0, "end": 0 },
+                         { "title": "8. Regulador del mercado", "start": 0, "end": 0 }
+                     ]
+                 },
+                 { file: 'MEC1T4_Desplegable.html', title: 'La legislación en el transporte terrestre', color: 'orange', icon: 'fa-road', videoId: 'https://drive.google.com/file/d/1IznzbKZ6kKRPPllNWTis7tJ2na9emtdJ/view?usp=drive_link',
+                     chapters: [
+                         { "title": "1. Conceptos básicos de la legislación en el transporte terrestre. Ley 16/1987 de Ordenación de los Transportes Terrestres (modificada por la Ley 9/2013) y su Reglamento", "start": 0, "end": 0 },
+                         { "title": "2. TÍTULO PRELIMINAR", "start": 0, "end": 0 },
+                         { "title": "3. TÍTULO I Disposiciones comunes a los diferentes modos de transporte terrestre", "start": 0, "end": 0 },
+                         { "title": "4. TÍTULO II Disposiciones de aplicación general a los transportes por carretera y a las actividades auxiliares y complementarias de los mismos", "start": 0, "end": 0 },
+                         { "title": "5. TÍTULO III De los servicios y actividades del transporte por carretera", "start": 0, "end": 0 },
+                         { "title": "6. TÍTULO IV Actividades auxiliares y complementarias del transporte por carretera", "start": 0, "end": 0 },
+                         { "title": "7. TÍTULO V Régimen sancionador y de control de los transportes terrestres, y de sus actividades auxiliares y complementarias", "start": 0, "end": 0 }
+                     ]
+                 },
+                 { file: 'MEC1T5_Desplegable.html', title: 'Evolución y principios básicos de la legislación del transporte ferroviario en Europa', color: 'teal', icon: 'fa-train', videoId: 'https://drive.google.com/file/d/1IznzbKZ6kKRPPllNWTis7tJ2na9emtdJ/view?usp=drive_link',
+                     chapters: [
+                         { "title": "1. Evolución y principios básicos de la legislación del transporte ferroviario en Europa", "start": 0, "end": 0 },
+                         { "title": "2. Las primeras directivas sobre el sector ferroviario: Directiva 91/440 y Directivas 95/18 y 95/19", "start": 0, "end": 0 },
+                         { "title": "3. Los paquetes ferroviarios y la Agencia Ferroviaria Europea. El cuarto paquete ferroviario", "start": 0, "end": 0 },
+                         { "title": "4. Agencia Ferroviaria de la Unión Europea", "start": 0, "end": 0 }
+                     ]
+                 },
+                 { file: 'MEC1T6_Desplegable.html', title: 'Mercados de transporte liberalizados y mercados en monopolio', color: 'red', icon: 'fa-handshake', videoId: 'https://drive.google.com/file/d/1BIDltGFugNJxBYkGbL3fbkvVv8LamzA0/view?usp=drive_link',
+                     chapters: [
+                         { "title": "1. Mercados de transporte liberalizados y mercados en monopolio", "start": 0, "end": 0 },
+                         { "title": "2. Las obligaciones de servicio público en los servicios de transporte de competencia estatal", "start": 0, "end": 0 },
+                         { "title": "3. Normativa europea y su aplicación en España. El Reglamento 1370/2007 sobre los servicios públicos de transporte de viajeros por ferrocarril y carretera", "start": 0, "end": 0 },
+                         { "title": "4. La liberalización del transporte ferroviario: modelos de acceso al mercado y situación actual en España", "start": 0, "end": 0 },
+                         { "title": "5. El modelo concesional en los servicios de transporte de viajeros en autobús", "start": 0, "end": 0 }
+                     ]
+                 },
+                 { file: 'MEC1T7_Desplegable.html', title: 'Subvenciones al transporte', color: 'amber', icon: 'fa-euro-sign', videoId: 'https://drive.google.com/file/d/1BIDltGFugNJxBYkGbL3fbkvVv8LamzA0/view?usp=drive_link',
+                     chapters: [
+                         { "title": "1. Subvenciones al transporte. Conceptos básicos", "start": 0, "end": 0 },
+                         { "title": "2. Base de datos nacional de subvenciones", "start": 0, "end": 0 },
+                         { "title": "3. Ayudas de Estado", "start": 0, "end": 0 }
+                     ]
+                 },
+                 { file: 'MEC1T8_Desplegable.html', title: 'La intermodalidad en el transporte de viajeros y mercancías', color: 'cyan', icon: 'fa-exchange-alt', videoId: 'https://drive.google.com/file/d/12rQwxKp6qrnKxIuD-7ZPHDBSKO58yiyD/view?usp=drive_link',
+                     chapters: [
+                         { "title": "1. La intermodalidad en el transporte de viajeros y mercancías", "start": 0, "end": 0 },
+                         { "title": "2. Principales objetivos", "start": 0, "end": 0 },
+                         { "title": "3. Principales magnitudes. Evolución", "start": 0, "end": 0 },
+                         { "title": "4. Corredores y nodos intermodales", "start": 0, "end": 0 },
+                         { "title": "5. Cadenas logísticas intermodales", "start": 0, "end": 0 }
+                     ]
+                 },
+                 { file: 'MEC1T9_Desplegable.html', title: 'El transporte internacional', color: 'indigo', icon: 'fa-globe', videoId: 'https://drive.google.com/file/d/12rQwxKp6qrnKxIuD-7ZPHDBSKO58yiyD/view?usp=drive_link',
+                     chapters: [
+                         { "title": "1. El transporte internacional", "start": 0, "end": 0 },
+                         { "title": "2. Principales acuerdos internacionales", "start": 0, "end": 0 },
+                         { "title": "3. Acuerdos internacionales para el transporte de mercancías peligrosas", "start": 0, "end": 0 },
+                         { "title": "4. Organismos y asociaciones internacionales: OACI, OMI", "start": 0, "end": 0 },
+                         { "title": "5. Principios y normativa más destacable de la Unión Europea en materia de política de transportes", "start": 0, "end": 0 },
+                         { "title": "6. Europa en Movimiento (Europe on the Move)", "start": 0, "end": 0 },
+                         { "title": "7. La Estrategia Europea de Movilidad Sostenible e Inteligente de 2020", "start": 0, "end": 0 }
+                     ]
+                 },
+                 { file: 'MEC1T10_Desplegable.html', title: 'Principales políticas nacionales en transporte y movilidad', color: 'lime', icon: 'fa-compass', videoId: 'https://drive.google.com/file/d/12rQwxKp6qrnKxIuD-7ZPHDBSKO58yiyD/view?usp=drive_link',
+                     chapters: [
+                         { "title": "1. Principales políticas nacionales en transporte y movilidad", "start": 0, "end": 0 },
+                         { "title": "2. Principios básicos de la Estrategia Española de Movilidad Segura, Sostenible y Conectada 2030", "start": 0, "end": 0 },
+                         { "title": "3. Estrategia Estatal por la Bicicleta", "start": 0, "end": 0 },
+                         { "title": "4. Plan de Recuperación, Transformación y Resiliencia de España (PRTR). Componentes 1 y 6", "start": 0, "end": 0 }
+                     ]
+                 },
+                 { file: 'MEC1T11_Desplegable.html', title: 'La movilidad urbana y metropolitana, de viajeros y de mercancías', color: 'fuchsia', icon: 'fa-city', videoId: 'https://drive.google.com/file/d/1y0YNEA5HfQQvXKR5Q-KFH2xZ7gvUO9hc/view?usp=drive_link',
+                     chapters: [
+                         { "title": "1. La movilidad urbana y metropolitana, de viajeros y de mercancías. Principales actores", "start": 0, "end": 0 },
+                         { "title": "2. Movilidad sostenible en ámbito urbano y metropolitano", "start": 0, "end": 0 },
+                         { "title": "3. El transporte público en la movilidad de viajeros. Organización y gestión", "start": 0, "end": 0 },
+                         { "title": "4. Las autoridades de transporte metropolitano", "start": 0, "end": 0 },
+                         { "title": "5. Competencias de la Administración General del Estado", "start": 0, "end": 0 },
+                         { "title": "6. La Agenda Urbana Española. Tendencias. Retos", "start": 0, "end": 0 },
+                         { "title": "7. Movilidad rural", "start": 0, "end": 0 }
+                     ]
+                 },
+                 { file: 'MEC1T12_Desplegable.html', title: 'El coste del transporte', color: 'sky', icon: 'fa-coins', videoId: 'https://drive.google.com/file/d/1y0YNEA5HfQQvXKR5Q-KFH2xZ7gvUO9hc/view?usp=drive_link',
+                     chapters: [
+                         { "title": "1. El coste del transporte", "start": 0, "end": 0 },
+                         { "title": "2. Costes desde el punto de vista económico-privado (costes internos)", "start": 0, "end": 0 },
+                         { "title": "3. Estructura de costes en los distintos modos de transporte, en viajeros y mercancías", "start": 0, "end": 0 },
+                         { "title": "4. Costes desde el punto de vista económico-social (costes externos)", "start": 0, "end": 0 },
+                         { "title": "5. Internalización de costes externos", "start": 0, "end": 0 },
+                         { "title": "6. Fiscalidad verde", "start": 0, "end": 0 }
+                     ]
+                 },
+                 { file: 'MEC1T13_Desplegable.html', title: 'La investigación, desarrollo e innovación en transportes y movilidad', color: 'violet', icon: 'fa-lightbulb', videoId: 'https://drive.google.com/file/d/1y0YNEA5HfQQvXKR5Q-KFH2xZ7gvUO9hc/view?usp=drive_link',
+                     chapters: [
+                         { "title": "1. La investigación, desarrollo e innovación en transportes y movilidad", "start": 0, "end": 0 },
+                         { "title": "2. Los Programas Marco de la Unión Europea", "start": 0, "end": 0 },
+                         { "title": "3. Horizonte Europa 2021-2027: pilares y programas horizontales, elementos principales, asociaciones", "start": 0, "end": 0 },
+                         { "title": "4. El sistema español de investigación, desarrollo e innovación en transportes y movilidad", "start": 0, "end": 0 }
+                     ]
+                 },
+                 { file: 'MEC1T14_Desplegable.html', title: 'Nuevas tecnologías y desarrollos en el transporte y la movilidad (I)', color: 'emerald', icon: 'fa-robot', videoId: 'https://drive.google.com/file/d/1y0YNEA5HfQQvXKR5Q-KFH2xZ7gvUO9hc/view?usp=drive_link',
+                     chapters: [
+                         { "title": "1. Digitalización y nuevos servicios y formas de movilidad", "start": 0, "end": 0 },
+                         { "title": "2. Datos abiertos. Puntos de Acceso Nacionales", "start": 0, "end": 0 },
+                         { "title": "3. La Movilidad como Servicio (MaaS)", "start": 0, "end": 0 },
+                         { "title": "4. Big Data", "start": 0, "end": 0 },
+                         { "title": "5. Vehículos autónomos", "start": 0, "end": 0 },
+                         { "title": "6. Movilidad conectada", "start": 0, "end": 0 },
+                         { "title": "7. Automatización de la cadena logística", "start": 0, "end": 0 }
+                     ]
+                 },
+                 { file: 'MEC1T15_Desplegable.html', title: 'Nuevas tecnologías y desarrollos en el transporte y la movilidad (II)', color: 'pink', icon: 'fa-wifi', videoId: 'https://drive.google.com/file/d/1y0YNEA5HfQQvXKR5Q-KFH2xZ7gvUO9hc/view?usp=drive_link',
+                     chapters: [
+                         { "title": "1. Los Sistemas Inteligentes de Transporte (ITS)", "start": 0, "end": 0 },
+                         { "title": "2. Aplicación de la tecnología a la gestión del sistema de infraestructuras y transporte", "start": 0, "end": 0 },
+                         { "title": "3. Los sistemas de navegación por satélite (GNSS) Galileo y EGNOS y su aplicación en transporte y movilidad", "start": 0, "end": 0 }
+                     ]
+                 },
+                 { file: 'MEC1T16_Desplegable.html', title: 'Planificación del sistema de infraestructuras y transporte de ámbito estatal', color: 'yellow', icon: 'fa-map-marked-alt', videoId: 'https://drive.google.com/file/d/1n0ERFFTtBKD5AaN8HB3dMrWeG6hD74Si/view?usp=drive_link',
+                     chapters: [
+                         { "title": "1. Planificación del sistema de infraestructuras y transporte de ámbito estatal", "start": 0, "end": 0 },
+                         { "title": "2. Historia reciente de la planificación estratégica de infraestructuras y transporte en España", "start": 0, "end": 0 },
+                         { "title": "3. Planificación estratégica en vigor", "start": 0, "end": 0 },
+                         { "title": "4. La planificación sectorial por modo de transporte", "start": 0, "end": 0 },
+                         { "title": "5. La participación pública en el proceso de planificación", "start": 0, "end": 0 },
+                         { "title": "6. Nuevo enfoque en las políticas de inversión", "start": 0, "end": 0 }
+                     ]
+                 },
+                 { file: 'MEC1T17_Desplegable.html', title: 'Demanda de transporte y análisis coste-beneficio', color: 'slate', icon: 'fa-chart-line', videoId: 'https://drive.google.com/file/d/1n0ERFFTtBKD5AaN8HB3dMrWeG6hD74Si/view?usp=drive_link',
+                     chapters: [
+                         { "title": "1. Demanda de transporte", "start": 0, "end": 0 },
+                         { "title": "2. Modelos de demanda de transporte", "start": 0, "end": 0 },
+                         { "title": "3. Empleo de la tecnología Big Data en la planificación", "start": 0, "end": 0 },
+                         { "title": "4. Encuestas y billetaje en la cuantificación y cualificación de la movilidad", "start": 0, "end": 0 },
+                         { "title": "5. Análisis coste-beneficio (ACB) en el ámbito del transporte", "start": 0, "end": 0 }
+                     ]
+                 },
+                 { file: 'MEC1T18_Desplegable.html', title: 'Infraestructuras de transporte, inversión y financiación', color: 'rose', icon: 'fa-dollar-sign', videoId: 'https://drive.google.com/file/d/19TvjHMO2CJtpWWNmiz4nm37dGAxwA_nd/view?usp=drive_link',
+                     chapters: [
+                         { "title": "1. Infraestructuras de transporte, inversión y financiación. Dotación de infraestructuras de transporte y comparativa con otros países de la Unión Europea. Volumen de inversión en infraestructuras de transporte.", "start": 0, "end": 0 },
+                         { "title": "2. La financiación de las infraestructuras: financiación presupuestaria y extrapresupuestaria", "start": 0, "end": 0 },
+                         { "title": "3. Participación del sector privado en la financiación de infraestructuras", "start": 0, "end": 0 },
+                         { "title": "4. Tarificación por el uso de las infraestructuras", "start": 0, "end": 0 }
+                     ]
+                 },
+                 { file: 'MEC1T19_Desplegable.html', title: 'La Red Transeuropea de Transporte (RTE-T)', color: 'blue', icon: 'fa-route', videoId: 'https://drive.google.com/file/d/19TvjHMO2CJtpWWNmiz4nm37dGAxwA_nd/view?usp=drive_link',
+                     chapters: [
+                         { "title": "1. La Red Transeuropea de transporte (RTE-T)", "start": 0, "end": 0 },
+                         { "title": "2. Reglamentos CE de desarrollo y financiación de la RTE-T. Los corredores Europeos de Transporte", "start": 0, "end": 0 },
+                         { "title": "3. La RTE-T en España", "start": 0, "end": 0 },
+                         { "title": "4. Financiación europea de infraestructuras. El Banco Europeo de Inversiones. Fondo Europeo de Inversiones Estratégicas (EFSI). Mecanismo Conectar Europa. Fondo Europeo de Desarrollo Regional. Next Generation EU", "start": 0, "end": 0 }
+                     ]
+                 },
+                 { file: 'MEC1T20_Desplegable.html', title: 'La planificación del sistema de infraestructuras y transporte y su integración con las políticas del territorio y ambientales', color: 'green', icon: 'fa-tree', videoId: 'https://drive.google.com/file/d/19TvjHMO2CJtpWWNmiz4nm37dGAxwA_nd/view?usp=drive_link',
+                     chapters: [
+                         { "title": "1. La planificación del sistema de infraestructuras y transporte y su integración con las políticas del territorio y ambientales", "start": 0, "end": 0 },
+                         { "title": "2. Efectos ambientales de las infraestructuras", "start": 0, "end": 0 },
+                         { "title": "3. Gestión y mantenimiento sostenible de las infraestructuras", "start": 0, "end": 0 },
+                         { "title": "4. Resiliencia de las infraestructuras de transporte frente a los fenómenos meteorológicos extremos y su adaptación al cambio climático durante su ciclo de vida: análisis y diseño de medidas de adaptación", "start": 0, "end": 0 },
+                         { "title": "5. Huella de carbono de los proyectos en análisis de ciclo de vida. Principales medidas en infraestructuras para contribuir a la reducción de emisiones de gases de efecto invernadero", "start": 0, "end": 0 }
+                     ]
+                 },
+                 { file: 'MEC1T21_Desplegable.html', title: 'Sostenibilidad ambiental del transporte', color: 'purple', icon: 'fa-leaf', videoId: 'https://drive.google.com/file/d/19TvjHMO2CJtpWWNmiz4nm37dGAxwA_nd/view?usp=drive_link',
+                     chapters: [
+                         { "title": "1. Sostenibilidad ambiental del transporte. Consumo energético y eficiencia energética", "start": 0, "end": 0 },
+                         { "title": "2. Emisiones a la atmósfera de gases de efecto invernadero y otros contaminantes: papel del transporte en las causas del cambio climático y del deterioro de la calidad del aire", "start": 0, "end": 0 },
+                         { "title": "3. Fuentes de energía alternativas y tecnologías innovadoras de tracción para una movilidad de bajas emisiones", "start": 0, "end": 0 },
+                         { "title": "4. Transporte y políticas en materia de energía y clima: categorización y ejemplos", "start": 0, "end": 0 },
+                         { "title": "5. Marco normativo europeo y nacional sobre infraestructuras para combustibles alternativos", "start": 0, "end": 0 }
+                     ]
+                 }
+             ];
+
+
 
  			const colorPalette={blue:{normal:"bg-blue-100 text-blue-800",icon:"text-blue-500"},cyan:{normal:"bg-cyan-100 text-cyan-800",icon:"text-cyan-500"},sky:{normal:"bg-sky-100 text-sky-800",icon:"text-sky-500"},indigo:{normal:"bg-indigo-100 text-indigo-800",icon:"text-indigo-500"},green:{normal:"bg-green-100 text-green-800",icon:"text-green-500"},emerald:{normal:"bg-emerald-100 text-emerald-800",icon:"text-emerald-500"},teal:{normal:"bg-teal-100 text-teal-800",icon:"text-teal-500"},lime:{normal:"bg-lime-100 text-lime-800",icon:"text-lime-500"},yellow:{normal:"bg-yellow-100 text-yellow-800",icon:"text-yellow-500"},amber:{normal:"bg-amber-100 text-amber-800",icon:"text-amber-500"},orange:{normal:"bg-orange-100 text-orange-800",icon:"text-orange-500"},red:{normal:"bg-red-100 text-red-800",icon:"text-red-500"},rose:{normal:"bg-rose-100 text-rose-800",icon:"text-rose-500"},pink:{normal:"bg-pink-100 text-pink-800",icon:"text-pink-500"},fuchsia:{normal:"bg-fuchsia-100 text-fuchsia-800",icon:"text-fuchsia-500"},purple:{normal:"bg-purple-100 text-purple-800",icon:"text-purple-500"},violet:{normal:"bg-violet-100 text-violet-800",icon:"text-violet-500"},gray:{normal:"bg-gray-100 text-gray-800",icon:"text-gray-500"},slate:{normal:"bg-slate-100 text-slate-800",icon:"text-slate-500"},zinc:{normal:"bg-zinc-100 text-zinc-800",icon:"text-zinc-500"}};
  			const gridContainer=document.getElementById("topics-grid"),mainMenuView=document.getElementById("main-menu-view"),mapViewerVIew=document.getElementById("map-viewer-view"),backButton=document.getElementById("back-button"),topControlBar=document.getElementById("top-control-bar"),chaptersMenuContainer=document.getElementById("chapters-menu-container"),chaptersButton=document.getElementById("chapters-button"),chaptersDropdown=document.getElementById("chapters-dropdown"),topicAudio=document.getElementById("topic-audio"),playPauseButton=document.getElementById("play-pause-button"),playPauseIcon=document.getElementById("play-pause-icon"),rewindButton=document.getElementById("rewind-button"),forwardButton=document.getElementById("forward-button"),timelineSlider=document.getElementById("timeline-slider"),currentTimeEl=document.getElementById("current-time"),totalDurationEl=document.getElementById("total-duration"),speedButton=document.getElementById("speed-button"),loopButton=document.getElementById("loop-button"),editorPanel=document.getElementById("editor-panel"),editorList=document.getElementById("editor-list"),editModeToggle=document.getElementById("edit-mode-toggle"),saveDataButton=document.getElementById("save-data-button"),saveIcon=document.getElementById("save-icon"),saveText=document.getElementById("save-text"),saveNotification=document.getElementById("save-notification"),addChapterButton = document.getElementById("add-chapter-button"),passwordModalOverlay=document.getElementById("password-modal-overlay"),passwordInput=document.getElementById("password-input"),confirmEditButton=document.getElementById("confirm-edit-button"),cancelEditButton=document.getElementById("cancel-edit-button"),passwordError=document.getElementById("password-error"),newChapterTitleInput=document.getElementById("new-chapter-title-input"),restoreDefaultsButton = document.getElementById("restore-defaults-button");
