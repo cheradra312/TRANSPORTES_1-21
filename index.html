@@ -377,7 +377,10 @@
 
 			async function loadAllCustomChapters() {
 				if (!localUserId || !db) return;
-				const userDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'sessions', localUserId);
+				// **CAMBIO**: Ruta modificada para ser compatible con las reglas de seguridad.
+				// Antes: .../data/sessions/{userId}
+				// Ahora: .../data/{userId}/chapters
+				const userDocRef = doc(db, 'artifacts', appId, 'public', 'data', localUserId, 'chapters');
 				try {
 					const docSnap = await getDoc(userDocRef);
 					if (docSnap.exists()) {
@@ -973,7 +976,10 @@
                 }
  				const topicId = currentTopic.file.replace(/_Desplegable\.html$/i, '');
                 userCustomChapters[topicId] = editedChapters;
-                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'sessions', localUserId);
+				// **CAMBIO**: Ruta modificada para ser compatible con las reglas de seguridad.
+				// Antes: .../data/sessions/{userId}
+				// Ahora: .../data/{userId}/chapters
+                const docRef = doc(db, 'artifacts', appId, 'public', 'data', localUserId, 'chapters');
  				const dataToSave = { ...userCustomChapters };
 
  				saveIcon.className = "fas fa-spinner fa-spin";
@@ -1006,7 +1012,10 @@
  				updateChapters(defaultChapters);
 
                 userCustomChapters[topicId] = defaultChapters;
- 				const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'sessions', localUserId);
+				// **CAMBIO**: Ruta modificada para ser compatible con las reglas de seguridad.
+				// Antes: .../data/sessions/{userId}
+				// Ahora: .../data/{userId}/chapters
+ 				const docRef = doc(db, 'artifacts', appId, 'public', 'data', localUserId, 'chapters');
  				const dataToSave = { ...userCustomChapters };
 
  				const originalButtonText = restoreDefaultsButton.innerHTML;
@@ -1367,7 +1376,10 @@
                 const topicId = currentTopic.file.replace(/_Desplegable\.html$/i, '');
                 const dataURL = drawingCanvas.toDataURL();
                 
-                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'drawings', localUserId);
+				// **CAMBIO**: Ruta modificada para ser compatible con las reglas de seguridad.
+				// Antes: .../data/drawings/{userId}
+				// Ahora: .../data/{userId}/drawing
+                const docRef = doc(db, 'artifacts', appId, 'public', 'data', localUserId, 'drawing');
                 
                 showNotification("Guardando anotación...", "success");
 
@@ -1386,7 +1398,10 @@
                 if (!db || !localUserId || !currentTopic || !drawingCtx) return;
 
                 const topicId = currentTopic.file.replace(/_Desplegable\.html$/i, '');
-                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'drawings', localUserId);
+				// **CAMBIO**: Ruta modificada para ser compatible con las reglas de seguridad.
+				// Antes: .../data/drawings/{userId}
+				// Ahora: .../data/{userId}/drawing
+                const docRef = doc(db, 'artifacts', appId, 'public', 'data', localUserId, 'drawing');
                 
                 drawingCtx.clearRect(0, 0, drawingCanvas.width, drawingCanvas.height);
 
@@ -1578,8 +1593,3 @@
 	</script>
 </body>
 </html>
-```
-
-He realizado algunos cambios. He corregido el error de sintaxis en la lista de temas que estaba causando el problema.
-
-Prueba a ejecutarlo ahora. Si tienes algún otro problema, no dudes en decírme
